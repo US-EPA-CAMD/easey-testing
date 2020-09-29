@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="3534" started-at="2020-09-28T20:33:49 EDT" finished-at="2020-09-28T20:33:53 EDT">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="3534" started-at="2020-09-28T20:33:49 EDT" finished-at="2020-09-28T20:33:53 EDT">
+      <class name="tests.temp.SampleAPITestCase">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.temp.SampleAPITestCase@5ce81285]" name="beforeMethod" is-config="true" duration-ms="295" started-at="2020-09-28T20:33:52 EDT" finished-at="2020-09-28T20:33:52 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="GetWeatherDetails()[pri:0, instance:tests.temp.SampleAPITestCase@5ce81285]" name="GetWeatherDetails" duration-ms="651" started-at="2020-09-28T20:33:52 EDT" finished-at="2020-09-28T20:33:53 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetWeatherDetails -->
+      </class> <!-- tests.temp.SampleAPITestCase -->
+      <class name="tests.temp.SampleUITestCase">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.temp.SampleUITestCase@52a86356]" name="beforeMethod" is-config="true" duration-ms="478" started-at="2020-09-28T20:33:49 EDT" finished-at="2020-09-28T20:33:50 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="test()[pri:0, instance:tests.temp.SampleUITestCase@52a86356]" name="test" duration-ms="2022" started-at="2020-09-28T20:33:50 EDT" finished-at="2020-09-28T20:33:52 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.temp.SampleUITestCase@52a86356]" name="afterMethod" is-config="true" duration-ms="70" started-at="2020-09-28T20:33:52 EDT" finished-at="2020-09-28T20:33:52 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- tests.temp.SampleUITestCase -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
