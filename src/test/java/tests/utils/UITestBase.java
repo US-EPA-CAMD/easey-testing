@@ -1,9 +1,6 @@
 package tests.utils;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,6 +19,11 @@ public class UITestBase {
 
         // initialize new WebDriver session
         driver = new ChromeDriver();
+
+        driver.manage().window().setPosition(new Point(4920,0)); // specific to my situation
+        driver.manage().window().maximize();
+
+        sleep(1000);
     }
 
     @AfterMethod
@@ -31,11 +33,11 @@ public class UITestBase {
         driver.quit();
     }
 
-    public void goTo(String url) {
+    protected void goTo(String url) {
         driver.get(url);
     }
 
-    public boolean isDisplayed(WebElement ele) {
+    protected boolean isDisplayed(WebElement ele) {
         try {
             return ele.isDisplayed();
         } catch (NoSuchElementException e) {
@@ -45,7 +47,7 @@ public class UITestBase {
         }
     }
 
-    public boolean waitFor(ExpectedCondition<Boolean> isTrue, int time) {
+    protected boolean waitFor(ExpectedCondition<Boolean> isTrue, int time) {
         WebDriverWait wait = new WebDriverWait(driver, time);
         try {
             wait.until(isTrue);
@@ -56,21 +58,21 @@ public class UITestBase {
         }
     }
 
-    public boolean waitFor(ExpectedCondition<Boolean> isTrue) {
+    protected boolean waitFor(ExpectedCondition<Boolean> isTrue) {
         return waitFor(isTrue, 30);
     }
 
-    public boolean waitFor(WebElement element) {
+    protected boolean waitFor(WebElement element) {
         ExpectedCondition<Boolean> displayed = driver -> element.isDisplayed();
         return waitFor(displayed);
     }
 
-    public boolean waitFor(WebElement element, int seconds) {
+    protected boolean waitFor(WebElement element, int seconds) {
         ExpectedCondition<Boolean> displayed = driver -> element.isDisplayed();
         return waitFor(displayed, seconds);
     }
 
-    public void input(WebElement ele, String input){
+    protected void input(WebElement ele, String input){
         try {
             ele.sendKeys(input);
         } catch(NoSuchElementException e) {
@@ -78,7 +80,7 @@ public class UITestBase {
         }
     }
 
-    public void enter(WebElement ele){
+    protected void enter(WebElement ele){
         try {
             ele.sendKeys(Keys.ENTER);
         } catch(NoSuchElementException e) {
@@ -86,12 +88,12 @@ public class UITestBase {
         }
     }
 
-    public void search(WebElement ele, String input) {
+    protected void search(WebElement ele, String input) {
         input(ele, input);
         enter(ele);
     }
 
-    public void click(WebElement ele) {
+    protected void click(WebElement ele) {
         try {
             ele.click();
         } catch (NoSuchElementException e) {
@@ -99,7 +101,7 @@ public class UITestBase {
         }
     }
 
-    public void sleep(int time) {
+    protected void sleep(int time) {
         try {
             Thread.sleep(time);
         } catch (java.lang.InterruptedException e) {

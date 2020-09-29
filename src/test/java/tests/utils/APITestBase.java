@@ -1,7 +1,6 @@
 package tests.utils;
 
 import io.restassured.RestAssured;
-import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -17,10 +16,47 @@ public class APITestBase {
         // to the server. The server is specified by the BaseURI that we have
         // specified in the above step.
         httpRequest = RestAssured.given();
+
+        // Add a header stating the Request body is a JSON
+        httpRequest.header("Content-Type", "application/json");
+
     }
 
-    protected Response get(String s) {
-        return httpRequest.request(Method.GET, s);
+    protected String getString(String body) {
+
+        // Make a request to the server by specifying the method Type and the method URL.
+        // This will return the Response from the server. Store the response in a variable.
+        Response response = httpRequest.get(body);
+
+        // Now let us print the body of the message to see what response
+        // we have recieved from the server
+        return response.getBody().asString();
+    }
+
+    protected String postString(String body, String URI) {
+        // Add the Json to the body of the request
+        httpRequest.body(body);
+
+        // Post the request and check the response
+        Response response = httpRequest.post(URI);
+
+        return response.getBody().asString();
+    }
+
+    protected String putString(String body, String URI) {
+        // Add the Json to the body of the request
+        httpRequest.body(body);
+
+        Response response = httpRequest.put(URI);
+
+        return response.getBody().asString();
+    }
+
+    protected String deleteString(String URI) {
+
+        Response response = httpRequest.delete(URI);
+
+        return response.getBody().asString();
     }
 
 }

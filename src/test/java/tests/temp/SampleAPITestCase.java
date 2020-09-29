@@ -1,6 +1,5 @@
 package tests.temp;
 
-import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,17 +16,11 @@ public class SampleAPITestCase extends APITestBase {
     @Test
     public void GetWeatherDetails()
     {
+        String response = getString("/circuits.json");
 
-        // Make a request to the server by specifying the method Type and the method URL.
-        // This will return the Response from the server. Store the response in a variable.
-        Response response = get("/circuits.json");
+        System.out.println("Response Body is =>  " + response);
 
-        // Now let us print the body of the message to see what response
-        // we have recieved from the server
-        String responseBody = response.getBody().asString();
-        System.out.println("Response Body is =>  " + responseBody);
-
-        Assert.assertTrue(responseBody.contains("\"circuitId\":\"monaco\""));
+        Assert.assertTrue(response.contains("\"circuitId\":\"monaco\""));
 
     }
 

@@ -2,14 +2,13 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import utils.PageBase;
 
 import java.util.List;
 
-public class SamplePage extends PageBase {
-    public SamplePage(WebDriver driver) {
+public class GooglePage extends PageBase {
+    public GooglePage(WebDriver driver) {
         super(driver);
     }
 

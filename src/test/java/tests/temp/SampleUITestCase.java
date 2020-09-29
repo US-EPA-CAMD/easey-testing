@@ -3,7 +3,8 @@ package tests.temp;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import pages.SamplePage;
+import pages.CVPPage;
+import pages.GooglePage;
 import tests.utils.UITestBase;
 
 public class SampleUITestCase extends UITestBase {
@@ -13,8 +14,9 @@ public class SampleUITestCase extends UITestBase {
         // navigate to the web site
         goTo("https://www.google.com");
         // Validate page title
-        SamplePage google = new SamplePage(driver);
+        GooglePage google = new GooglePage(driver);
         waitFor(google.searchBar);
+
         Assert.assertTrue(isDisplayed(google.searchBar));
         search(google.searchBar, "CVP");
         waitFor(driver -> google.results.size() > 0);
@@ -26,6 +28,10 @@ public class SampleUITestCase extends UITestBase {
                 break;
             }
         }
-//        sleep(10000);
+        CVPPage cvp = new CVPPage(driver);
+        Assert.assertTrue(waitFor(cvp.logo));
+
+//        sleep(10000000);
+
     }
 }
