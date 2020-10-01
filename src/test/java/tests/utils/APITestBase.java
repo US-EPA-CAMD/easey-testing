@@ -3,10 +3,12 @@ package tests.utils;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.json.JSONObject;
 
 public class APITestBase {
 
     private RequestSpecification httpRequest;
+
 
     protected void setup(String URI) {
         // Specify the base URL to the RESTful web service
@@ -22,15 +24,26 @@ public class APITestBase {
 
     }
 
-    protected String getString(String body) {
+    protected String getString(String URI) {
 
         // Make a request to the server by specifying the method Type and the method URL.
         // This will return the Response from the server. Store the response in a variable.
-        Response response = httpRequest.get(body);
+        Response response = httpRequest.get(URI);
 
         // Now let us print the body of the message to see what response
         // we have recieved from the server
         return response.getBody().asString();
+    }
+
+    protected JSONObject getJSON(String URI) {
+
+        // Make a request to the server by specifying the method Type and the method URL.
+        // This will return the Response from the server. Store the response in a variable.
+        Response response = httpRequest.get(URI);
+
+        // Now let us print the body of the message to see what response
+        // we have recieved from the server
+        return new JSONObject(response.getBody().asString());
     }
 
     protected String postString(String body, String URI) {
@@ -43,6 +56,36 @@ public class APITestBase {
         return response.getBody().asString();
     }
 
+    protected String postString(JSONObject body, String URI) {
+        // Add the Json to the body of the request
+        httpRequest.body(body.toString());
+
+        // Post the request and check the response
+        Response response = httpRequest.post(URI);
+
+        return response.getBody().asString();
+    }
+
+    protected JSONObject postJSON(String body, String URI) {
+        // Add the Json to the body of the request
+        httpRequest.body(body);
+
+        // Post the request and check the response
+        Response response = httpRequest.post(URI);
+
+        return new JSONObject(response.getBody().asString());
+    }
+
+    protected JSONObject postJSON(JSONObject body, String URI) {
+        // Add the Json to the body of the request
+        httpRequest.body(body.toString());
+
+        // Post the request and check the response
+        Response response = httpRequest.post(URI);
+
+        return new JSONObject(response.getBody().asString());
+    }
+
     protected String putString(String body, String URI) {
         // Add the Json to the body of the request
         httpRequest.body(body);
@@ -52,11 +95,45 @@ public class APITestBase {
         return response.getBody().asString();
     }
 
+    protected String putString(JSONObject body, String URI) {
+        // Add the Json to the body of the request
+        httpRequest.body(body.toString());
+
+        Response response = httpRequest.put(URI);
+
+        return response.getBody().asString();
+    }
+
+    protected JSONObject putJSON(String body, String URI) {
+        // Add the Json to the body of the request
+        httpRequest.body(body);
+
+        Response response = httpRequest.put(URI);
+
+        return new JSONObject(response.getBody().asString());
+    }
+
+    protected JSONObject putJSON(JSONObject body, String URI) {
+        // Add the Json to the body of the request
+        httpRequest.body(body.toString());
+
+        Response response = httpRequest.put(URI);
+
+        return new JSONObject(response.getBody().asString());
+    }
+
     protected String deleteString(String URI) {
 
         Response response = httpRequest.delete(URI);
 
         return response.getBody().asString();
+    }
+
+    protected JSONObject deleteJSON(String URI) {
+
+        Response response = httpRequest.delete(URI);
+
+        return new JSONObject(response.getBody().asString());
     }
 
 }
