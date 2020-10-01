@@ -1,35 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="6912" started-at="2020-09-29T10:47:57 EDT" finished-at="2020-09-29T10:48:04 EDT">
+  <suite name="Command line suite" duration-ms="929" started-at="2020-10-01T12:08:35 EDT" finished-at="2020-10-01T12:08:36 EDT">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="6912" started-at="2020-09-29T10:47:57 EDT" finished-at="2020-09-29T10:48:04 EDT">
+    <test name="Command line test" duration-ms="929" started-at="2020-10-01T12:08:35 EDT" finished-at="2020-10-01T12:08:36 EDT">
       <class name="tests.temp.SampleAPITestCase">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.temp.SampleAPITestCase@617faa95]" name="beforeMethod" is-config="true" duration-ms="361" started-at="2020-09-29T10:48:03 EDT" finished-at="2020-09-29T10:48:03 EDT">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.temp.SampleAPITestCase@544fe44c]" name="beforeMethod" is-config="true" duration-ms="307" started-at="2020-10-01T12:08:35 EDT" finished-at="2020-10-01T12:08:35 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="GetWeatherDetails()[pri:0, instance:tests.temp.SampleAPITestCase@617faa95]" name="GetWeatherDetails" duration-ms="483" started-at="2020-09-29T10:48:03 EDT" finished-at="2020-09-29T10:48:04 EDT">
+        <test-method status="PASS" signature="GetWeatherDetails()[pri:0, instance:tests.temp.SampleAPITestCase@544fe44c]" name="GetWeatherDetails" duration-ms="606" started-at="2020-10-01T12:08:35 EDT" finished-at="2020-10-01T12:08:36 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- GetWeatherDetails -->
       </class> <!-- tests.temp.SampleAPITestCase -->
-      <class name="tests.temp.SampleUITestCase">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.temp.SampleUITestCase@7e0b0338]" name="beforeMethod" is-config="true" duration-ms="1725" started-at="2020-09-29T10:47:57 EDT" finished-at="2020-09-29T10:47:59 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="test()[pri:0, instance:tests.temp.SampleUITestCase@7e0b0338]" name="test" duration-ms="4252" started-at="2020-09-29T10:47:59 EDT" finished-at="2020-09-29T10:48:03 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.temp.SampleUITestCase@7e0b0338]" name="afterMethod" is-config="true" duration-ms="71" started-at="2020-09-29T10:48:03 EDT" finished-at="2020-09-29T10:48:03 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- tests.temp.SampleUITestCase -->
     </test> <!-- Command line test -->
   </suite> <!-- Command line suite -->
 </testng-results>

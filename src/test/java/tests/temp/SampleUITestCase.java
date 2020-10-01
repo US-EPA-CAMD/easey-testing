@@ -9,7 +9,7 @@ import tests.utils.UITestBase;
 
 public class SampleUITestCase extends UITestBase {
 
-    @Test
+//    @Test
     public void test() {
         // navigate to the web site
         goTo("https://www.google.com");

@@ -1,5 +1,7 @@
 package tests.temp;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,11 +18,30 @@ public class SampleAPITestCase extends APITestBase {
     @Test
     public void GetWeatherDetails()
     {
-        String response = getString("/circuits.json");
+        JSONObject response = getJSON("/circuits.json");
 
-        System.out.println("Response Body is =>  " + response);
+        System.out.println("Response Body is: ");
 
-        Assert.assertTrue(response.contains("\"circuitId\":\"monaco\""));
+        System.out.println(response.toString(4));
+
+        System.out.println("\n===================================\n");
+
+        JSONArray circuits = response.getJSONObject("MRData").getJSONObject("CircuitTable").getJSONArray("Circuits");
+
+        JSONObject monaco = null;
+
+        for(Object obj : circuits) {
+            if (obj instanceof JSONObject) {
+                JSONObject circuit = (JSONObject) obj;
+                if (circuit.getString("circuitId").equals("monaco")) {
+                    monaco = circuit;
+                }
+            }
+        }
+
+        System.out.println(monaco != null ? monaco.toString(4) : "{}");
+
+        Assert.assertTrue(monaco != null);
 
     }
 
