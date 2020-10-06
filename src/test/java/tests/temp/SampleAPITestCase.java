@@ -15,7 +15,7 @@ public class SampleAPITestCase extends APITestBase {
         super.setup("http://ergast.com/api/f1/2017");
     }
 
-    @Test
+//    @Test
     public void GetWeatherDetails()
     {
         JSONObject response = getJSON("/circuits.json");

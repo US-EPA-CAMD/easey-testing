@@ -2,3 +2,5 @@ tests/temp/SampleAPITestCase.class
 tests/utils/APITestBase.class
 tests/temp/SampleUITestCase.class
 tests/utils/UITestBase.class
+tests/temp/SampleStarterAPITestCase.class
+tests/temp/SampleStarterUITestCase.class

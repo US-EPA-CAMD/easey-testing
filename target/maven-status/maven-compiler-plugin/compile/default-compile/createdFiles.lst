@@ -1,3 +1,4 @@
 pages/CVPPage.class
 utils/PageBase.class
 pages/GooglePage.class
+pages/ReactAppHomePage.class

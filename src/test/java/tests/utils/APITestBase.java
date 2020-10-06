@@ -3,6 +3,7 @@ package tests.utils;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class APITestBase {
@@ -44,6 +45,17 @@ public class APITestBase {
         // Now let us print the body of the message to see what response
         // we have recieved from the server
         return new JSONObject(response.getBody().asString());
+    }
+
+    protected JSONArray getJSONArray(String URI) {
+
+        // Make a request to the server by specifying the method Type and the method URL.
+        // This will return the Response from the server. Store the response in a variable.
+        Response response = httpRequest.get(URI);
+
+        // Now let us print the body of the message to see what response
+        // we have recieved from the server
+        return new JSONArray(response.getBody().asString());
     }
 
     protected String postString(String body, String URI) {
