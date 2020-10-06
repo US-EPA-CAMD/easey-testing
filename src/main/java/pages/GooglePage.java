@@ -8,6 +8,7 @@ import utils.PageBase;
 import java.util.List;
 
 public class GooglePage extends PageBase {
+
     public GooglePage(WebDriver driver) {
         super(driver);
     }

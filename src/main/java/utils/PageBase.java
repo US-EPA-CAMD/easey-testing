@@ -9,7 +9,7 @@ public class PageBase {
     protected WebDriver driver;
 
     // Constructor and initialize elements
-     public PageBase(WebDriver driver) {
+    public PageBase(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

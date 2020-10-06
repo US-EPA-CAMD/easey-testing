@@ -3,12 +3,12 @@
 <suite verbose="0" name="Failed suite [Command line suite]">
   <test thread-count="5" verbose="0" name="Command line test(failed)">
     <classes>
-      <class name="tests.temp.SampleAPITestCase">
+      <class name="tests.temp.SampleStarterAPITestCase">
         <methods>
-          <include name="GetWeatherDetails"/>
+          <include name="test"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- tests.temp.SampleAPITestCase -->
+      </class> <!-- tests.temp.SampleStarterAPITestCase -->
     </classes>
   </test> <!-- Command line test(failed) -->
 </suite> <!-- Failed suite [Command line suite] -->
