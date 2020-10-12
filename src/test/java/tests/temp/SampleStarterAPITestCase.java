@@ -29,7 +29,7 @@ public class SampleStarterAPITestCase extends APITestBase {
         super.setup("https://posts-api-wacky-civet-gl.app.cloud.gov/api");
     }
 
-    @Test(dataProvider = "csv")
+//    @Test(dataProvider = "csv")
     public void apiTest(Map<String, String> map) {
 
         System.out.println(getString("/posts"));
