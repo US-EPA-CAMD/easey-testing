@@ -2,6 +2,7 @@ package tests.utils;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -10,20 +11,34 @@ import org.testng.annotations.*;
 public class UITestBase {
 
     protected WebDriver driver;
+    protected String driverHome;
 
     @BeforeMethod
     public void beforeMethod() {
 
+        driverHome = System.getProperty("user.home");
+        System.out.println(driverHome);
+
         // set path of Chromedriver executable
-        System.setProperty("webdriver.chrome.driver", "/home/yefim/drivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", driverHome + "/drivers/chromedriver");
 
-        // initialize new WebDriver session
-        driver = new ChromeDriver();
+        if (driverHome.contains("yefim")) {
+            driver = new ChromeDriver();
 
-        driver.manage().window().setPosition(new Point(4920,0)); // specific to my situation
-        driver.manage().window().maximize();
+            driver.manage().window().setPosition(new Point(4920,0)); // specific to my situation
+            driver.manage().window().maximize();
 
-        sleep(1000);
+            sleep(1000);
+        } else {
+
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbos");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--headless");
+
+            // initialize new WebDriver session
+            driver = new ChromeDriver(options);
+        }
     }
 
     @AfterMethod

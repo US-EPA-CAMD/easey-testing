@@ -7,7 +7,7 @@ import tests.utils.UITestBase;
 
 public class SampleStarterUITestCase extends UITestBase {
 
-//    @Test
+    @Test
     public void test() {
         goTo("https://react-app-boisterous-wolf-vb.app.cloud.gov/");
 
