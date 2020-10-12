@@ -5,7 +5,7 @@
     <classes>
       <class name="tests.temp.SampleStarterAPITestCase">
         <methods>
-          <include name="test"/>
+          <include name="apiTest"/>
           <include name="beforeMethod"/>
         </methods>
       </class> <!-- tests.temp.SampleStarterAPITestCase -->

@@ -2,19 +2,26 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="4532" started-at="2020-10-06T11:54:43 EDT" finished-at="2020-10-06T11:54:47 EDT">
+  <suite name="Command line suite" duration-ms="4744" started-at="2020-10-06T14:00:55 EDT" finished-at="2020-10-06T14:01:00 EDT">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="4532" started-at="2020-10-06T11:54:43 EDT" finished-at="2020-10-06T11:54:47 EDT">
+    <test name="Command line test" duration-ms="4744" started-at="2020-10-06T14:00:55 EDT" finished-at="2020-10-06T14:01:00 EDT">
       <class name="tests.temp.SampleStarterAPITestCase">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.temp.SampleStarterAPITestCase@a67c67e]" name="beforeMethod" is-config="true" duration-ms="299" started-at="2020-10-06T11:54:43 EDT" finished-at="2020-10-06T11:54:43 EDT">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.temp.SampleStarterAPITestCase@5abca1e0]" name="beforeMethod" is-config="true" duration-ms="401" started-at="2020-10-06T14:00:55 EDT" finished-at="2020-10-06T14:00:56 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="test()[pri:0, instance:tests.temp.SampleStarterAPITestCase@a67c67e]" name="test" duration-ms="4219" started-at="2020-10-06T11:54:43 EDT" finished-at="2020-10-06T11:54:47 EDT">
+        <test-method status="PASS" signature="apiTest(java.util.Map)[pri:0, instance:tests.temp.SampleStarterAPITestCase@5abca1e0]" name="apiTest" duration-ms="4317" started-at="2020-10-06T14:00:56 EDT" data-provider="csv" finished-at="2020-10-06T14:01:00 EDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{title=APITest, content2=test-test-test-test-test, content1=testtesttest}]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test -->
+        </test-method> <!-- apiTest -->
       </class> <!-- tests.temp.SampleStarterAPITestCase -->
     </test> <!-- Command line test -->
   </suite> <!-- Command line suite -->
