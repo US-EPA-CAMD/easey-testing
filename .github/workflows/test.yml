@@ -27,6 +27,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+          
+      # Download chromedriver
+      - name: Download ChromeDriver
+        run: |
+          sudo npm -g chromedriver
+          ln -sf /usr/lib/node_modules/chromedriver/lib/chromedriver/chromedriver ~/drivers/chromedriver
       
       # Run Tests
       - name: Maven run tests
