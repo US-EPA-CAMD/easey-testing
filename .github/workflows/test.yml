@@ -27,6 +27,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      
+      # Get updated Chrome
+      - name: Install Chrome
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
           
       # Download chromedriver
       - name: Download ChromeDriver
