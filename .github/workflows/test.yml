@@ -31,6 +31,7 @@ jobs:
       # Download chromedriver
       - name: Download ChromeDriver
         run: |
+          cd ~
           mkdir ~/drivers
           sudo npm install chromedriver
           ln -sf ~/node_modules/chromedriver/lib/chromedriver/chromedriver ~/drivers/chromedriver
