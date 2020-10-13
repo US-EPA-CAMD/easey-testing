@@ -18,8 +18,8 @@ public class SampleStarterAPITestCase extends APITestBase {
 
     @DataProvider(name = "csv")
     public Object[] dp() {
-        String filePath = osHome + (osHome.contains("runner") ? "/work/Testing/Testing" : "") +
-                "/EPACAMD/Testing/src/main/resources/sample/SampleStarterAPITestData.csv";
+        String filePath = osHome + (osHome.contains("runner") ? "/work/Testing/Testing" : "/EPACAMD/Testing") +
+                "/src/main/resources/sample/SampleStarterAPITestData.csv";
 
         CSVParser csv = new CSVParser(filePath);
         List data = csv.getData();
