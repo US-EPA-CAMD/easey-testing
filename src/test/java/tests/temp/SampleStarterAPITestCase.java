@@ -19,7 +19,7 @@ public class SampleStarterAPITestCase extends APITestBase {
     @DataProvider(name = "csv")
     public Object[] dp() {
         CSVParser csv = new CSVParser(
-                "/home/yefim/EPACAMD/Testing/src/main/resources/sample/SampleStarterAPITestData.csv");
+                osHome + "/EPACAMD/Testing/src/main/resources/sample/SampleStarterAPITestData.csv");
         List data = csv.getData();
         return data.toArray();
     }

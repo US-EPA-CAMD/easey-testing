@@ -22,7 +22,7 @@ public class UITestBase {
         // set path of Chromedriver executable
         System.setProperty("webdriver.chrome.driver", driverHome + "/drivers/chromedriver");
 
-        if (driverHome.contains("yefim")) {
+        if (!driverHome.contains("runner")) {
             driver = new ChromeDriver();
 
             driver.manage().window().setPosition(new Point(4920,0)); // specific to my situation
