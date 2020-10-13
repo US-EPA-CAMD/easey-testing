@@ -16,7 +16,7 @@ public class APITestBase {
     public void beforeSuite() {
         osHome = System.getProperty("user.home");
         if (osHome.contains("runner"))
-            osHome += "/Testing/Testing";
+            osHome += "/work/Testing/Testing";
     }
 
     protected void setup(String URI) {
