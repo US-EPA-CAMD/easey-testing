@@ -9,6 +9,7 @@ import org.json.JSONObject;
 public class APITestBase {
 
     private RequestSpecification httpRequest;
+    protected String osHome = System.getProperty("user.home");
 
 
     protected void setup(String URI) {
