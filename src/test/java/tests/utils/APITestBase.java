@@ -5,12 +5,19 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.testng.annotations.BeforeSuite;
 
 public class APITestBase {
 
     private RequestSpecification httpRequest;
-    protected String osHome = System.getProperty("user.home");
+    protected String osHome;
 
+    @BeforeSuite
+    public void beforeSuite() {
+        osHome = System.getProperty("user.home");
+        if (osHome.contains("runner"))
+            osHome += "/Testing/Testing";
+    }
 
     protected void setup(String URI) {
         // Specify the base URL to the RESTful web service
