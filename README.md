@@ -1,1 +1,1 @@
-# Testing
+# EASEY - Test Automation
