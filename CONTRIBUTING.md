@@ -5,7 +5,7 @@ We’re so glad you’re thinking about contributing to an EPA open source proje
 Please be aware that the Emissions and Allowance System for Energy (EASEY) is currently in development and has not yet been released to the public, so it is likely we will not immediately address your issue or pull request as your idea may already be in our product roadmap. 
 
 We encourage you to read this project’s CONTRIBUTING policy (you are here), its
-[LICENSE](https://github.com/US-EPA-CAMD/easey-testing/blob/develop/LICENSE), and its [README](https://github.com/US-EPA-CAMD/easey-testing/blob/develop/README.md).
+[LICENSE](https://github.com/US-EPA-CAMD/easey-testing/blob/master/LICENSE), and its [README](https://github.com/US-EPA-CAMD/easey-testing/blob/master/README.md).
 
 All contributions to this project will be released under the MIT dedication. By submitting a pull request or issue, you are agreeing to comply with this waiver of copyright interest.
 
