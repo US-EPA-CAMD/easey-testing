@@ -7,14 +7,12 @@ import pages.MonitoringPlansPage;
 import tests.utils.CSVParser;
 import tests.utils.UITestBase;
 
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
 public class TS26_View_facilities_and_MP_data extends UITestBase {
     @DataProvider(name = "csv")
     public Object[] dp() {
-        System.out.println("Current Directory: " + Paths.get(".").toAbsolutePath().normalize().toString());
         String filePath = filePathBase +
                 "UITestData/TS26_View_facilities_and_MP_data.csv";
         CSVParser csv = new CSVParser(filePath);

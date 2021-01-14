@@ -1,15 +1,11 @@
 package tests.utils;
 
-import io.restassured.RestAssured;
-import io.restassured.specification.RequestSpecification;
-import org.json.JSONObject;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 
-import java.io.File;
 import java.util.Arrays;
 
 public class TestBase {
@@ -17,7 +13,7 @@ public class TestBase {
     private SoftAssert softAssert;
     protected final String osHome = System.getProperty("user.home");
     protected final String filePathBase = osHome + (osHome.contains("runner") ?
-            "/work/Testing/Testing" : "/EPACAMD/Testing") +
+            "/work/easey-testing/easey-testing" : "/EPACAMD/Testing") +
             "/src/main/resources/";
     
     @BeforeMethod
