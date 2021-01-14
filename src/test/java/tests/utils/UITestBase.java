@@ -23,8 +23,8 @@ public class UITestBase extends TestBase {
     protected EventFiringWebDriver driver;
     WebDriver eventless_driver;
     protected String driverHome;
-    private static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
-    private static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_PASSWORD");
+    private static final String AUTOMATE_USERNAME = "yefimabramson1"; // System.getenv("BROWSERSTACK_USERNAME");
+    private static final String AUTOMATE_ACCESS_KEY = "pUQW7AuYCis8NGpp9UnQ"; // System.getenv("BROWSERSTACK_PASSWORD");
     private static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
     private ExceptionListener listener;
     private String runMode = System.getProperty("runMode", "local");
