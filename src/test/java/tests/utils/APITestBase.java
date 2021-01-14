@@ -9,7 +9,6 @@ import org.json.JSONObject;
 public class APITestBase extends TestBase {
 
     private RequestSpecification httpRequest;
-    protected String osHome = System.getProperty("user.home");
 
     protected void setup(String URI) {
         // Specify the base URL to the RESTful web service
