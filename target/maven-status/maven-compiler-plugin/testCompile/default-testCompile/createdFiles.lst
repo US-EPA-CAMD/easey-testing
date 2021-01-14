@@ -1,7 +1,0 @@
-tests/temp/SampleAPITestCase.class
-tests/temp/SampleUITestCase.class
-tests/temp/SampleStarterAPITestCase.class
-tests/temp/SampleStarterUITestCase.class
-tests/utils/APITestBase.class
-tests/utils/CSVParser.class
-tests/utils/UITestBase.class

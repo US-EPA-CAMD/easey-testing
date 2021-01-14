@@ -6,7 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class APITestBase {
+public class APITestBase extends TestBase {
 
     private RequestSpecification httpRequest;
     protected String osHome = System.getProperty("user.home");
