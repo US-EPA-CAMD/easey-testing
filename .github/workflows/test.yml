@@ -45,4 +45,4 @@ jobs:
       
       # Run Tests
       - name: Maven run tests
-        run: mvn test -Dname=~Sample
+        run: mvn test -Dname=~Sample -DrunMode=browserStack
