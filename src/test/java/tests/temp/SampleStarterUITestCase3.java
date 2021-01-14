@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import pages.ReactAppHomePage;
 import tests.utils.UITestBase;
 
-public class SampleStarterUITestCase extends UITestBase {
+public class SampleStarterUITestCase3 extends UITestBase {
 
     private final String url = "https://easey-tst.app.cloud.gov/";
 

@@ -11,20 +11,20 @@ public class SampleAPITestCase extends APITestBase {
 
     @BeforeMethod
     public void beforeMethod() {
-
+        super.beforeMethod();
         super.setup("http://ergast.com/api/f1/2017");
     }
 
-//    @Test
+    @Test
     public void GetWeatherDetails()
     {
         JSONObject response = getJSON("/circuits.json");
 
-        System.out.println("Response Body is: ");
+//        System.out.println("Response Body is: ");
 
-        System.out.println(response.toString(4));
+//        System.out.println(response.toString(4));
 
-        System.out.println("\n===================================\n");
+//        System.out.println("\n===================================\n");
 
         JSONArray circuits = response.getJSONObject("MRData").getJSONObject("CircuitTable").getJSONArray("Circuits");
 
@@ -41,7 +41,9 @@ public class SampleAPITestCase extends APITestBase {
 
         System.out.println(monaco != null ? monaco.toString(4) : "{}");
 
-        Assert.assertTrue(monaco != null);
+        getLine();
+
+        verifyTrue(monaco != null, "response is null");
 
     }
 

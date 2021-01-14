@@ -1,20 +1,38 @@
 package tests.utils;
 
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
-public class UITestBase {
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
 
-    protected WebDriver driver;
+public class UITestBase extends TestBase {
+
+    protected EventFiringWebDriver driver;
+    WebDriver eventless_driver;
     protected String driverHome;
+    private static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+    private static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_PASSWORD");
+    private static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
+    private ExceptionListener listener;
+    private String runMode = System.getProperty("runMode", "local");
+    private boolean debug = System.getProperty("debug", "false").equalsIgnoreCase("true");
 
     @BeforeMethod
     public void beforeMethod() {
+        super.beforeMethod();
 
         driverHome = System.getProperty("user.home");
         System.out.println(driverHome);
@@ -22,30 +40,43 @@ public class UITestBase {
         // set path of Chromedriver executable
         System.setProperty("webdriver.chrome.driver", driverHome + "/drivers/chromedriver");
 
-        if (!driverHome.contains("runner")) {
-            driver = new ChromeDriver();
+        if (!runMode.equals("local")) {
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("os_version", "10");
+            caps.setCapability("resolution", "1920x1080");
+            caps.setCapability("browser", "Chrome");
+            caps.setCapability("browser_version", "latest-beta");
+            caps.setCapability("os", "Windows");
+            caps.setCapability("name", className); // test name
+            if (!driverHome.contains("runner"))
+                caps.setCapability("build", "Local Trigger: " + AUTOMATE_USERNAME + " @ " + java.time.LocalDate.now()); // CI/CD job or build name
+            else
+                caps.setCapability("build", "Github trigger @" + java.time.LocalDate.now());
+            try {
+                eventless_driver = new RemoteWebDriver(new URL(URL), caps);
+                eventless_driver.manage().window().maximize();
+            } catch (MalformedURLException e) {
+                System.err.println("Bad URL");
+            }
+        } else {
+            eventless_driver = new ChromeDriver();
 
-            driver.manage().window().setPosition(new Point(4920,0)); // specific to my situation
-            driver.manage().window().maximize();
+            eventless_driver.manage().window().setPosition(new Point(4920, 0)); // specific to my situation
+            eventless_driver.manage().window().maximize();
 
             sleep(1000);
-        } else {
-
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--no-sandbos");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--headless");
-
-            // initialize new WebDriver session
-            driver = new ChromeDriver(options);
         }
+        driver = new EventFiringWebDriver(eventless_driver);
+        
+        listener = new ExceptionListener(className);
+        driver.register(listener);
     }
 
     @AfterMethod
     public void afterMethod() {
-
         // close and quit the browser
         driver.quit();
+        listener.printError();
     }
 
     protected void goTo(String url) {
@@ -117,11 +148,47 @@ public class UITestBase {
     }
 
     protected void sleep(int time) {
-        try {
-            Thread.sleep(time);
-        } catch (java.lang.InterruptedException e) {
-            System.out.println("Did not finish sleep!");
+        if (debug)
+            try {
+                Thread.sleep(time);
+            } catch (java.lang.InterruptedException e) {
+                System.out.println("Did not finish sleep!");
+            }
+    }
+
+}
+
+class ExceptionListener extends AbstractWebDriverEventListener {
+
+    String className;
+    private StackTraceElement[] stack;
+    private Throwable excpetion;
+
+    ExceptionListener(String className) {
+        super();
+        this.className = className;
+    }
+
+    public void onException(Throwable throwable, WebDriver driver) {
+        stack = Thread.currentThread().getStackTrace();
+        excpetion = throwable;
+    }
+
+    protected void printError() {
+        if (stack != null) {
+            System.out.println(className);
+            String line = Arrays.asList(stack).toString();
+            line = line.substring(line.indexOf(className));
+            line = line.substring(line.indexOf(":") + 1, line.indexOf(")"));
+            printError("Last found Exception:");
+            printError("Test: " + className);
+            printError("Line:" + line);
+            System.err.println(excpetion.getMessage());
+            printError("\tUnhandled Exception");
         }
+    }
+    private static void printError(String error) {
+        System.err.println("[\u001B[31mERROR\u001B[0m] " + error);
     }
 
 }
