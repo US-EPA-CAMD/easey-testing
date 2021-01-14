@@ -35,7 +35,7 @@ public class UITestBase extends TestBase {
         super.beforeMethod();
 
         driverHome = System.getProperty("user.home");
-        System.out.println(driverHome);
+//        System.out.println(driverHome);
 
         // set path of Chromedriver executable
         System.setProperty("webdriver.chrome.driver", driverHome + "/drivers/chromedriver");
@@ -86,6 +86,16 @@ public class UITestBase extends TestBase {
     protected boolean isDisplayed(WebElement ele) {
         try {
             return ele.isDisplayed();
+        } catch (NoSuchElementException e) {
+            System.out.println("Element Not Found!");
+            System.err.println(e.getMessage());
+            return false;
+        }
+    }
+
+    protected boolean contains(WebElement ele, String str) {
+        try {
+            return ele.getText().contains(str);
         } catch (NoSuchElementException e) {
             System.out.println("Element Not Found!");
             System.err.println(e.getMessage());
@@ -156,6 +166,7 @@ public class UITestBase extends TestBase {
             }
     }
 
+    protected void pause() { sleep (1000000); }
 }
 
 class ExceptionListener extends AbstractWebDriverEventListener {

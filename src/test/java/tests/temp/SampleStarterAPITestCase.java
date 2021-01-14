@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import tests.utils.APITestBase;
 import tests.utils.CSVParser;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,8 @@ public class SampleStarterAPITestCase extends APITestBase {
 
     @DataProvider(name = "csv")
     public Object[] dp() {
+
+        System.out.println("Current Directory: " + Paths.get(".").toAbsolutePath().normalize().toString());
         String filePath = osHome + (osHome.contains("runner") ? "/work/Testing/Testing" : "/EPACAMD/Testing") +
                 "/src/main/resources/sample/SampleStarterAPITestData.csv";
 

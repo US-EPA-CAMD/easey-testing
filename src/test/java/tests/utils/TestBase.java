@@ -15,6 +15,10 @@ import java.util.Arrays;
 public class TestBase {
     protected String className = this.getClass().getSimpleName();
     private SoftAssert softAssert;
+    protected final String osHome = System.getProperty("user.home");
+    protected final String filePathBase = osHome + (osHome.contains("runner") ?
+            "/work/Testing/Testing" : "/EPACAMD/Testing") +
+            "/src/main/resources/";
     
     @BeforeMethod
     public void beforeMethod() {
@@ -122,41 +126,41 @@ public class TestBase {
         softAssert.assertAll();
     }
 
-    public static void main(String[] args) {
-        RestAssured.baseURI = "https://api.testquality.com/api";
-        RequestSpecification httpRequest = RestAssured.given();
-        httpRequest.header("Content-Type", "application/json");
-        httpRequest.header("Accept", "application/vnd.testquality.v1+json");
-        JSONObject body = new JSONObject();
-        body.put("client_id", "8");
-        body.put("client_secret", "bfnafK7hfFOTVk0Q8oaZQz9mCvR0w1id9ESjRnub");
-        body.put("grant_type", "password");
-        body.put("username", "yefimabramson@cvpcorp.com");
-        body.put("password", "M@tthias24");
-        httpRequest.body(body.toString());
-        JSONObject authResponse = new JSONObject(httpRequest.post("/oauth/access_token").getBody().asString());
-        System.out.println(authResponse.toString(4));
-
-        httpRequest = RestAssured.given();
-        httpRequest.header("Content-Type", "application/json");
-        httpRequest.header("Accept", "application/vnd.testquality.v1+json");
-        httpRequest.header("Authorization", authResponse.getString("token_type")
-                + " " + authResponse.getString("access_token"));
-
-        JSONObject idResponse = new JSONObject(
-                httpRequest.get("/plan?name=My_Test_Plan").getBody().asString());
-        System.out.println(idResponse.toString(4));
-        int id = idResponse.getJSONArray("data").getJSONObject(0).getInt("id");
-
-        httpRequest = RestAssured.given().log().all();
-
-        httpRequest.multiPart("file", new File(System.getProperty("user.dir") + "/target/surefire-reports/junitreports/TEST-tests.temp.SampleStarterUITestCase3.xml"));
-        httpRequest.header("Authorization", authResponse.getString("token_type")
-                + " " + authResponse.getString("access_token"));
-        httpRequest.header("Accept", "application/vnd.testquality.v1+json");
-        String fileResponse = httpRequest.when().post("/plan/" + id + "/junit_xml").asString();
-        System.out.println("/plan/" + id + "/junit_xml");
-        System.out.println(fileResponse);
-    }
+//    public static void main(String[] args) {
+//        RestAssured.baseURI = "https://api.testquality.com/api";
+//        RequestSpecification httpRequest = RestAssured.given();
+//        httpRequest.header("Content-Type", "application/json");
+//        httpRequest.header("Accept", "application/vnd.testquality.v1+json");
+//        JSONObject body = new JSONObject();
+//        body.put("client_id", "8");
+//        body.put("client_secret", "bfnafK7hfFOTVk0Q8oaZQz9mCvR0w1id9ESjRnub");
+//        body.put("grant_type", "password");
+//        body.put("username", "yefimabramson@cvpcorp.com");
+//        body.put("password", "*************");
+//        httpRequest.body(body.toString());
+//        JSONObject authResponse = new JSONObject(httpRequest.post("/oauth/access_token").getBody().asString());
+//        System.out.println(authResponse.toString(4));
+//
+//        httpRequest = RestAssured.given();
+//        httpRequest.header("Content-Type", "application/json");
+//        httpRequest.header("Accept", "application/vnd.testquality.v1+json");
+//        httpRequest.header("Authorization", authResponse.getString("token_type")
+//                + " " + authResponse.getString("access_token"));
+//
+//        JSONObject idResponse = new JSONObject(
+//                httpRequest.get("/plan?name=My_Test_Plan").getBody().asString());
+//        System.out.println(idResponse.toString(4));
+//        int id = idResponse.getJSONArray("data").getJSONObject(0).getInt("id");
+//
+//        httpRequest = RestAssured.given().log().all();
+//
+//        httpRequest.multiPart("file", new File(System.getProperty("user.dir") + "/target/surefire-reports/junitreports/TEST-tests.temp.SampleStarterUITestCase3.xml"));
+//        httpRequest.header("Authorization", authResponse.getString("token_type")
+//                + " " + authResponse.getString("access_token"));
+//        httpRequest.header("Accept", "application/vnd.testquality.v1+json");
+//        String fileResponse = httpRequest.when().post("/plan/" + id + "/junit_xml").asString();
+//        System.out.println("/plan/" + id + "/junit_xml");
+//        System.out.println(fileResponse);
+//    }
 
 }
