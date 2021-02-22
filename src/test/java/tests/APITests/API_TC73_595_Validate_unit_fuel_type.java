@@ -68,7 +68,7 @@ public class API_TC73_595_Validate_unit_fuel_type extends APITestBase {
 //            endDate=01-31-2019&
 //            unitFuelType=Invalid123
         String url2 = String.format(url, map.get("page"), map.get("perPage"), map.get("beginDate"), map.get("endDate"), "Invalid123");
-        System.out.println(url2);
+//        System.out.println(url2);
         response = getResponse(url2);
 
 //         Expected Result 2: Status code 400
