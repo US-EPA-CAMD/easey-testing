@@ -35,6 +35,10 @@ public class APITestBase extends TestBase {
         return response.getBody().asString();
     }
 
+    protected String getStatus(String URI) {
+        return httpRequest.get(URI).getStatusLine();
+    }
+
     protected JSONObject getJSON(String URI) {
 
         // Make a request to the server by specifying the method Type and the method URL.
@@ -55,6 +59,10 @@ public class APITestBase extends TestBase {
         // Now let us print the body of the message to see what response
         // we have recieved from the server
         return new JSONArray(response.getBody().asString());
+    }
+
+    protected Response getResponse(String URI) {
+        return httpRequest.get(URI);
     }
 
     protected String postString(String body, String URI) {
@@ -145,6 +153,10 @@ public class APITestBase extends TestBase {
         Response response = httpRequest.delete(URI);
 
         return new JSONObject(response.getBody().asString());
+    }
+
+    protected String printResponseBody(Response response) {
+        return new JSONObject(response.getBody().asString()).toString(4);
     }
 
 }

@@ -15,14 +15,16 @@ public class TestBase {
     protected final String filePathBase = osHome + (osHome.contains("runner") ?
             "/work/easey-testing/easey-testing" : "/EPACAMD/Testing") +
             "/src/main/resources/";
+    protected double num;
     
     @BeforeMethod
     public void beforeMethod() {
         softAssert = new SoftAssert();
+        num = Math.random();
     }
     
     @AfterMethod
-    public void afterMethods() {
+    public void afterMethod() {
         endTest();
     }
 
@@ -115,6 +117,10 @@ public class TestBase {
             actual = ((WebElement) actual).getText();
         }
         verifyNotEquals(actual, expected, "failed");
+    }
+
+    public void verifyFail (String message) {
+        softAssert.fail(String.format("%s:%d - %s", className, getLine(), message));
     }
 
     public void endTest() {

@@ -31,4 +31,7 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "li.paginate_button.active")
     public WebElement currentPage;
+
+    @FindBy(css = "h1.title")
+    public WebElement title;
 }

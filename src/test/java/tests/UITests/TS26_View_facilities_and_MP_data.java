@@ -36,7 +36,11 @@ public class TS26_View_facilities_and_MP_data extends UITestBase {
         // Step 1: Navigate to EASY In
         goTo(map.get("URL"));
 
+        pause();
+
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+
+        verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         // Expected result 1: A list of facilities is displayed in a table (no default filtering)
         assertTrue(isDisplayed(monitoringPlansPage.table), "Facilities table is not displayed");

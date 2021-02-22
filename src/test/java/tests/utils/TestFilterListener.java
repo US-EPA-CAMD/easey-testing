@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TestFilterListener implements IAlterSuiteListener {
 
-    private static final String names = System.getProperty("name").toUpperCase();
+    private static final String names = System.getProperty("name", "").toUpperCase();
 
     private static final String currentDirectory = System.getProperty("user.dir");
     private static final String projectDirectory = "/src/test/java/";
@@ -23,6 +23,11 @@ public class TestFilterListener implements IAlterSuiteListener {
 
     @Override
     public void alter(List<XmlSuite> suites){
+        if (names.equals("")) {
+            System.out.println("[TEST] No Tests clarified");
+            return;
+        }
+
         XmlSuite suite = suites.get(0);
 
         ArrayList<XmlTest> xmlTests = new ArrayList<>();
