@@ -12,7 +12,7 @@ import tests.utils.CSVParser;
 import java.util.List;
 import java.util.Map;
 
-public class API_TC85_737_Multiple_value_for_unit_fuel_type extends APITestBase {
+public class API_TC85_737_Multiple_values_for_unit_fuel_type extends APITestBase {
 
     @BeforeMethod
     public void beforeMethod() {
