@@ -1,5 +1,6 @@
 package tests.utils;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -92,6 +93,14 @@ public class TestBase {
 
     public void verifyFalse( boolean assertion) {
         verifyFalse(assertion, "failed");
+    }
+
+    public void verifyNotDisplayed(WebElement ele) {
+        try {
+            softAssert.assertFalse(ele.isDisplayed(), String.format("%s:%d - %s", className, getLine(), "Element is displayed"));
+        } catch (NoSuchElementException e) {
+            // an element not found is an element not displayed
+        }
     }
 
     public void verifyEquals( Object actual, Object expected, String message) {

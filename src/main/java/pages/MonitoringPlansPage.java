@@ -34,4 +34,19 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "h1.title")
     public WebElement title;
+
+    @FindBy(css = "ul.usa-button-group.usa-button-group--segmented > li")
+    public List<WebElement> tabs;
+
+    @FindBy(css = "div.selectedMPTab > div > div > h2 ")
+    public WebElement facilityTitle;
+
+    @FindBy(id = "showInactive")
+    public WebElement showInactiveCheckbox;
+
+    @FindBy(css = "div.configurations-container > div > div > select")
+    public WebElement configurationsDropdown;
+
+    @FindBy(css = "optgroup[label='Inactive']")
+    public WebElement inactiveConfigurations;
 }
