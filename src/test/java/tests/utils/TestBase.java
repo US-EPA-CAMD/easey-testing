@@ -78,6 +78,10 @@ public class TestBase {
         assertNotEquals(actual, expected, "failed");
 
     }
+
+    public void fail( String message) {
+        Assert.fail(String.format("%s:%d - %s", className, getLine(), message));
+    }
     
     public void verifyTrue( boolean assertion, String message) {
         softAssert.assertTrue(assertion, String.format("%s:%d - %s", className, getLine(), message));

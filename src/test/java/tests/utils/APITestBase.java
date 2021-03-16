@@ -56,9 +56,16 @@ public class APITestBase extends TestBase {
         // This will return the Response from the server. Store the response in a variable.
         Response response = httpRequest.get(URI);
 
+
         // Now let us print the body of the message to see what response
         // we have recieved from the server
-        return new JSONArray(response.getBody().asString());
+        if (response.getStatusCode() == 200)
+            return new JSONArray(response.getBody().asString());
+
+        else {
+            fail("Invalid Respnose Code:" + response.getStatusCode() + "\n" + response.getBody().asString());
+            return null;
+        }
     }
 
     protected Response getResponse(String URI) {

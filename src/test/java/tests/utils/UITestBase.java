@@ -16,7 +16,9 @@ import org.testng.annotations.BeforeMethod;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
 
 public class UITestBase extends TestBase {
 
@@ -35,6 +37,8 @@ public class UITestBase extends TestBase {
         super.beforeMethod();
 
         driverHome = System.getProperty("user.home");
+//        System.setProperty("webdriver.chrome.silentOutput", "true");
+//        java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.WARNING);
 //        System.out.println(driverHome);
 
         // set path of Chromedriver executable
@@ -77,6 +81,7 @@ public class UITestBase extends TestBase {
         // close and quit the browser
         driver.quit();
         listener.printError();
+        super.afterMethod();
     }
 
     protected void goTo(String url) {
@@ -157,6 +162,18 @@ public class UITestBase extends TestBase {
         }
     }
 
+    protected void changeTab() {
+        waitFor(driver -> driver.getWindowHandles().size() > 1);
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(tabs.size()-1));
+    }
+
+    protected void closeTab() {
+        driver.close();
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(tabs.size()-1));
+    }
+
     protected void sleep(int time) {
         if (debug)
             try {
@@ -187,7 +204,6 @@ class ExceptionListener extends AbstractWebDriverEventListener {
 
     protected void printError() {
         if (stack != null) {
-            System.out.println(className);
             String line = Arrays.asList(stack).toString();
             line = line.substring(line.indexOf(className));
             line = line.substring(line.indexOf(":") + 1, line.indexOf(")"));
