@@ -42,7 +42,10 @@ public class UITestBase extends TestBase {
 //        System.out.println(driverHome);
 
         // set path of Chromedriver executable
-        System.setProperty("webdriver.chrome.driver", driverHome + "/drivers/chromedriver");
+        if (osHome.startsWith("/home/"))
+            System.setProperty("webdriver.chrome.driver", driverHome + "/drivers/chromedriver");
+        else
+            System.setProperty("webdriver.chrome.driver", driverHome + "/drivers/chromedriver.exe");
 
         if (!runMode.equals("local")) {
             DesiredCapabilities caps = new DesiredCapabilities();
@@ -64,8 +67,8 @@ public class UITestBase extends TestBase {
             }
         } else {
             eventless_driver = new ChromeDriver();
-
-            eventless_driver.manage().window().setPosition(new Point(4920, 0)); // specific to my situation
+            if (osHome.contains("yefim"))
+                eventless_driver.manage().window().setPosition(new Point(4920, 0)); // specific to my situation
             eventless_driver.manage().window().maximize();
 
             sleep(1000);

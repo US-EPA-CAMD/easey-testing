@@ -69,6 +69,7 @@ public class API_TC68_302_Validate_state extends APITestBase {
 //            state=ZZ123
 //        String url2 = String.format(url, map.get("page"), map.get("perPage"), "2019-01-01", "2019-01-31", map.get("stateBad"));
         String url2 = formatURL(map, url, "stateBad");
+        System.out.println(url2);
         response = getResponse(url2);
 
 //         Expected Result 2: Status code 400
