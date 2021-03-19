@@ -63,6 +63,7 @@ public class TestFilterListener implements IAlterSuiteListener {
                     String filePath = file.getPath();
                     nameList.add(filePath.substring(filePath.indexOf("tests"))
                             .replaceAll("/", ".")
+                            .replaceAll("\\\\",".")
                             .replaceAll(".java", "")
                     );
                 }
