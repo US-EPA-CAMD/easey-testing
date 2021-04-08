@@ -19,8 +19,6 @@ public class UI_TC81_541_Implement_active_inactive_filter_logic_for_configuratio
         waitFor(driver -> monitoringPlansPage.tableResults.size() > 3);
         String facility = monitoringPlansPage.tableResults.get(0).getText().split("\n")[1];
 
-        System.out.println("What is Facility: " + facility);
-
         click(monitoringPlansPage.tableResults.get(0));
 //        A new tab with the name of the selected facility should appear.
         verifyTrue(monitoringPlansPage.tabs.size() == 2);
