@@ -1,8 +1,10 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import utils.PageBase;
 
 import java.util.List;
@@ -97,4 +99,31 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(id = "close")
     public WebElement footerClose;
+
+    @FindBy (id = "Sections")
+    public WebElement sectionsDropdown;
+
+    @FindBy (css = "#Sections > option:nth-child(5)")
+    public WebElement monitoringSystems;
+
+    @FindBy (css = "button.usa-accordion__button > div.methodHeader")
+    public WebElement accordionButton;
+
+    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td > button")
+    public List<WebElement> systemTableCss;
+
+    @FindBy(xpath = "//*[@id=\"close\"]/i")
+    public WebElement xOutModel;
+
+    @FindBy(css = "button.cancelBTN.modal-color")
+    public WebElement cancelModel;
+
+    @FindBy(css = "button.saveCloseBTN")
+    public WebElement saveCloseModel;
+
+    @FindBy(css = "button.cancelBTN.modal-color")
+    public WebElement cancelModal;
+
+    @FindBy(css = "button.saveCloseBTN")
+    public WebElement saveCloseModal;
 }
