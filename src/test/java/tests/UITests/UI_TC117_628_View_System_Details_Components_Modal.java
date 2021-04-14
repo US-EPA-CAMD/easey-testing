@@ -41,22 +41,22 @@ public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBas
 
 
         //Click on View under the Actions column
-        click(monitoringPlansPage.systemTableCss.get(1));
+        click(monitoringPlansPage.systemTableButtonList.get(1));
 
         //Then the system displays a modal window (labels, cancel, save and close, X)
-        verifyEquals(monitoringPlansPage.cancelModel,"Cancel");
-        verifyEquals(monitoringPlansPage.saveCloseModel,"Save and Close");
+        verifyEquals(monitoringPlansPage.cancelModal,"Cancel");
+        verifyEquals(monitoringPlansPage.saveCloseModal,"Save and Close");
 
         //Closing Model using the x button
-        click(monitoringPlansPage.xOutModel);
+        click(monitoringPlansPage.xOutModal);
 
         //Click on View under the Actions column
-        click(monitoringPlansPage.systemTableCss.get(1));
+        click(monitoringPlansPage.systemTableButtonList.get(1));
         // Click on cancel button to close modal
         click(monitoringPlansPage.cancelModal);
 
         //Click on View under the Actions column
-        click(monitoringPlansPage.systemTableCss.get(1));
+        click(monitoringPlansPage.systemTableButtonList.get(1));
         // Click on Save/Close button to close modal
         click(monitoringPlansPage.saveCloseModal);
 

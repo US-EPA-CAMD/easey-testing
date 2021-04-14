@@ -110,16 +110,10 @@ public class MonitoringPlansPage extends PageBase {
     public WebElement accordionButton;
 
     @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td > button")
-    public List<WebElement> systemTableCss;
+    public List<WebElement> systemTableButtonList;
 
-    @FindBy(xpath = "//*[@id=\"close\"]/i")
-    public WebElement xOutModel;
-
-    @FindBy(css = "button.cancelBTN.modal-color")
-    public WebElement cancelModel;
-
-    @FindBy(css = "button.saveCloseBTN")
-    public WebElement saveCloseModel;
+    @FindBy(css = "#close > i")
+    public WebElement xOutModal;
 
     @FindBy(css = "button.cancelBTN.modal-color")
     public WebElement cancelModal;
