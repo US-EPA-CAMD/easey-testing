@@ -120,4 +120,28 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "button.saveCloseBTN")
     public WebElement saveCloseModal;
+
+/*---------------------------------------------------------------------*/
+
+    @FindBy(css = "div.modalDetails > h2")
+    public WebElement modalTitle;
+
+    @FindBy (css = "div.usa-form-group.dateLabels")
+    public WebElement modalSystemID;
+
+    @FindBy (css = "")
+    public WebElement modalSystemDesignation;
+
+    @FindBy (css = "")
+    public WebElement modalSystemType;
+
+    @FindBy (css = "")
+    public WebElement modalFuelType;
+
+    @FindBy (css = "")
+    public WebElement modalStartTimeDate;
+
+    @FindBy (css = "")
+    public WebElement modalEndTimeDate;
+
 }

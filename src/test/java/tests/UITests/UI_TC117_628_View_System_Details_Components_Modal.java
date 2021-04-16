@@ -32,6 +32,7 @@ public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBas
         //Under the Sections dropdown list select Monitoring Systems
         waitFor(monitoringPlansPage.sectionsDropdown);
         click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.monitoringSystems);
         click(monitoringPlansPage.monitoringSystems);
         //The data for Monitoring Systems appears in the Systems table
 
@@ -39,9 +40,18 @@ public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBas
         waitFor(monitoringPlansPage.accordionButton);
         click(monitoringPlansPage.accordionButton);
 
-
         //Click on View under the Actions column
-        click(monitoringPlansPage.systemTableButtonList.get(1));
+        click(monitoringPlansPage.systemTableButtonList.get(0));
+
+        waitFor(monitoringPlansPage.modalTitle);
+        verifyEquals(monitoringPlansPage.modalTitle, "Monitoring Systems: AF1");
+        verifyEquals(monitoringPlansPage.modalSystemID, "System ID (Required)");
+//        verifyEquals(monitoringPlansPage.modalSystemDesignation, "System Designation (Required)");
+//        verifyEquals(monitoringPlansPage.modalSystemType, "System Type (Required)");
+//        verifyEquals(monitoringPlansPage.modalFuelType, "Fuel Type (Required)");
+//        verifyEquals(monitoringPlansPage.modalStartTimeDate, "Start Date and Time (Required)");
+//        verifyEquals(monitoringPlansPage.modalEndTimeDate, "End Date and Time");
+
 
         //Then the system displays a modal window (labels, cancel, save and close, X)
         verifyEquals(monitoringPlansPage.cancelModal,"Cancel");
@@ -59,6 +69,8 @@ public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBas
         click(monitoringPlansPage.systemTableButtonList.get(1));
         // Click on Save/Close button to close modal
         click(monitoringPlansPage.saveCloseModal);
+
+
 
     }
 }
