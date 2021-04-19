@@ -129,19 +129,19 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.usa-form-group.dateLabels")
     public WebElement modalSystemID;
 
-    @FindBy (css = "")
+    @FindBy (css = "div:nth-child(1) > div.modalColumnRight > div > div > div > label")
     public WebElement modalSystemDesignation;
 
-    @FindBy (css = "")
+    @FindBy (css = "div.modalColumn > div > div > div > label")
     public WebElement modalSystemType;
 
-    @FindBy (css = "")
+    @FindBy (css = "div:nth-child(2) > div.modalColumnRight > div > div > div > label")
     public WebElement modalFuelType;
 
-    @FindBy (css = "")
+    @FindBy (id = "dateStart")
     public WebElement modalStartTimeDate;
 
-    @FindBy (css = "")
+    @FindBy (id = "dateEnd")
     public WebElement modalEndTimeDate;
 
 }
