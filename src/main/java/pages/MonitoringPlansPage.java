@@ -123,6 +123,9 @@ public class MonitoringPlansPage extends PageBase {
 
 /*---------------------------------------------------------------------*/
 
+    @FindBy (css = "table.usa-table.usa-table--borderless > thead > tr > th")
+    public WebElement systemIDTitle;
+
     @FindBy(css = "div.modalDetails > h2")
     public WebElement modalTitle;
 

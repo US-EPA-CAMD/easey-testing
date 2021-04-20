@@ -41,20 +41,18 @@ public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBas
         click(monitoringPlansPage.accordionButton);
 
         //Click on View under the Actions column
+        waitFor(driver -> monitoringPlansPage.systemTableButtonList.size() > 1);
         click(monitoringPlansPage.systemTableButtonList.get(0));
 
-
+        //Verifying the labels on the popup modal
         waitFor(monitoringPlansPage.modalTitle);
         verifyEquals(monitoringPlansPage.modalTitle, "Monitoring Systems: AF1");
         verifyEquals(monitoringPlansPage.modalSystemID, "System ID (Required)");
-
         verifyEquals(monitoringPlansPage.modalSystemDesignation, "System Designation (Required)");
         verifyEquals(monitoringPlansPage.modalSystemType, "System Type (Required)");
         verifyEquals(monitoringPlansPage.modalFuelType, "Fuel Type (Required)");
         verifyEquals(monitoringPlansPage.modalStartTimeDate, "Start Date and Time (Required)");
         verifyEquals(monitoringPlansPage.modalEndTimeDate, "End Date and Time");
-
-
 
         //Then the system displays a modal window (labels, cancel, save and close, X)
         verifyEquals(monitoringPlansPage.cancelModal,"Cancel");
@@ -62,18 +60,24 @@ public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBas
 
         //Closing Model using the x button
         click(monitoringPlansPage.xOutModal);
+        //Verifying base page is visible
+        verifyEquals(monitoringPlansPage.systemIDTitle,"System ID");
 
         //Click on View under the Actions column
         click(monitoringPlansPage.systemTableButtonList.get(1));
-        // Click on cancel button to close modal
+        //Click on cancel button to close modal
+        verifyEquals(monitoringPlansPage.cancelModal,"Cancel");
         click(monitoringPlansPage.cancelModal);
+        // Verifying base page is visible
+        verifyEquals(monitoringPlansPage.systemIDTitle,"System ID");
 
         //Click on View under the Actions column
         click(monitoringPlansPage.systemTableButtonList.get(1));
-        // Click on Save/Close button to close modal
+        //Click on Save/Close button to close modal
+        verifyEquals(monitoringPlansPage.saveCloseModal,"Save and Close");
         click(monitoringPlansPage.saveCloseModal);
-
-
+        //Verifying base page is visible
+        verifyEquals(monitoringPlansPage.systemIDTitle,"System ID");
 
     }
 }

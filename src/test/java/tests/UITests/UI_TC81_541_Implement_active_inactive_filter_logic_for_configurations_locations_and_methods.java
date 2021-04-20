@@ -46,7 +46,7 @@ public class UI_TC81_541_Implement_active_inactive_filter_logic_for_configuratio
 //        Click on Configurations dropdown
         click(monitoringPlansPage.configurationsDropdown);
 //        The inactive configurations will now appear in the dropdown box.
-        verifyTrue(monitoringPlansPage.inactiveConfigurations.isDisplayed());
+        verifyTrue(isDisplayed(monitoringPlansPage.inactiveConfigurations));
 //
 //        Select various configurations of Active and Inactive
 //
