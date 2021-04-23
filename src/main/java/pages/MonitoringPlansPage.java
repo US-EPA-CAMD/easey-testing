@@ -1,8 +1,10 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import utils.PageBase;
 
 import java.util.List;
@@ -97,4 +99,50 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(id = "close")
     public WebElement footerClose;
+
+    @FindBy (id = "Sections")
+    public WebElement sectionsDropdown;
+
+    @FindBy (css = "#Sections > option:nth-child(5)")
+    public WebElement monitoringSystems;
+
+    @FindBy (css = "button.usa-accordion__button > div.methodHeader")
+    public WebElement accordionButton;
+
+    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td > button")
+    public List<WebElement> systemTableButtonList;
+
+    @FindBy(css = "#close > i")
+    public WebElement xOutModal;
+
+    @FindBy(css = "button.cancelBTN.modal-color")
+    public WebElement cancelModal;
+
+    @FindBy(css = "button.saveCloseBTN")
+    public WebElement saveCloseModal;
+
+    @FindBy (css = "table.usa-table.usa-table--borderless > thead > tr > th")
+    public WebElement systemIDTitle;
+
+    @FindBy(css = "div.modalDetails > h2")
+    public WebElement modalTitle;
+
+    @FindBy (css = "div.usa-form-group.dateLabels")
+    public WebElement modalSystemID;
+
+    @FindBy (css = "div:nth-child(1) > div.modalColumnRight > div > div > div > label")
+    public WebElement modalSystemDesignation;
+
+    @FindBy (css = "div.modalColumn > div > div > div > label")
+    public WebElement modalSystemType;
+
+    @FindBy (css = "div:nth-child(2) > div.modalColumnRight > div > div > div > label")
+    public WebElement modalFuelType;
+
+    @FindBy (id = "dateStart")
+    public WebElement modalStartTimeDate;
+
+    @FindBy (id = "dateEnd")
+    public WebElement modalEndTimeDate;
+
 }
