@@ -32,30 +32,38 @@ public class API_TC154_997_Create_Monitoring_Plan_API_Endpoints_for_Spans extend
     @Test(dataProvider = "csv")
     public void test(Map<String, String> map)  {
 
-        String url = "api/monitor-plan-mgmt/monitor-locations/%s/systems";
+        String url = "api/monitor-plan-mgmt/monitor-locations/%s/span";
 
 //        Perform a GET request for the control technologies endpoint
 //        https://easey-dev.app.cloud.gov/api/monitor-plan-mgmt/monitor-locations/5/systems
 
-        String url1 = formatURL(map, url, "idSystems");
+        String url1 = formatURL(map, url, "idSpans");
 
         // Checking response code
         Response response = getResponse(url1);
         verifyEquals(response.getStatusCode(), 200, "Status code not correct");
 
         JSONArray res = getJSONArray(url1);
-        // "api/monitor-plan-mgmt/monitor-locations/5/systems"
+        // "api/monitor-plan-mgmt/monitor-locations/%s/span"
         // Validating Response body fields
         for (Object r : res) {
             if (r instanceof JSONObject) {
                 JSONObject resp = (JSONObject) r;
                 verifyTrue(resp.has("id"));
-                verifyTrue(resp.has("monLocId"));
-                verifyTrue(resp.has("systemType"));
-                verifyTrue(resp.has("systemDesignationCode"));
-                verifyTrue(resp.has("systemIdentifier"));
-                verifyTrue(resp.has("fuelCode"));
+                verifyTrue(resp.has("componentType"));
+                verifyTrue(resp.has("scale"));
+                verifyTrue(resp.has("method"));
+                verifyTrue(resp.has("mpc/mpf"));
+                verifyTrue(resp.has("mec"));
+                verifyTrue(resp.has("spanValue"));
+                verifyTrue(resp.has("fullscaleRange"));
+                verifyTrue(resp.has("UOM"));
+                verifyTrue(resp.has("flowSpanValue(scfh)"));
+                verifyTrue(resp.has("scaleTransitionPoint"));
+                verifyTrue(resp.has("defaultHughrangeValue"));
+                verifyTrue(resp.has("flowFullScaleRange"));
                 verifyTrue(resp.has("beginDate"));
+                verifyTrue(resp.has("endDate"));
                 verifyTrue(resp.has("beginHour"));
                 verifyTrue(resp.has("endHour"));
             } else
@@ -64,5 +72,6 @@ public class API_TC154_997_Create_Monitoring_Plan_API_Endpoints_for_Spans extend
     }
     private String formatURL(Map<String, String> map, String url, String var) {
         return String.format(url, map.get(var));
+
     }
 }

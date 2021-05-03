@@ -32,30 +32,30 @@ public class API_TC152_998_Create_Monitoring_Plan_API_Endpoints_for_Formulas ext
     @Test(dataProvider = "csv")
     public void test(Map<String, String> map)  {
 
-        String url = "api/monitor-plan-mgmt/monitor-locations/%s/systems";
+        String url = "api/monitor-plan-mgmt/monitor-locations/%s/formulas";
 
 //        Perform a GET request for the control technologies endpoint
-//        https://easey-dev.app.cloud.gov/api/monitor-plan-mgmt/monitor-locations/5/systems
+//        https://easey-dev.app.cloud.gov/api/monitor-plan-mgmt/monitor-locations/%s/formulas
 
-        String url1 = formatURL(map, url, "idSystems");
+        String url1 = formatURL(map, url, "idFormulas");
 
         // Checking response code
         Response response = getResponse(url1);
         verifyEquals(response.getStatusCode(), 200, "Status code not correct");
 
         JSONArray res = getJSONArray(url1);
-        // "api/monitor-plan-mgmt/monitor-locations/5/systems"
+        // "api/monitor-plan-mgmt/monitor-locations/%s/formulas"
         // Validating Response body fields
         for (Object r : res) {
             if (r instanceof JSONObject) {
                 JSONObject resp = (JSONObject) r;
                 verifyTrue(resp.has("id"));
-                verifyTrue(resp.has("monLocId"));
-                verifyTrue(resp.has("systemType"));
-                verifyTrue(resp.has("systemDesignationCode"));
-                verifyTrue(resp.has("systemIdentifier"));
-                verifyTrue(resp.has("fuelCode"));
+                verifyTrue(resp.has("parameter"));
+                verifyTrue(resp.has("formulaID"));
+                verifyTrue(resp.has("formula"));
+                verifyTrue(resp.has("formulaEquation"));
                 verifyTrue(resp.has("beginDate"));
+                verifyTrue(resp.has("endDate"));
                 verifyTrue(resp.has("beginHour"));
                 verifyTrue(resp.has("endHour"));
             } else
@@ -64,5 +64,6 @@ public class API_TC152_998_Create_Monitoring_Plan_API_Endpoints_for_Formulas ext
     }
     private String formatURL(Map<String, String> map, String url, String var) {
         return String.format(url, map.get(var));
+
     }
 }
