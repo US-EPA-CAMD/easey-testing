@@ -56,6 +56,7 @@ public class API_TC115_876_Create_Monitor_Plan_API_endpoint_for_Systems extends 
                 verifyTrue(resp.has("systemIdentifier"));
                 verifyTrue(resp.has("fuelCode"));
                 verifyTrue(resp.has("beginDate"));
+                verifyTrue(resp.has("endDate"));
                 verifyTrue(resp.has("beginHour"));
                 verifyTrue(resp.has("endHour"));
             } else
