@@ -12,7 +12,7 @@ import tests.utils.CSVParser;
 import java.util.List;
 import java.util.Map;
 
-public class API_TC155_1078_Create_Monitoring_Plan_API_Endpoints_for_Loads extends APITestBase {
+public class Test_EASEYIn_998_Create_Monitoring_Plan_API_Endpoints_for_Formulas extends APITestBase {
 
     @BeforeMethod
     public void beforeMethod() {
@@ -32,42 +32,41 @@ public class API_TC155_1078_Create_Monitoring_Plan_API_Endpoints_for_Loads exten
     @Test(dataProvider = "csv")
     public void test(Map<String, String> map)  {
 
-        String url = "api/monitor-plan-mgmt/monitor-locations/%s/systems";
+        String url = "api/monitor-plan-mgmt/monitor-locations/%s/formulas/monitor-locations/%s/formulas";
 
 //        Perform a GET request for the control technologies endpoint
-//        https://easey-dev.app.cloud.gov/api/monitor-plan-mgmt/monitor-locations/%s/Loads
+//        https://easey-dev.app.cloud.gov/api/monitor-plan-mgmt/monitor-locations/5/formulas/monitor-locations/5/formulas
 
-        String url1 = formatURL(map, url, "idLoads");
+        String url1 = formatURL(map, url, "idLoc5", "idLoc5");
 
         // Checking response code
         Response response = getResponse(url1);
         verifyEquals(response.getStatusCode(), 200, "Status code not correct");
 
         JSONArray res = getJSONArray(url1);
-        // "api/monitor-plan-mgmt/monitor-locations/%s/Loads"
+        // "api/monitor-plan-mgmt/monitor-locations/5/formulas/monitor-locations/5/formulas"
         // Validating Response body fields
         for (Object r : res) {
             if (r instanceof JSONObject) {
                 JSONObject resp = (JSONObject) r;
                 verifyTrue(resp.has("id"));
-                verifyTrue(resp.has("maxHourlyLoad"));
-                verifyTrue(resp.has("UOM"));
-                verifyTrue(resp.has("upperBoundOfRangeofOpperation"));
-                verifyTrue(resp.has("lowerBoundofRangeOfOperation"));
-                verifyTrue(resp.has("normalOpperationLevel"));
-                verifyTrue(resp.has("secondOperationLevel"));
-                verifyTrue(resp.has("secondNormalIndicator"));
-                verifyTrue(resp.has("loadAnalysisData"));
+                verifyTrue(resp.has("monLocId"));
+                verifyTrue(resp.has("parameterCd"));
+                verifyTrue(resp.has("equationCd"));
+                verifyTrue(resp.has("formulaIdentifier"));
                 verifyTrue(resp.has("beginDate"));
-                verifyTrue(resp.has("endDate"));
                 verifyTrue(resp.has("beginHour"));
+                verifyTrue(resp.has("endDate"));
                 verifyTrue(resp.has("endHour"));
+                verifyTrue(resp.has("formulaEquation"));
+                verifyTrue(resp.has("userId"));
+                verifyTrue(resp.has("addDate"));
+                verifyTrue(resp.has("updateDate"));
             } else
                 verifyFail("Response returned non JSONObject\n" + r.toString());
         }
     }
-    private String formatURL(Map<String, String> map, String url, String var) {
-        return String.format(url, map.get(var));
-
+    private String formatURL(Map<String, String> map, String url, String var1, String var2) {
+        return String.format(url, map.get(var1), map.get(var2));
     }
 }

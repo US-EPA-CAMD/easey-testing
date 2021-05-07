@@ -12,7 +12,7 @@ import tests.utils.CSVParser;
 import java.util.List;
 import java.util.Map;
 
-public class API_TC115_876_Create_Monitor_Plan_API_endpoint_for_Systems extends APITestBase {
+public class Test_EASEYIn_876_Create_Monitor_Plan_API_endpoint_for_Systems extends APITestBase {
 
     @BeforeMethod
     public void beforeMethod() {
@@ -37,7 +37,7 @@ public class API_TC115_876_Create_Monitor_Plan_API_endpoint_for_Systems extends 
 //        Perform a GET request for the control technologies endpoint
 //        https://easey-dev.app.cloud.gov/api/monitor-plan-mgmt/monitor-locations/5/systems
 
-        String url1 = formatURL(map, url, "idSystems");
+        String url1 = formatURL(map, url, "idLoc5");
 
         // Checking response code
         Response response = getResponse(url1);
