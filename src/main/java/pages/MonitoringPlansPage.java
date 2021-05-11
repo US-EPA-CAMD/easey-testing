@@ -18,6 +18,10 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr")
     public List<WebElement> tableResults;
+//    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td:nth-child(4) > button")
+//    public List<WebElement> openTab;
+    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td:nth-child(4) > button")
+    public List<WebElement> openFacilityTab;
 
     @FindBy(id = "input-dropdown")
     public WebElement paginationDropdown;
@@ -39,6 +43,8 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "ul.usa-button-group.usa-button-group--segmented > li")
     public List<WebElement> tabs;
+//    @FindBy(xpath = "//tbody/tr[1]/td[4]/button[1]")
+//    public List<WebElement> tabs;
 
     @FindBy(css = "div.selectedMPTab > div > div > h2 ")
     public WebElement facilityTitle;
@@ -100,10 +106,10 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(id = "close")
     public WebElement footerClose;
 
-    @FindBy (id = "Sections")
+    @FindBy (id = "Sections3")
     public WebElement sectionsDropdown;
 
-    @FindBy (css = "#Sections > option:nth-child(5)")
+    @FindBy (css = "#Sections3 > option:nth-child(5)")
     public WebElement monitoringSystems;
 
     @FindBy (css = "button.usa-accordion__button > div.methodHeader")
@@ -127,7 +133,9 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.modalDetails > h2")
     public WebElement modalTitle;
 
-    @FindBy (css = "div.usa-form-group.dateLabels")
+//    @FindBy (css = "div.usa-form-group.margin-top-0.usa-label")
+//    public WebElement modalSystemID;
+    @FindBy (css = "div.grid-col.padding-bottom-2.padding-right-3 > div > div > div > label")
     public WebElement modalSystemID;
 
     @FindBy (css = "div:nth-child(1) > div.modalColumnRight > div > div > div > label")

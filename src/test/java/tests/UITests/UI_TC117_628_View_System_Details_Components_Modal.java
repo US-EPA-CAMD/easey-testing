@@ -22,7 +22,7 @@ public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBas
         // (Barry AL, Oris Code 3 was mainly used for this test) and select the open tab.
         waitFor(driver -> monitoringPlansPage.tableResults.size() > 3);
         String facility = monitoringPlansPage.tableResults.get(0).getText().split("\n")[1];
-        click(monitoringPlansPage.tableResults.get(0));
+        click(monitoringPlansPage.openFacilityTab.get(0));
 
         //A new tab with the name of the selected facility should appear along with its Monitoring Plans data
         verifyTrue(monitoringPlansPage.tabs.size() == 2);
