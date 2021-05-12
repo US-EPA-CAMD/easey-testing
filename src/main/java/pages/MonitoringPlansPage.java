@@ -135,16 +135,22 @@ public class MonitoringPlansPage extends PageBase {
 
 //    @FindBy (css = "div.usa-form-group.margin-top-0.usa-label")
 //    public WebElement modalSystemID;
-    @FindBy (css = "div.grid-col.padding-bottom-2.padding-right-3 > div > div > div > label")
+    @FindBy (css = "div.grid-col.padding-bottom-2.padding-right-3 > div > label")
     public WebElement modalSystemID;
 
-    @FindBy (css = "div:nth-child(1) > div.modalColumnRight > div > div > div > label")
+//    @FindBy (css = "div:nth-child(1) > div.modalColumnRight > div > div > div > label")
+//    public WebElement modalSystemDesignation;
+    @FindBy (css = "div.modal-wrapper.modal-color div.modal-content.modal-color div.modal-body.modal-color div.modalDetails form.usa-form:nth-child(2) div.grid-row:nth-child(1) div.grid-col:nth-child(2) div:nth-child(1) div:nth-child(1) div.usa-form-group.margin-top-0 > label.usa-label")
     public WebElement modalSystemDesignation;
 
-    @FindBy (css = "div.modalColumn > div > div > div > label")
+//    @FindBy (css = "div.modalColumn > div > div > div > label")
+//    public WebElement modalSystemType;
+    @FindBy (css = "#portal > div > div > div > div.modal-content.modal-color > div.modal-body.modal-color > div > div:nth-child(1) > div > form > div:nth-child(2) > div.grid-col.padding-bottom-2.padding-right-3 > div > div > div > label")
     public WebElement modalSystemType;
 
-    @FindBy (css = "div:nth-child(2) > div.modalColumnRight > div > div > div > label")
+//    @FindBy (css = "div:nth-child(2) > div.modalColumnRight > div > div > div > label")
+//    public WebElement modalFuelType;
+    @FindBy (css = "div.modal-body.modal-color > div > div > div > form > div:nth-child(2) > div:nth-child(2) > div > div > div > label")
     public WebElement modalFuelType;
 
     @FindBy (id = "dateStart")
