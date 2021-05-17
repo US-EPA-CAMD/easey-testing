@@ -58,10 +58,10 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "optgroup[label='Inactive']")
     public WebElement inactiveConfigurations;
 
-    @FindBy(css = "button.usa-button.menuBTN")
+    @FindBy(css = "button.display-block.usa-button.radius-md.bg-white.text-primary")
     public WebElement menuBtn;
 
-    @FindBy(css = "div.mainMenu > nav")
+    @FindBy(css = "nav.usa-nav.is-visible")
     public WebElement menuNav;
 
     @FindBy(css = "button[aria-controls='Environmental TopicsMenuDropDown']")
@@ -85,7 +85,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(id = "search-field")
     public WebElement search;
 
-    @FindBy(id = "input-button-search")
+    @FindBy(css = "form.usa-search.usa-search--small.search-field > button.usa-button")
     public WebElement searchButton;
 
     @FindBy(id = "collapsable")
