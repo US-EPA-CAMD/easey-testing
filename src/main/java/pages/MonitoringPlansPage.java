@@ -159,4 +159,34 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (id = "dateEnd")
     public WebElement modalEndTimeDate;
 
+    @FindBy (css = "h5.padding-0.padding-left-5px")
+    public WebElement dashboardTitle;
+
+    @FindBy (css = "div.text-underline")
+    public WebElement dashWorkspaceTitle;
+
+    @FindBy (css = "#MenuDropDown > li:nth-child(1) > a")
+    public WebElement dashMonPlan;
+
+    @FindBy (css = "#MenuDropDown > li:nth-child(2) > a")
+    public WebElement dashQaCert;
+
+    @FindBy (css = "#MenuDropDown > li:nth-child(3) > a")
+    public WebElement dashEmissions;
+
+    @FindBy (css = "div.accessoryLink:nth-child(1) > a.text-white:nth-child(2)")
+    public WebElement dashCamdApps;
+
+    @FindBy (css = "div.accessoryLink:nth-child(2) > a.text-white:nth-child(2)")
+    public WebElement dashProfile;
+
+    @FindBy (css = "div.text-white:nth-child(3) > a.text-white:nth-child(2)")
+    public WebElement dashAccountMan;
+
+    @FindBy (css = "div.accessoryLink:nth-child(4) > a.text-white:nth-child(2)")
+    public WebElement dashHelpContact;
+
+    @FindBy (css = "div.text-center > h1")
+    public WebElement pageDoesntExist;
+
 }

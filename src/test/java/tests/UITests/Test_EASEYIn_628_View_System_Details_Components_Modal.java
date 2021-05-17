@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBase {
+public class Test_EASEYIn_628_View_System_Details_Components_Modal extends UITestBase {
 
     @Test
     public void tests () {
