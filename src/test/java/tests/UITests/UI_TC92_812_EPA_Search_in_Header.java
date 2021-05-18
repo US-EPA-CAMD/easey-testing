@@ -33,6 +33,7 @@ public class UI_TC92_812_EPA_Search_in_Header extends UITestBase {
 
 //        Enter something into the search box field and click on the magnifying glass to initiate the search.
         input(monitoringPlansPage.search, "something");
+        waitFor(monitoringPlansPage.searchButton);
         click(monitoringPlansPage.searchButton);
 //                Then the system opens the link on the EPA website in a new tab to view the results
         changeTab();
