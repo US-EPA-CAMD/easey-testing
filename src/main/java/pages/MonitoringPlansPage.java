@@ -46,8 +46,11 @@ public class MonitoringPlansPage extends PageBase {
 //    @FindBy(xpath = "//tbody/tr[1]/td[4]/button[1]")
 //    public List<WebElement> tabs;
 
-    @FindBy(css = "div.selectedMPTab > div > div > h2 ")
+    @FindBy(css = "div.selectedMPTab > div > div > h2")
     public WebElement facilityTitle;
+
+    @FindBy(css = "div.selectedMPTab.padding-top-4 div.header:nth-child(1) > div.display-inline-block")
+    public WebElement facilityName;
 
     @FindBy(id = "showInactive")
     public WebElement showInactiveCheckbox;
@@ -109,6 +112,9 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (id = "Sections3")
     public WebElement sectionsDropdown;
 
+    @FindBy (css = "#Sections3 > option:nth-child(4)")
+    public WebElement monitoringMethods;
+
     @FindBy (css = "#Sections3 > option:nth-child(5)")
     public WebElement monitoringSystems;
 
@@ -163,7 +169,7 @@ public class MonitoringPlansPage extends PageBase {
     public WebElement dashboardTitle;
 
     @FindBy (css = "div.text-underline")
-    public WebElement dashWorkspaceTitle;
+    public WebElement dashWorkspace;
 
     @FindBy (css = "#MenuDropDown > li:nth-child(1) > a")
     public WebElement dashMonPlan;
