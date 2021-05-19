@@ -36,10 +36,6 @@ public class Test_EASEYIn_628_View_System_Details_Components_Modal extends UITes
         click(monitoringPlansPage.monitoringSystems);
         //The data for Monitoring Systems appears in the Systems table
 
-        //Opening Accordion Table
-        waitFor(monitoringPlansPage.accordionButton);
-        click(monitoringPlansPage.accordionButton);
-
         //Click on View under the Actions column
         waitFor(driver -> monitoringPlansPage.systemTableButtonList.size() > 1);
         click(monitoringPlansPage.systemTableButtonList.get(0));
