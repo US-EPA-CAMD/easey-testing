@@ -48,7 +48,7 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
         verifyEquals(monitoringPlansPage.facilityName, "Barry");
 
         // The pre selected Sections option of Monitoring Systems should still be selected
-        Assert.assertEquals(true, monitoringPlansPage.monitoringMethods.isSelected());
+        Assert.assertEquals(true, monitoringPlansPage.monitoringSystems.isSelected());
 
     }
 }
