@@ -31,6 +31,7 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
         verifyEquals(monitoringPlansPage.facilityTitle, facility);
 
         // Selecting Monitoring Systems under Sections Dropdown
+        waitFor(monitoringPlansPage.monitoringMethods);
         click(monitoringPlansPage.monitoringSystems);
         Assert.assertEquals(true, monitoringPlansPage.monitoringSystems.isSelected());
 
