@@ -18,8 +18,7 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr")
     public List<WebElement> tableResults;
-//    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td:nth-child(4) > button")
-//    public List<WebElement> openTab;
+
     @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td:nth-child(4) > button")
     public List<WebElement> openFacilityTab;
 
@@ -140,17 +139,13 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.grid-col.padding-bottom-2.padding-right-3 > div > label")
     public WebElement modalSystemID;
 
-//    @FindBy (css = "div.grid-row:nth-child(1) div.grid-col:nth-child(2) div:nth-child(1) div:nth-child(1) div.usa-form-group.margin-top-0 > label.usa-label")
-//    public WebElement modalSystemDesignation;
-    @FindBy (xpath = "//label[contains(text(),'System Designation')]")
+    @FindBy (css = "label[for='System DesignationP']")
     public WebElement modalSystemDesignation;
 
-    @FindBy (css = "div.grid-col.padding-bottom-2.padding-right-3 > div > div > div > label")
+    @FindBy (css = "label[for='System TypeGAS']")
     public WebElement modalSystemType;
 
-//    @FindBy (css = "div.modal-body.modal-color > div > div > div > form > div:nth-child(2) > div:nth-child(2) > div > div > div > label")
-//    public WebElement modalFuelType;
-    @FindBy (xpath = "//label[contains(text(),'Fuel Type')]")
+    @FindBy (css = "label[for='Fuel TypePNG']")
     public WebElement modalFuelType;
 
     @FindBy (id = "dateStart")
