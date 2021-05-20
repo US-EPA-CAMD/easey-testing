@@ -40,11 +40,15 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
 
         // Clicking on the Gadsden facility and its tab
         click(monitoringPlansPage.openFacilityTab.get(2));
+        waitFor(monitoringPlansPage.tabs.get(2));
         click(monitoringPlansPage.tabs.get(2));
+        waitFor(monitoringPlansPage.facilityName);
         verifyEquals(monitoringPlansPage.facilityName, "Gadsden");
 
         // Back to the Berry Tab
+        waitFor(monitoringPlansPage.tabs.get(1));
         click(monitoringPlansPage.tabs.get(1));
+        waitFor(monitoringPlansPage.facilityName);
         verifyEquals(monitoringPlansPage.facilityName, "Barry");
 
         // The pre selected Sections option of Monitoring Systems should still be selected

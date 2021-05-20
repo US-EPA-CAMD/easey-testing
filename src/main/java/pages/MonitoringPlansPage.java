@@ -43,7 +43,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "ul.usa-button-group.usa-button-group--segmented > li")
     public List<WebElement> tabs;
 
-    @FindBy(css = "div.selectedMPTab > div > div > h2")
+    @FindBy(css = "div.grid-col.minh-tablet-lg.margin-x-2 > div > div:nth-child(2) > div > div > div:nth-child(1) > ul > li:nth-child(2) > button > span")
     public WebElement facilityTitle;
 
     @FindBy(css = "div.selectedMPTab.padding-top-4 div.header:nth-child(1) > div.display-inline-block")
@@ -109,10 +109,10 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (id = "Sections3")
     public WebElement sectionsDropdown;
 
-    @FindBy (css = "#Sections3 > option:nth-child(4)")
+    @FindBy (css = "#\\33 > option:nth-child(4)")
     public WebElement monitoringMethods;
 
-    @FindBy (css = "#Sections3 > option:nth-child(5)")
+    @FindBy (css = "#\\33 > option:nth-child(5)")
     public WebElement monitoringSystems;
 
     @FindBy (css = "button.usa-accordion__button > div.methodHeader")
