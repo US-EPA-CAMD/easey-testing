@@ -65,6 +65,7 @@ public class UI_TC91_811_EPA_Menu_in_Header extends UITestBase {
 
         action.moveToElement(monitoringPlansPage.environmentalTopicsMenuDropDown, 100, 0).click().perform();
 
+
 //        Laws & Regulations
         waitFor(monitoringPlansPage.lawsAndRegulationsMenuDropDown);
         action.moveToElement(monitoringPlansPage.lawsAndRegulationsMenuDropDown, 100, 0).click().perform();
