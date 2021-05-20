@@ -28,6 +28,7 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
         //A new tab with the name of the selected facility should appear along with its Monitoring Plans data
         verifyTrue(monitoringPlansPage.tabs.size() == 2);
         click(monitoringPlansPage.tabs.get(1));
+        waitFor(monitoringPlansPage.facilityTitle);
         verifyEquals(monitoringPlansPage.facilityTitle, facility);
 
         // Selecting Monitoring Systems under Sections Dropdown
@@ -42,14 +43,14 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
         click(monitoringPlansPage.openFacilityTab.get(2));
         waitFor(monitoringPlansPage.tabs.get(2));
         click(monitoringPlansPage.tabs.get(2));
-        waitFor(monitoringPlansPage.facilityName);
-        verifyEquals(monitoringPlansPage.facilityName, "Gadsden");
+        waitFor(monitoringPlansPage.facilityTitle);
+        verifyEquals(monitoringPlansPage.facilityTitle, "Gadsden");
 
         // Back to the Berry Tab
         waitFor(monitoringPlansPage.tabs.get(1));
         click(monitoringPlansPage.tabs.get(1));
-        waitFor(monitoringPlansPage.facilityName);
-        verifyEquals(monitoringPlansPage.facilityName, "Barry");
+        waitFor(monitoringPlansPage.facilityTitle);
+        verifyEquals(monitoringPlansPage.facilityTitle, "Barry");
 
         // The pre selected Sections option of Monitoring Systems should still be selected
         Assert.assertEquals(true, monitoringPlansPage.monitoringSystems.isSelected());

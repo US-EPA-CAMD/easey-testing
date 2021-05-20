@@ -27,11 +27,10 @@ public class Test_EASEYIn_628_View_System_Details_Components_Modal extends UITes
         //A new tab with the name of the selected facility should appear along with its Monitoring Plans data
         verifyTrue(monitoringPlansPage.tabs.size() == 2);
         click(monitoringPlansPage.tabs.get(1));
+        waitFor(monitoringPlansPage.facilityTitle);
         verifyEquals(monitoringPlansPage.facilityTitle, facility);
 
         //Under the Sections dropdown list select Monitoring Systems
-        waitFor(monitoringPlansPage.sectionsDropdown);
-        click(monitoringPlansPage.sectionsDropdown);
         waitFor(monitoringPlansPage.monitoringSystems);
         click(monitoringPlansPage.monitoringSystems);
         //The data for Monitoring Systems appears in the Systems table

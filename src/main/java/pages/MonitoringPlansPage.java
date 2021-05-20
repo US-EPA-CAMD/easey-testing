@@ -43,11 +43,8 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "ul.usa-button-group.usa-button-group--segmented > li")
     public List<WebElement> tabs;
 
-    @FindBy(css = "div.grid-col.minh-tablet-lg.margin-x-2 > div > div:nth-child(2) > div > div > div:nth-child(1) > ul > li:nth-child(2) > button > span")
+    @FindBy(css = "div.selectedMPTab.padding-top-4 > div > div > h2")
     public WebElement facilityTitle;
-
-    @FindBy(css = "div.selectedMPTab.padding-top-4 div.header:nth-child(1) > div.display-inline-block")
-    public WebElement facilityName;
 
     @FindBy(id = "showInactive")
     public WebElement showInactiveCheckbox;
@@ -106,7 +103,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(id = "close")
     public WebElement footerClose;
 
-    @FindBy (id = "Sections3")
+    @FindBy (id = "3")
     public WebElement sectionsDropdown;
 
     @FindBy (css = "#\\33 > option:nth-child(4)")
