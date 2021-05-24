@@ -49,6 +49,9 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "label[for='1']")
     public WebElement showInactiveCheckbox;
 
+    @FindBy(css = "#root > div > div > div.grid-row > div.grid-col.minh-tablet-lg.margin-x-2 > div > div:nth-child(2) > div > div > div.tabContent > div > div > div > div > div.header > div.row > div.selects.column > div.configurations-container > div > div > div.usa-form-group.margin-right-2.margin-bottom-1")
+    public WebElement configurationsField;
+
     @FindBy(css = "div.configurations-container > div > div > select")
     public WebElement configurationsDropdown;
 
@@ -57,6 +60,9 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "#\\30")
     public WebElement locationsDropdown;
+
+    @FindBy(css = "select[name='optionList']")
+    public WebElement locationsField;
 
     @FindBy(css = "button.display-block.usa-button.radius-md.bg-white.text-primary")
     public WebElement menuBtn;
