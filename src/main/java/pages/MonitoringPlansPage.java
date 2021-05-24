@@ -16,10 +16,10 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "table.usa-table.usa-table--borderless")
     public WebElement table;
 
-    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr")
+    @FindBy(css = "div[class='sc-dIvrsQ gkZcBD rdt_TableBody'] > div")
     public List<WebElement> tableResults;
 
-    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td:nth-child(4) > button")
+    @FindBy(css = "div[class='sc-dIvrsQ gkZcBD rdt_TableBody'] > div > div:nth-child(4)")
     public List<WebElement> openFacilityTab;
 
     @FindBy(id = "input-dropdown")
