@@ -46,14 +46,17 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.selectedMPTab.padding-top-4 > div > div > h2")
     public WebElement facilityTitle;
 
-    @FindBy(id = "showInactive")
+    @FindBy(css = "label[for='1']")
     public WebElement showInactiveCheckbox;
 
     @FindBy(css = "div.configurations-container > div > div > select")
     public WebElement configurationsDropdown;
 
-    @FindBy(css = "optgroup[label='Inactive']")
+    @FindBy(css = "#\\33")
     public WebElement inactiveConfigurations;
+
+    @FindBy(css = "#\\30")
+    public WebElement locationsDropdown;
 
     @FindBy(css = "button.display-block.usa-button.radius-md.bg-white.text-primary")
     public WebElement menuBtn;

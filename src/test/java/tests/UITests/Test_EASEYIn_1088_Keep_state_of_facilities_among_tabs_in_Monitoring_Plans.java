@@ -1,5 +1,6 @@
 package tests.UITests;
 
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
@@ -35,6 +36,25 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
         waitFor(monitoringPlansPage.monitoringMethods);
         click(monitoringPlansPage.monitoringSystems);
         assertTrue(monitoringPlansPage.monitoringSystems.isSelected());
+
+        //
+        click(monitoringPlansPage.showInactiveCheckbox);
+//        assertTrue(monitoringPlansPage.showInactiveCheckbox.isSelected());
+
+
+        Select configuration = new Select(monitoringPlansPage.inactiveConfigurations);
+
+        // Selection from Configuration
+        configuration.selectByVisibleText("5, MS5C, MS5D, MS5E");
+        assertEquals(monitoringPlansPage.inactiveConfigurations.getText(),"5, MS5C, MS5D, MS5E");
+
+        Select location = new Select(monitoringPlansPage.locationsDropdown);
+        // Selection from Location
+        location.selectByVisibleText("MS5E");
+        assertEquals(monitoringPlansPage.locationsDropdown.isSelected(),"MS5E");
+
+
+
 
         // Back to Select Facility page
         click(monitoringPlansPage.tabs.get(0));
