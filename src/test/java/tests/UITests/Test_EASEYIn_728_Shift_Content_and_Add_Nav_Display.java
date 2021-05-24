@@ -22,11 +22,11 @@ public class Test_EASEYIn_728_Shift_Content_and_Add_Nav_Display extends UITestBa
         verifyEquals(monitoringPlansPage.dashboardTitle, "EASEY-In Dashboard");
 
         verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
-        Assert.assertTrue(monitoringPlansPage.dashMonPlan.isDisplayed());
+        assertTrue(isDisplayed(monitoringPlansPage.dashMonPlan));
         click(monitoringPlansPage.dashWorkspace);
-        Assert.assertFalse(monitoringPlansPage.dashMonPlan.isDisplayed());
+        assertFalse(isDisplayed(monitoringPlansPage.dashMonPlan));
         click(monitoringPlansPage.dashWorkspace);
-        Assert.assertTrue(monitoringPlansPage.dashMonPlan.isDisplayed());
+        assertTrue(isDisplayed(monitoringPlansPage.dashMonPlan));
         verifyEquals(monitoringPlansPage.dashMonPlan, "- Monitoring Plans");
 
         // This is part of the message that appears when a page does not exist yet.
