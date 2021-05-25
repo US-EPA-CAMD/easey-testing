@@ -37,21 +37,17 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
         click(monitoringPlansPage.monitoringSystems);
         assertTrue(monitoringPlansPage.monitoringSystems.isSelected());
 
-        //
+        // Show Inactive button selected
+        verifyNotDisplayed(monitoringPlansPage.inactiveLabel);
         click(monitoringPlansPage.showInactiveCheckbox);
-        // Add Assertion -----------------
+        verifyTrue(isDisplayed(monitoringPlansPage.inactiveLabel));
 
-
-        // Selection from Configuration
-        // ("5, MS5C, MS5D, MS5E");
+        // Configuration 5, MS5C, MS5D, MS5E
         click(monitoringPlansPage.configurationsField.get(13));
         assertTrue(isDisplayed(monitoringPlansPage.configurationsField.get(13)));
-
-
-        Select locations = new Select(monitoringPlansPage.locationsDropdown);
-        // Selection from Location
-        locations.selectByVisibleText("MS5E");
-        // Add Assertion -------------
+        // Location MS5E
+        click(monitoringPlansPage.locationsField.get(3));
+        assertTrue(isDisplayed(monitoringPlansPage.locationsField.get(3)));
 
         // Back to Select Facility page
         click(monitoringPlansPage.tabs.get(0));
@@ -71,13 +67,12 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
 
         // The pre selected Sections option of Monitoring Systems should still be selected
         assertTrue(monitoringPlansPage.monitoringSystems.isSelected());
-
-        // Add Assertions to confirm that the original selections are still visible
-        // Selection from Configuration
-        // ("5, MS5C, MS5D, MS5E");
-        click(monitoringPlansPage.configurationsField.get(13));
+        // Show Inactive button
+        verifyTrue(isDisplayed(monitoringPlansPage.inactiveLabel));
+        // Configuration 5, MS5C, MS5D, MS5E
         assertTrue(isDisplayed(monitoringPlansPage.configurationsField.get(13)));
-        //        locations.selectByVisibleText("MS5E");
+        // Location MS5E
+        assertTrue(isDisplayed(monitoringPlansPage.locationsField.get(3)));
 
     }
 }
