@@ -42,10 +42,11 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
         // Add Assertion -----------------
 
 
-        Select configurations = new Select(monitoringPlansPage.inactiveConfigurations);
         // Selection from Configuration
-        configurations.selectByVisibleText("5, MS5C, MS5D, MS5E");
-        // Add Assertion -----------------
+        // ("5, MS5C, MS5D, MS5E");
+        click(monitoringPlansPage.configurationsField.get(13));
+        assertTrue(isDisplayed(monitoringPlansPage.configurationsField.get(13)));
+
 
         Select locations = new Select(monitoringPlansPage.locationsDropdown);
         // Selection from Location
@@ -72,8 +73,11 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Monitoring
         assertTrue(monitoringPlansPage.monitoringSystems.isSelected());
 
         // Add Assertions to confirm that the original selections are still visible
-//        configurations.selectByVisibleText("5, MS5C, MS5D, MS5E");
-//        locations.selectByVisibleText("MS5E");
+        // Selection from Configuration
+        // ("5, MS5C, MS5D, MS5E");
+        click(monitoringPlansPage.configurationsField.get(13));
+        assertTrue(isDisplayed(monitoringPlansPage.configurationsField.get(13)));
+        //        locations.selectByVisibleText("MS5E");
 
     }
 }
