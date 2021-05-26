@@ -1,0 +1,66 @@
+package tests.UITests;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.MonitoringPlansPage;
+import tests.utils.UITestBase;
+
+public class Test_EASEYIn_728_Shift_Content_and_Add_Nav_Display extends UITestBase {
+
+    @Test
+    public void tests () {
+
+        //Navigate to EASEY In
+        //https://easey-dev.app.cloud.gov/monitoring-plans
+
+        goTo("https://easey-dev.app.cloud.gov/monitoring-plans");
+
+        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+
+        verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
+
+        verifyEquals(monitoringPlansPage.dashboardTitle, "EASEY-In Dashboard");
+
+        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
+        assertTrue(isDisplayed(monitoringPlansPage.dashMonPlan));
+        click(monitoringPlansPage.dashWorkspace);
+        assertFalse(isDisplayed(monitoringPlansPage.dashMonPlan));
+        click(monitoringPlansPage.dashWorkspace);
+        assertTrue(isDisplayed(monitoringPlansPage.dashMonPlan));
+        verifyEquals(monitoringPlansPage.dashMonPlan, "- Monitoring Plans");
+
+        // This is part of the message that appears when a page does not exist yet.
+        String sorryMessage = "Sorry, but this web page does not exist.";
+
+        verifyEquals(monitoringPlansPage.dashQaCert, "- QA & Certifications");
+        click(monitoringPlansPage.dashQaCert);
+        verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
+
+        verifyEquals(monitoringPlansPage.dashEmissions, "- Emissions");
+        click(monitoringPlansPage.dashEmissions);
+        verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
+
+        click(monitoringPlansPage.dashMonPlan);
+        verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
+
+        verifyEquals(monitoringPlansPage.dashCamdApps, "CAMD Apps");
+        click(monitoringPlansPage.dashCamdApps);
+        verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
+
+        verifyEquals(monitoringPlansPage.dashProfile, "Profile");
+        click(monitoringPlansPage.dashProfile);
+        verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
+
+        verifyEquals(monitoringPlansPage.dashAccountMan, "Account Management");
+        click(monitoringPlansPage.dashAccountMan);
+        verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
+
+        verifyEquals(monitoringPlansPage.dashHelpContact, "Help & Contact");
+        click(monitoringPlansPage.dashHelpContact);
+        verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
+
+        click(monitoringPlansPage.dashMonPlan);
+        verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
+
+    }
+}

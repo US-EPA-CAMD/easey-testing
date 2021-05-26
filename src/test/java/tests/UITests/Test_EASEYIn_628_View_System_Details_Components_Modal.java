@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBase {
+public class Test_EASEYIn_628_View_System_Details_Components_Modal extends UITestBase {
 
     @Test
     public void tests () {
@@ -22,23 +22,18 @@ public class UI_TC117_628_View_System_Details_Components_Modal extends UITestBas
         // (Barry AL, Oris Code 3 was mainly used for this test) and select the open tab.
         waitFor(driver -> monitoringPlansPage.tableResults.size() > 3);
         String facility = monitoringPlansPage.tableResults.get(0).getText().split("\n")[1];
-        click(monitoringPlansPage.tableResults.get(0));
+        click(monitoringPlansPage.openFacilityTab.get(0));
 
         //A new tab with the name of the selected facility should appear along with its Monitoring Plans data
         verifyTrue(monitoringPlansPage.tabs.size() == 2);
         click(monitoringPlansPage.tabs.get(1));
+        waitFor(monitoringPlansPage.facilityTitle);
         verifyEquals(monitoringPlansPage.facilityTitle, facility);
 
         //Under the Sections dropdown list select Monitoring Systems
-        waitFor(monitoringPlansPage.sectionsDropdown);
-        click(monitoringPlansPage.sectionsDropdown);
         waitFor(monitoringPlansPage.monitoringSystems);
         click(monitoringPlansPage.monitoringSystems);
         //The data for Monitoring Systems appears in the Systems table
-
-        //Opening Accordion Table
-        waitFor(monitoringPlansPage.accordionButton);
-        click(monitoringPlansPage.accordionButton);
 
         //Click on View under the Actions column
         waitFor(driver -> monitoringPlansPage.systemTableButtonList.size() > 1);

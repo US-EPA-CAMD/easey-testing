@@ -30,6 +30,8 @@ public class UI_TC91_811_EPA_Menu_in_Header extends UITestBase {
 //        click(monitoringPlansPage.environmentalTopicsMenuDropDown);
 
         Actions action = new Actions(driver);
+
+        waitFor(monitoringPlansPage.environmentalTopicsMenuDropDown);
         action.moveToElement(monitoringPlansPage.environmentalTopicsMenuDropDown, 100, 0).click().perform();
 
 //        Air
@@ -61,8 +63,11 @@ public class UI_TC91_811_EPA_Menu_in_Header extends UITestBase {
 //        A-Z Topic Index
         verifyEquals(monitoringPlansPage.environmentalTopics.get(13), "A-Z Topic Index");
 
-//        Laws & Regulations
+        action.moveToElement(monitoringPlansPage.environmentalTopicsMenuDropDown, 100, 0).click().perform();
 
+
+//        Laws & Regulations
+        waitFor(monitoringPlansPage.lawsAndRegulationsMenuDropDown);
         action.moveToElement(monitoringPlansPage.lawsAndRegulationsMenuDropDown, 100, 0).click().perform();
 
 //        By Business Sector
@@ -80,9 +85,11 @@ public class UI_TC91_811_EPA_Menu_in_Header extends UITestBase {
 //        Regulations
         verifyEquals(monitoringPlansPage.lawsAndRegulations.get(6), "Regulations");
 
+        action.moveToElement(monitoringPlansPage.lawsAndRegulationsMenuDropDown, 100, 0).click().perform();
+
 
 //        About EPA
-
+        waitFor(monitoringPlansPage.aboutEPAMenuDropDown);
         action.moveToElement(monitoringPlansPage.aboutEPAMenuDropDown, 100, 0).click().perform();
 
 //        Organization Chart

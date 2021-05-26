@@ -16,8 +16,11 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "table.usa-table.usa-table--borderless")
     public WebElement table;
 
-    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr")
+    @FindBy(css = "div[class='sc-dIvrsQ gkZcBD rdt_TableBody'] > div")
     public List<WebElement> tableResults;
+
+    @FindBy(css = "div[class='sc-dIvrsQ gkZcBD rdt_TableBody'] > div > div:nth-child(4)")
+    public List<WebElement> openFacilityTab;
 
     @FindBy(id = "input-dropdown")
     public WebElement paginationDropdown;
@@ -34,28 +37,37 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "li.paginate_button.active")
     public WebElement currentPage;
 
-    @FindBy(css = "h1.title")
+    @FindBy(css = "h1.display-inline-block")
     public WebElement title;
 
     @FindBy(css = "ul.usa-button-group.usa-button-group--segmented > li")
     public List<WebElement> tabs;
 
-    @FindBy(css = "div.selectedMPTab > div > div > h2 ")
+    @FindBy(css = "div.selectedMPTab.padding-top-4 > div > div > h2")
     public WebElement facilityTitle;
 
-    @FindBy(id = "showInactive")
+    @FindBy(css = "label[for='1']")
     public WebElement showInactiveCheckbox;
+
+    @FindBy(css = "optgroup[label='Inactive']")
+    public WebElement inactiveLabel;
+
+    @FindBy(css = "optgroup > option")
+    public List<WebElement> configurationsField;
 
     @FindBy(css = "div.configurations-container > div > div > select")
     public WebElement configurationsDropdown;
 
-    @FindBy(css = "optgroup[label='Inactive']")
+    @FindBy(css = "#\\33")
     public WebElement inactiveConfigurations;
 
-    @FindBy(css = "button.usa-button.menuBTN")
+    @FindBy(css = "select[name='optionList'] > option")
+    public List<WebElement> locationsField;
+
+    @FindBy(css = "button.display-block.usa-button.radius-md.bg-white.text-primary")
     public WebElement menuBtn;
 
-    @FindBy(css = "div.mainMenu > nav")
+    @FindBy(css = "nav.usa-nav.is-visible")
     public WebElement menuNav;
 
     @FindBy(css = "button[aria-controls='Environmental TopicsMenuDropDown']")
@@ -79,7 +91,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(id = "search-field")
     public WebElement search;
 
-    @FindBy(id = "input-button-search")
+    @FindBy(css = "form.usa-search.usa-search--small.search-field > button.usa-button")
     public WebElement searchButton;
 
     @FindBy(id = "collapsable")
@@ -100,10 +112,13 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(id = "close")
     public WebElement footerClose;
 
-    @FindBy (id = "Sections")
+    @FindBy (id = "3")
     public WebElement sectionsDropdown;
 
-    @FindBy (css = "#Sections > option:nth-child(5)")
+    @FindBy (css = "#\\33 > option:nth-child(4)")
+    public WebElement monitoringMethods;
+
+    @FindBy (css = "#\\33 > option:nth-child(5)")
     public WebElement monitoringSystems;
 
     @FindBy (css = "button.usa-accordion__button > div.methodHeader")
@@ -127,16 +142,16 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.modalDetails > h2")
     public WebElement modalTitle;
 
-    @FindBy (css = "div.usa-form-group.dateLabels")
+    @FindBy (css = "div.grid-col.padding-bottom-2.padding-right-3 > div > label")
     public WebElement modalSystemID;
 
-    @FindBy (css = "div:nth-child(1) > div.modalColumnRight > div > div > div > label")
+    @FindBy (css = "label[for='System DesignationP']")
     public WebElement modalSystemDesignation;
 
-    @FindBy (css = "div.modalColumn > div > div > div > label")
+    @FindBy (css = "label[for='System TypeGAS']")
     public WebElement modalSystemType;
 
-    @FindBy (css = "div:nth-child(2) > div.modalColumnRight > div > div > div > label")
+    @FindBy (css = "label[for='Fuel TypePNG']")
     public WebElement modalFuelType;
 
     @FindBy (id = "dateStart")
@@ -144,5 +159,35 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy (id = "dateEnd")
     public WebElement modalEndTimeDate;
+
+    @FindBy (css = "h5.padding-0.padding-left-5px")
+    public WebElement dashboardTitle;
+
+    @FindBy (css = "div.text-underline")
+    public WebElement dashWorkspace;
+
+    @FindBy (css = "#MenuDropDown > li:nth-child(1) > a")
+    public WebElement dashMonPlan;
+
+    @FindBy (css = "#MenuDropDown > li:nth-child(2) > a")
+    public WebElement dashQaCert;
+
+    @FindBy (css = "#MenuDropDown > li:nth-child(3) > a")
+    public WebElement dashEmissions;
+
+    @FindBy (css = "div.accessoryLink:nth-child(1) > a.text-white:nth-child(2)")
+    public WebElement dashCamdApps;
+
+    @FindBy (css = "div.accessoryLink:nth-child(2) > a.text-white:nth-child(2)")
+    public WebElement dashProfile;
+
+    @FindBy (css = "div.text-white:nth-child(3) > a.text-white:nth-child(2)")
+    public WebElement dashAccountMan;
+
+    @FindBy (css = "div.accessoryLink:nth-child(4) > a.text-white:nth-child(2)")
+    public WebElement dashHelpContact;
+
+    @FindBy (css = "div.text-center > h1")
+    public WebElement pageDoesntExist;
 
 }
