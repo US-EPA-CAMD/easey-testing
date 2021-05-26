@@ -190,4 +190,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.text-center > h1")
     public WebElement pageDoesntExist;
 
+    @FindBy(css = "")
+    public WebElement logIn;
+
 }
