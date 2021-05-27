@@ -19,24 +19,28 @@ public class Test_EASEYIn_1414_Display_login_welcome extends UITestBase {
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         // Click Log In button on dashboard
-        verifyEquals(monitoringPlansPage.logIn, "Log In");
-        click(monitoringPlansPage.logIn);
+        verifyEquals(monitoringPlansPage.logInButton, "Log In");
+        click(monitoringPlansPage.logInButton);
         // Log In modal pops up.
+        verifyEquals(monitoringPlansPage.logInLabel, "Log In");
         // Enter Username
+        verifyEquals(monitoringPlansPage.usernameLabel, "Username");
+        monitoringPlansPage.usernameField.sendKeys("username");
         // Enter Password
+        verifyEquals(monitoringPlansPage.passwordLabel, "Username");
+        monitoringPlansPage.passwordField.sendKeys("password");
         // Click Log In
+        click(monitoringPlansPage.logInButton);
         // Welcome note appears on Dashboard Navigation
             // A Person Icon with the words "Welcome, [User's first name]"
+        verifyEquals(monitoringPlansPage.welcomeMessage, "Welcome, \"John\"");
             // The Log In button now says Log Out
         //Click Log Out button
+        verifyEquals(monitoringPlansPage.logOutButton, "Log Out");
+        click(monitoringPlansPage.logOutButton);
         // Confirm that the Logout has occurred
-
-
-
-
-
-
-
+        waitFor(monitoringPlansPage.logInButton);
+        verifyEquals(monitoringPlansPage.logInButton, "Log In");
 
     }
 }

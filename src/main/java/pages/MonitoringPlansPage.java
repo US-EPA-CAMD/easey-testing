@@ -190,7 +190,28 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.text-center > h1")
     public WebElement pageDoesntExist;
 
-    @FindBy(css = "")
-    public WebElement logIn;
+    @FindBy(xpath = "//legend[contains(text(),'Log In')]")
+    public WebElement logInLabel;
+
+    @FindBy(css = "button[data-test='component-login-submit-button']")
+    public WebElement logInButton;
+
+    @FindBy (css ="label[for='username']")
+    public WebElement usernameLabel;
+
+    @FindBy (id ="username")
+    public WebElement usernameField;
+
+    @FindBy (css ="label[for='password']")
+    public WebElement passwordLabel;
+
+    @FindBy (id ="password")
+    public WebElement passwordField;
+
+    @FindBy (css = "a[title='Go to the Profile page']")
+    public WebElement welcomeMessage;
+
+    @FindBy(xpath = "//button[contains(text(),'Log Out')]")
+    public WebElement logOutButton;
 
 }
