@@ -33,7 +33,7 @@ public class Test_EASEYIn_1414_Display_login_welcome extends UITestBase {
         click(monitoringPlansPage.logInButton);
         // Welcome note appears on Dashboard Navigation
             // A Person Icon with the words "Welcome, [User's first name]"
-        verifyEquals(monitoringPlansPage.welcomeMessage, "Welcome, \"John\"");
+        verifyEquals(monitoringPlansPage.welcomeMessage, "Welcome, \"Moses\"");
             // The Log In button now says Log Out
         //Click Log Out button
         verifyEquals(monitoringPlansPage.logOutButton, "Log Out");

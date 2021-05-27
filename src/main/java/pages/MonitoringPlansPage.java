@@ -211,7 +211,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "a[title='Go to the Profile page']")
     public WebElement welcomeMessage;
 
-    @FindBy(xpath = "//button[contains(text(),'Log Out')]")
+    @FindBy(css = "div.accessoryLink > button")
     public WebElement logOutButton;
 
 }
