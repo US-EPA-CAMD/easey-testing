@@ -22,6 +22,8 @@ public class Test_EASEYIn_1413_Access_users_Workspace extends UITestBase {
         String sorryMessage = "Sorry, but this web page does not exist.";
 
         // Verify Home Label
+        verifyEquals(monitoringPlansPage.dashHomeTitle, "Home");
+
         // Verify Mon Plans
         verifyEquals(monitoringPlansPage.dashMonPlan, "Monitoring Plans");
 
@@ -35,7 +37,7 @@ public class Test_EASEYIn_1413_Access_users_Workspace extends UITestBase {
         click(monitoringPlansPage.dashEmissions);
         verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
 
-        // Verify  that the Monitoring Plans page has reappeared
+        // Verify that the Monitoring Plans page has reappeared
         click(monitoringPlansPage.dashMonPlan);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 

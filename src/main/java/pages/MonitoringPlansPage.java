@@ -163,28 +163,31 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "h5.padding-0.padding-left-5px")
     public WebElement dashboardTitle;
 
+    @FindBy (css = "a[title='Go to the home page']")
+    public WebElement dashHomeTitle;
+
     @FindBy (css = "div.text-underline")
     public WebElement dashWorkspace;
 
-    @FindBy (css = "#MenuDropDown > li:nth-child(1) > a")
+    @FindBy (css = "a[title='Go to the Monitoring Plans page']")
     public WebElement dashMonPlan;
 
-    @FindBy (css = "#MenuDropDown > li:nth-child(2) > a")
+    @FindBy (css = "a[title='Go to the QA & Certifications page']")
     public WebElement dashQaCert;
 
-    @FindBy (css = "#MenuDropDown > li:nth-child(3) > a")
+    @FindBy (css = "a[title='Go to the Emissions page']")
     public WebElement dashEmissions;
 
-    @FindBy (css = "div.accessoryLink:nth-child(1) > a.text-white:nth-child(2)")
+    @FindBy (css = "a[title='Go to the  CAMD Apps page']")
     public WebElement dashCamdApps;
 
-    @FindBy (css = "div.accessoryLink:nth-child(2) > a.text-white:nth-child(2)")
+    @FindBy (css = "a[title='Go to the Profile page']")
     public WebElement dashProfile;
 
-    @FindBy (css = "div.text-white:nth-child(3) > a.text-white:nth-child(2)")
+    @FindBy (css = "a[title='Go to the Account Management page']")
     public WebElement dashAccountMan;
 
-    @FindBy (css = "div.accessoryLink:nth-child(4) > a.text-white:nth-child(2)")
+    @FindBy (css = "a[title='Go to the help page']")
     public WebElement dashHelpContact;
 
     @FindBy (css = "div.text-center > h1")
@@ -193,8 +196,11 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(xpath = "//legend[contains(text(),'Log In')]")
     public WebElement logInLabel;
 
-    @FindBy(css = "button[data-test='component-login-submit-button']")
+    @FindBy(css = "div.padding-bottom-4.position-absolute.bottom-0 > button")
     public WebElement logInButton;
+
+    @FindBy(css = "div.modal-wrapper.modal-color > div > div > div > div > form > fieldset > button")
+    public WebElement logInButtonModal;
 
     @FindBy (css ="label[for='username']")
     public WebElement usernameLabel;
@@ -208,7 +214,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (id ="password")
     public WebElement passwordField;
 
-    @FindBy (css = "a[title='Go to the Profile page']")
+    @FindBy (css = "div.padding-bottom-4.position-absolute.bottom-0 > div > div:nth-child(1) > div:nth-child(1)")
     public WebElement welcomeMessage;
 
     @FindBy(css = "div.accessoryLink > button")
