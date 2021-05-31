@@ -136,7 +136,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "button.saveCloseBTN")
     public WebElement saveCloseModal;
 
-    @FindBy (css = "table.usa-table.usa-table--borderless > thead > tr > th")
+    @FindBy (css = "table.usa-table.usa-table--borderless > thead > tr > th:nth-child(1)")
     public WebElement systemIDTitle;
 
     @FindBy(css = "div.modalDetails > h2")
