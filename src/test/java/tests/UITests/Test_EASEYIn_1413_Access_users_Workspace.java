@@ -25,20 +25,20 @@ public class Test_EASEYIn_1413_Access_users_Workspace extends UITestBase {
         verifyEquals(monitoringPlansPage.dashHomeTitle, "Home");
 
         // Verify Mon Plans
-        verifyEquals(monitoringPlansPage.dashMonPlan, "Monitoring Plans");
+        verifyEquals(monitoringPlansPage.dashMonPlan.get(0), "Monitoring Plans");
 
         // Verify QA & Cert
-        verifyEquals(monitoringPlansPage.dashQaCert, "QA & Certifications");
-        click(monitoringPlansPage.dashQaCert);
+        verifyEquals(monitoringPlansPage.dashQaCert.get(0), "QA & Certifications");
+        click(monitoringPlansPage.dashQaCert.get(0));
         verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
 
         // Verify Emissions
-        verifyEquals(monitoringPlansPage.dashEmissions, "Emissions");
-        click(monitoringPlansPage.dashEmissions);
+        verifyEquals(monitoringPlansPage.dashEmissions.get(0), "Emissions");
+        click(monitoringPlansPage.dashEmissions.get(0));
         verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
 
         // Verify that the Monitoring Plans page has reappeared
-        click(monitoringPlansPage.dashMonPlan);
+        click(monitoringPlansPage.dashMonPlan.get(0));
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         // Verify Log In button
@@ -55,7 +55,7 @@ public class Test_EASEYIn_1413_Access_users_Workspace extends UITestBase {
         verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
 
         // Verify  that the Monitoring Plans page has reappeared
-        click(monitoringPlansPage.dashMonPlan);
+        click(monitoringPlansPage.dashMonPlan.get(0));
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
     }
