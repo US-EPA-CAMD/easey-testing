@@ -14,7 +14,8 @@ public class TestBase {
     private SoftAssert softAssert;
     protected final String osHome = System.getProperty("user.home");
     protected final String filePathBase = osHome + (osHome.contains("runner") ?
-            "/work/easey-testing/easey-testing" : "/EPACAMD/Testing") +
+            //           "/work/easey-testing/easey-testing" : "/EPACAMD/Testing") +
+            "/work/easey-testing/easey-testing" : "\\IdeaProjects\\easey-testing") +
             "/src/main/resources/";
     protected double num;
     
