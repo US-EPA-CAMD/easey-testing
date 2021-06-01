@@ -124,7 +124,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "button.usa-accordion__button > div.methodHeader")
     public WebElement accordionButton;
 
-    @FindBy(css = "div[id='cell-AR4P9ILDwo4-undefined']")
+    @FindBy(css = "div[class='cursor-pointer']")
     public List<WebElement> systemTableButtonList;
 
     @FindBy(css = "#close > i")
@@ -136,7 +136,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "button.saveCloseBTN")
     public WebElement saveCloseModal;
 
-    @FindBy (css = "table.usa-table.usa-table--borderless > thead > tr > th:nth-child(1)")
+    @FindBy (id = "column-col1")
     public WebElement systemIDTitle;
 
     @FindBy(css = "div.modalDetails > h2")
