@@ -124,7 +124,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "button.usa-accordion__button > div.methodHeader")
     public WebElement accordionButton;
 
-    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td > button")
+    @FindBy(css = "div[id='cell-AR4P9ILDwo4-undefined']")
     public List<WebElement> systemTableButtonList;
 
     @FindBy(css = "#close > i")
@@ -163,20 +163,20 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "h5.padding-0.padding-left-5px")
     public WebElement dashboardTitle;
 
-    @FindBy (css = "a[title='Go to the home page']")
+    @FindBy (css = "a[title='Go to Home page']")
     public WebElement dashHomeTitle;
 
-    @FindBy (css = "div.text-underline")
+    @FindBy (css = "a[title='Go to the workspace page']")
     public WebElement dashWorkspace;
 
-    @FindBy (css = "a[title='Go to the Monitoring Plans page']")
-    public WebElement dashMonPlan;
+    @FindBy (css = "a[title='Go to Monitoring Plans page']")
+    public List<WebElement> dashMonPlan;
 
-    @FindBy (css = "a[title='Go to the QA & Certifications page']")
-    public WebElement dashQaCert;
+    @FindBy (css = "a[title='Go to QA & Certifications page']")
+    public List<WebElement> dashQaCert;
 
-    @FindBy (css = "a[title='Go to the Emissions page']")
-    public WebElement dashEmissions;
+    @FindBy (css = "a[title='Go to Emissions page']")
+    public List<WebElement> dashEmissions;
 
     @FindBy (css = "a[title='Go to the  CAMD Apps page']")
     public WebElement dashCamdApps;
