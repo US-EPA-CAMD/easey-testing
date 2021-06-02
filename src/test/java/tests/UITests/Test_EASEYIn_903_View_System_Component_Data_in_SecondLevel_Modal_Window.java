@@ -39,23 +39,39 @@ public class Test_EASEYIn_903_View_System_Component_Data_in_SecondLevel_Modal_Wi
         waitFor(driver -> monitoringPlansPage.systemTableButtonList.size() > 1);
         click(monitoringPlansPage.systemTableButtonList.get(0));
 
+        // System Components Headers
+        verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
+        verifyEquals(monitoringPlansPage.componentIdHeader, "Component ID");
+        verifyEquals(monitoringPlansPage.componentTypeCodeHeader, "Type Code");
+        verifyEquals(monitoringPlansPage.componentBeginToEndDateHeader, "Begin to End Date");
+        verifyEquals(monitoringPlansPage.componentActionsHeader, "Actions");
+
+        // Verifying the View button under Actions
+        verifyEquals(monitoringPlansPage.componentsViewButton.get(0), "View");
+
+        // Verifying the Add Components button
+        verifyEquals(monitoringPlansPage.addComponentButton, "Add Component");
+
+
+
+
 
         // Validate the below labels
 
-        // Component ID (Required)
-        // Sample Acquisition Method
-        // Component Type (Required)
-        // Basis Description
-        // Manufacturer
-        // Model or Version
-        // Serial Number
-        // Hg Converter Indicator
-        // Start Date and Time (Required)
-            // dateFormatLabel
-            // hourFormatLabel
-        // End Date and Time
-            // dateFormatLabel
-            // hourFormatLabel
+//         Component ID (Required)
+//         Sample Acquisition Method
+//         Component Type (Required)
+//         Basis Description
+//         Manufacturer
+//         Model or Version
+//         Serial Number
+//         Hg Converter Indicator
+//         Start Date and Time (Required)
+//             dateFormatLabel
+//             hourFormatLabel
+//         End Date and Time
+//             dateFormatLabel
+//             hourFormatLabel
 
     }
 }

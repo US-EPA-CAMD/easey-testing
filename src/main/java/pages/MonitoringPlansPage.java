@@ -220,4 +220,25 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.accessoryLink > button")
     public WebElement logOutButton;
 
+    @FindBy (css = "div.systemsCompTable > div.container > div.tableHead > h3.float-left")
+    public WebElement systemComponentsHeader;
+
+    @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(1)")
+    public WebElement componentIdHeader;
+
+    @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(2)")
+    public WebElement componentTypeCodeHeader;
+
+    @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(3)")
+    public WebElement componentBeginToEndDateHeader;
+
+    @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(4)")
+    public WebElement componentActionsHeader;
+
+    @FindBy (css = "button[aria-label*='View']")
+    public List<WebElement> componentsViewButton;
+
+    @FindBy (css = "button[class='usa-button addCompBTN align-right']")
+    public WebElement addComponentButton;
+
 }
