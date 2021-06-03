@@ -46,32 +46,48 @@ public class Test_EASEYIn_903_View_System_Component_Data_in_SecondLevel_Modal_Wi
         verifyEquals(monitoringPlansPage.componentBeginToEndDateHeader, "Begin to End Date");
         verifyEquals(monitoringPlansPage.componentActionsHeader, "Actions");
 
-        // Verifying the View button under Actions
-        verifyEquals(monitoringPlansPage.componentsViewButton.get(0), "View");
-
         // Verifying the Add Components button
         verifyEquals(monitoringPlansPage.addComponentButton, "Add Component");
 
+        // Verifying the View button under Actions
+        waitFor(driver -> monitoringPlansPage.componentsViewButton.size() > 1);
+        verifyEquals(monitoringPlansPage.componentsViewButton.get(0), "View");
+        click(monitoringPlansPage.componentsViewButton.get(0));
 
+        //  Component ID
+        verifyEquals(monitoringPlansPage.componentIdModal, "Component ID");
+        //  Sample Acquisition Method
+        verifyEquals(monitoringPlansPage.componentSampleAcquisitionMethodModal, "Sample Acquisition Method");
+        //  Component Type
+        waitFor(monitoringPlansPage.ComponentTypeModal);
+        verifyEquals(monitoringPlansPage.ComponentTypeModal, "Component Type");
+        //  Basis Description
+        verifyEquals(monitoringPlansPage.componentBasisDescriptionModal, "Basis Description");
+        //  Manufacturer
+        verifyEquals(monitoringPlansPage.componentManufacturerModal, "Manufacturer");
+        //  Model or Version
+        verifyEquals(monitoringPlansPage.componentModelOrVersionModal, "Model or Version");
+        //  Serial Number
+        verifyEquals(monitoringPlansPage.componentSerialNumberModal, "Serial Number");
+        //  Hg Converter Indicator
+        verifyEquals(monitoringPlansPage.componentHgConverterIndicatorModal, "hg Converter Indicator");
+        //  Start Date and Time
+        verifyEquals(monitoringPlansPage.componentStartDateAndTimeModal, "Start Date and Time");
+          //  dateFormatLabel
+        verifyEquals(monitoringPlansPage.componentStartDateModal, "mm/dd/yyyy");
+          //  hourFormatLabel
+        verifyEquals(monitoringPlansPage.componentStartHourModal, "hh");
+        //  End Date and Time
+        verifyEquals(monitoringPlansPage.componentEndDateAndTimeModal, "End Date and Time");
+          //  dateFormatLabel
+        verifyEquals(monitoringPlansPage.componentEndDateModal, "mm/dd/yyyy");
+          //  hourFormatLabel
+        verifyEquals(monitoringPlansPage.componentEndHourModal, "hh");
 
+        verifyTrue(isDisplayed(monitoringPlansPage.componentBackButton));
+        click(monitoringPlansPage.componentBackButton);
 
-
-        // Validate the below labels
-
-//         Component ID (Required)
-//         Sample Acquisition Method
-//         Component Type (Required)
-//         Basis Description
-//         Manufacturer
-//         Model or Version
-//         Serial Number
-//         Hg Converter Indicator
-//         Start Date and Time (Required)
-//             dateFormatLabel
-//             hourFormatLabel
-//         End Date and Time
-//             dateFormatLabel
-//             hourFormatLabel
+        verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
 
     }
 }

@@ -241,4 +241,69 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "button[class='usa-button addCompBTN align-right']")
     public WebElement addComponentButton;
 
+    @FindBy (css = "label[for='ComponentID']")
+    public WebElement componentIdModal;
+
+    @FindBy (css = "label[for='SampleAcquisitionMethod']")
+    public WebElement componentSampleAcquisitionMethodModal;
+
+    @FindBy (css = "label[for='ComponentType']")
+    public WebElement ComponentTypeModal;
+
+    @FindBy (css = "label[for='BasisDescription']")
+    public WebElement componentBasisDescriptionModal;
+
+    @FindBy (css = "label[for='Manufacturer']")
+    public WebElement componentManufacturerModal;
+
+    @FindBy (css = "label[for='ModelOrVersion']")
+    public WebElement componentModelOrVersionModal;
+
+    @FindBy (css = "label[for='SerialNumber']")
+    public WebElement componentSerialNumberModal;
+
+    @FindBy (css = "fieldset[class='usa-fieldset  display-inline-flex'] > legend.usa-legend")
+    public WebElement componentHgConverterIndicatorModal;
+
+    @FindBy (id = "StartDateAndTime")
+    public WebElement componentStartDateAndTimeModal;
+
+    @FindBy (id = "EndDateAndTime")
+    public WebElement componentEndDateAndTimeModal;
+
+    @FindBy (css = "label[for='startTime']")
+    public WebElement componentStartDateModal;
+
+    @FindBy (css = "label[for='startHour']")
+    public WebElement componentStartHourModal;
+
+    @FindBy (css = "label[for='endDate']")
+    public WebElement componentEndDateModal;
+
+    @FindBy (css = "label[for='endHour']")
+    public WebElement componentEndHourModal;
+
+    @FindBy (css = "button[aria-label='go back to systems details']")
+    public WebElement componentBackButton;
+
+    @FindBy (css = "")
+    public WebElement systemFuelFlowsHeader;
+
+    @FindBy (css = "")
+    public WebElement addFuelFlowButton;
+
+    @FindBy (css = "")
+    public WebElement fuelFlowCodeModal;
+
+    @FindBy (css = "")
+    public WebElement fuelFlowTypeModal;
+
+    @FindBy (css = "")
+    public WebElement fuelFlowBeginToEndDateHeader;
+
+    @FindBy (css = "")
+    public List<WebElement> FuelFlowViewButton;
+
+
+
 }
