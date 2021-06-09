@@ -145,13 +145,13 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.grid-col.padding-bottom-2.padding-right-3 > div > label")
     public WebElement modalSystemID;
 
-    @FindBy (css = "label[for='System DesignationP']")
+    @FindBy (css = "label[for='sysdes']")
     public WebElement modalSystemDesignation;
 
-    @FindBy (css = "label[for='System TypeGAS']")
+    @FindBy (css = "label[for='systype']")
     public WebElement modalSystemType;
 
-    @FindBy (css = "label[for='Fuel TypePNG']")
+    @FindBy (css = "label[for='fueltype']")
     public WebElement modalFuelType;
 
     @FindBy (id = "dateStart")
@@ -220,7 +220,9 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.accessoryLink > button")
     public WebElement logOutButton;
 
-    @FindBy (css = "div.systemsCompTable > div.container > div.tableHead > h3.float-left")
+//    @FindBy (css = "div.systemsCompTable > div.container > div.tableHead > h3.float-left")
+//    public WebElement systemComponentsHeader;
+    @FindBy (css = " div.systemsCompTable > div[class='sc-fnVZcZ cDmETx rdt_TableHeader']")
     public WebElement systemComponentsHeader;
 
     @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(1)")
@@ -235,7 +237,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(4)")
     public WebElement componentActionsHeader;
 
-    @FindBy (css = "button[aria-label*='View']")
+    @FindBy (css = "div.sc-jrsJWt.khlPsW.rdt_TableRow > div:nth-child(4)")
     public List<WebElement> componentsViewButton;
 
     @FindBy (css = "button[class='usa-button addCompBTN align-right']")
@@ -286,24 +288,27 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "button[aria-label='go back to systems details']")
     public WebElement componentBackButton;
 
-    @FindBy (css = "")
+    @FindBy (css = "div.methodTable > div > div:nth-child(2) > div.padding-top-4.padding-left-2 > h2")
     public WebElement systemFuelFlowsHeader;
 
-    @FindBy (css = "")
+    @FindBy (css = "div.padding-top-4.padding-left-2 > h2 > button")
     public WebElement addFuelFlowButton;
 
-    @FindBy (css = "")
-    public WebElement fuelFlowCodeModal;
+    @FindBy (css = "div.sc-hKFxyN.sc-eCApnc.sc-iqAclL.dSYVyP.domoiu.ikSTQe.rdt_TableCol")
+    public List<WebElement> fuelFlowCodeModal;
 
-    @FindBy (css = "")
-    public WebElement fuelFlowTypeModal;
+    @FindBy (css = "div.sc-hKFxyN.sc-eCApnc.sc-iqAclL.dSYVyP.domoiu.ikSTQe.rdt_TableCol")
+    public List<WebElement> fuelFlowTypeModal;
 
-    @FindBy (css = "")
-    public WebElement fuelFlowBeginToEndDateHeader;
+    @FindBy (css = "div.sc-hKFxyN.sc-eCApnc.sc-iqAclL.dSYVyP.domoiu.ikSTQe.rdt_TableCol")
+    public List<WebElement> fuelFlowBeginToEndDateHeader;
 
-    @FindBy (css = "")
-    public List<WebElement> FuelFlowViewButton;
+    @FindBy (css = "#column-undefined")
+    public List<WebElement> fuelFlowActionsHeader;
 
-
+//    @FindBy (css = "#cell-NgF4d-xp5it-undefined")
+//    public List<WebElement> FuelFlowViewButton;
+    @FindBy (css = "#cell-NgF4d-xp5it-undefined")
+    public WebElement FuelFlowViewButton;
 
 }
