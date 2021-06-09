@@ -41,18 +41,18 @@ public class Test_EASEYIn_903_View_System_Component_Data_in_SecondLevel_Modal_Wi
 
         // System Components Headers
         verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
-        verifyEquals(monitoringPlansPage.componentIdHeader, "Component ID");
-        verifyEquals(monitoringPlansPage.componentTypeCodeHeader, "Type Code");
-        verifyEquals(monitoringPlansPage.componentBeginToEndDateHeader, "Begin to End Date");
-        verifyEquals(monitoringPlansPage.componentActionsHeader, "Actions");
+        verifyEquals(monitoringPlansPage.componentIdHeader.get(1).getText(), "Component ID");
+        verifyEquals(monitoringPlansPage.componentTypeCodeHeader.get(1).getText(), "Type Code");
+        verifyEquals(monitoringPlansPage.componentBeginToEndDateHeader.get(1).getText(), "Begin to End Date");
+        verifyEquals(monitoringPlansPage.componentActionsHeader.get(1).getText(), "Actions");
 
         // Verifying the Add Components button
-        verifyEquals(monitoringPlansPage.addComponentButton, "Add Component");
+//        verifyEquals(monitoringPlansPage.addComponentButton, "Add Component");
 
         // Verifying the View button under Actions
-        waitFor(driver -> monitoringPlansPage.componentsViewButton.size() > 1);
-        verifyEquals(monitoringPlansPage.componentsViewButton.get(0), "View");
-        click(monitoringPlansPage.componentsViewButton.get(0));
+        waitFor(driver -> monitoringPlansPage.componentsViewButton.size() > 3);
+        verifyEquals(monitoringPlansPage.componentsViewButton.get(1), "View");
+        click(monitoringPlansPage.componentsViewButton.get(1));
 
         //  Component ID
         verifyEquals(monitoringPlansPage.componentIdModal, "Component ID");
@@ -70,7 +70,7 @@ public class Test_EASEYIn_903_View_System_Component_Data_in_SecondLevel_Modal_Wi
         //  Serial Number
         verifyEquals(monitoringPlansPage.componentSerialNumberModal, "Serial Number");
         //  Hg Converter Indicator
-        verifyEquals(monitoringPlansPage.componentHgConverterIndicatorModal, "hg Converter Indicator");
+        verifyEquals(monitoringPlansPage.componentHgConverterIndicatorModal, "Hg Converter Indicator");
         //  Start Date and Time
         verifyEquals(monitoringPlansPage.componentStartDateAndTimeModal, "Start Date and Time");
           //  dateFormatLabel

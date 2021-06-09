@@ -220,22 +220,20 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.accessoryLink > button")
     public WebElement logOutButton;
 
-//    @FindBy (css = "div.systemsCompTable > div.container > div.tableHead > h3.float-left")
-//    public WebElement systemComponentsHeader;
-    @FindBy (css = " div.systemsCompTable > div[class='sc-fnVZcZ cDmETx rdt_TableHeader']")
+    @FindBy (css = "div.methodTable > div > div:nth-child(1) > div.padding-top-4.padding-left-2 > h2")
     public WebElement systemComponentsHeader;
 
-    @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(1)")
-    public WebElement componentIdHeader;
+    @FindBy (css = "#column-col1")
+    public List<WebElement> componentIdHeader;
 
-    @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(2)")
-    public WebElement componentTypeCodeHeader;
+    @FindBy (css = "#column-col2")
+    public List<WebElement> componentTypeCodeHeader;
 
-    @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(3)")
-    public WebElement componentBeginToEndDateHeader;
+    @FindBy (css = "#column-col3")
+    public List<WebElement> componentBeginToEndDateHeader;
 
-    @FindBy (css = "table.usa-table.usa-table--borderless:nth-child(2) > thead > tr > th:nth-child(4)")
-    public WebElement componentActionsHeader;
+    @FindBy (css = "#column-undefined > div")
+    public List<WebElement> componentActionsHeader;
 
     @FindBy (css = "div.sc-jrsJWt.khlPsW.rdt_TableRow > div:nth-child(4)")
     public List<WebElement> componentsViewButton;
@@ -306,9 +304,6 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "#column-undefined")
     public List<WebElement> fuelFlowActionsHeader;
 
-//    @FindBy (css = "#cell-NgF4d-xp5it-undefined")
-//    public List<WebElement> FuelFlowViewButton;
-    @FindBy (css = "#cell-NgF4d-xp5it-undefined")
-    public WebElement FuelFlowViewButton;
-
+    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(4)")
+    public List<WebElement> FuelFlowViewButton;
 }

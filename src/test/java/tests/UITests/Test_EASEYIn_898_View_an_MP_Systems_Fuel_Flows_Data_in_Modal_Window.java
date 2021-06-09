@@ -39,9 +39,17 @@ public class Test_EASEYIn_898_View_an_MP_Systems_Fuel_Flows_Data_in_Modal_Window
         waitFor(driver -> monitoringPlansPage.systemTableButtonList.size() > 1);
         click(monitoringPlansPage.systemTableButtonList.get(0));
 
+        // Validate Systems Fuel Flows headers
+        verifyEquals(monitoringPlansPage.systemFuelFlowsHeader, "System Fuel Flows");
+        verifyEquals(monitoringPlansPage.addFuelFlowButton, "Add Fuel Flow");
 
-        // Validate Systems Fuel Flows heading
+        verifyEquals(monitoringPlansPage.fuelFlowCodeModal.get(9).getText(), "Fuel Code");
+        verifyEquals(monitoringPlansPage.fuelFlowTypeModal.get(10).getText(), "Type Code");
+        verifyEquals(monitoringPlansPage.fuelFlowBeginToEndDateHeader.get(11).getText(), "Begin to End Date");
+        verifyEquals(monitoringPlansPage.fuelFlowActionsHeader.get(2).getText(), "Actions");
 
+        waitFor(driver -> monitoringPlansPage.FuelFlowViewButton.size() > 4);
+        verifyEquals(monitoringPlansPage.FuelFlowViewButton.get(9).getText(), "View");
 
     }
 }
