@@ -124,7 +124,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "button.usa-accordion__button > div.methodHeader")
     public WebElement accordionButton;
 
-    @FindBy(css = "table.usa-table.usa-table--borderless > tbody > tr > td > button")
+    @FindBy(css = "div[class='cursor-pointer']")
     public List<WebElement> systemTableButtonList;
 
     @FindBy(css = "#close > i")
@@ -136,7 +136,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "button.saveCloseBTN")
     public WebElement saveCloseModal;
 
-    @FindBy (css = "table.usa-table.usa-table--borderless > thead > tr > th")
+    @FindBy (id = "column-col1")
     public WebElement systemIDTitle;
 
     @FindBy(css = "div.modalDetails > h2")
@@ -145,13 +145,13 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.grid-col.padding-bottom-2.padding-right-3 > div > label")
     public WebElement modalSystemID;
 
-    @FindBy (css = "label[for='System DesignationP']")
+    @FindBy (css = "label[for='sysdes']")
     public WebElement modalSystemDesignation;
 
-    @FindBy (css = "label[for='System TypeGAS']")
+    @FindBy (css = "label[for='systype']")
     public WebElement modalSystemType;
 
-    @FindBy (css = "label[for='Fuel TypePNG']")
+    @FindBy (css = "label[for='fueltype']")
     public WebElement modalFuelType;
 
     @FindBy (id = "dateStart")
@@ -163,31 +163,147 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "h5.padding-0.padding-left-5px")
     public WebElement dashboardTitle;
 
-    @FindBy (css = "div.text-underline")
+    @FindBy (css = "a[title='Go to Home page']")
+    public WebElement dashHomeTitle;
+
+    @FindBy (css = "a[title='Go to the workspace page']")
     public WebElement dashWorkspace;
 
-    @FindBy (css = "#MenuDropDown > li:nth-child(1) > a")
-    public WebElement dashMonPlan;
+    @FindBy (css = "a[title='Go to Monitoring Plans page']")
+    public List<WebElement> dashMonPlan;
 
-    @FindBy (css = "#MenuDropDown > li:nth-child(2) > a")
-    public WebElement dashQaCert;
+    @FindBy (css = "a[title='Go to QA & Certifications page']")
+    public List<WebElement> dashQaCert;
 
-    @FindBy (css = "#MenuDropDown > li:nth-child(3) > a")
-    public WebElement dashEmissions;
+    @FindBy (css = "a[title='Go to Emissions page']")
+    public List<WebElement> dashEmissions;
 
-    @FindBy (css = "div.accessoryLink:nth-child(1) > a.text-white:nth-child(2)")
+    @FindBy (css = "a[title='Go to the  CAMD Apps page']")
     public WebElement dashCamdApps;
 
-    @FindBy (css = "div.accessoryLink:nth-child(2) > a.text-white:nth-child(2)")
+    @FindBy (css = "a[title='Go to the Profile page']")
     public WebElement dashProfile;
 
-    @FindBy (css = "div.text-white:nth-child(3) > a.text-white:nth-child(2)")
+    @FindBy (css = "a[title='Go to the Account Management page']")
     public WebElement dashAccountMan;
 
-    @FindBy (css = "div.accessoryLink:nth-child(4) > a.text-white:nth-child(2)")
+    @FindBy (css = "a[title='Go to the help page']")
     public WebElement dashHelpContact;
 
     @FindBy (css = "div.text-center > h1")
     public WebElement pageDoesntExist;
 
+    @FindBy(xpath = "//legend[contains(text(),'Log In')]")
+    public WebElement logInLabel;
+
+    @FindBy(css = "div.padding-bottom-4.position-absolute.bottom-0 > button")
+    public WebElement logInButton;
+
+    @FindBy(css = "div.modal-wrapper.modal-color > div > div > div > div > form > fieldset > button")
+    public WebElement logInButtonModal;
+
+    @FindBy (css ="label[for='username']")
+    public WebElement usernameLabel;
+
+    @FindBy (id ="username")
+    public WebElement usernameField;
+
+    @FindBy (css ="label[for='password']")
+    public WebElement passwordLabel;
+
+    @FindBy (id ="password")
+    public WebElement passwordField;
+
+    @FindBy (css = "div.padding-bottom-4.position-absolute.bottom-0 > div > div:nth-child(1) > div:nth-child(1)")
+    public WebElement welcomeMessage;
+
+    @FindBy(css = "div.accessoryLink > button")
+    public WebElement logOutButton;
+
+    @FindBy (css = "div.methodTable > div > div:nth-child(1) > div.padding-top-4.padding-left-2 > h2")
+    public WebElement systemComponentsHeader;
+
+    @FindBy (css = "#column-col1")
+    public List<WebElement> componentIdHeader;
+
+    @FindBy (css = "#column-col2")
+    public List<WebElement> componentTypeCodeHeader;
+
+    @FindBy (css = "#column-col3")
+    public List<WebElement> componentBeginToEndDateHeader;
+
+    @FindBy (css = "#column-undefined > div")
+    public List<WebElement> componentActionsHeader;
+
+    @FindBy (css = "div.sc-jrsJWt.khlPsW.rdt_TableRow > div:nth-child(4)")
+    public List<WebElement> componentsViewButton;
+
+    @FindBy (css = "button[class='usa-button addCompBTN align-right']")
+    public WebElement addComponentButton;
+
+    @FindBy (css = "label[for='ComponentID']")
+    public WebElement componentIdModal;
+
+    @FindBy (css = "label[for='SampleAcquisitionMethod']")
+    public WebElement componentSampleAcquisitionMethodModal;
+
+    @FindBy (css = "label[for='ComponentType']")
+    public WebElement ComponentTypeModal;
+
+    @FindBy (css = "label[for='BasisDescription']")
+    public WebElement componentBasisDescriptionModal;
+
+    @FindBy (css = "label[for='Manufacturer']")
+    public WebElement componentManufacturerModal;
+
+    @FindBy (css = "label[for='ModelOrVersion']")
+    public WebElement componentModelOrVersionModal;
+
+    @FindBy (css = "label[for='SerialNumber']")
+    public WebElement componentSerialNumberModal;
+
+    @FindBy (css = "fieldset[class='usa-fieldset  display-inline-flex'] > legend.usa-legend")
+    public WebElement componentHgConverterIndicatorModal;
+
+    @FindBy (id = "StartDateAndTime")
+    public WebElement componentStartDateAndTimeModal;
+
+    @FindBy (id = "EndDateAndTime")
+    public WebElement componentEndDateAndTimeModal;
+
+    @FindBy (css = "label[for='startTime']")
+    public WebElement componentStartDateModal;
+
+    @FindBy (css = "label[for='startHour']")
+    public WebElement componentStartHourModal;
+
+    @FindBy (css = "label[for='endDate']")
+    public WebElement componentEndDateModal;
+
+    @FindBy (css = "label[for='endHour']")
+    public WebElement componentEndHourModal;
+
+    @FindBy (css = "button[aria-label='go back to systems details']")
+    public WebElement componentBackButton;
+
+    @FindBy (css = "div.methodTable > div > div:nth-child(2) > div.padding-top-4.padding-left-2 > h2")
+    public WebElement systemFuelFlowsHeader;
+
+    @FindBy (css = "div.padding-top-4.padding-left-2 > h2 > button")
+    public WebElement addFuelFlowButton;
+
+    @FindBy (css = "div.sc-hKFxyN.sc-eCApnc.sc-iqAclL.dSYVyP.domoiu.ikSTQe.rdt_TableCol")
+    public List<WebElement> fuelFlowCodeModal;
+
+    @FindBy (css = "div.sc-hKFxyN.sc-eCApnc.sc-iqAclL.dSYVyP.domoiu.ikSTQe.rdt_TableCol")
+    public List<WebElement> fuelFlowTypeModal;
+
+    @FindBy (css = "div.sc-hKFxyN.sc-eCApnc.sc-iqAclL.dSYVyP.domoiu.ikSTQe.rdt_TableCol")
+    public List<WebElement> fuelFlowBeginToEndDateHeader;
+
+    @FindBy (css = "#column-undefined")
+    public List<WebElement> fuelFlowActionsHeader;
+
+    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(4)")
+    public List<WebElement> FuelFlowViewButton;
 }
