@@ -193,6 +193,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.text-center > h1")
     public WebElement pageDoesntExist;
 
+    // This is for the label Log In on the Log In modal pop up
     @FindBy(xpath = "//legend[contains(text(),'Log In')]")
     public WebElement logInLabel;
 
@@ -292,6 +293,8 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.padding-top-4.padding-left-2 > h2 > button")
     public WebElement addFuelFlowButton;
 
+    // fuelFlowCodeModal, fuelFlowTypeModal and fuelFlowBeginToEndDateHeader are
+    // all the same locator differentiated by a different index number with .get()
     @FindBy (css = "div.sc-hKFxyN.sc-eCApnc.sc-iqAclL.dSYVyP.domoiu.ikSTQe.rdt_TableCol")
     public List<WebElement> fuelFlowCodeModal;
 
@@ -306,4 +309,29 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(4)")
     public List<WebElement> FuelFlowViewButton;
+
+    @FindBy (css = "#column-col1 > div")
+    public List<WebElement> monPlanOrisHeader;
+
+    @FindBy (css = "#column-col2 > div")
+    public List<WebElement> monPlanFacilityHeader;
+
+    @FindBy (css = "#column-col3 > div")
+    public List<WebElement> monPlanStateHeader;
+
+    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div > button")
+    public List<WebElement> openFacilityConfigurations;
+
+    @FindBy (css = "#column-col1 > div")
+    public List<WebElement> monPlanConfigHeader;
+
+    @FindBy (css = "#column-col2 > div")
+    public List<WebElement> monPlanStatusHeader;
+
+    @FindBy (css = "#column-undefined")
+    public List<WebElement> monPlanActionsHeader;
+
+    @FindBy (css = "#btnOpenConfiguration")
+    public List<WebElement> monPlanOpenButton;
+
 }
