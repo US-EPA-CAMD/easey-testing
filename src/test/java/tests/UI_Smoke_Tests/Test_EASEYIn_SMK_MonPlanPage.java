@@ -18,6 +18,5 @@ public class Test_EASEYIn_SMK_MonPlanPage extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-
     }
 }
