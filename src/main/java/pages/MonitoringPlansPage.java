@@ -40,6 +40,9 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "h1.display-inline-block")
     public WebElement title;
 
+    @FindBy(css = "div[class='float-left clearfix font-heading-xl text-bold data-table-title']")
+    public WebElement selectConfigurationLabel;
+
     @FindBy(css = "ul.usa-button-group.usa-button-group--segmented > li")
     public List<WebElement> tabs;
 
@@ -121,8 +124,8 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "#\\33 > option:nth-child(5)")
     public WebElement monitoringSystems;
 
-    @FindBy (css = "button.usa-accordion__button > div.methodHeader")
-    public WebElement accordionButton;
+    @FindBy (css = "div:nth-child(3) > div > div > div.text-bold.font-body-xl.display-block.height-auto")
+    public WebElement accordionButtonMethods;
 
     @FindBy(css = "div[class='cursor-pointer']")
     public List<WebElement> systemTableButtonList;
@@ -197,10 +200,10 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(xpath = "//legend[contains(text(),'Log In')]")
     public WebElement logInLabel;
 
-    @FindBy(css = "div.padding-bottom-4.position-absolute.bottom-0 > button")
+    @FindBy(css = "button[epa-testid='openModalBTN']")
     public WebElement logInButton;
 
-    @FindBy(css = "div.modal-wrapper.modal-color > div > div > div > div > form > fieldset > button")
+    @FindBy(css = "button[data-test='component-login-submit-button']")
     public WebElement logInButtonModal;
 
     @FindBy (css ="label[for='username']")
@@ -333,5 +336,14 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy (css = "#btnOpenConfiguration")
     public List<WebElement> monPlanOpenButton;
+
+    @FindBy (css ="button[data-testid='expander-button-3']")
+    public WebElement facilityCaretBarry;
+
+    @FindBy (css = "button[epa-testid='btnOpen']")
+    public List<WebElement> configOpenButton;
+
+    @FindBy (css ="div[aria-label='open Barry (1, 2, CS0AAN)  tab']")
+    public WebElement configTabBerry12CS0AAN;
 
 }
