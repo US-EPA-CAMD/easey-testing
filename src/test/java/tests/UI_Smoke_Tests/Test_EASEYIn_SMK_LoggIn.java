@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
+public class Test_EASEYIn_SMK_LoggIn extends UITestBase {
 
     @DataProvider(name = "csv")
     public Object[] dp() {
@@ -53,18 +53,8 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
         waitFor(monitoringPlansPage.selectConfigurationLabel);
         verifyEquals(monitoringPlansPage.selectConfigurationLabel, "Select Configurations");
 
-        // Test fails without the sleep wait
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.facilityCaretBarry);
-        click(monitoringPlansPage.facilityCaretBarry);
-
-        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
-        click(monitoringPlansPage.configOpenButton.get(0));
-
-        click(monitoringPlansPage.configTabBerry12CS0AAN);
-
-        verifyEquals(monitoringPlansPage.accordionButtonMethods, "Methods");
+        waitFor(monitoringPlansPage.logOutButton);
+        verifyEquals(monitoringPlansPage.logOutButton.getText(), "Log Out");
 
     }
 }

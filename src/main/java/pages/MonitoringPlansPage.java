@@ -221,7 +221,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.padding-bottom-4.position-absolute.bottom-0 > div > div:nth-child(1) > div:nth-child(1)")
     public WebElement welcomeMessage;
 
-    @FindBy(css = "div.accessoryLink > button")
+    @FindBy(css = "button[epa-testid='logoutBTN']")
     public WebElement logOutButton;
 
     @FindBy (css = "div.methodTable > div > div:nth-child(1) > div.padding-top-4.padding-left-2 > h2")
