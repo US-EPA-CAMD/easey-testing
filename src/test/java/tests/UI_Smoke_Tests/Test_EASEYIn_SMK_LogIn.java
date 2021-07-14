@@ -12,21 +12,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class Test_EASEYIn_SMK_LoggIn extends UITestBase {
+public class Test_EASEYIn_SMK_LogIn extends UITestBase {
 
-    @DataProvider(name = "csv")
-    public Object[] dp() {
-        String filePath = filePathBase +
-                "UITestData/TC1414_LogIn_Data.csv";
-        CSVParser csv = new CSVParser(filePath);
-        List data = csv.getData();
-        return data.toArray();
-    }
-    @Test(dataProvider = "csv")
-    public void tests(Map<String, String> map) throws IOException, CsvValidationException, InterruptedException {
-
-        String username = map.get("username");
-        String password = map.get("password");
+    @Test()
+    public void tests() {
+        String username = System.getenv("MOSES_TESTING_USERNAME");
+        String password = System.getenv("MOSES_TESTING_PASSWORD");
 
         //Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/monitoring-plans
@@ -35,6 +26,7 @@ public class Test_EASEYIn_SMK_LoggIn extends UITestBase {
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
+        waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         verifyEquals(monitoringPlansPage.logInButton, "Log In");

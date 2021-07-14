@@ -83,7 +83,8 @@ public class UITestBase extends TestBase {
     public void afterMethod() {
         // close and quit the browser
         driver.quit();
-        listener.printError();
+        if (debug)
+            listener.printError();
         super.afterMethod();
     }
 
