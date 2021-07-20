@@ -37,7 +37,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "li.paginate_button.active")
     public WebElement currentPage;
 
-    @FindBy(css = "h1.display-inline-block")
+    @FindBy(css = "h1[epa-testid='monPlansTitle']")
     public WebElement title;
 
     @FindBy(css = "div[class='float-left clearfix font-heading-xl text-bold data-table-title']")
@@ -221,7 +221,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.padding-bottom-4.position-absolute.bottom-0 > div > div:nth-child(1) > div:nth-child(1)")
     public WebElement welcomeMessage;
 
-    @FindBy(css = "button[epa-testid='logoutBTN']")
+    @FindBy(css = "button[epa-testid='logoutBtn']")
     public WebElement logOutButton;
 
     @FindBy (css = "div.methodTable > div > div:nth-child(1) > div.padding-top-4.padding-left-2 > h2")
