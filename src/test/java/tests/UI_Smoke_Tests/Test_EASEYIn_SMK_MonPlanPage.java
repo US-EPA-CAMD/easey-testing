@@ -11,8 +11,8 @@ public class Test_EASEYIn_SMK_MonPlanPage extends UITestBase {
     public void test() {
 
 //        Navigate to EASEY In
-//        https://easey-dev.app.cloud.gov/monitoring-plans
-        goTo("https://easey-dev.app.cloud.gov/monitoring-plans");
+//        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 

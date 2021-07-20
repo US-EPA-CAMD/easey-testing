@@ -20,9 +20,9 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
         //Navigate to EASEY In
-        //https://easey-dev.app.cloud.gov/monitoring-plans
+        //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
 
-        goTo("https://easey-dev.app.cloud.gov/monitoring-plans");
+        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
@@ -42,8 +42,8 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         click(monitoringPlansPage.logInButtonModal);
 
         waitFor(monitoringPlansPage.title);
-        waitFor(monitoringPlansPage.selectConfigurationLabel);
-        verifyEquals(monitoringPlansPage.selectConfigurationLabel, "Select Configurations");
+        waitFor(monitoringPlansPage.dashWorkspace);
+        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
         waitFor(monitoringPlansPage.logOutButton);
         verifyEquals(monitoringPlansPage.logOutButton.getText(), "Log Out");
