@@ -349,7 +349,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> configOpenButton;
 
-    @FindBy (css ="div[aria-label='open Barry (1, 2, CS0AAN)  tab']")
+    @FindBy (css ="div[aria-label='open 3 (1, 2, CS0AAN)  tab")
     public WebElement configTabBarry12CS0AAN;
 
 }
