@@ -70,7 +70,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "img[alt='Official EPA Logo']")
     public WebElement epaHeaderLogoAndHyperlink;
 
-    @FindBy(css = "button.display-block.usa-button.radius-md.bg-white.text-primary")
+    @FindBy(css = "button[data-testid='navMenuButton']")
     public WebElement menuBtn;
 
     @FindBy(css = "nav.usa-nav.is-visible")
@@ -95,9 +95,9 @@ public class MonitoringPlansPage extends PageBase {
     public List<WebElement> aboutEPA;
 
     @FindBy(id = "search-field")
-    public WebElement search;
+    public WebElement searchBox;
 
-    @FindBy(css = "form.usa-search.usa-search--small.search-field > button.usa-button")
+    @FindBy(css = "button[type='submit']")
     public WebElement searchButton;
 
     @FindBy(id = "collapsable")

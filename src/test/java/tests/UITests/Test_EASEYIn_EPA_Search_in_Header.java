@@ -1,0 +1,35 @@
+package tests.UITests;
+
+import org.testng.annotations.Test;
+import pages.MonitoringPlansPage;
+import pages.SearchResultPage;
+import tests.utils.UITestBase;
+
+public class Test_EASEYIn_EPA_Search_in_Header extends UITestBase {
+
+    @Test
+    public void test() {
+
+//        Navigate to EASEY In
+//        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+
+        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        SearchResultPage searchResultPage = new SearchResultPage(driver);
+
+        verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
+
+        verifyEquals(monitoringPlansPage.menuBtn, "Menu");
+        click(monitoringPlansPage.menuBtn);
+
+        monitoringPlansPage.searchButton.isDisplayed();
+
+        monitoringPlansPage.searchBox.sendKeys("Something");
+
+        click(monitoringPlansPage.searchButton);
+
+        changeTab();
+        verifyTrue(searchResultPage.searchResults.getText().contains("Something"));
+
+    }
+}
