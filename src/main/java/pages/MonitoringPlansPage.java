@@ -67,6 +67,9 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "select[name='optionList'] > option")
     public List<WebElement> locationsField;
 
+    @FindBy(css = "img[alt='Official EPA Logo']")
+    public WebElement epaHeaderLogoAndHyperlink;
+
     @FindBy(css = "button.display-block.usa-button.radius-md.bg-white.text-primary")
     public WebElement menuBtn;
 
