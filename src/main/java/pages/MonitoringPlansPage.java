@@ -313,6 +313,12 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(4)")
     public List<WebElement> FuelFlowViewButton;
 
+    @FindBy (css ="button[epa-testid='searchDataTableBTN']")
+    public WebElement filterByKeywordButton;
+
+    @FindBy (css ="input[id='txtSearchData']")
+    public WebElement filterByKeywordBox;
+
     @FindBy (css = "#column-col1 > div")
     public List<WebElement> monPlanOrisHeader;
 
@@ -344,6 +350,6 @@ public class MonitoringPlansPage extends PageBase {
     public List<WebElement> configOpenButton;
 
     @FindBy (css ="div[aria-label='open Barry (1, 2, CS0AAN)  tab']")
-    public WebElement configTabBerry12CS0AAN;
+    public WebElement configTabBarry12CS0AAN;
 
 }
