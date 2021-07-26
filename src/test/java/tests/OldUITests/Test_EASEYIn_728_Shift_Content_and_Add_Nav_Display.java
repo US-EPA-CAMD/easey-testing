@@ -1,7 +1,6 @@
-package tests.UITests;
+package tests.OldUITests;
 
 import com.opencsv.exceptions.CsvValidationException;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;

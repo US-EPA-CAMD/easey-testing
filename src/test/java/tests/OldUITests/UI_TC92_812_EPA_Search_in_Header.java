@@ -1,11 +1,9 @@
-package tests.UITests;
+package tests.OldUITests;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import pages.SearchResultPage;
 import tests.utils.UITestBase;
-
-import java.util.ArrayList;
 
 public class UI_TC92_812_EPA_Search_in_Header extends UITestBase {
 
