@@ -100,6 +100,24 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "button[type='submit']")
     public WebElement searchButton;
 
+    @FindBy(css = "em[class='usa-logo__text epa-active-element'] > h1")
+    public WebElement ecmpsHeaderImage;
+
+    @FindBy(css = "em[class='usa-logo__text epa-active-element'] > span")
+    public WebElement ecmpsHeaderLabel;
+
+    @FindBy(css = "button[aria-controls='menu-[object Object]'] > span")
+    public List<WebElement> ecmpsHeaderResourcesLabel;
+
+    @FindBy(css = "button[aria-controls='menu-[object Object]'] > span")
+    public List<WebElement> ecmpsHeaderHelpAndSupportLabel;
+
+    @FindBy(css = "button[aria-controls='menu-[object Object]'] > span")
+    public List<WebElement> ecmpsHeaderRegulatoryPartnersLabel;
+
+    @FindBy(css = "a[title='[object Object]'] > span")
+    public WebElement ecmpsHeaderSiteMapLabel;
+
     @FindBy(id = "collapsable")
     public WebElement footerMenuBTN;
 
