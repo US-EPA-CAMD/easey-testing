@@ -9,6 +9,6 @@ public class SearchResultPage extends PageBase {
 
     public SearchResultPage(WebDriver driver) { super(driver); }
 
-    @FindBy(css = "#main-content > div.main-column.clearfix > div > div > div > div > div.col-md-8.col-lg-push-4.ng-scope > div:nth-child(8) > span > span")
+    @FindBy(css = "#main-content > div.main-column.clearfix > div > div > div > div > div.col-md-8.col-lg-push-4.ng-scope > div:nth-child(8) > span > span > i")
     public WebElement searchResults;
 }

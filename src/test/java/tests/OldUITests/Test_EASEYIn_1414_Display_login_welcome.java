@@ -1,6 +1,5 @@
-package tests.UITests;
+package tests.OldUITests;
 
-import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -8,8 +7,6 @@ import pages.MonitoringPlansPage;
 import tests.utils.CSVParser;
 import tests.utils.UITestBase;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package tests.UITests;
+package tests.OldUITests;
 
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.DataProvider;

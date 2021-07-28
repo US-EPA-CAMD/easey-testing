@@ -67,7 +67,10 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "select[name='optionList'] > option")
     public List<WebElement> locationsField;
 
-    @FindBy(css = "button.display-block.usa-button.radius-md.bg-white.text-primary")
+    @FindBy(css = "img[alt='Official EPA Logo']")
+    public WebElement epaHeaderLogoAndHyperlink;
+
+    @FindBy(css = "button[data-testid='navMenuButton']")
     public WebElement menuBtn;
 
     @FindBy(css = "nav.usa-nav.is-visible")
@@ -92,9 +95,9 @@ public class MonitoringPlansPage extends PageBase {
     public List<WebElement> aboutEPA;
 
     @FindBy(id = "search-field")
-    public WebElement search;
+    public WebElement searchBox;
 
-    @FindBy(css = "form.usa-search.usa-search--small.search-field > button.usa-button")
+    @FindBy(css = "button[type='submit']")
     public WebElement searchButton;
 
     @FindBy(id = "collapsable")
@@ -313,6 +316,12 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(4)")
     public List<WebElement> FuelFlowViewButton;
 
+    @FindBy (css ="button[epa-testid='searchDataTableBTN']")
+    public WebElement filterByKeywordButton;
+
+    @FindBy (css ="input[id='txtSearchData']")
+    public WebElement filterByKeywordBox;
+
     @FindBy (css = "#column-col1 > div")
     public List<WebElement> monPlanOrisHeader;
 
@@ -343,7 +352,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> configOpenButton;
 
-    @FindBy (css ="div[aria-label='open Barry (1, 2, CS0AAN)  tab']")
-    public WebElement configTabBerry12CS0AAN;
+    @FindBy (css ="div[aria-label='open 3 (1, 2, CS0AAN)  tab']")
+    public WebElement configTabBarry12CS0AAN;
 
 }

@@ -1,11 +1,9 @@
-package tests.UITests;
+package tests.OldUITests;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import pages.SearchResultPage;
 import tests.utils.UITestBase;
-
-import java.util.ArrayList;
 
 public class UI_TC92_812_EPA_Search_in_Header extends UITestBase {
 
@@ -29,10 +27,10 @@ public class UI_TC92_812_EPA_Search_in_Header extends UITestBase {
 //        Confirm that the search box is available at the top of the menu option and is in accordance with the wireframes and acceptance criteria
 //
 //        Search box is visible
-        verifyTrue(monitoringPlansPage.search.isDisplayed());
+        verifyTrue(monitoringPlansPage.searchBox.isDisplayed());
 
 //        Enter something into the search box field and click on the magnifying glass to initiate the search.
-        input(monitoringPlansPage.search, "something");
+        input(monitoringPlansPage.searchBox, "something");
         waitFor(monitoringPlansPage.searchButton);
         click(monitoringPlansPage.searchButton);
 //                Then the system opens the link on the EPA website in a new tab to view the results

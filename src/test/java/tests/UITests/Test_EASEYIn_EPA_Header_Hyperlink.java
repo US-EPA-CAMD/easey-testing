@@ -1,10 +1,10 @@
-package tests.UI_Smoke_Tests;
+package tests.UITests;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_SMK_MonPlanPage extends UITestBase {
+public class Test_EASEYIn_EPA_Header_Hyperlink extends UITestBase {
 
     @Test
     public void test() {
@@ -16,6 +16,13 @@ public class Test_EASEYIn_SMK_MonPlanPage extends UITestBase {
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
+
+        monitoringPlansPage.epaHeaderLogoAndHyperlink.isDisplayed();
+
+        click(monitoringPlansPage.epaHeaderLogoAndHyperlink);
+
+        changeTab();
+        verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/");
 
     }
 }
