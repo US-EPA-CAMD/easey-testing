@@ -31,11 +31,20 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.totalDisplay.col")
     public WebElement total;
 
-    @FindBy(css = "#pagination > li.page-item-next > button")
-    public WebElement nextPageButton;
-
     @FindBy(css = "li.paginate_button.active")
     public WebElement currentPage;
+
+    @FindBy(css = "button[id='pagination-next-page']")
+    public WebElement nextPageButton;
+
+    @FindBy(css = "button[id='pagination-previous-page']")
+    public WebElement previousPageButton;
+
+    @FindBy(css = "button[id='pagination-last-page']")
+    public WebElement lastPageButton;
+
+    @FindBy(css = "button[id='pagination-first-page']")
+    public WebElement firstPageButton;
 
     @FindBy(css = "div[role='row']")
     public List<WebElement> rowsPerPage;
@@ -45,6 +54,9 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "select[aria-label='Rows per page:'] > option")
     public List<WebElement> rowsPerPageOptions;
+
+    @FindBy(css = "span[class='sc-ezzafa sc-bYwzuL feVODd boStqG']")
+    public WebElement facilitiesOutOf;
 
     @FindBy(css = "h1[epa-testid='monPlansTitle']")
     public WebElement title;
