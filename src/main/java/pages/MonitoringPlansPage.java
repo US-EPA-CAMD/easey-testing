@@ -37,6 +37,15 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "li.paginate_button.active")
     public WebElement currentPage;
 
+    @FindBy(css = "div[role='row']")
+    public List<WebElement> rowsPerPage;
+
+    @FindBy(css = "select[aria-label='Rows per page:']")
+    public WebElement rowsPerPageButton;
+
+    @FindBy(css = "select[aria-label='Rows per page:'] > option")
+    public List<WebElement> rowsPerPageOptions;
+
     @FindBy(css = "h1[epa-testid='monPlansTitle']")
     public WebElement title;
 
