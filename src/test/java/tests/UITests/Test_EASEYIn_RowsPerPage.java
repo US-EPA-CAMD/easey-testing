@@ -22,7 +22,11 @@ public class Test_EASEYIn_RowsPerPage extends UITestBase {
         verifyEquals(monitoringPlansPage.rowsPerPage.size(), 101);
 
         click(monitoringPlansPage.rowsPerPageButton);
+        // Verify 100 rows per page option
+        verifyEquals(monitoringPlansPage.rowsPerPageOptions.get(0), "100");
 
+        // Select 200 rows per page option
+        verifyEquals(monitoringPlansPage.rowsPerPageOptions.get(1), "200");
         click(monitoringPlansPage.rowsPerPageOptions.get(1));
 
         // Verifies how many rows are in the Facilities table
@@ -31,6 +35,8 @@ public class Test_EASEYIn_RowsPerPage extends UITestBase {
 
         click(monitoringPlansPage.rowsPerPageButton);
 
+        // Select 500 rows per page option
+        verifyEquals(monitoringPlansPage.rowsPerPageOptions.get(2), "500");
         click(monitoringPlansPage.rowsPerPageOptions.get(2));
 
         // Verifies how many rows are in the Facilities table
