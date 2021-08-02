@@ -24,7 +24,7 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
-        click(monitoringPlansPage.configOpenButton.get(1));
+        click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
