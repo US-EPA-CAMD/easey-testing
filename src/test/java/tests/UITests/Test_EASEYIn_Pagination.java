@@ -18,19 +18,19 @@ public class Test_EASEYIn_Pagination extends UITestBase {
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         verifyEquals(monitoringPlansPage.facilitiesOutOf, "1-100 out of 2523");
-        isDisplayed(monitoringPlansPage.nextPageButton);
+        verifyTrue(isDisplayed(monitoringPlansPage.nextPageButton));
         click(monitoringPlansPage.nextPageButton);
         verifyEquals(monitoringPlansPage.facilitiesOutOf, "101-200 out of 2523");
 
-        isDisplayed(monitoringPlansPage.lastPageButton);
+        verifyTrue(isDisplayed(monitoringPlansPage.lastPageButton));
         click(monitoringPlansPage.lastPageButton);
         verifyEquals(monitoringPlansPage.facilitiesOutOf, "2501-2523 out of 2523");
 
-        isDisplayed(monitoringPlansPage.previousPageButton);
+        verifyTrue(isDisplayed(monitoringPlansPage.previousPageButton));
         click(monitoringPlansPage.previousPageButton);
         verifyEquals(monitoringPlansPage.facilitiesOutOf, "2401-2500 out of 2523");
 
-        isDisplayed(monitoringPlansPage.firstPageButton);
+        verifyTrue(isDisplayed(monitoringPlansPage.firstPageButton));
         click(monitoringPlansPage.firstPageButton);
         verifyEquals(monitoringPlansPage.facilitiesOutOf, "1-100 out of 2523");
 

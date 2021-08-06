@@ -34,16 +34,16 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "li.paginate_button.active")
     public WebElement currentPage;
 
-    @FindBy(css = "button[id='pagination-next-page']")
+    @FindBy(id = "pagination-next-page")
     public WebElement nextPageButton;
 
-    @FindBy(css = "button[id='pagination-previous-page']")
+    @FindBy(id = "pagination-previous-page")
     public WebElement previousPageButton;
 
-    @FindBy(css = "button[id='pagination-last-page']")
+    @FindBy(id = "pagination-last-page")
     public WebElement lastPageButton;
 
-    @FindBy(css = "button[id='pagination-first-page']")
+    @FindBy(id = "pagination-first-page")
     public WebElement firstPageButton;
 
     @FindBy(css = "div[role='row']")
