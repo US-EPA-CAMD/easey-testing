@@ -20,13 +20,13 @@ public class Test_EASEYIn_Footer_Menu extends UITestBase {
 //
 //
 //                Menu is visible and correctly designed
-        isDisplayed(monitoringPlansPage.footerMenuBTN);
+        verifyTrue(isDisplayed(monitoringPlansPage.footerMenuBTN));
 //
 //        Click on menu
         click(monitoringPlansPage.footerMenuBTN);
 //        Menu opens
         waitFor(monitoringPlansPage.footerMenuContent);
-        verifyTrue(monitoringPlansPage.footerMenuContent.isDisplayed());
+        verifyTrue(isDisplayed(monitoringPlansPage.footerMenuContent));
 //
 //        The menu should display the following links. Click on each.
 //
@@ -52,6 +52,6 @@ public class Test_EASEYIn_Footer_Menu extends UITestBase {
 //        Click on the 'x' in the menu
         click(monitoringPlansPage.footerClose);
 //        Menu is closed
-        verifyFalse(monitoringPlansPage.footerMenuContent.isDisplayed());
+        verifyFalse(isDisplayed(monitoringPlansPage.footerMenuContent));
     }
 }

@@ -22,7 +22,8 @@ public class Test_EASEYIn_EPA_Search_in_Header extends UITestBase {
         verifyEquals(monitoringPlansPage.menuBtn, "Menu");
         click(monitoringPlansPage.menuBtn);
 
-        monitoringPlansPage.searchButton.isDisplayed();
+        waitFor(monitoringPlansPage.searchButton);
+        verifyTrue(isDisplayed(monitoringPlansPage.searchButton));
 
         monitoringPlansPage.searchBox.sendKeys("Something");
 
