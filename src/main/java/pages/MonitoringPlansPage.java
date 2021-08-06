@@ -58,7 +58,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "span[class='sc-ezzafa sc-bYwzuL feVODd boStqG']")
     public WebElement facilitiesOutOf;
 
-    @FindBy(css = "h1[epa-testid='monPlansTitle']")
+    @FindBy(css = "h2[epa-testid='monPlansTitle']")
     public WebElement title;
 
     @FindBy(css = "div[class='float-left clearfix font-heading-xl text-bold data-table-title']")
