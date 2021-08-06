@@ -17,9 +17,9 @@ public class Test_EASEYIn_ECMPS_Header extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        isDisplayed(monitoringPlansPage.ecmpsHeaderImage);
+        verifyTrue(isDisplayed(monitoringPlansPage.ecmpsHeaderImage));
 
-        isDisplayed(monitoringPlansPage.ecmpsHeaderLabel);
+        verifyTrue(isDisplayed(monitoringPlansPage.ecmpsHeaderLabel));
 
         verifyEquals(monitoringPlansPage.ecmpsHeaderResourcesLabel.get(0), "Resources");
 

@@ -21,7 +21,7 @@ public class Test_EASEYIn_EPA_Menu_in_Header extends UITestBase {
 //        Click on the menu option that is available on the header.
         click(monitoringPlansPage.menuBtn);
 //        Menu opens
-        verifyTrue(monitoringPlansPage.menuNav.isDisplayed());
+        verifyTrue(isDisplayed(monitoringPlansPage.menuNav));
 //
 //
 //        Confirm that the following links including their sub topics are in accordance with the wireframes and acceptance criteria and are able to be selected.
