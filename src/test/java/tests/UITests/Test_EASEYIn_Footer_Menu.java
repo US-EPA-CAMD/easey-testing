@@ -20,7 +20,7 @@ public class Test_EASEYIn_Footer_Menu extends UITestBase {
 //
 //
 //                Menu is visible and correctly designed
-        verifyTrue(monitoringPlansPage.footerMenuBTN.isDisplayed());
+        isDisplayed(monitoringPlansPage.footerMenuBTN);
 //
 //        Click on menu
         click(monitoringPlansPage.footerMenuBTN);
