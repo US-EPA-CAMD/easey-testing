@@ -31,13 +31,34 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.totalDisplay.col")
     public WebElement total;
 
-    @FindBy(css = "#pagination > li.page-item-next > button")
-    public WebElement nextPageButton;
-
     @FindBy(css = "li.paginate_button.active")
     public WebElement currentPage;
 
-    @FindBy(css = "h1[epa-testid='monPlansTitle']")
+    @FindBy(id = "pagination-next-page")
+    public WebElement nextPageButton;
+
+    @FindBy(id = "pagination-previous-page")
+    public WebElement previousPageButton;
+
+    @FindBy(id = "pagination-last-page")
+    public WebElement lastPageButton;
+
+    @FindBy(id = "pagination-first-page")
+    public WebElement firstPageButton;
+
+    @FindBy(css = "div[role='row']")
+    public List<WebElement> rowsPerPage;
+
+    @FindBy(css = "select[aria-label='Rows per page:']")
+    public WebElement rowsPerPageButton;
+
+    @FindBy(css = "select[aria-label='Rows per page:'] > option")
+    public List<WebElement> rowsPerPageOptions;
+
+    @FindBy(css = "span[class='sc-ezzafa sc-bYwzuL feVODd boStqG']")
+    public WebElement facilitiesOutOf;
+
+    @FindBy(css = "h2[epa-testid='monPlansTitle']")
     public WebElement title;
 
     @FindBy(css = "div[class='float-left clearfix font-heading-xl text-bold data-table-title']")
@@ -99,6 +120,24 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "button[type='submit']")
     public WebElement searchButton;
+
+    @FindBy(css = "em[class='usa-logo__text epa-active-element'] > h1")
+    public WebElement ecmpsHeaderImage;
+
+    @FindBy(css = "em[class='usa-logo__text epa-active-element'] > span")
+    public WebElement ecmpsHeaderLabel;
+
+    @FindBy(css = "button[aria-controls='menu-[object Object]'] > span")
+    public List<WebElement> ecmpsHeaderResourcesLabel;
+
+    @FindBy(css = "button[aria-controls='menu-[object Object]'] > span")
+    public List<WebElement> ecmpsHeaderHelpAndSupportLabel;
+
+    @FindBy(css = "button[aria-controls='menu-[object Object]'] > span")
+    public List<WebElement> ecmpsHeaderRegulatoryPartnersLabel;
+
+    @FindBy(css = "a[title='[object Object]'] > span")
+    public WebElement ecmpsHeaderSiteMapLabel;
 
     @FindBy(id = "collapsable")
     public WebElement footerMenuBTN;
@@ -352,7 +391,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> configOpenButton;
 
-    @FindBy (css ="div[aria-label='open 3 (1, 2, CS0AAN)  tab']")
+    @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
 
 }
