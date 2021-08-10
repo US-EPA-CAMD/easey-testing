@@ -70,11 +70,11 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.selectedMPTab.padding-top-4 > div > div > h2")
     public WebElement facilityTitle;
 
-    @FindBy(id = "checkbox")
+    @FindBy(css = "div[data-testid='checkbox']")
     public WebElement showInactiveCheckbox;
 
     @FindBy(css = "label[for='checkbox']")
-    public WebElement inactiveLabel;
+    public WebElement showInactiveLabel;
 
     @FindBy(css = "optgroup > option")
     public List<WebElement> configurationsField;
