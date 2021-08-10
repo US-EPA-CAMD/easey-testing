@@ -1,10 +1,11 @@
-package tests.UI_Smoke_Tests;
+package tests.UITests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
+public class Test_EASEYIn_Show_Inactive extends UITestBase {
 
     @Test
     public void test() {
@@ -29,6 +30,10 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
         verifyEquals(monitoringPlansPage.accordionButtonMonPlan, "Methods");
+
+        verifyFalse(monitoringPlansPage.showInactiveCheckbox.findElement(By.id("checkbox")).isSelected());
+        click(monitoringPlansPage.showInactiveCheckbox);
+        verifyTrue(monitoringPlansPage.showInactiveCheckbox.findElement(By.id("checkbox")).isSelected());
 
     }
 }

@@ -70,11 +70,11 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div.selectedMPTab.padding-top-4 > div > div > h2")
     public WebElement facilityTitle;
 
-    @FindBy(css = "label[for='1']")
+    @FindBy(css = "div[data-testid='checkbox']")
     public WebElement showInactiveCheckbox;
 
-    @FindBy(css = "optgroup[label='Inactive']")
-    public WebElement inactiveLabel;
+    @FindBy(css = "label[for='checkbox']")
+    public WebElement showInactiveLabel;
 
     @FindBy(css = "optgroup > option")
     public List<WebElement> configurationsField;
@@ -85,8 +85,11 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "#\\33")
     public WebElement inactiveConfigurations;
 
-    @FindBy(css = "select[name='optionList'] > option")
-    public List<WebElement> locationsField;
+    @FindBy(id = "Locations")
+    public WebElement locationsField;
+
+    @FindBy(css = "select[data-testid='Locations'] > option")
+    public List<WebElement> location;
 
     @FindBy(css = "img[alt='Official EPA Logo']")
     public WebElement epaHeaderLogoAndHyperlink;
@@ -157,17 +160,20 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(id = "close")
     public WebElement footerClose;
 
-    @FindBy (id = "3")
+    @FindBy (id = "Sections")
     public WebElement sectionsDropdown;
 
-    @FindBy (css = "#\\33 > option:nth-child(4)")
+    @FindBy (css = "option[data-testid='Methods']")
     public WebElement monitoringMethods;
 
-    @FindBy (css = "#\\33 > option:nth-child(5)")
+    @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;
 
     @FindBy (css = "div:nth-child(3) > div > div > div.text-bold.font-body-xl.display-block.height-auto")
-    public WebElement accordionButtonMethods;
+    public WebElement accordionButtonMonPlan;
+
+    @FindBy (css = "div:nth-child(3) > div > div:nth-child(2) > div.text-bold.font-body-xl.display-block.height-auto")
+    public WebElement accordionButtonMATS;
 
     @FindBy(css = "div[class='cursor-pointer']")
     public List<WebElement> systemTableButtonList;
@@ -280,6 +286,9 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy (css = "#column-undefined > div")
     public List<WebElement> componentActionsHeader;
+
+    @FindBy (id = "div.sc-jbtnOpen")
+    public List<WebElement> viewButton;
 
     @FindBy (css = "div.sc-jrsJWt.khlPsW.rdt_TableRow > div:nth-child(4)")
     public List<WebElement> componentsViewButton;
