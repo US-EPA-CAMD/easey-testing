@@ -169,6 +169,9 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;
 
+    @FindBy (css = "div.modal-header.modal-color > div > h3")
+    public WebElement monPlanModalHeaderLabel;
+
     @FindBy (css = "div:nth-child(3) > div > div > div.text-bold.font-body-xl.display-block.height-auto")
     public WebElement accordionButtonMonPlan;
 
@@ -178,7 +181,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "div[class='cursor-pointer']")
     public List<WebElement> systemTableButtonList;
 
-    @FindBy(css = "#close > i")
+    @FindBy(id = "closeModalBtn")
     public WebElement xOutModal;
 
     @FindBy(css = "button.cancelBTN.modal-color")
@@ -186,6 +189,9 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy(css = "button.saveCloseBTN")
     public WebElement saveCloseModal;
+
+    @FindBy(css = "button[epa-testid='closeBtn']")
+    public WebElement closeModal;
 
     @FindBy (id = "column-col1")
     public WebElement systemIDTitle;
@@ -272,7 +278,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "button[epa-testid='logoutBtn']")
     public WebElement logOutButton;
 
-    @FindBy (css = "div.methodTable > div > div:nth-child(1) > div.padding-top-4.padding-left-2 > h2")
+    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h4")
     public WebElement systemComponentsHeader;
 
     @FindBy (css = "#column-col1")
@@ -287,7 +293,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "#column-undefined > div")
     public List<WebElement> componentActionsHeader;
 
-    @FindBy (id = "div.sc-jbtnOpen")
+    @FindBy (id = "btnOpen")
     public List<WebElement> viewButton;
 
     @FindBy (css = "div.sc-jrsJWt.khlPsW.rdt_TableRow > div:nth-child(4)")
@@ -341,7 +347,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "button[aria-label='go back to systems details']")
     public WebElement componentBackButton;
 
-    @FindBy (css = "div.methodTable > div > div:nth-child(2) > div.padding-top-4.padding-left-2 > h2")
+    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(2) > div > div > h4")
     public WebElement systemFuelFlowsHeader;
 
     @FindBy (css = "div.padding-top-4.padding-left-2 > h2 > button")
