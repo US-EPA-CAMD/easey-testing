@@ -28,12 +28,12 @@ public class Test_EASEYIn_View_System_Modal extends UITestBase {
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
-        verifyEquals(monitoringPlansPage.accordionButtonMonPlan, "Methods");
+        verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         click(monitoringPlansPage.monitoringSystems);
 
-        waitFor(monitoringPlansPage.accordionButtonMonPlan);
-        verifyEquals(monitoringPlansPage.accordionButtonMonPlan, "Systems");
+        waitFor(monitoringPlansPage.accordionSystemsLabel);
+        verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
 
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));

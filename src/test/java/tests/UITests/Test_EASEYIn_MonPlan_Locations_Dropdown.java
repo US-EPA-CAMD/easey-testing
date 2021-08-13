@@ -28,7 +28,7 @@ public class Test_EASEYIn_MonPlan_Locations_Dropdown extends UITestBase {
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
-        verifyEquals(monitoringPlansPage.accordionButtonMonPlan, "Methods");
+        verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         // Locations dropdown selection: Location 1 selected
         verifyTrue(monitoringPlansPage.location.get(0).isSelected());

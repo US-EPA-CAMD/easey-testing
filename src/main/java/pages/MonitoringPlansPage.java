@@ -172,8 +172,18 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.modal-header.modal-color > div > h3")
     public WebElement monPlanModalHeaderLabel;
 
-    @FindBy (css = "div:nth-child(3) > div > div > div.text-bold.font-body-xl.display-block.height-auto")
+
+    @FindBy (id = "collapseBTN")
     public WebElement accordionButtonMonPlan;
+
+    @FindBy (css = "span[epa-testid='Methods']")
+    public WebElement accordionMethodsLabel;
+
+    @FindBy (css = "span[epa-testid='Systems']")
+    public WebElement accordionSystemsLabel;
+
+    @FindBy (css = "span[epa-testid='SupplementalMethods']")
+    public WebElement accordionSupplementalMethodsLabel;
 
     @FindBy (css = "div:nth-child(3) > div > div:nth-child(2) > div.text-bold.font-body-xl.display-block.height-auto")
     public WebElement accordionButtonMATS;
@@ -395,7 +405,7 @@ public class MonitoringPlansPage extends PageBase {
     public List<WebElement> monPlanStatusHeader;
 
     @FindBy (css = "#column-undefined")
-    public List<WebElement> monPlanActionsHeader;
+    public WebElement monPlanActionsHeader;
 
     @FindBy (css = "#btnOpenConfiguration")
     public List<WebElement> monPlanOpenButton;
