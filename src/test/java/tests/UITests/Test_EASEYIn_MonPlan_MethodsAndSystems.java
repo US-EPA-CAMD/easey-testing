@@ -28,15 +28,16 @@ public class Test_EASEYIn_MonPlan_MethodsAndSystems extends UITestBase {
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
-        verifyEquals(monitoringPlansPage.accordionButtonMonPlan, "Methods");
+        verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        verifyNotEquals(monitoringPlansPage.accordionButtonMonPlan, "Systems");
+        verifyFalse(isDisplayed(monitoringPlansPage.accordionSystemsLabel));
 
         click(monitoringPlansPage.sectionsDropdown);
 
         click(monitoringPlansPage.monitoringSystems);
 
-        verifyEquals(monitoringPlansPage.accordionButtonMonPlan, "Systems");
+        verifyTrue(isDisplayed(monitoringPlansPage.accordionSystemsLabel));
+        verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
 
     }
 }

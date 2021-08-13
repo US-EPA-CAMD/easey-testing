@@ -1,11 +1,10 @@
 package tests.UITests;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_Show_Inactive extends UITestBase {
+public class Test_EASEYIn_MonPlan_Accordion extends UITestBase {
 
     @Test
     public void test() {
@@ -31,9 +30,13 @@ public class Test_EASEYIn_Show_Inactive extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        verifyFalse(monitoringPlansPage.showInactiveCheckbox.findElement(By.id("checkbox")).isSelected());
-        click(monitoringPlansPage.showInactiveCheckbox);
-        verifyTrue(monitoringPlansPage.showInactiveCheckbox.findElement(By.id("checkbox")).isSelected());
+        waitFor(monitoringPlansPage.monPlanActionsHeader);
+        verifyEquals(monitoringPlansPage.monPlanActionsHeader, "Actions");
+        verifyTrue(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
+
+        click(monitoringPlansPage.accordionButtonMonPlan);
+
+        verifyFalse(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
 
     }
 }

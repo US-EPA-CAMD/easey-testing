@@ -29,12 +29,12 @@ public class Test_EASEYIn_Show_Inactive_Disabled extends UITestBase {
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
-        verifyEquals(monitoringPlansPage.accordionButtonMonPlan, "Methods");
+        verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         click(monitoringPlansPage.monitoringSystems);
 
-        waitFor(monitoringPlansPage.accordionButtonMonPlan);
-        verifyEquals(monitoringPlansPage.accordionButtonMonPlan, "Systems");
+        waitFor(monitoringPlansPage.accordionSystemsLabel);
+        verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
 
         verifyFalse(monitoringPlansPage.showInactiveCheckbox.findElement(By.id("checkbox")).isEnabled());
 

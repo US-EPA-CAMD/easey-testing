@@ -28,7 +28,7 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
-        verifyEquals(monitoringPlansPage.accordionButtonMonPlan, "Methods");
+        verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
     }
 }
