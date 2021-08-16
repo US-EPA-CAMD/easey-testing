@@ -172,7 +172,6 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css = "div.modal-header.modal-color > div > h3")
     public WebElement monPlanModalHeaderLabel;
 
-
     @FindBy (id = "collapseBTN")
     public WebElement accordionButtonMonPlan;
 
@@ -413,8 +412,14 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css ="button[data-testid='expander-button-3']")
     public WebElement facilityCaretBarry;
 
+    @FindBy (css ="button[aria-label='Expand Row']")
+    public WebElement facilityCaretFirst;
+
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> configOpenButton;
+
+    @FindBy (id ="tabBtn")
+    public WebElement configTabFirst;
 
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
