@@ -311,7 +311,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (id = "btnOpenSystemComponents")
     public List<WebElement> viewButtonSystemComponents;
 
-    @FindBy (css = "")
+    @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h4")
     public WebElement systemComponentModal;
 
     @FindBy (css = "div.sc-jrsJWt.khlPsW.rdt_TableRow > div:nth-child(4)")
