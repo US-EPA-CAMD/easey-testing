@@ -17,7 +17,7 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        monitoringPlansPage.filterByKeywordBox.sendKeys("Barry");
+        input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
         click(monitoringPlansPage.facilityCaretBarry);
