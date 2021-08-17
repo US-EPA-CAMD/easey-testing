@@ -18,7 +18,7 @@ public class Test_EASEYIn_Show_Inactive extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        monitoringPlansPage.filterByKeywordBox.sendKeys("Barry");
+        input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
         click(monitoringPlansPage.facilityCaretBarry);
