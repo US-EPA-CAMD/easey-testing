@@ -17,7 +17,7 @@ public class Test_EASEYIn_View_Supplemental_Method_Modal extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        monitoringPlansPage.filterByKeywordBox.sendKeys("Dolet Hills Power Station");
+        input(monitoringPlansPage.filterByKeywordBox,"Dolet Hills Power Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
         click(monitoringPlansPage.facilityCaretFirst);

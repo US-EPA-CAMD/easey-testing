@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_MonPlan_Accordion extends UITestBase {
+public class Test_EASEYIn_View_Component_Modal extends UITestBase {
 
     @Test
     public void test() {
@@ -30,13 +30,24 @@ public class Test_EASEYIn_MonPlan_Accordion extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        waitFor(monitoringPlansPage.monPlanActionsHeader);
-        verifyEquals(monitoringPlansPage.monPlanActionsHeader, "Actions");
-        verifyTrue(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
+        click(monitoringPlansPage.monitoringSystems);
 
-        click(monitoringPlansPage.accordionButtonMonPlan);
+        waitFor(monitoringPlansPage.accordionSystemsLabel);
+        verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
 
-        verifyFalse(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
+        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
+        click(monitoringPlansPage.viewButton.get(0));
+
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: AF1");
+
+        waitFor(monitoringPlansPage.systemFuelFlowsHeader);
+
+        verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
+
+        verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View");
+        click(monitoringPlansPage.viewButtonSystemComponents.get(0));
+
+        verifyEquals(monitoringPlansPage.monPlanModalSysComponentHeaderLabel, "Component: AFA");
 
     }
 }
