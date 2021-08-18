@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_View_Component_Modal extends UITestBase {
+public class Test_EASEYIn_View_Fuel_Flow_Modal extends UITestBase {
 
     @Test
     public void test() {
@@ -41,13 +41,12 @@ public class Test_EASEYIn_View_Component_Modal extends UITestBase {
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: AF1");
 
         waitFor(monitoringPlansPage.systemFuelFlowsHeader);
+        verifyEquals(monitoringPlansPage.systemFuelFlowsHeader, "Fuel Flows");
 
-        verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
+        verifyEquals(monitoringPlansPage.viewButtonFuelFlow.get(0).getText(), "View");
+        click(monitoringPlansPage.viewButtonFuelFlow.get(0));
 
-        verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View");
-        click(monitoringPlansPage.viewButtonSystemComponents.get(0));
-
-        verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Component: AFA");
+        verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Fuel Code: PNG, System Type Code: GAS");
 
     }
 }

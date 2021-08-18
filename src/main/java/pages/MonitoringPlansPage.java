@@ -173,7 +173,7 @@ public class MonitoringPlansPage extends PageBase {
     public WebElement monPlanModalHeaderLabel;
 
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h4")
-    public WebElement monPlanModalSysComponentHeaderLabel;
+    public WebElement monPlanModalSysSecondTableHeaderLabel;
 
     @FindBy (id = "collapseBTN")
     public WebElement accordionButtonMonPlan;
@@ -310,6 +310,9 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy (id = "btnOpenSystemComponents")
     public List<WebElement> viewButtonSystemComponents;
+
+    @FindBy (id = "btnOpenFuelFlows")
+    public List<WebElement> viewButtonFuelFlow;
 
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h4")
     public WebElement systemComponentModal;
