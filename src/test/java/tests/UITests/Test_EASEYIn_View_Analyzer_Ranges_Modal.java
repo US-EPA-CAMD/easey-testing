@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_View_Component_Modal extends UITestBase {
+public class Test_EASEYIn_View_Analyzer_Ranges_Modal extends UITestBase {
 
     @Test
     public void test() {
@@ -35,10 +35,14 @@ public class Test_EASEYIn_View_Component_Modal extends UITestBase {
         waitFor(monitoringPlansPage.accordionSystemsLabel);
         verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
 
+        //Location CS0AAN
+        click(monitoringPlansPage.location.get(2));
+        verifyTrue(monitoringPlansPage.location.get(2).isSelected());
+
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: AF1");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: AA2");
 
         waitFor(monitoringPlansPage.systemFuelFlowsHeader);
 
@@ -47,7 +51,15 @@ public class Test_EASEYIn_View_Component_Modal extends UITestBase {
         verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View");
         click(monitoringPlansPage.viewButtonSystemComponents.get(0));
 
-        verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Component: AFA");
+        verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Component: AA7");
+
+        waitFor(monitoringPlansPage.monPlanAnalyzerRangesHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanAnalyzerRangesHeaderLabel, "Analyzer Ranges");
+
+        waitFor(driver -> monitoringPlansPage.analyzerRangesViewButton.size() > 0);
+        verifyEquals(monitoringPlansPage.analyzerRangesViewButton.get(0).getText(), "View");
+
+        // Clicking on the View button is not implemented at this time
 
     }
 }
