@@ -61,8 +61,11 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "h2[epa-testid='monPlansTitle']")
     public WebElement title;
 
-    @FindBy(css = "div[class='float-left clearfix font-heading-xl text-bold data-table-title']")
+    @FindBy(css = "div.tabContent > div > div > div > div > header > div > div")
     public WebElement selectConfigurationLabel;
+
+    @FindBy(css = "button[aria-label='open Select Configurations tab']")
+    public WebElement selectConfigurationsButton;
 
     @FindBy(css = "ul.usa-button-group.usa-button-group--segmented > li")
     public List<WebElement> tabs;
@@ -437,7 +440,7 @@ public class MonitoringPlansPage extends PageBase {
     public List<WebElement> configOpenButton;
 
     @FindBy (id ="tabBtn")
-    public WebElement configTabFirst;
+    public List<WebElement> configTabs;
 
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;

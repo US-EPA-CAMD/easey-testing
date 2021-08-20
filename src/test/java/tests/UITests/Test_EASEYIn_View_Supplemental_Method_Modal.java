@@ -26,7 +26,7 @@ public class Test_EASEYIn_View_Supplemental_Method_Modal extends UITestBase {
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTabFirst);
+        click(monitoringPlansPage.configTabs.get(0));
 
         waitFor(monitoringPlansPage.accordionSupplementalMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionSupplementalMethodsLabel, "Supplemental Methods");
