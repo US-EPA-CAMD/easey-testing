@@ -448,4 +448,27 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
 
+    @FindBy (css ="div:nth-child(1) > span")
+    public WebElement homePgAboutEcmpsHeader;
+
+    @FindBy (css ="div:nth-child(2) > h2")
+    public WebElement homePgMonPlansHeader;
+
+    @FindBy (css ="div:nth-child(2) > a#MonitoringPlans")
+    public WebElement homePgViewMonPlansLink;
+
+    @FindBy (css ="div:nth-child(3) > h2")
+    public WebElement homePgQaCertHeader;
+
+    @FindBy (css ="div:nth-child(3) > a#QA\\&Certifications")
+    public WebElement homePgViewQaCertLink;
+
+    @FindBy (css ="div:nth-child(4) > h2")
+    public WebElement homePgEmissionsHeader;
+
+    @FindBy (css ="div:nth-child(4) > a#Emissions")
+    public WebElement homePgViewEmissionsLink;
+
+    @FindBy (css ="div.box__title")
+    public WebElement homePgWhatsNewHeader;
 }
