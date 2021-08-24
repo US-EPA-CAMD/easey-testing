@@ -33,10 +33,10 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         click(monitoringPlansPage.logInButton);
 
         verifyEquals(monitoringPlansPage.usernameLabel.getText(), "Username");
-        monitoringPlansPage.usernameField.sendKeys(username);
+        input(monitoringPlansPage.usernameField, username);
 
         verifyEquals(monitoringPlansPage.passwordLabel.getText(), "Password");
-        monitoringPlansPage.passwordField.sendKeys(password);
+        input(monitoringPlansPage.passwordField, password);
 
         verifyEquals(monitoringPlansPage.logInButton, "Log In");
         click(monitoringPlansPage.logInButtonModal);
