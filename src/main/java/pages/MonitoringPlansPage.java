@@ -296,6 +296,9 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy(css = "button[epa-testid='logoutBtn']")
     public WebElement logOutButton;
 
+    @FindBy(css = "div.bg-base-lighter > div > div > form > fieldset > legend")
+    public WebElement logInLabelHomePage;
+
     @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h4")
     public WebElement systemComponentsHeader;
 
