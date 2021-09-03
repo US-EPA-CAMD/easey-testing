@@ -471,4 +471,32 @@ public class MonitoringPlansPage extends PageBase {
 
     @FindBy (css ="div.box__title")
     public WebElement homePgWhatsNewHeader;
+
+    @FindBy (css ="li:nth-child(2) > button > span > span")
+    public WebElement resourcesButton;
+
+    @FindBy (css ="a[href='/ecmps/faqs']")
+    public WebElement faqsButton;
+
+    @FindBy (css ="#faqPage > div > div:nth-child(1) > span")
+    public WebElement faqsPageHeader;
+
+    @FindBy (css ="#faqPage > div > div:nth-child(2) > h2")
+    public WebElement faqsPageMonPanHeader;
+
+    @FindBy (css ="#faqPage > div > div:nth-child(3) > h2")
+    public WebElement faqsPageQAandCertificationsHeader;
+
+    @FindBy (css ="#faqPage > div > div:nth-child(4) > h2")
+    public WebElement faqsPageEmissionsHeader;
+
+    @FindBy (css ="div[class='grid-col-9 fit-content'] > div > div > h2")
+    public List<WebElement> faqsPageAccordionButton;
+
+    @FindBy (css ="div[class='usa-accordion__content usa-prose']")
+    public List<WebElement> faqsPageAccordionContent;
+
+    @FindBy (css ="li:nth-child(3) > button > span > span")
+    public WebElement helpSupportButton;
+
 }

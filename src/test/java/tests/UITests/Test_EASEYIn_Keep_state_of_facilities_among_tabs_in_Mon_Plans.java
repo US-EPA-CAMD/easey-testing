@@ -62,6 +62,8 @@ public class Test_EASEYIn_Keep_state_of_facilities_among_tabs_in_Mon_Plans exten
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
+        // Website crashing. See ticket 1956 for fix.
+
         waitFor(monitoringPlansPage.accordionSystemsLabel);
         verifyTrue(isDisplayed(monitoringPlansPage.accordionSystemsLabel));
         verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
