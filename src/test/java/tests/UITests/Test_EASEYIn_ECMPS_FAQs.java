@@ -17,8 +17,8 @@ public class Test_EASEYIn_ECMPS_FAQs extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        verifyEquals(monitoringPlansPage.resourcesButton, "Resources");
-        click(monitoringPlansPage.resourcesButton);
+        verifyEquals(monitoringPlansPage.resourcesMenuHeader, "Resources");
+        click(monitoringPlansPage.resourcesMenuHeader);
 
         verifyEquals(monitoringPlansPage.faqsButton, "FAQs");
         click(monitoringPlansPage.faqsButton);
