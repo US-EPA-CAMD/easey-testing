@@ -22,6 +22,7 @@ public class Test_EASEYIn_ECMPS_Resources extends UITestBase {
 
         verifyEquals(monitoringPlansPage.resourcesMenuHeader, "Resources");
         click(monitoringPlansPage.resourcesMenuHeader);
+        waitFor(monitoringPlansPage.resourcesButton);
         verifyEquals(monitoringPlansPage.resourcesButton, "Resources");
         click(monitoringPlansPage.resourcesButton);
 

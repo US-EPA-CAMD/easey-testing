@@ -478,7 +478,7 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css ="a[href='/ecmps/resources']")
     public WebElement resourcesButton;
 
-    @FindBy (css ="#main > div > div > div:nth-child(1) > span")
+    @FindBy (css ="div:nth-child(1) > span")
     public WebElement resourcesPageHeader;
 
     @FindBy (css ="div.grid-row > div:nth-child(1) > h2")
