@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_Resources extends UITestBase {
+public class Test_EASEYIn_ECMPS_Resources extends UITestBase {
 
     @Test
     public void test() {
