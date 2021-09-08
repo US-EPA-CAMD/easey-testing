@@ -473,7 +473,40 @@ public class MonitoringPlansPage extends PageBase {
     public WebElement homePgWhatsNewHeader;
 
     @FindBy (css ="li:nth-child(2) > button > span > span")
+    public WebElement resourcesMenuHeader;
+
+    @FindBy (css ="a[href='/ecmps/resources']")
     public WebElement resourcesButton;
+
+    @FindBy (css ="#main > div > div > div:nth-child(1) > span")
+    public WebElement resourcesPageHeader;
+
+    @FindBy (css ="div.grid-row > div:nth-child(1) > h2")
+    public WebElement resourcesPageGlossaryHeader;
+
+    @FindBy (id ="Glossary")
+    public WebElement resourcesPageGlossaryLink;
+
+    @FindBy (css ="div.grid-row > div:nth-child(2) > h2")
+    public WebElement resourcesPageReportInstructionsHeader;
+
+    @FindBy (id ="ReportingInstructions")
+    public WebElement resourcesPageReportInstructionsLink;
+
+    @FindBy (css ="div.grid-row > div:nth-child(3) > h2")
+    public WebElement resourcesPageCamApiHeader;
+
+    @FindBy (id ="CAMAPI")
+    public WebElement resourcesPageCamApiLink;
+
+    @FindBy (css ="div:nth-child(3) > span")
+    public WebElement resourcesPageAdditionalResourcesHeader;
+
+    @FindBy (id ="CDX")
+    public WebElement resourcesPageCdxLink;
+
+    @FindBy (id ="Tutorials")
+    public WebElement resourcesPageTutorialsLink;
 
     @FindBy (css ="a[href='/ecmps/faqs']")
     public WebElement faqsButton;
