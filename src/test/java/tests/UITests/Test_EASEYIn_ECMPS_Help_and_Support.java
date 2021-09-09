@@ -26,5 +26,24 @@ public class Test_EASEYIn_ECMPS_Help_and_Support extends UITestBase {
 
         verifyEquals(monitoringPlansPage.helpSupportPageHeader, "Help/Support");
 
+        verifyEquals(monitoringPlansPage.helpSupportPageFaqsHeader, "FAQs");
+
+        verifyEquals(monitoringPlansPage.helpSupportPageVisitFaqsButton, "Visit FAQs");
+        click(monitoringPlansPage.helpSupportPageVisitFaqsButton);
+
+        verifyEquals(monitoringPlansPage.faqsPageHeader,"FAQs");
+
+        click(monitoringPlansPage.helpSupportMenuHeader);
+        click(monitoringPlansPage.helpSupportButton);
+        verifyEquals(monitoringPlansPage.helpSupportPageHeader, "Help/Support");
+
+        verifyEquals(monitoringPlansPage.helpSupportPageTutorialsHeader, "Tutorials");
+
+        verifyEquals(monitoringPlansPage.helpSupportPageCdxHelpLink, "CDX Help Topics");
+
+        verifyEquals(monitoringPlansPage.helpSupportPageContactUsHeader, "Contact Us");
+
+        verifyEquals(monitoringPlansPage.helpSupportPageSubmitButton, "Submit");
+
     }
 }
