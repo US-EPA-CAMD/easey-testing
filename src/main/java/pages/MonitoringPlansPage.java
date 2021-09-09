@@ -530,6 +530,12 @@ public class MonitoringPlansPage extends PageBase {
     public List<WebElement> faqsPageAccordionContent;
 
     @FindBy (css ="li:nth-child(3) > button > span > span")
+    public WebElement helpSupportMenuHeader;
+
+    @FindBy (css ="a[href='/ecmps/help-support']")
     public WebElement helpSupportButton;
+
+    @FindBy (css ="div:nth-child(1) > span")
+    public WebElement helpSupportPageHeader;
 
 }
