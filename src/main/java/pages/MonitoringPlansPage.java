@@ -535,22 +535,22 @@ public class MonitoringPlansPage extends PageBase {
     @FindBy (css ="a[href='/ecmps/help-support']")
     public WebElement helpSupportButton;
 
-    @FindBy (css ="div:nth-child(1) > span")
+    @FindBy (css ="div:nth-child(1) > div.text-bold.font-heading-2xl")
     public WebElement helpSupportPageHeader;
 
-    @FindBy (css ="div:nth-child(2) > span")
+    @FindBy (css ="div:nth-child(2) > div.text-bold.font-heading-2xl")
     public WebElement helpSupportPageFaqsHeader;
 
     @FindBy (css ="a[title='Go to FAQ page']")
     public WebElement helpSupportPageVisitFaqsButton;
 
-    @FindBy (css ="div:nth-child(3) > span")
+    @FindBy (css ="div:nth-child(3) > div.text-bold.font-heading-2xl")
     public WebElement helpSupportPageTutorialsHeader;
 
     @FindBy (css ="button[data-testid='linkCDXHelp']")
     public WebElement helpSupportPageCdxHelpLink;
 
-    @FindBy (css ="div:nth-child(4) > span")
+    @FindBy (css ="div:nth-child(4) > div.text-bold.font-heading-2xl")
     public WebElement helpSupportPageContactUsHeader;
 
     @FindBy (id ="btnSubmit")
