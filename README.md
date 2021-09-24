@@ -16,31 +16,33 @@ These languages, programs, and applications are necessary for the installation a
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes 
 
   1. Make sure maven gets added to the PATH system environment variable
-      - Note: This doesn't always happen during installation, check if ``` bash mvn -version ``` will run in command line
-  2. install the chromedriver to a folder named ```bash driver ``` in the home directory
-      - I.e. for Windows ```bash C:/Users/%USERNAME%/driver/chromedriver.exe) ```
-  3. Run ```bash mvn install ``` to install the dependency packages
+      - Note: This doesn't always happen during installation, check if ` mvn -version ` will run in command line
+  2. install the chromedriver to a folder named `driver` in the home directory
+      - I.e. for Windows ``` C:/Users/%USERNAME%/driver/chromedriver.exe) ```
+  3. Run ``` mvn install ``` to install the dependency packages
 
 ## Congifuration Settings
 
-- Dname (required) - This is the name of tests to run. 
+- -Dname (required) - This is the name of tests to run. 
       - It does not ahve to be the whole name, but can be a partial string, and will match to all of the tests that contains the provided name.
       - Multiple names can be included by separating the values with a comma 
-      - Start the value with a ```bash ! ``` or ```bash ~ ``` to exclude tests with that value 
+      - Start the value with a ``` ! ``` or ```  ~ ``` to exclude tests with that value 
 
-- Dmode (optional) 
-      - Default: ```bash local ``
-      - Alternative Option: ```bash browserstack ```, which will run the tests locally or on BrowserStack
+- -Dmode (optional) 
+    - Default: ``` local ```
+    - Alternative Option: ``` browserstack ```, which will run the tests locally or on BrowserStack
 
-- Ddebug (optional)
-      - Default: ```bash false```
-      - Alternative option: ```bash true```
-      - Turn on debug methods, i.e ```bash pause ``` & ```bash debugPrint ```
+- -Ddebug (optional)
+    - Default: ``` false```
+    - Alternative option: ``` true```
+    - Turn on debug methods, i.e ``` pause ``` & ``` debugPrint ```
 
 ## Testing 
 
-```bash
+```
+
 mvn test -Dname=*
+
 ```
 
 ## License & Contributing
