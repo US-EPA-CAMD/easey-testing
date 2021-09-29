@@ -9,7 +9,7 @@ import utils.PageBase;
 
 import java.util.List;
 
-public class MonitoringPlansPage extends PageBase {
+public class MonitoringPlansPage extends HeaderAndFooter {
 
     public MonitoringPlansPage(WebDriver driver) { super(driver); }
 
