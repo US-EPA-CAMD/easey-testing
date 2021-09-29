@@ -1,18 +1,18 @@
-package tests.OldUITests;
+package tests.UITests.headerAndFooterAndMainPage;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class UI_TC91_811_EPA_Menu_in_Header extends UITestBase {
+public class Test_EASEYIn_TC811_EPA_Menu_in_Header extends UITestBase {
 
     @Test
     public void test() {
 
 //        Navigate to EASEY In
-//        https://easey-dev.app.cloud.gov/monitoring-plans
-        goTo("https://easey-dev.app.cloud.gov/monitoring-plans");
+//        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
@@ -21,7 +21,7 @@ public class UI_TC91_811_EPA_Menu_in_Header extends UITestBase {
 //        Click on the menu option that is available on the header.
         click(monitoringPlansPage.menuBtn);
 //        Menu opens
-        verifyTrue(monitoringPlansPage.menuNav.isDisplayed());
+        verifyTrue(isDisplayed(monitoringPlansPage.menuNav));
 //
 //
 //        Confirm that the following links including their sub topics are in accordance with the wireframes and acceptance criteria and are able to be selected.

@@ -1,10 +1,10 @@
-package tests.UITests;
+package tests.UITests.headerAndFooterAndMainPage;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_Footer_Menu extends UITestBase {
+public class Test_EASEYIn_TC813_Footer_Menu extends UITestBase {
 
     @Test
     public void test () {

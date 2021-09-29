@@ -1,10 +1,10 @@
-package tests.UITests;
+package tests.UITests.monPlan.methods;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_View_Supplemental_Method_Modal extends UITestBase {
+public class Test_EASEYIn_TC542_View_Supplemental_Method_Modal extends UITestBase {
 
     @Test
     public void test() {

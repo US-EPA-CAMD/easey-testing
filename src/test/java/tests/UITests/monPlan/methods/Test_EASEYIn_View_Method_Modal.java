@@ -1,10 +1,10 @@
-package tests.UITests;
+package tests.UITests.monPlan.methods;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_View_Component_Modal extends UITestBase {
+public class Test_EASEYIn_View_Method_Modal extends UITestBase {
 
     @Test
     public void test() {
@@ -30,24 +30,25 @@ public class Test_EASEYIn_View_Component_Modal extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        click(monitoringPlansPage.monitoringSystems);
-
-        waitFor(monitoringPlansPage.accordionSystemsLabel);
-        verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
-
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: AF1");
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
 
-        waitFor(monitoringPlansPage.systemFuelFlowsHeader);
+        verifyEquals(monitoringPlansPage.closeModal, "Close");
+        click(monitoringPlansPage.closeModal);
 
-        verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
+        verifyFalse(isDisplayed(monitoringPlansPage.monPlanModalHeaderLabel));
 
-        verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View");
-        click(monitoringPlansPage.viewButtonSystemComponents.get(0));
+        click(monitoringPlansPage.viewButton.get(0));
 
-        verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Component: AFA");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
+
+        click(monitoringPlansPage.xOutModal);
+
+        verifyFalse(isDisplayed(monitoringPlansPage.monPlanModalHeaderLabel));
 
     }
 }

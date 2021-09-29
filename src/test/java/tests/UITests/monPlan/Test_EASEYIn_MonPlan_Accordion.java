@@ -1,10 +1,10 @@
-package tests.UITests;
+package tests.UITests.monPlan;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_MonPlan_Locations_Dropdown extends UITestBase {
+public class Test_EASEYIn_MonPlan_Accordion extends UITestBase {
 
     @Test
     public void test() {
@@ -30,23 +30,13 @@ public class Test_EASEYIn_MonPlan_Locations_Dropdown extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        // Locations dropdown selection: Location 1 selected
-        verifyTrue(monitoringPlansPage.location.get(0).isSelected());
+        waitFor(monitoringPlansPage.monPlanActionsHeader);
+        verifyEquals(monitoringPlansPage.monPlanActionsHeader, "Actions");
+        verifyTrue(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
 
-        // Locations dropdown selection: Location 2 not selected
-        verifyFalse(monitoringPlansPage.location.get(1).isSelected());
-        // Locations dropdown selection: Location CS0AAN not selected
-        verifyFalse(monitoringPlansPage.location.get(2).isSelected());
+        click(monitoringPlansPage.accordionButtonMonPlan);
 
-        // Select Location 2
-        click(monitoringPlansPage.location.get(1));
-        // Locations dropdown selection: Location 2 selected
-        verifyTrue(monitoringPlansPage.location.get(1).isSelected());
-
-        // Locations dropdown selection: Location 1 not selected
-        verifyFalse(monitoringPlansPage.location.get(0).isSelected());
-        // Locations dropdown selection: Location CS0AAN not selected
-        verifyFalse(monitoringPlansPage.location.get(2).isSelected());
+        verifyFalse(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
 
     }
 }

@@ -1,10 +1,10 @@
-package tests.UITests;
+package tests.UITests.headerAndFooterAndMainPage;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_ECMPS_Help_and_Support extends UITestBase {
+public class Test_EASEYIn_TC1923_ECMPS_Help_and_Support extends UITestBase {
 
     @Test
     public void test() {

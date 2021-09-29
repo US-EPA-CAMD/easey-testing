@@ -1,4 +1,4 @@
-package tests.UITests;
+package tests.UITests.headerAndFooterAndMainPage;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;

@@ -1,10 +1,10 @@
-package tests.UITests;
+package tests.UITests.monPlan.systems.components.analyzerRanges;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_View_Fuel_Flow_Modal extends UITestBase {
+public class Test_EASEYIn_949_View_Analyzer_Ranges_Modal extends UITestBase {
 
     @Test
     public void test() {
@@ -35,18 +35,31 @@ public class Test_EASEYIn_View_Fuel_Flow_Modal extends UITestBase {
         waitFor(monitoringPlansPage.accordionSystemsLabel);
         verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
 
+        //Location CS0AAN
+        click(monitoringPlansPage.location.get(2));
+        verifyTrue(monitoringPlansPage.location.get(2).isSelected());
+
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: AF1");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: AA2");
 
         waitFor(monitoringPlansPage.systemFuelFlowsHeader);
-        verifyEquals(monitoringPlansPage.systemFuelFlowsHeader, "Fuel Flows");
 
-        verifyEquals(monitoringPlansPage.viewButtonFuelFlow.get(0).getText(), "View");
-        click(monitoringPlansPage.viewButtonFuelFlow.get(0));
+        verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
 
-        verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Fuel Code: PNG, System Type Code: GAS");
+        verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View");
+        click(monitoringPlansPage.viewButtonSystemComponents.get(0));
+
+        verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Component: AA7");
+
+        waitFor(monitoringPlansPage.monPlanAnalyzerRangesHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanAnalyzerRangesHeaderLabel, "Analyzer Ranges");
+
+        waitFor(driver -> monitoringPlansPage.analyzerRangesViewButton.size() > 0);
+        verifyEquals(monitoringPlansPage.analyzerRangesViewButton.get(0).getText(), "View");
+
+        // Clicking on the View button is not implemented at this time
 
     }
 }

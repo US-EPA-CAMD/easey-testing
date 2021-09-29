@@ -1,11 +1,11 @@
-package tests.UITests;
+package tests.UITests.headerAndFooterAndMainPage;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import pages.SearchResultPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_EPA_Search_in_Header extends UITestBase {
+public class Test_EASEYIn_TC812_EPA_Search_in_Header extends UITestBase {
 
     @Test
     public void test() {

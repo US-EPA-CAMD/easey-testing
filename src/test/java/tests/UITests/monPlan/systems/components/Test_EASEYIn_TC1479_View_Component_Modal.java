@@ -1,10 +1,10 @@
-package tests.UITests;
+package tests.UITests.monPlan.systems.components;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_MonPlan_MethodsAndSystems extends UITestBase {
+public class Test_EASEYIn_TC1479_View_Component_Modal extends UITestBase {
 
     @Test
     public void test() {
@@ -23,21 +23,31 @@ public class Test_EASEYIn_MonPlan_MethodsAndSystems extends UITestBase {
         click(monitoringPlansPage.facilityCaretBarry);
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        verifyFalse(isDisplayed(monitoringPlansPage.accordionSystemsLabel));
-
-        click(monitoringPlansPage.sectionsDropdown);
-
         click(monitoringPlansPage.monitoringSystems);
 
-        verifyTrue(isDisplayed(monitoringPlansPage.accordionSystemsLabel));
+        waitFor(monitoringPlansPage.accordionSystemsLabel);
         verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
+
+        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
+        click(monitoringPlansPage.viewButton.get(0));
+
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: AF1");
+
+        waitFor(monitoringPlansPage.systemFuelFlowsHeader);
+
+        verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
+
+        verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View");
+        click(monitoringPlansPage.viewButtonSystemComponents.get(0));
+
+        verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Component: AFA");
 
     }
 }

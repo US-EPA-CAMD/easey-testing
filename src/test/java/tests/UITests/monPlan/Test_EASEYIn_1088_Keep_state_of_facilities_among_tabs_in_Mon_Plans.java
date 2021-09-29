@@ -1,10 +1,10 @@
-package tests.UITests;
+package tests.UITests.monPlan;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_Keep_state_of_facilities_among_tabs_in_Mon_Plans extends UITestBase {
+public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Mon_Plans extends UITestBase {
 
     @Test
     public void tests () {
