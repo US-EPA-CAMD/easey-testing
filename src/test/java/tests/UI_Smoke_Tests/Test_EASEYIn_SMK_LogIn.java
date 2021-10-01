@@ -1,17 +1,8 @@
 package tests.UI_Smoke_Tests;
 
-import com.opencsv.exceptions.CsvValidationException;
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.HeaderFooterAndHomePage;
 import pages.MonitoringPlansPage;
-import tests.utils.CSVParser;
 import tests.utils.UITestBase;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 public class Test_EASEYIn_SMK_LogIn extends UITestBase {
 
@@ -26,29 +17,28 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        HeaderFooterAndHomePage headerFooterAndHomePage = new HeaderFooterAndHomePage(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        verifyEquals(headerFooterAndHomePage.logInButton, "Log In");
-        click(headerFooterAndHomePage.logInButton);
+        verifyEquals(monitoringPlansPage.logInButton, "Log In");
+        click(monitoringPlansPage.logInButton);
 
-        verifyEquals(headerFooterAndHomePage.usernameLabel.getText(), "Username");
-        input(headerFooterAndHomePage.usernameField, username);
+        verifyEquals(monitoringPlansPage.usernameLabel.getText(), "Username");
+        input(monitoringPlansPage.usernameField, username);
 
-        verifyEquals(headerFooterAndHomePage.passwordLabel.getText(), "Password");
-        input(headerFooterAndHomePage.passwordField, password);
+        verifyEquals(monitoringPlansPage.passwordLabel.getText(), "Password");
+        input(monitoringPlansPage.passwordField, password);
 
-        verifyEquals(headerFooterAndHomePage.logInButton, "Log In");
-        click(headerFooterAndHomePage.logInButtonModal);
+        verifyEquals(monitoringPlansPage.logInButton, "Log In");
+        click(monitoringPlansPage.logInButtonModal);
 
         waitFor(monitoringPlansPage.title);
-        waitFor(headerFooterAndHomePage.dashWorkspace);
-        verifyEquals(headerFooterAndHomePage.dashWorkspace, "Workspace");
+        waitFor(monitoringPlansPage.dashWorkspace);
+        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
-        waitFor(headerFooterAndHomePage.logOutButton);
-        verifyEquals(headerFooterAndHomePage.logOutButton.getText(), "Log Out");
+        waitFor(monitoringPlansPage.logOutButton);
+        verifyEquals(monitoringPlansPage.logOutButton.getText(), "Log Out");
 
     }
 }

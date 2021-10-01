@@ -1,7 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
 import org.testng.annotations.Test;
-import pages.HeaderFooterAndHomePage;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
@@ -14,7 +13,6 @@ public class Test_EASEYIn_TC813_Footer_Menu extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        HeaderFooterAndHomePage headerFooterAndHomePage = new HeaderFooterAndHomePage(driver);
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
@@ -22,13 +20,13 @@ public class Test_EASEYIn_TC813_Footer_Menu extends UITestBase {
 //
 //
 //                Menu is visible and correctly designed
-        verifyTrue(isDisplayed(headerFooterAndHomePage.footerMenuBTN));
+        verifyTrue(isDisplayed(monitoringPlansPage.footerMenuBTN));
 //
 //        Click on menu
-        click(headerFooterAndHomePage.footerMenuBTN);
+        click(monitoringPlansPage.footerMenuBTN);
 //        Menu opens
-        waitFor(headerFooterAndHomePage.footerMenuContent);
-        verifyTrue(isDisplayed(headerFooterAndHomePage.footerMenuContent));
+        waitFor(monitoringPlansPage.footerMenuContent);
+        verifyTrue(isDisplayed(monitoringPlansPage.footerMenuContent));
 //
 //        The menu should display the following links. Click on each.
 //
@@ -38,22 +36,22 @@ public class Test_EASEYIn_TC813_Footer_Menu extends UITestBase {
 
 //        The links should open up in another tab after being clicked
 //        pause();
-        click(headerFooterAndHomePage.footerAccessibility);
+        click(monitoringPlansPage.footerAccessibility);
         changeTab();
         verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/accessibility");
         closeTab();
-        click(headerFooterAndHomePage.footerPrivacy);
+        click(monitoringPlansPage.footerPrivacy);
         changeTab();
         verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/privacy");
         closeTab();
-        click(headerFooterAndHomePage.footerNotice);
+        click(monitoringPlansPage.footerNotice);
         changeTab();
         verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/privacy/privacy-and-security-notice");
         closeTab();
 
 //        Click on the 'x' in the menu
-        click(headerFooterAndHomePage.footerClose);
+        click(monitoringPlansPage.footerClose);
 //        Menu is closed
-        verifyFalse(isDisplayed(headerFooterAndHomePage.footerMenuContent));
+        verifyFalse(isDisplayed(monitoringPlansPage.footerMenuContent));
     }
 }

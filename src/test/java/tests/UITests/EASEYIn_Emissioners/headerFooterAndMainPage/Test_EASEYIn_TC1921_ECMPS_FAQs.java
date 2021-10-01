@@ -1,7 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
 import org.testng.annotations.Test;
-import pages.HeaderFooterAndHomePage;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
@@ -15,37 +14,36 @@ public class Test_EASEYIn_TC1921_ECMPS_FAQs extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        HeaderFooterAndHomePage headerFooterAndHomePage = new HeaderFooterAndHomePage(driver);
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        verifyEquals(headerFooterAndHomePage.resourcesMenuHeader, "Resources");
-        click(headerFooterAndHomePage.resourcesMenuHeader);
+        verifyEquals(monitoringPlansPage.resourcesMenuHeader, "Resources");
+        click(monitoringPlansPage.resourcesMenuHeader);
 
-        verifyEquals(headerFooterAndHomePage.faqsButton, "FAQs");
-        click(headerFooterAndHomePage.faqsButton);
+        verifyEquals(monitoringPlansPage.faqsButton, "FAQs");
+        click(monitoringPlansPage.faqsButton);
 
-        waitFor(headerFooterAndHomePage.faqsPageHeader);
-        verifyEquals(headerFooterAndHomePage.faqsPageHeader, "FAQs");
+        waitFor(monitoringPlansPage.faqsPageHeader);
+        verifyEquals(monitoringPlansPage.faqsPageHeader, "FAQs");
 
-        verifyEquals(headerFooterAndHomePage.faqsPageMonPanHeader, "Monitoring Plans");
+        verifyEquals(monitoringPlansPage.faqsPageMonPanHeader, "Monitoring Plans");
 
-        verifyEquals(headerFooterAndHomePage.faqsPageQAandCertificationsHeader, "QA & Certifications");
+        verifyEquals(monitoringPlansPage.faqsPageQAandCertificationsHeader, "QA & Certifications");
 
-        verifyEquals(headerFooterAndHomePage.faqsPageEmissionsHeader, "Emissions");
+        verifyEquals(monitoringPlansPage.faqsPageEmissionsHeader, "Emissions");
 
-        verifyFalse(isDisplayed(headerFooterAndHomePage.faqsPageAccordionContent.get(0)));
-        click(headerFooterAndHomePage.faqsPageAccordionButton.get(0));
-        verifyTrue(isDisplayed(headerFooterAndHomePage.faqsPageAccordionContent.get(0)));
+        verifyFalse(isDisplayed(monitoringPlansPage.faqsPageAccordionContent.get(0)));
+        click(monitoringPlansPage.faqsPageAccordionButton.get(0));
+        verifyTrue(isDisplayed(monitoringPlansPage.faqsPageAccordionContent.get(0)));
 
         // Opening second accordion
-        verifyFalse(isDisplayed(headerFooterAndHomePage.faqsPageAccordionContent.get(1)));
-        click(headerFooterAndHomePage.faqsPageAccordionButton.get(1));
-        verifyTrue(isDisplayed(headerFooterAndHomePage.faqsPageAccordionContent.get(1)));
+        verifyFalse(isDisplayed(monitoringPlansPage.faqsPageAccordionContent.get(1)));
+        click(monitoringPlansPage.faqsPageAccordionButton.get(1));
+        verifyTrue(isDisplayed(monitoringPlansPage.faqsPageAccordionContent.get(1)));
 
         // The system allows more than one accordion to be open at once,
         // This verifies that the first accordion is still open
-        verifyTrue(isDisplayed(headerFooterAndHomePage.faqsPageAccordionContent.get(0)));
+        verifyTrue(isDisplayed(monitoringPlansPage.faqsPageAccordionContent.get(0)));
 
     }
 }

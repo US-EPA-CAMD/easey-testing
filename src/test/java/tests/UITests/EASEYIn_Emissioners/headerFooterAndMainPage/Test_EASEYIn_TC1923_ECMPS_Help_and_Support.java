@@ -1,7 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
 import org.testng.annotations.Test;
-import pages.HeaderFooterAndHomePage;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
@@ -15,37 +14,36 @@ public class Test_EASEYIn_TC1923_ECMPS_Help_and_Support extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        HeaderFooterAndHomePage headerFooterAndHomePage = new HeaderFooterAndHomePage(driver);
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        verifyEquals(headerFooterAndHomePage.helpSupportMenuHeader, "|Help/Support");
-        click(headerFooterAndHomePage.helpSupportMenuHeader);
+        verifyEquals(monitoringPlansPage.helpSupportMenuHeader, "|Help/Support");
+        click(monitoringPlansPage.helpSupportMenuHeader);
 
-        waitFor(headerFooterAndHomePage.helpSupportButton);
-        verifyEquals(headerFooterAndHomePage.helpSupportButton, "Help/Support");
-        click(headerFooterAndHomePage.helpSupportButton);
+        waitFor(monitoringPlansPage.helpSupportButton);
+        verifyEquals(monitoringPlansPage.helpSupportButton, "Help/Support");
+        click(monitoringPlansPage.helpSupportButton);
 
-        verifyEquals(headerFooterAndHomePage.helpSupportPageHeader, "Help/Support");
+        verifyEquals(monitoringPlansPage.helpSupportPageHeader, "Help/Support");
 
-        verifyEquals(headerFooterAndHomePage.helpSupportPageFaqsHeader, "FAQs");
+        verifyEquals(monitoringPlansPage.helpSupportPageFaqsHeader, "FAQs");
 
-        verifyEquals(headerFooterAndHomePage.helpSupportPageVisitFaqsButton, "Visit FAQs");
-        click(headerFooterAndHomePage.helpSupportPageVisitFaqsButton);
+        verifyEquals(monitoringPlansPage.helpSupportPageVisitFaqsButton, "Visit FAQs");
+        click(monitoringPlansPage.helpSupportPageVisitFaqsButton);
 
-        verifyEquals(headerFooterAndHomePage.faqsPageHeader,"FAQs");
+        verifyEquals(monitoringPlansPage.faqsPageHeader,"FAQs");
 
-        click(headerFooterAndHomePage.helpSupportMenuHeader);
-        click(headerFooterAndHomePage.helpSupportButton);
-        verifyEquals(headerFooterAndHomePage.helpSupportPageHeader, "Help/Support");
+        click(monitoringPlansPage.helpSupportMenuHeader);
+        click(monitoringPlansPage.helpSupportButton);
+        verifyEquals(monitoringPlansPage.helpSupportPageHeader, "Help/Support");
 
-        verifyEquals(headerFooterAndHomePage.helpSupportPageTutorialsHeader, "Tutorials");
+        verifyEquals(monitoringPlansPage.helpSupportPageTutorialsHeader, "Tutorials");
 
-        verifyEquals(headerFooterAndHomePage.helpSupportPageCdxHelpLink, "CDX Help Topics");
+        verifyEquals(monitoringPlansPage.helpSupportPageCdxHelpLink, "CDX Help Topics");
 
-        verifyEquals(headerFooterAndHomePage.helpSupportPageContactUsHeader, "Contact Us");
+        verifyEquals(monitoringPlansPage.helpSupportPageContactUsHeader, "Contact Us");
 
-        verifyEquals(headerFooterAndHomePage.helpSupportPageSubmitButton, "Submit");
+        verifyEquals(monitoringPlansPage.helpSupportPageSubmitButton, "Submit");
 
     }
 }
