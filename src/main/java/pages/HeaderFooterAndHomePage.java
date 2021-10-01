@@ -11,10 +11,10 @@ public class HeaderFooterAndHomePage extends PageBase {
 
     public HeaderFooterAndHomePage(WebDriver driver) { super(driver); }
 
-    @FindBy(css = "em[class='usa-logo__text epa-active-element'] > h1")
+    @FindBy(css = "em[class='usa-logo__text'] > h1")
     public WebElement ecmpsHeaderImage;
 
-    @FindBy(css = "em[class='usa-logo__text epa-active-element'] > span")
+    @FindBy(css = "em[class='usa-logo__text'] > span")
     public WebElement ecmpsHeaderLabel;
 
     @FindBy(css = "button[aria-controls='menu-[object Object]'] > span")
