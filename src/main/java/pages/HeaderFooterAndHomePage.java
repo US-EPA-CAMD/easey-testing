@@ -276,13 +276,13 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (css ="label[for='username']")
     public WebElement usernameLabel;
 
-    @FindBy (id ="username")
+    @FindBy (id ="modal-username")
     public WebElement usernameField;
 
     @FindBy (css ="label[for='password']")
     public WebElement passwordLabel;
 
-    @FindBy (id ="password")
+    @FindBy (id ="modal-password")
     public WebElement passwordField;
 
     @FindBy (css = "div.padding-bottom-4.position-absolute.bottom-0 > div > div:nth-child(1) > div:nth-child(1)")
