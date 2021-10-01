@@ -1,6 +1,7 @@
-package tests.UITests.EASEYIn_Emissioners.headerAndFooterAndMainPage;
+package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
 import org.testng.annotations.Test;
+import pages.HeaderFooterAndHomePage;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
@@ -13,6 +14,7 @@ public class Test_EASEYIn_TC813_Footer_Menu extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        HeaderFooterAndHomePage headerFooterAndHomePage = new HeaderFooterAndHomePage(driver);
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
@@ -20,13 +22,13 @@ public class Test_EASEYIn_TC813_Footer_Menu extends UITestBase {
 //
 //
 //                Menu is visible and correctly designed
-        verifyTrue(isDisplayed(monitoringPlansPage.footerMenuBTN));
+        verifyTrue(isDisplayed(headerFooterAndHomePage.footerMenuBTN));
 //
 //        Click on menu
-        click(monitoringPlansPage.footerMenuBTN);
+        click(headerFooterAndHomePage.footerMenuBTN);
 //        Menu opens
-        waitFor(monitoringPlansPage.footerMenuContent);
-        verifyTrue(isDisplayed(monitoringPlansPage.footerMenuContent));
+        waitFor(headerFooterAndHomePage.footerMenuContent);
+        verifyTrue(isDisplayed(headerFooterAndHomePage.footerMenuContent));
 //
 //        The menu should display the following links. Click on each.
 //
@@ -36,22 +38,22 @@ public class Test_EASEYIn_TC813_Footer_Menu extends UITestBase {
 
 //        The links should open up in another tab after being clicked
 //        pause();
-        click(monitoringPlansPage.footerAccessibility);
+        click(headerFooterAndHomePage.footerAccessibility);
         changeTab();
         verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/accessibility");
         closeTab();
-        click(monitoringPlansPage.footerPrivacy);
+        click(headerFooterAndHomePage.footerPrivacy);
         changeTab();
         verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/privacy");
         closeTab();
-        click(monitoringPlansPage.footerNotice);
+        click(headerFooterAndHomePage.footerNotice);
         changeTab();
         verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/privacy/privacy-and-security-notice");
         closeTab();
 
 //        Click on the 'x' in the menu
-        click(monitoringPlansPage.footerClose);
+        click(headerFooterAndHomePage.footerClose);
 //        Menu is closed
-        verifyFalse(isDisplayed(monitoringPlansPage.footerMenuContent));
+        verifyFalse(isDisplayed(headerFooterAndHomePage.footerMenuContent));
     }
 }

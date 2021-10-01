@@ -1,11 +1,10 @@
-package tests.UITests.EASEYIn_Emissioners.generalTests;
+package tests.UITests.EASEYIn_Emissioners.monPlan;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC541_Show_Inactive extends UITestBase {
+public class Test_EASEYIn_MonPlan_MethodsAndSystems extends UITestBase {
 
     @Test
     public void test() {
@@ -24,16 +23,21 @@ public class Test_EASEYIn_TC541_Show_Inactive extends UITestBase {
         click(monitoringPlansPage.facilityCaretBarry);
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        verifyFalse(monitoringPlansPage.showInactiveCheckbox.findElement(By.id("checkbox")).isSelected());
-        click(monitoringPlansPage.showInactiveCheckbox);
-        verifyTrue(monitoringPlansPage.showInactiveCheckbox.findElement(By.id("checkbox")).isSelected());
+        verifyFalse(isDisplayed(monitoringPlansPage.accordionSystemsLabel));
+
+        click(monitoringPlansPage.sectionsDropdown);
+
+        click(monitoringPlansPage.monitoringSystems);
+
+        verifyTrue(isDisplayed(monitoringPlansPage.accordionSystemsLabel));
+        verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
 
     }
 }

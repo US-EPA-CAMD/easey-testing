@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.generalTests;
+package tests.UITests.EASEYIn_Emissioners.monPlan;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;

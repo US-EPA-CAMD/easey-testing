@@ -1,38 +1,30 @@
-package tests.UI_Smoke_Tests;
+package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
-import com.opencsv.exceptions.CsvValidationException;
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.HeaderFooterAndHomePage;
 import pages.MonitoringPlansPage;
-import tests.utils.CSVParser;
 import tests.utils.UITestBase;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
-public class Test_EASEYIn_SMK_LogIn extends UITestBase {
+public class Test_EASEYIn_TC1414_LogIn_Home_Page extends UITestBase {
 
     @Test()
     public void tests() {
         String username = System.getenv("MOSES_TESTING_USERNAME");
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
-        //Navigate to EASEY In
-        //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-
+//        Navigate to EASEY In
+//        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         HeaderFooterAndHomePage headerFooterAndHomePage = new HeaderFooterAndHomePage(driver);
 
-        waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        verifyEquals(headerFooterAndHomePage.logInButton, "Log In");
-        click(headerFooterAndHomePage.logInButton);
+        verifyEquals(headerFooterAndHomePage.dashHomeTitle, "Home");
+        click(headerFooterAndHomePage.dashHomeTitle);
+
+        verifyEquals(headerFooterAndHomePage.logInLabelHomePage, "Log In");
 
         verifyEquals(headerFooterAndHomePage.usernameLabel.getText(), "Username");
         input(headerFooterAndHomePage.usernameField, username);

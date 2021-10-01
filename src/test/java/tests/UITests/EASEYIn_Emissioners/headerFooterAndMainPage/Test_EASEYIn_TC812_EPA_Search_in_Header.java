@@ -1,6 +1,7 @@
-package tests.UITests.EASEYIn_Emissioners.headerAndFooterAndMainPage;
+package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
 import org.testng.annotations.Test;
+import pages.HeaderFooterAndHomePage;
 import pages.MonitoringPlansPage;
 import pages.SearchResultPage;
 import tests.utils.UITestBase;
@@ -15,19 +16,20 @@ public class Test_EASEYIn_TC812_EPA_Search_in_Header extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        HeaderFooterAndHomePage headerFooterAndHomePage = new HeaderFooterAndHomePage(driver);
         SearchResultPage searchResultPage = new SearchResultPage(driver);
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        verifyEquals(monitoringPlansPage.menuBtn, "Menu");
-        click(monitoringPlansPage.menuBtn);
+        verifyEquals(headerFooterAndHomePage.menuBtn, "Menu");
+        click(headerFooterAndHomePage.menuBtn);
 
-        waitFor(monitoringPlansPage.searchButton);
-        verifyTrue(isDisplayed(monitoringPlansPage.searchButton));
+        waitFor(headerFooterAndHomePage.searchButton);
+        verifyTrue(isDisplayed(headerFooterAndHomePage.searchButton));
 
-        monitoringPlansPage.searchBox.sendKeys("Something");
+        headerFooterAndHomePage.searchBox.sendKeys("Something");
 
-        click(monitoringPlansPage.searchButton);
+        click(headerFooterAndHomePage.searchButton);
 
         changeTab();
         verifyTrue(searchResultPage.searchResults.getText().contains("Something"));

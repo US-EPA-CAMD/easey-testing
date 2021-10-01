@@ -1,6 +1,7 @@
-package tests.UITests.EASEYIn_Emissioners.headerAndFooterAndMainPage;
+package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
 import org.testng.annotations.Test;
+import pages.HeaderFooterAndHomePage;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
@@ -14,12 +15,13 @@ public class Test_EASEYIn_EPA_Header_Hyperlink extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        HeaderFooterAndHomePage headerFooterAndHomePage = new HeaderFooterAndHomePage(driver);
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        monitoringPlansPage.epaHeaderLogoAndHyperlink.isDisplayed();
+        headerFooterAndHomePage.epaHeaderLogoAndHyperlink.isDisplayed();
 
-        click(monitoringPlansPage.epaHeaderLogoAndHyperlink);
+        click(headerFooterAndHomePage.epaHeaderLogoAndHyperlink);
 
         changeTab();
         verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/");

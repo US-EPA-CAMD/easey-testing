@@ -1,10 +1,10 @@
-package tests.UITests.EASEYIn_Emissioners.generalTests;
+package tests.UITests.EASEYIn_Emissioners.monPlan;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_MonPlan_MethodsAndSystems extends UITestBase {
+public class Test_EASEYIn_MonPlan_Accordion extends UITestBase {
 
     @Test
     public void test() {
@@ -23,21 +23,20 @@ public class Test_EASEYIn_MonPlan_MethodsAndSystems extends UITestBase {
         click(monitoringPlansPage.facilityCaretBarry);
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        verifyFalse(isDisplayed(monitoringPlansPage.accordionSystemsLabel));
+        waitFor(monitoringPlansPage.monPlanActionsHeader);
+        verifyEquals(monitoringPlansPage.monPlanActionsHeader, "Actions");
+        verifyTrue(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
 
-        click(monitoringPlansPage.sectionsDropdown);
+        click(monitoringPlansPage.accordionButtonMonPlan);
 
-        click(monitoringPlansPage.monitoringSystems);
-
-        verifyTrue(isDisplayed(monitoringPlansPage.accordionSystemsLabel));
-        verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
+        verifyFalse(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
 
     }
 }
