@@ -11,10 +11,10 @@ public class HeaderFooterAndHomePage extends PageBase {
 
     public HeaderFooterAndHomePage(WebDriver driver) { super(driver); }
 
-    @FindBy(css = "em[class='usa-logo__text epa-active-element'] > h1")
+    @FindBy(css = "em.usa-logo__text > h1")
     public WebElement ecmpsHeaderImage;
 
-    @FindBy(css = "em[class='usa-logo__text epa-active-element'] > span")
+    @FindBy(css = "em.usa-logo__text > span")
     public WebElement ecmpsHeaderLabel;
 
     @FindBy(css = "button[aria-controls='menu-[object Object]'] > span")
@@ -276,13 +276,13 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (css ="label[for='username']")
     public WebElement usernameLabel;
 
-    @FindBy (id ="username")
+    @FindBy (id ="modal-username")
     public WebElement usernameField;
 
     @FindBy (css ="label[for='password']")
     public WebElement passwordLabel;
 
-    @FindBy (id ="password")
+    @FindBy (id ="modal-password")
     public WebElement passwordField;
 
     @FindBy (css = "div.padding-bottom-4.position-absolute.bottom-0 > div > div:nth-child(1) > div:nth-child(1)")
