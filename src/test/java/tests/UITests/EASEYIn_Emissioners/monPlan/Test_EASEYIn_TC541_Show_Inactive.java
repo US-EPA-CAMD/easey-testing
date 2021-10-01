@@ -1,10 +1,11 @@
-package tests.UITests.EASEYIn_Emissioners.generalTests;
+package tests.UITests.EASEYIn_Emissioners.monPlan;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_MonPlan_Accordion extends UITestBase {
+public class Test_EASEYIn_TC541_Show_Inactive extends UITestBase {
 
     @Test
     public void test() {
@@ -30,13 +31,9 @@ public class Test_EASEYIn_MonPlan_Accordion extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        waitFor(monitoringPlansPage.monPlanActionsHeader);
-        verifyEquals(monitoringPlansPage.monPlanActionsHeader, "Actions");
-        verifyTrue(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
-
-        click(monitoringPlansPage.accordionButtonMonPlan);
-
-        verifyFalse(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
+        verifyFalse(monitoringPlansPage.showInactiveCheckbox.findElement(By.id("checkbox")).isSelected());
+        click(monitoringPlansPage.showInactiveCheckbox);
+        verifyTrue(monitoringPlansPage.showInactiveCheckbox.findElement(By.id("checkbox")).isSelected());
 
     }
 }

@@ -1,16 +1,8 @@
 package tests.UI_Smoke_Tests;
 
-import com.opencsv.exceptions.CsvValidationException;
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
-import tests.utils.CSVParser;
 import tests.utils.UITestBase;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 public class Test_EASEYIn_SMK_LogIn extends UITestBase {
 

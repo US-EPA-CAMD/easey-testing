@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.headerAndFooterAndMainPage;
+package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
@@ -42,7 +42,6 @@ public class Test_EASEYIn_RowsPerPage extends UITestBase {
         // Verifies how many rows are in the Facilities table
         // The extra 1 is the table header
         verifyEquals(monitoringPlansPage.rowsPerPage.size(), 501);
-
 
     }
 }

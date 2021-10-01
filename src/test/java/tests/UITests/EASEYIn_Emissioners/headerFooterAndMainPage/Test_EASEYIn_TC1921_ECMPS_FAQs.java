@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.headerAndFooterAndMainPage;
+package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;

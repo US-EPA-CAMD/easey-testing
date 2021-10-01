@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.headerAndFooterAndMainPage;
+package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
