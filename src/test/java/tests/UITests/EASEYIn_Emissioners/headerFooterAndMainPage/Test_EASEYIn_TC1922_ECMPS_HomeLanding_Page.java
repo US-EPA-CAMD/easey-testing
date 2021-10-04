@@ -42,6 +42,7 @@ public class Test_EASEYIn_TC1922_ECMPS_HomeLanding_Page extends UITestBase {
 
         click(monitoringPlansPage.dashHomeTitle);
 
+        waitFor(monitoringPlansPage.homePgEmissionsHeader);
         verifyEquals(monitoringPlansPage.homePgEmissionsHeader, "Emissions");
         verifyEquals(monitoringPlansPage.homePgViewEmissionsLink, "View Emissions");
         click(monitoringPlansPage.homePgViewEmissionsLink);
