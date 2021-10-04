@@ -86,28 +86,28 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (css ="a[href='/ecmps/resources']")
     public WebElement resourcesButton;
 
-    @FindBy (css ="div:nth-child(1) > span")
+    @FindBy (css ="div.grid-row > h2.text-bold.font-heading-2xl")
     public WebElement resourcesPageHeader;
 
-    @FindBy (css ="div.grid-row > div:nth-child(1) > h2")
+    @FindBy (css ="div.grid-row > div:nth-child(1) > h3")
     public WebElement resourcesPageGlossaryHeader;
 
     @FindBy (id ="Glossary")
     public WebElement resourcesPageGlossaryLink;
 
-    @FindBy (css ="div.grid-row > div:nth-child(2) > h2")
+    @FindBy (css ="div.grid-row > div:nth-child(2) > h3")
     public WebElement resourcesPageReportInstructionsHeader;
 
     @FindBy (id ="ReportingInstructions")
     public WebElement resourcesPageReportInstructionsLink;
 
-    @FindBy (css ="div.grid-row > div:nth-child(3) > h2")
+    @FindBy (css ="div.grid-row > div:nth-child(3) > h3")
     public WebElement resourcesPageCamApiHeader;
 
     @FindBy (id ="CAMAPI")
     public WebElement resourcesPageCamApiLink;
 
-    @FindBy (css ="div:nth-child(3) > span")
+    @FindBy (css ="div.margin-top-2 > h2.text-bold.font-heading-2xl")
     public WebElement resourcesPageAdditionalResourcesHeader;
 
     @FindBy (id ="CDX")
