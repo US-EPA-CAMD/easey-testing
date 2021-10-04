@@ -164,25 +164,25 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (id ="btnSubmit")
     public WebElement helpSupportPageSubmitButton;
 
-    @FindBy (css ="div:nth-child(1) > span")
+    @FindBy (css ="div:nth-child(1) > h2")
     public WebElement homePgAboutEcmpsHeader;
 
-    @FindBy (css ="div:nth-child(2) > h2")
+    @FindBy (css ="div:nth-child(2) > h3.text-bold.font-heading-xl")
     public WebElement homePgMonPlansHeader;
 
-    @FindBy (css ="div:nth-child(2) > a#MonitoringPlans")
+    @FindBy (id ="MonitoringPlans_btn")
     public WebElement homePgViewMonPlansLink;
 
-    @FindBy (css ="div:nth-child(3) > h2")
+    @FindBy (css ="div:nth-child(3) > h3.text-bold.font-heading-xl")
     public WebElement homePgQaCertHeader;
 
-    @FindBy (css ="div:nth-child(3) > a#QA\\&Certifications")
+    @FindBy (id ="QA&Certifications_btn")
     public WebElement homePgViewQaCertLink;
 
-    @FindBy (css ="div:nth-child(4) > h2")
+    @FindBy (css ="div:nth-child(4) > h3.text-bold.font-heading-xl")
     public WebElement homePgEmissionsHeader;
 
-    @FindBy (css ="div:nth-child(4) > a#Emissions")
+    @FindBy (id ="Emissions_btn")
     public WebElement homePgViewEmissionsLink;
 
     @FindBy (css ="div.box__title")
