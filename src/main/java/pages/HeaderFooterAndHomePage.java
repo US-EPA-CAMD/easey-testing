@@ -137,7 +137,7 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (css ="div[class='usa-accordion__content usa-prose']")
     public List<WebElement> faqsPageAccordionContent;
 
-    @FindBy (css ="li:nth-child(3) > button > span > span")
+    @FindBy (css ="li:nth-child(2) > button > span > span")
     public WebElement helpSupportMenuHeader;
 
     @FindBy (css ="a[href='/ecmps/help-support']")
