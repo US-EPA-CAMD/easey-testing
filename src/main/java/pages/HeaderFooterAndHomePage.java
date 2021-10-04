@@ -80,7 +80,7 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy(css = "button[type='submit']")
     public WebElement searchButton;
 
-    @FindBy (css ="li:nth-child(2) > button > span > span")
+    @FindBy (css ="li:nth-child(1) > button > span > span")
     public WebElement resourcesMenuHeader;
 
     @FindBy (css ="a[href='/ecmps/resources']")
