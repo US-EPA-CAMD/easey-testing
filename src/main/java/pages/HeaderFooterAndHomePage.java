@@ -80,34 +80,34 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy(css = "button[type='submit']")
     public WebElement searchButton;
 
-    @FindBy (css ="li:nth-child(2) > button > span > span")
+    @FindBy (css ="li:nth-child(1) > button > span > span")
     public WebElement resourcesMenuHeader;
 
     @FindBy (css ="a[href='/ecmps/resources']")
     public WebElement resourcesButton;
 
-    @FindBy (css ="div:nth-child(1) > span")
+    @FindBy (css ="div.grid-row > h2.text-bold.font-heading-2xl")
     public WebElement resourcesPageHeader;
 
-    @FindBy (css ="div.grid-row > div:nth-child(1) > h2")
+    @FindBy (css ="div.grid-row > div:nth-child(1) > h3")
     public WebElement resourcesPageGlossaryHeader;
 
     @FindBy (id ="Glossary")
     public WebElement resourcesPageGlossaryLink;
 
-    @FindBy (css ="div.grid-row > div:nth-child(2) > h2")
+    @FindBy (css ="div.grid-row > div:nth-child(2) > h3")
     public WebElement resourcesPageReportInstructionsHeader;
 
     @FindBy (id ="ReportingInstructions")
     public WebElement resourcesPageReportInstructionsLink;
 
-    @FindBy (css ="div.grid-row > div:nth-child(3) > h2")
+    @FindBy (css ="div.grid-row > div:nth-child(3) > h3")
     public WebElement resourcesPageCamApiHeader;
 
     @FindBy (id ="CAMAPI")
     public WebElement resourcesPageCamApiLink;
 
-    @FindBy (css ="div:nth-child(3) > span")
+    @FindBy (css ="div.margin-top-2 > h2.text-bold.font-heading-2xl")
     public WebElement resourcesPageAdditionalResourcesHeader;
 
     @FindBy (id ="CDX")
@@ -137,7 +137,7 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (css ="div[class='usa-accordion__content usa-prose']")
     public List<WebElement> faqsPageAccordionContent;
 
-    @FindBy (css ="li:nth-child(3) > button > span > span")
+    @FindBy (css ="li:nth-child(2) > button > span > span")
     public WebElement helpSupportMenuHeader;
 
     @FindBy (css ="a[href='/ecmps/help-support']")
@@ -164,25 +164,25 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (id ="btnSubmit")
     public WebElement helpSupportPageSubmitButton;
 
-    @FindBy (css ="div:nth-child(1) > span")
+    @FindBy (css ="div:nth-child(1) > h2")
     public WebElement homePgAboutEcmpsHeader;
 
-    @FindBy (css ="div:nth-child(2) > h2")
+    @FindBy (css ="div:nth-child(2) > h3.text-bold.font-heading-xl")
     public WebElement homePgMonPlansHeader;
 
-    @FindBy (css ="div:nth-child(2) > a#MonitoringPlans")
+    @FindBy (id ="MonitoringPlans_btn")
     public WebElement homePgViewMonPlansLink;
 
-    @FindBy (css ="div:nth-child(3) > h2")
+    @FindBy (css ="div:nth-child(3) > h3.text-bold.font-heading-xl")
     public WebElement homePgQaCertHeader;
 
-    @FindBy (css ="div:nth-child(3) > a#QA\\&Certifications")
+    @FindBy (id ="QA&Certifications_btn")
     public WebElement homePgViewQaCertLink;
 
-    @FindBy (css ="div:nth-child(4) > h2")
+    @FindBy (css ="div:nth-child(4) > h3.text-bold.font-heading-xl")
     public WebElement homePgEmissionsHeader;
 
-    @FindBy (css ="div:nth-child(4) > a#Emissions")
+    @FindBy (id ="Emissions_btn")
     public WebElement homePgViewEmissionsLink;
 
     @FindBy (css ="div.box__title")
@@ -276,13 +276,13 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (css ="label[for='username']")
     public WebElement usernameLabel;
 
-    @FindBy (id ="modal-username")
+    @FindBy (id ="username")
     public WebElement usernameField;
 
     @FindBy (css ="label[for='password']")
     public WebElement passwordLabel;
 
-    @FindBy (id ="modal-password")
+    @FindBy (id ="password")
     public WebElement passwordField;
 
     @FindBy (css = "div.padding-bottom-4.position-absolute.bottom-0 > div > div:nth-child(1) > div:nth-child(1)")
