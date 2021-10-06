@@ -58,7 +58,31 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;
 
-    @FindBy (css = "div.modal-header.modal-color > div > h3")
+    @FindBy (css = "option[data-testid='Defaults']")
+    public WebElement monitoringDefaults;
+
+    @FindBy (css = "option[data-testid='Formulas']")
+    public WebElement monitoringFormulas;
+
+    @FindBy (css = "option[data-testid='Loads']")
+    public WebElement monitoringLoads;
+
+    @FindBy (css = "option[data-testid='Location Attributes and Relationships']")
+    public WebElement monitoringLocationAttributesAndRelationships ;
+
+    @FindBy (css = "option[data-testid='Qualifications']")
+    public WebElement monitoringQualifications ;
+
+    @FindBy (css = "option[data-testid='Rectangular Duct WAFs']")
+    public WebElement monitoringRectangularDuctWAFs;
+
+    @FindBy (css = "option[data-testid='Span']")
+    public WebElement monitoringSpan;
+
+    @FindBy (css = "option[data-testid='Unit Information']")
+    public WebElement monitoringUnitInformation;
+
+    @FindBy (css = "div.modal-header.modal-color > div > h2")
     public WebElement monPlanModalHeaderLabel;
 
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h4")
@@ -75,6 +99,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "span[epa-testid='Systems']")
     public WebElement accordionSystemsLabel;
+
+    @FindBy (css = "span[epa-testid='Defaults']")
+    public WebElement accordionDefaultsLabel;
 
     @FindBy (css = "span[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
@@ -136,7 +163,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "#column-undefined > div")
     public List<WebElement> componentActionsHeader;
 
-    @FindBy (id = "btnOpen")
+    @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButton;
 
     @FindBy (id = "btnOpenSystemComponents")
