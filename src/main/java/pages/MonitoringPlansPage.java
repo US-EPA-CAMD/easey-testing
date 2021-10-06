@@ -103,6 +103,27 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "span[epa-testid='Defaults']")
     public WebElement accordionDefaultsLabel;
 
+    @FindBy (css = "Place Holder")
+    public WebElement accordionFormulasLabel;
+
+    @FindBy (css = "span[epa-testid='Loads']")
+    public WebElement accordionLoadsLabel;
+
+    @FindBy (css = "Place Holder")
+    public WebElement accordionLocationAttributesAndRelationshipsLabel;
+
+    @FindBy (css = "Place Holder")
+    public WebElement accordionQualificationsLabel;
+
+    @FindBy (css = "Place Holder")
+    public WebElement accordionRectangularDuctWAFsLabel;
+
+    @FindBy (css = "span[epa-testid='Spans']")
+    public WebElement accordionSpansLabel;
+
+    @FindBy (css = "Place Holder")
+    public WebElement accordionUnitInformationLabel;
+
     @FindBy (css = "span[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
 

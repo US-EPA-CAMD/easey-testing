@@ -1,11 +1,11 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.loads;
+package tests.UITests.EASEYIn_Emissioners.monPlan.spans;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC405_View_MP_Load_Data extends UITestBase {
+public class Test_EASEYIn_TC629_View_Monitoring_Span extends UITestBase {
 
     @Test
     public void test() {
@@ -32,18 +32,18 @@ public class Test_EASEYIn_TC405_View_MP_Load_Data extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        click(monitoringPlansPage.monitoringLoads);
+        click(monitoringPlansPage.monitoringSpan);
 
-        waitFor(monitoringPlansPage.accordionLoadsLabel);
-        verifyEquals(monitoringPlansPage.accordionLoadsLabel, "Loads");
+        waitFor(monitoringPlansPage.accordionSpansLabel);
+        verifyEquals(monitoringPlansPage.accordionSpansLabel, "Spans");
 
         click(monitoringPlansPage.location.get(2));
         verifyEquals(monitoringPlansPage.location.get(2), "CS0AAN");
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
 
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Load");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Span");
 
     }
 }
