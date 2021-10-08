@@ -21,17 +21,17 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        verifyEquals(monitoringPlansPage.logInButton, "Log In");
-        click(monitoringPlansPage.logInButton);
+        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        click(monitoringPlansPage.logInButtonOpenModal);
 
-        verifyEquals(monitoringPlansPage.usernameLabel.getText(), "Username");
-        input(monitoringPlansPage.usernameField, username);
+        verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
+        input(monitoringPlansPage.usernameFieldModal, username);
 
-        verifyEquals(monitoringPlansPage.passwordLabel.getText(), "Password");
-        input(monitoringPlansPage.passwordField, password);
+        verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
+        input(monitoringPlansPage.passwordFieldModal, password);
 
-        verifyEquals(monitoringPlansPage.logInButton, "Log In");
-        click(monitoringPlansPage.logInButtonModal);
+        verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
+        click(monitoringPlansPage.logInButtonSubmit);
 
         waitFor(monitoringPlansPage.title);
         waitFor(monitoringPlansPage.dashWorkspace);

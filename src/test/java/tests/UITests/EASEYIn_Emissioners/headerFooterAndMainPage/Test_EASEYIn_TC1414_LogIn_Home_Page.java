@@ -24,14 +24,14 @@ public class Test_EASEYIn_TC1414_LogIn_Home_Page extends UITestBase {
 
         verifyEquals(monitoringPlansPage.logInLabelHomePage, "Log In");
 
-        verifyEquals(monitoringPlansPage.usernameLabel.getText(), "Username");
-        input(monitoringPlansPage.usernameField, username);
+        verifyEquals(monitoringPlansPage.usernameLabelHomePage.getText(), "Username");
+        input(monitoringPlansPage.usernameFieldHomePage, username);
 
-        verifyEquals(monitoringPlansPage.passwordLabel.getText(), "Password");
-        input(monitoringPlansPage.passwordField, password);
+        verifyEquals(monitoringPlansPage.passwordLabelHomePage.getText(), "Password");
+        input(monitoringPlansPage.passwordFieldHomePage, password);
 
-        verifyEquals(monitoringPlansPage.logInButton, "Log In");
-        click(monitoringPlansPage.logInButtonModal);
+        verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
+        click(monitoringPlansPage.logInButtonSubmit);
 
         waitFor(monitoringPlansPage.title);
         waitFor(monitoringPlansPage.dashWorkspace);
