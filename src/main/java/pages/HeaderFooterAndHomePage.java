@@ -268,22 +268,22 @@ public class HeaderFooterAndHomePage extends PageBase {
     public WebElement logInLabel;
 
     @FindBy(css = "button[epa-testid='openModalBTN']")
-    public WebElement logInButton;
+    public WebElement logInButtonOpenModal;
 
     @FindBy(css = "button[data-test='component-login-submit-button']")
-    public WebElement logInButtonModal;
+    public WebElement logInButtonSubmit;
 
-    @FindBy (css ="label[for='username']")
-    public WebElement usernameLabel;
+    @FindBy (css ="label[for='modal-username']")
+    public WebElement usernameLabelModal;
 
-    @FindBy (id ="username")
-    public WebElement usernameField;
+    @FindBy (id ="modal-username")
+    public WebElement usernameFieldModal;
 
-    @FindBy (css ="label[for='password']")
-    public WebElement passwordLabel;
+    @FindBy (css ="label[for='modal-password']")
+    public WebElement passwordLabelModal;
 
-    @FindBy (id ="password")
-    public WebElement passwordField;
+    @FindBy (id ="modal-password")
+    public WebElement passwordFieldModal;
 
     @FindBy (css = "div.padding-bottom-4.position-absolute.bottom-0 > div > div:nth-child(1) > div:nth-child(1)")
     public WebElement welcomeMessage;
@@ -293,5 +293,17 @@ public class HeaderFooterAndHomePage extends PageBase {
 
     @FindBy(css = "div.bg-base-lighter > div > div > form > fieldset > legend")
     public WebElement logInLabelHomePage;
+
+    @FindBy(css = "label[for='username']")
+    public WebElement usernameLabelHomePage;
+
+    @FindBy(id = "username")
+    public WebElement usernameFieldHomePage;
+
+    @FindBy(css = "label[for='password']")
+    public WebElement passwordLabelHomePage;
+
+    @FindBy(id = "password")
+    public WebElement passwordFieldHomePage;
 
 }
