@@ -21,7 +21,8 @@ public class Test_EASEYIn_Show_Inactive_Disabled extends UITestBase {
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        click(monitoringPlansPage.facilityCaretBarry);
+        // Clicks on Barry (Oris Code 3)
+        click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
