@@ -303,8 +303,8 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "#btnOpenConfiguration")
     public List<WebElement> monPlanOpenButton;
 
-    @FindBy (css ="button[data-testid='expander-button-3']")
-    public WebElement facilityCaretBarry;
+    @FindBy (css ="button[data-testid='expander-button-undefined']")
+    public List<WebElement> facilityCaret;
 
     @FindBy (css ="button[aria-label='Expand Row']")
     public WebElement facilityCaretFirst;
