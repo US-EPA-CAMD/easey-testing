@@ -33,7 +33,6 @@ public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
         verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
         click(monitoringPlansPage.logInButtonSubmit);
 
-        waitFor(monitoringPlansPage.title);
         waitFor(monitoringPlansPage.dashWorkspace);
         verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
@@ -43,7 +42,6 @@ public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        waitFor(monitoringPlansPage.filterByKeywordButton);
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
@@ -75,7 +73,6 @@ public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
 
-        waitFor(monitoringPlansPage.configcheckInButton);
         click(monitoringPlansPage.configcheckInButton);
         waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
