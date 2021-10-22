@@ -240,25 +240,22 @@ public class HeaderFooterAndHomePage extends PageBase {
     public WebElement dashWorkspace;
 
     @FindBy (css = "a[title='Go to Monitoring Plans page']")
-    public List<WebElement> dashMonPlan;
+    public WebElement dashMonPlan;
 
     @FindBy (css = "a[title='Go to QA & Certifications page']")
-    public List<WebElement> dashQaCert;
+    public WebElement dashQaCert;
 
     @FindBy (css = "a[title='Go to Emissions page']")
-    public List<WebElement> dashEmissions;
+    public WebElement dashEmissions;
 
-    @FindBy (css = "a[title='Go to the  CAMD Apps page']")
-    public WebElement dashCamdApps;
+    @FindBy (id = "MonitoringPlans_wks")
+    public WebElement workspaceMonPlan;
 
-    @FindBy (css = "a[title='Go to the Profile page']")
-    public WebElement dashProfile;
+    @FindBy (id = "QA&Certifications_wks")
+    public WebElement workspaceQACertification;
 
-    @FindBy (css = "a[title='Go to the Account Management page']")
-    public WebElement dashAccountMan;
-
-    @FindBy (css = "a[title='Go to the help page']")
-    public WebElement dashHelpContact;
+    @FindBy (id = "Emissions_wks")
+    public WebElement workspaceEmissions;
 
     @FindBy (css = "div.text-center > h1")
     public WebElement pageDoesntExist;
