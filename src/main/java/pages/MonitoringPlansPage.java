@@ -318,6 +318,16 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
 
+    @FindBy (id ="checkOutBTN")
+    public WebElement configcheckOutButton;
 
+    @FindBy (id ="checkInBTN")
+    public WebElement configcheckInButton;
+
+    @FindBy (id ="showRevertModal")
+    public WebElement revertOfficialRecordButton;
+
+    @FindBy (id ="saveBtn")
+    public WebElement revertModalYesButton;
 
 }
