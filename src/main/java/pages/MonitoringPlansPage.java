@@ -121,8 +121,11 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "span[epa-testid='Spans']")
     public WebElement accordionSpansLabel;
 
-    @FindBy (css = "Place Holder")
-    public WebElement accordionUnitInformationLabel;
+    @FindBy (css = "span[epa-testid='UnitFuels']")
+    public WebElement accordionUnitFuelsLabel;
+
+    @FindBy (css = "span[epa-testid='UnitControls']")
+    public WebElement accordionUnitControlsLabel;
 
     @FindBy (css = "span[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
