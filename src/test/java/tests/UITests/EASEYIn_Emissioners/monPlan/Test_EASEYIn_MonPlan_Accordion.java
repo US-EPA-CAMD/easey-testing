@@ -35,7 +35,7 @@ public class Test_EASEYIn_MonPlan_Accordion extends UITestBase {
         verifyEquals(monitoringPlansPage.monPlanActionsHeader, "Actions");
         verifyTrue(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
 
-        click(monitoringPlansPage.accordionButtonMonPlan);
+        click(monitoringPlansPage.accordionCollapseButtonMonPlan);
 
         verifyFalse(isDisplayed(monitoringPlansPage.monPlanActionsHeader));
 

@@ -92,7 +92,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public WebElement monPlanAnalyzerRangesHeaderLabel;
 
     @FindBy (id = "collapseBTN")
-    public WebElement accordionButtonMonPlan;
+    public WebElement accordionCollapseButtonMonPlan;
+
+    @FindBy (id = "expandBTN")
+    public WebElement accordionExpandButtonMonPlan;
 
     @FindBy (css = "span[epa-testid='Methods']")
     public WebElement accordionMethodsLabel;
