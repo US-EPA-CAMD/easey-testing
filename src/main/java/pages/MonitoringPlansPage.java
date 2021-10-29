@@ -142,7 +142,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(id = "closeModalBtn")
     public WebElement xOutModal;
 
-    @FindBy(css = "button.cancelBTN.modal-color")
+    @FindBy(css = "button[epa-testid='cancelBtn']")
     public WebElement cancelModal;
 
     @FindBy(css = "button.saveCloseBTN")
@@ -169,11 +169,17 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "label[for='fueltype']")
     public WebElement modalFuelType;
 
-    @FindBy (id = "dateStart")
-    public WebElement modalStartTimeDate;
+    @FindBy (id = "Start Date")
+    public WebElement modalStartDateField;
 
-    @FindBy (id = "dateEnd")
-    public WebElement modalEndTimeDate;
+    @FindBy (id = "Start Time")
+    public WebElement modalStartTimeField;
+
+    @FindBy (id = "End Date")
+    public WebElement modalEndDateField;
+
+    @FindBy (id = "End Time")
+    public WebElement modalEndTimeField;
 
     @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h4")
     public WebElement systemComponentsHeader;
