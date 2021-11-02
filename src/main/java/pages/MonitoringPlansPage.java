@@ -333,6 +333,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id ="tabBtn")
     public List<WebElement> configTabs;
 
+    @FindBy (id ="tabBtn")
+    public List<WebElement> configTab;
+
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
 
