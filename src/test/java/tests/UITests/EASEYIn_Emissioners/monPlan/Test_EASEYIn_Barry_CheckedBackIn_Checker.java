@@ -56,9 +56,9 @@ public class Test_EASEYIn_Barry_CheckedBackIn_Checker extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        if (isDisplayed(monitoringPlansPage.configcheckInButton)) {
-            click(monitoringPlansPage.configcheckInButton);
-            verifyFalse(isDisplayed(monitoringPlansPage.configcheckInButton));
+        if (isDisplayed(monitoringPlansPage.configcheckBackInButton)) {
+            click(monitoringPlansPage.configcheckBackInButton);
+            verifyFalse(isDisplayed(monitoringPlansPage.configcheckBackInButton));
         } else {
             verifyTrue(isDisplayed(monitoringPlansPage.configcheckOutButton));
         }

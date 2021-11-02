@@ -60,8 +60,8 @@ public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends UITestBase {
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
-        waitFor(monitoringPlansPage.configcheckInButton);
-        verifyEquals(monitoringPlansPage.configcheckInButton, "Check Back In");
+        waitFor(monitoringPlansPage.configcheckBackInButton);
+        verifyEquals(monitoringPlansPage.configcheckBackInButton, "Check Back In");
 
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
@@ -81,7 +81,7 @@ public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends UITestBase {
         verifyEquals(alertText, closeWindowMsg);
         driver.switchTo().alert().accept();
 
-        click(monitoringPlansPage.configcheckInButton);
+        click(monitoringPlansPage.configcheckBackInButton);
 
         waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");

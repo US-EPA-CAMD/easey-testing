@@ -57,12 +57,12 @@ public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         verifyFalse(isDisplayed(monitoringPlansPage.revertOfficialRecordButton));
-        verifyFalse(isDisplayed(monitoringPlansPage.configcheckInButton));
+        verifyFalse(isDisplayed(monitoringPlansPage.configcheckBackInButton));
 
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
-        verifyEquals(monitoringPlansPage.configcheckInButton, "Check Back In");
+        verifyEquals(monitoringPlansPage.configcheckBackInButton, "Check Back In");
 
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
         verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
@@ -73,7 +73,7 @@ public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
 
-        click(monitoringPlansPage.configcheckInButton);
+        click(monitoringPlansPage.configcheckBackInButton);
         waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
 

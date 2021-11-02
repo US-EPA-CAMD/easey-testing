@@ -55,6 +55,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Methods']")
     public WebElement monitoringMethods;
 
+    @FindBy (id = "column-col1")
+    public WebElement monMethodsTableParameterLabel;
+
+    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
+    public List<WebElement> monMethodsTableParameterField;
+
     @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;
 
@@ -334,7 +340,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public WebElement configcheckOutButton;
 
     @FindBy (id ="checkInBTN")
-    public WebElement configcheckInButton;
+    public WebElement configcheckBackInButton;
 
     @FindBy (id ="showRevertModal")
     public WebElement revertOfficialRecordButton;
