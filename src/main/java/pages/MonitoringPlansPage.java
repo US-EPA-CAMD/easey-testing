@@ -61,6 +61,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
     public List<WebElement> monMethodsTableParameterField;
 
+    @FindBy (css = "#Parameter > option")
+    public List<WebElement> monMethodsModalParameterDropdown;
+
     @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;
 
@@ -151,7 +154,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "button[epa-testid='cancelBtn']")
     public WebElement cancelModal;
 
-    @FindBy(css = "button.saveCloseBTN")
+    @FindBy(id = "saveBtn")
     public WebElement saveCloseModal;
 
     @FindBy(css = "button[epa-testid='closeBtn']")
@@ -333,11 +336,11 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id ="tabBtn")
     public List<WebElement> configTabs;
 
-    @FindBy (id ="tabBtn")
-    public List<WebElement> configTab;
-
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
+
+    @FindBy (id ="closeXBtnTab")
+    public List<WebElement> closeConfigTab;
 
     @FindBy (id ="checkOutBTN")
     public WebElement configcheckOutButton;

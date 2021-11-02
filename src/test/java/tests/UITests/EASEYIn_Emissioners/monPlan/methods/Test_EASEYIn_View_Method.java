@@ -28,7 +28,7 @@ public class Test_EASEYIn_View_Method extends UITestBase {
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTab.get(0));
+        click(monitoringPlansPage.configTabs.get(0));
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
