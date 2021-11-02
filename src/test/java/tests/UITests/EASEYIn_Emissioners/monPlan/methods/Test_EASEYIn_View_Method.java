@@ -1,10 +1,10 @@
-package tests.UI_Smoke_Tests;
+package tests.UITests.EASEYIn_Emissioners.monPlan.methods;
 
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
+public class Test_EASEYIn_View_Method extends UITestBase {
 
     @Test
     public void test() {
@@ -18,17 +18,17 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox,"Barry");
+        input(monitoringPlansPage.filterByKeywordBox,"Gadsden");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Barry (Oris Code 3)
+        // Clicks on Gadsden (Oris Code 7)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTabBarry12CS0AAN);
+        click(monitoringPlansPage.configTabs.get(0));
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 

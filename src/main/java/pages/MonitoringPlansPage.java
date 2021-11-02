@@ -55,6 +55,15 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Methods']")
     public WebElement monitoringMethods;
 
+    @FindBy (id = "column-col1")
+    public WebElement monMethodsTableParameterLabel;
+
+    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
+    public List<WebElement> monMethodsTableParameterField;
+
+    @FindBy (css = "#Parameter > option")
+    public List<WebElement> monMethodsModalParameterDropdown;
+
     @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;
 
@@ -142,10 +151,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(id = "closeModalBtn")
     public WebElement xOutModal;
 
-    @FindBy(css = "button.cancelBTN.modal-color")
+    @FindBy(css = "button[epa-testid='cancelBtn']")
     public WebElement cancelModal;
 
-    @FindBy(css = "button.saveCloseBTN")
+    @FindBy(id = "saveBtn")
     public WebElement saveCloseModal;
 
     @FindBy(css = "button[epa-testid='closeBtn']")
@@ -169,11 +178,17 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "label[for='fueltype']")
     public WebElement modalFuelType;
 
-    @FindBy (id = "dateStart")
-    public WebElement modalStartTimeDate;
+    @FindBy (id = "Start Date")
+    public WebElement modalStartDateField;
 
-    @FindBy (id = "dateEnd")
-    public WebElement modalEndTimeDate;
+    @FindBy (id = "Start Time")
+    public WebElement modalStartTimeField;
+
+    @FindBy (id = "End Date")
+    public WebElement modalEndDateField;
+
+    @FindBy (id = "End Time")
+    public WebElement modalEndTimeField;
 
     @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h4")
     public WebElement systemComponentsHeader;
@@ -324,11 +339,14 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
 
+    @FindBy (id ="closeXBtnTab")
+    public List<WebElement> closeConfigTab;
+
     @FindBy (id ="checkOutBTN")
     public WebElement configcheckOutButton;
 
     @FindBy (id ="checkInBTN")
-    public WebElement configcheckInButton;
+    public WebElement configcheckBackInButton;
 
     @FindBy (id ="showRevertModal")
     public WebElement revertOfficialRecordButton;

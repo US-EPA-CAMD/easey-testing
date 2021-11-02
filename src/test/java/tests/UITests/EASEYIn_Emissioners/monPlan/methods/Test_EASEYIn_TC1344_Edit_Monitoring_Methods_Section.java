@@ -1,10 +1,11 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan;
+package tests.UITests.EASEYIn_Emissioners.monPlan.methods;
 
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
+public class Test_EASEYIn_TC1344_Edit_Monitoring_Methods_Section extends UITestBase {
 
     @Test()
     public void tests() {
@@ -17,6 +18,7 @@ public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -33,49 +35,62 @@ public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
         verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
         click(monitoringPlansPage.logInButtonSubmit);
 
+        waitFor(monitoringPlansPage.title);
         waitFor(monitoringPlansPage.dashWorkspace);
         verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 
-        verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
-
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox,"Barry");
+        input(monitoringPlansPage.filterByKeywordBox, "Gadsden");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Barry (Oris Code 3)
+        // Clicks on Gadsden (Oris Code 7)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTabBarry12CS0AAN);
+        click(monitoringPlansPage.configTabs.get(0));
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
-
-        verifyFalse(isDisplayed(monitoringPlansPage.revertOfficialRecordButton));
-        verifyFalse(isDisplayed(monitoringPlansPage.configcheckBackInButton));
 
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
+        waitFor(monitoringPlansPage.configcheckBackInButton);
         verifyEquals(monitoringPlansPage.configcheckBackInButton, "Check Back In");
 
+        // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
 
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
+        verifyEquals(monitoringPlansPage.monMethodsTableParameterLabel, "Parameter");
 
-        click(monitoringPlansPage.configcheckBackInButton);
-        waitFor(monitoringPlansPage.configcheckOutButton);
-        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
+        String parameterCode = monitoringPlansPage.monMethodsTableParameterField.get(0).getText();
+
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
+        click(monitoringPlansPage.viewButton.get(0));
+
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
+
+        if (parameterCode.equals("CO2")) {
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+        } else {
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(5));
+        }
+
+        click(monitoringPlansPage.saveCloseModal);
+
+        verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
+
+        // These steps closes the tab and automatically Checks Back In the configuration
+        click(monitoringPlansPage.closeConfigTab.get(0));
+        waitFor(monitoringPlansPage.selectConfigurationLabel);
+        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationLabel));
 
     }
 }

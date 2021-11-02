@@ -4,8 +4,8 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
-
+public class Test_EASEYIn_Barry_CheckedBackIn_Checker extends UITestBase {
+// This test is to make sure that Barry 1, 2, CS0AAN is Checked back in.
     @Test()
     public void tests() {
         String username = System.getenv("MOSES_TESTING_USERNAME");
@@ -42,7 +42,7 @@ public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox,"Barry");
+        input(monitoringPlansPage.filterByKeywordBox, "Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
         // Clicks on Barry (Oris Code 3)
@@ -56,26 +56,12 @@ public class Test_EASEYIn_TC1422_Revert_to_official_record extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        verifyFalse(isDisplayed(monitoringPlansPage.revertOfficialRecordButton));
-        verifyFalse(isDisplayed(monitoringPlansPage.configcheckBackInButton));
-
-        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
-        click(monitoringPlansPage.configcheckOutButton);
-
-        verifyEquals(monitoringPlansPage.configcheckBackInButton, "Check Back In");
-
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-
-        click(monitoringPlansPage.configcheckBackInButton);
-        waitFor(monitoringPlansPage.configcheckOutButton);
-        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
+        if (isDisplayed(monitoringPlansPage.configcheckBackInButton)) {
+            click(monitoringPlansPage.configcheckBackInButton);
+            verifyFalse(isDisplayed(monitoringPlansPage.configcheckBackInButton));
+        } else {
+            verifyTrue(isDisplayed(monitoringPlansPage.configcheckOutButton));
+        }
 
     }
 }

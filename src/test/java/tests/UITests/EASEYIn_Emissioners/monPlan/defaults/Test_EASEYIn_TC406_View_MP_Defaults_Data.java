@@ -19,6 +19,7 @@ public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
+        waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox, "Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
