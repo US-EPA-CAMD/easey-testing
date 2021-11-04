@@ -17,10 +17,11 @@ public class Test_EASEYIn_TC542_View_Supplemental_Method_Modal extends UITestBas
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
+        waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox,"Dolet Hills Power Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        click(monitoringPlansPage.facilityCaretFirst);
+        click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
@@ -31,7 +32,7 @@ public class Test_EASEYIn_TC542_View_Supplemental_Method_Modal extends UITestBas
         waitFor(monitoringPlansPage.accordionSupplementalMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionSupplementalMethodsLabel, "Supplemental Methods");
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 8);
         verifyEquals(monitoringPlansPage.viewButton.get(8).getText(), "View");
         click(monitoringPlansPage.viewButton.get(8));
 
@@ -49,6 +50,7 @@ public class Test_EASEYIn_TC542_View_Supplemental_Method_Modal extends UITestBas
 
         click(monitoringPlansPage.xOutModal);
 
+        waitFor(monitoringPlansPage.accordionSupplementalMethodsLabel);
         verifyFalse(isDisplayed(monitoringPlansPage.monPlanModalHeaderLabel));
 
     }

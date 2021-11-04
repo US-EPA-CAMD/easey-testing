@@ -1,11 +1,11 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.unitInformation.unitFuels;
+package tests.UITests.EASEYIn_Emissioners.monPlan.qualifications;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC2134_View_MP_Unit_Fuel_Data extends UITestBase {
+public class Test_EASEYIn_TC2207_View_Monitoring_Qualifications_Data extends UITestBase {
 
     @Test
     public void test() {
@@ -20,33 +20,32 @@ public class Test_EASEYIn_TC2134_View_MP_Unit_Fuel_Data extends UITestBase {
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Barry");
+        input(monitoringPlansPage.filterByKeywordBox, "Chickasaw");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Barry (Oris Code 3)
+        // Clicks on Chickasaw (Oris Code 5)
         click(monitoringPlansPage.facilityCaret.get(0));
 
-        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTabBarry12CS0AAN);
+        click(monitoringPlansPage.configTabs.get(0));
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        click(monitoringPlansPage.monitoringUnitInformation);
-        verifyEquals(monitoringPlansPage.monitoringUnitInformation, "Unit Information");
+        click(monitoringPlansPage.monitoringQualifications);
 
-        waitFor(monitoringPlansPage.accordionUnitFuelsLabel);
-        verifyEquals(monitoringPlansPage.accordionUnitFuelsLabel, "Unit Fuels");
+        waitFor(monitoringPlansPage.accordionQualificationsLabel);
+        verifyEquals(monitoringPlansPage.accordionQualificationsLabel, "Qualifications");
 
-        click(monitoringPlansPage.location.get(1));
-        verifyEquals(monitoringPlansPage.location.get(1), "2");
+        click(monitoringPlansPage.location.get(0));
+        verifyEquals(monitoringPlansPage.location.get(0), "110");
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
 
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Unit Fuel");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Qualification");
 
     }
 }

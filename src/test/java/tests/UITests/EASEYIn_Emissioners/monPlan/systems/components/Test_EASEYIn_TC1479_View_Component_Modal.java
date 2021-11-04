@@ -17,6 +17,7 @@ public class Test_EASEYIn_TC1479_View_Component_Modal extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
+        waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 

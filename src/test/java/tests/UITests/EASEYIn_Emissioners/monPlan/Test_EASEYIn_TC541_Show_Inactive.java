@@ -18,6 +18,7 @@ public class Test_EASEYIn_TC541_Show_Inactive extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
+        waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 

@@ -19,6 +19,7 @@ public class Test_EASEYIn_TC629_View_Monitoring_Span extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
+        waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox, "Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
