@@ -124,7 +124,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "Place Holder")
     public WebElement accordionLocationAttributesAndRelationshipsLabel;
 
-    @FindBy (css = "Place Holder")
+    @FindBy (css = "span[epa-testid='Qualifications']")
     public WebElement accordionQualificationsLabel;
 
     @FindBy (css = "span[epa-testid='WAFsRectangularDuct']")

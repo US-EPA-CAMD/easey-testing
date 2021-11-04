@@ -19,6 +19,7 @@ public class Test_EASEYIn_TC2130_View_MP_Unit_Control_Data extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
+        waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox, "Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 

@@ -85,6 +85,7 @@ public class Test_EASEYIn_TC1344_Edit_Monitoring_Methods_Section extends UITestB
 
         click(monitoringPlansPage.saveCloseModal);
 
+        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
         // These steps closes the tab and automatically Checks Back In the configuration
