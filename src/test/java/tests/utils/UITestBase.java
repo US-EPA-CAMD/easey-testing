@@ -18,6 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 
 public class UITestBase extends TestBase {
@@ -135,6 +136,19 @@ public class UITestBase extends TestBase {
     protected boolean waitFor(WebElement element, int seconds) {
         ExpectedCondition<Boolean> displayed = driver -> element.isDisplayed();
         return waitFor(displayed, seconds);
+    }
+
+    protected boolean waitFor(List list) {
+        return waitFor(list, 0, 30);
+    }
+
+    protected boolean waitFor(List list, int size) {
+        return waitFor(list, size, 30);
+    }
+
+    protected boolean waitFor(List list, int size, int seconds) {
+        ExpectedCondition<Boolean> condition = driver -> list.size() > size;
+        return waitFor(condition, seconds);
     }
 
     protected void input(WebElement ele, String input){
