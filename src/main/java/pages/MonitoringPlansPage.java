@@ -70,6 +70,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Defaults']")
     public WebElement monitoringDefaults;
 
+    @FindBy (id = "column-col1")
+    public WebElement defaultsTableParameterCodeLabel;
+
+    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
+    public List<WebElement> defaultsTableParameterCodeField;
+
     @FindBy (css = "option[data-testid='Formulas']")
     public WebElement monitoringFormulas;
 
@@ -138,6 +144,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "span[epa-testid='UnitControls']")
     public WebElement accordionUnitControlsLabel;
+
+    @FindBy (css = "span[epa-testid='UnitCapacities']")
+    public WebElement accordionUnitCapacitiesLabel;
 
     @FindBy (css = "span[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
