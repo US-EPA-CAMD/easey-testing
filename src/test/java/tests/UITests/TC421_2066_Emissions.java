@@ -280,7 +280,7 @@ public class TC421_2066_Emissions extends UITestBase {
         click(customDataDownloadPage.program);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         click(customDataDownloadPage.program);
-
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 
     }
