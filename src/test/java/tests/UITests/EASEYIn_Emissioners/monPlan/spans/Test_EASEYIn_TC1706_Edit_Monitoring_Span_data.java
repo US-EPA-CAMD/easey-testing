@@ -73,7 +73,6 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends UITestBase {
 
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         verifyEquals(monitoringPlansPage.spansTableComponentTypeLabel, "Component Type");
 
