@@ -69,7 +69,7 @@ public class API_TC69_570_Validate_date_range extends APITestBase {
 
 //        Step 2: Perform a GET request for an invalid start and end date format (such as 13/45/0 or ABC)
 //        https://easey-dev.app.cloud.gov/api/emissions-mgmt/apportioned/hourly/?page=1&perPage=3000&beginDate=01-01-2019&endDate=01-31-2019
-        String url2 = String.format(url, map.get("page"), map.get("perPage"), "01-01-2019", "01-31-2019");
+        String url2 = String.format(url, map.get("page"), map.get("perPage"), "13-45-0", "13-45-1");
         response = getResponse(url2);
 
 //        Status code 400
