@@ -139,6 +139,16 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "span[epa-testid='Spans']")
     public WebElement accordionSpansLabel;
 
+    @FindBy (id = "column-col1")
+    public WebElement spansTableComponentTypeLabel;
+
+    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
+    public List<WebElement> spansTableComponentTypeField;
+
+    @FindBy (css = "#Component\\ Type > option")
+    public List<WebElement> monMethodsModalComponentTypeDropdown;
+
+
     @FindBy (css = "span[epa-testid='UnitFuels']")
     public WebElement accordionUnitFuelsLabel;
 
