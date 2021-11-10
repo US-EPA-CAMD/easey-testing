@@ -79,12 +79,9 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends UITestBase {
 
         String componentType = monitoringPlansPage.spansTableComponentTypeField.get(0).getText();
 
-//        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         waitFor(monitoringPlansPage.viewButton,1);
-        System.out.println(monitoringPlansPage.viewButton.get(0).getText() + " - Text");
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
         action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
-//        click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Span");
@@ -98,7 +95,6 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends UITestBase {
         waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
 
-//        waitFor(monitoringPlansPage.defaultsTableParameterCodeField.get(0));
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
         waitFor(monitoringPlansPage.spansTableComponentTypeLabel,1);
         verifyNotEquals(monitoringPlansPage.spansTableComponentTypeField.get(0).getText(), componentType);
