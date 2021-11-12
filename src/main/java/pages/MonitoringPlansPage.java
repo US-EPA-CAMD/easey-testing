@@ -124,6 +124,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "span[epa-testid='Formulas']")
     public WebElement accordionFormulasLabel;
 
+    @FindBy (id = "column-col2")
+    public WebElement formulasTableParameterLabel;
+
+    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(2)")
+    public List<WebElement> formulasTableParameterField;
+
     @FindBy (css = "span[epa-testid='Loads']")
     public WebElement accordionLoadsLabel;
 
