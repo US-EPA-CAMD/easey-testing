@@ -89,8 +89,11 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/button[2]")
     public WebElement stateFilterButton;
 
+    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/label[1]")
+    public WebElement fuelTypeCoal;
 
-
+    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/button[2]")
+    public WebElement fuelTypeApplyFilters;
 
 
 
