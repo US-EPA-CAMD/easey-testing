@@ -21,14 +21,14 @@ public class CustomDataDownloadPage extends PageBase {
 
 
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h2[1]")
-    public WebElement downloadtitle;
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/button[1]")
+    public WebElement changebutton;
 
     @FindBy(id = "data-sub-type")
     public WebElement subtypeDropdown;
 
     @FindBy(css = "select[id='data-sub-type'] > option")
-    public List<WebElement> hourlyemissions;
+    public List<WebElement> subtypeoption;
 
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/button[1]")
     public WebElement applyBtn;
@@ -42,7 +42,16 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css = "input[id='event-date-end']")
     public WebElement dateend;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/form[1]/div[5]/button[2]")
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/label[1]")
+    public WebElement january;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/label[1]")
+    public WebElement q1;
+
+    @FindBy(id = "event-year-input")
+    public WebElement yearinput;
+
+    @FindBy(xpath = "//button[contains(text(),'Apply Filter')]")
     public WebElement applyfilter;
 
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/button[1]")

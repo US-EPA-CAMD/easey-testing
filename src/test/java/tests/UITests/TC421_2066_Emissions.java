@@ -33,7 +33,7 @@ public class TC421_2066_Emissions extends UITestBase {
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/manage-data-download");
 //Select Emissions Subtype
         click(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.hourlyemissions.get(1));
+        click(customDataDownloadPage.subtypeoption.get(1));
 
         click(customDataDownloadPage.applyBtn);
         //apply filter criteria
