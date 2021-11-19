@@ -63,6 +63,23 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/p[5]/button[1]")
     public WebElement unitType;
 
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/p[4]/button[1]")
+    public WebElement facility;
+
+    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/input[1]")
+    public WebElement facilityInput;
+
+    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]")
+    public WebElement greencounty;
+
+    @FindBy(xpath ="//button[contains(text(),'Apply Filter')]")
+    public WebElement facilityapplyfilters;
+
+    @FindBy(xpath ="//body/div[@id='root']/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/button[2]")
+    public WebElement removefacility;
+
+    //body/div[@id='root']/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/button[2]
+
     @FindBy(css = "div[data-testid='checkbox'] > input")
     public List<WebElement> checkbox;
 
@@ -103,6 +120,20 @@ public class CustomDataDownloadPage extends PageBase {
 
     @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/button[2]")
     public WebElement fuelTypeApplyFilters;
+
+    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]")
+    public WebElement mercury;
+
+    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/button[2]")
+    public WebElement controlapplyfilters;
+
+    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]")
+    public WebElement boilers;
+
+    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/button[2]")
+    public WebElement unittypeApply;
+
+
 
 
 
