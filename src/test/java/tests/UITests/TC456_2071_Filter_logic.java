@@ -22,45 +22,46 @@ public class TC456_2071_Filter_logic extends UITestBase {
         CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
 
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         waitFor(customDataDownloadPage.emissionsBtn);
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("scroll(0, 250);");
-        click(customDataDownloadPage.emissionsBtn);
+        click(customDataDownloadPage.emissionsBtn.get(0));
 // Navigate to the Emissions Custom Data Download page
 
         changeTab();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/manage-data-download");
 //Select HourlyEmissions Subtype
+
+        waitFor(customDataDownloadPage.subtypeDropdown);
         click(customDataDownloadPage.subtypeDropdown);
+
+        waitFor(customDataDownloadPage.subtypeoption.get(1));
         click(customDataDownloadPage.subtypeoption.get(1));
 
+        waitFor(customDataDownloadPage.applyBtn);
         click(customDataDownloadPage.applyBtn);
 
 
 // apply date range
 
-
-        waitFor(customDataDownloadPage.timeperiod);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.timeperiod);
+        click(customDataDownloadPage.filtercriteria.get(0));
 
         waitFor(customDataDownloadPage.datestart);
         input(customDataDownloadPage.datestart, "01/01/2019");
 
         input(customDataDownloadPage.dateend, "01/01/2020");
 
-        waitFor(customDataDownloadPage.applyfilter);
-        click(customDataDownloadPage.applyfilter);
+        waitFor(customDataDownloadPage.applyYear.get(1));
+        click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
 
 // check fuel Type Filtering
 
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(5));
 
-        jse.executeScript("scroll(0, 300);");
-        click(customDataDownloadPage.fuelType);
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -74,22 +75,29 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
         // select fuel type
-        click(customDataDownloadPage.fuelType);
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
 
-        waitFor(customDataDownloadPage.fuelTypeCoal);
-        click(customDataDownloadPage.fuelTypeCoal);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 //  make sure program data is filtering
 
-        click(customDataDownloadPage.program);
+        click(customDataDownloadPage.filtercriteria.get(1));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -106,15 +114,14 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.unitType);
+        click(customDataDownloadPage.filtercriteria.get(4));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -129,12 +136,13 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.unitType);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.controlTech);
+        click(customDataDownloadPage.filtercriteria.get(6));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -149,26 +157,25 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.controlTech);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Program Filter
+// Remove Fuel Type Filter
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        verifyTrue(customDataDownloadPage.fuelTypeCoal.isEnabled());
-        click(customDataDownloadPage.fuelTypeCoal);
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
 
  //SELECT DAILY  SUBTYPE
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         click(customDataDownloadPage.changebutton);
 
         click(customDataDownloadPage.subtypeDropdown);
@@ -178,23 +185,22 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
 // apply date range
 
-        waitFor(customDataDownloadPage.timeperiod);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.timeperiod);
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
 
         waitFor(customDataDownloadPage.datestart);
         input(customDataDownloadPage.datestart, "01/01/2019");
 
         input(customDataDownloadPage.dateend, "01/01/2020");
-        waitFor(customDataDownloadPage.applyfilter);
-        click(customDataDownloadPage.applyfilter);
+        waitFor(customDataDownloadPage.applyYear.get(1));
+        click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
+// check fuel Type Filtering
 
-// check Fuel Type Filtering
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(5));
 
-        jse.executeScript("scroll(0, 250);");
-        click(customDataDownloadPage.fuelType);
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -208,22 +214,29 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
         // select fuel type
-        click(customDataDownloadPage.fuelType);
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
 
-        waitFor(customDataDownloadPage.fuelTypeCoal);
-        click(customDataDownloadPage.fuelTypeCoal);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 //  make sure program data is filtering
 
-        click(customDataDownloadPage.program);
+        click(customDataDownloadPage.filtercriteria.get(1));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -240,15 +253,14 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.unitType);
+        click(customDataDownloadPage.filtercriteria.get(4));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -263,12 +275,13 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.unitType);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.controlTech);
+        click(customDataDownloadPage.filtercriteria.get(6));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -283,23 +296,23 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.controlTech);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Program Filter
+// Remove Fuel Type Filter
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        verifyTrue(customDataDownloadPage.fuelTypeCoal.isEnabled());
-        click(customDataDownloadPage.fuelTypeCoal);
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
  // APPLY MONTHLY EMISSIONS SUBTYPE
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         click(customDataDownloadPage.changebutton);
 
         click(customDataDownloadPage.subtypeDropdown);
@@ -309,25 +322,26 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
 // apply date range
 
-        waitFor(customDataDownloadPage.timeperiod);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.timeperiod);
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+;
 
         waitFor(customDataDownloadPage.yearinput);
         input(customDataDownloadPage.yearinput, "2015-2020");
 
-        waitFor(customDataDownloadPage.january);
-        click(customDataDownloadPage.january);
+        waitFor(customDataDownloadPage.label.get(1));
+        click(customDataDownloadPage.label.get(1));
 
-        waitFor(customDataDownloadPage.applyfilter);
-        click(customDataDownloadPage.applyfilter);
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
 
-// check Fuel Type Filtering
+// check fuel Type Filtering
 
-        jse.executeScript("scroll(0, 250);");
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(5));
+
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -341,22 +355,29 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
         // select fuel type
-        click(customDataDownloadPage.fuelType);
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
 
-        waitFor(customDataDownloadPage.fuelTypeCoal);
-        click(customDataDownloadPage.fuelTypeCoal);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 //  make sure program data is filtering
 
-        click(customDataDownloadPage.program);
+        click(customDataDownloadPage.filtercriteria.get(1));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -373,15 +394,14 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.unitType);
+        click(customDataDownloadPage.filtercriteria.get(4));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -396,12 +416,13 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.unitType);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.controlTech);
+        click(customDataDownloadPage.filtercriteria.get(6));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -416,23 +437,23 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.controlTech);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Program Filter
+// Remove Fuel Type Filter
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        verifyTrue(customDataDownloadPage.fuelTypeCoal.isEnabled());
-        click(customDataDownloadPage.fuelTypeCoal);
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 //Select Quartetly Emissions Syubtype
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         click(customDataDownloadPage.changebutton);
 
         click(customDataDownloadPage.subtypeDropdown);
@@ -442,25 +463,26 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
 // apply date range
 
-        waitFor(customDataDownloadPage.timeperiod);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.timeperiod);
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+        ;
 
         waitFor(customDataDownloadPage.yearinput);
         input(customDataDownloadPage.yearinput, "2015-2020");
 
-        waitFor(customDataDownloadPage.q1);
-        click(customDataDownloadPage.q1);
+        waitFor(customDataDownloadPage.label.get(1));
+        click(customDataDownloadPage.label.get(1));
 
-        waitFor(customDataDownloadPage.applyfilter);
-        click(customDataDownloadPage.applyfilter);
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
 
-// check Fuel Type Filtering
+// check fuel Type Filtering
 
-        jse.executeScript("scroll(0, 250);");
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(5));
+
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -474,22 +496,29 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
         // select fuel type
-        click(customDataDownloadPage.fuelType);
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
 
-        waitFor(customDataDownloadPage.fuelTypeCoal);
-        click(customDataDownloadPage.fuelTypeCoal);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 //  make sure program data is filtering
 
-        click(customDataDownloadPage.program);
+        click(customDataDownloadPage.filtercriteria.get(1));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -506,15 +535,14 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.unitType);
+        click(customDataDownloadPage.filtercriteria.get(4));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -529,12 +557,13 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.unitType);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.controlTech);
+        click(customDataDownloadPage.filtercriteria.get(6));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -549,24 +578,24 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.controlTech);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Program Filter
+// Remove Fuel Type Filter
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        verifyTrue(customDataDownloadPage.fuelTypeCoal.isEnabled());
-        click(customDataDownloadPage.fuelTypeCoal);
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 //Select Ozone Season Emissions Syubtype
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         click(customDataDownloadPage.changebutton);
 
         click(customDataDownloadPage.subtypeDropdown);
@@ -576,22 +605,24 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
 // apply date range
 
-        waitFor(customDataDownloadPage.timeperiod);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.timeperiod);
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+        ;
 
         waitFor(customDataDownloadPage.yearinput);
         input(customDataDownloadPage.yearinput, "2015-2020");
 
-        waitFor(customDataDownloadPage.applyfilter);
-        click(customDataDownloadPage.applyfilter);
+
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
 
-// check Fuel Type Filtering
+// check fuel Type Filtering
 
-        jse.executeScript("scroll(0, 250);");
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(5));
+
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -605,22 +636,29 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
         // select fuel type
-        click(customDataDownloadPage.fuelType);
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
 
-        waitFor(customDataDownloadPage.fuelTypeCoal);
-        click(customDataDownloadPage.fuelTypeCoal);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 //  make sure program data is filtering
 
-        click(customDataDownloadPage.program);
+        click(customDataDownloadPage.filtercriteria.get(1));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -637,15 +675,14 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.unitType);
+        click(customDataDownloadPage.filtercriteria.get(4));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -660,12 +697,13 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.unitType);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.controlTech);
+        click(customDataDownloadPage.filtercriteria.get(6));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -680,23 +718,23 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.controlTech);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Program Filter
+// Remove Fuel Type Filter
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        verifyTrue(customDataDownloadPage.fuelTypeCoal.isEnabled());
-        click(customDataDownloadPage.fuelTypeCoal);
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 // Select Annual Emmisions
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         click(customDataDownloadPage.changebutton);
 
         click(customDataDownloadPage.subtypeDropdown);
@@ -706,22 +744,23 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
 // apply date range
 
-        waitFor(customDataDownloadPage.timeperiod);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.timeperiod);
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+        ;
 
         waitFor(customDataDownloadPage.yearinput);
         input(customDataDownloadPage.yearinput, "2015-2020");
 
-        waitFor(customDataDownloadPage.applyfilter);
-        click(customDataDownloadPage.applyfilter);
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
 
-// check Fuel Type Filtering
+// check fuel Type Filtering
 
-        jse.executeScript("scroll(0, 250);");
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(5));
+
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -735,22 +774,29 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
         // select fuel type
-        click(customDataDownloadPage.fuelType);
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
 
-        waitFor(customDataDownloadPage.fuelTypeCoal);
-        click(customDataDownloadPage.fuelTypeCoal);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 //  make sure program data is filtering
 
-        click(customDataDownloadPage.program);
+        click(customDataDownloadPage.filtercriteria.get(1));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -767,15 +813,14 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.unitType);
+        click(customDataDownloadPage.filtercriteria.get(4));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -790,12 +835,13 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.unitType);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.controlTech);
+        click(customDataDownloadPage.filtercriteria.get(6));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -810,23 +856,24 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.controlTech);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Program Filter
+// Remove Fuel Type Filter
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        verifyTrue(customDataDownloadPage.fuelTypeCoal.isEnabled());
-        click(customDataDownloadPage.fuelTypeCoal);
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 // Select Unit/Fuel Type
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         click(customDataDownloadPage.changebutton);
 
         click(customDataDownloadPage.subtypeDropdown);
@@ -836,22 +883,24 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
 // apply date range
 
-        waitFor(customDataDownloadPage.timeperiod);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.timeperiod);
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+        ;
 
         waitFor(customDataDownloadPage.yearinput);
         input(customDataDownloadPage.yearinput, "2015-2020");
 
-        waitFor(customDataDownloadPage.applyfilter);
-        click(customDataDownloadPage.applyfilter);
+
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
 
-// check Fuel Type Filtering
+// check fuel Type Filtering
 
-        jse.executeScript("scroll(0, 250);");
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(5));
+
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -865,22 +914,29 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
         // select fuel type
-        click(customDataDownloadPage.fuelType);
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
 
-        waitFor(customDataDownloadPage.fuelTypeCoal);
-        click(customDataDownloadPage.fuelTypeCoal);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 //  make sure program data is filtering
 
-        click(customDataDownloadPage.program);
+        click(customDataDownloadPage.filtercriteria.get(1));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -897,15 +953,14 @@ public class TC456_2071_Filter_logic extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.unitType);
+        click(customDataDownloadPage.filtercriteria.get(4));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -920,12 +975,13 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.unitType);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.controlTech);
+        click(customDataDownloadPage.filtercriteria.get(6));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -940,21 +996,21 @@ public class TC456_2071_Filter_logic extends UITestBase {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.controlTech);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Program Filter
+// Remove Fuel Type Filter
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+        waitFor(customDataDownloadPage.filtercriteria.get(5));
+        click(customDataDownloadPage.filtercriteria.get(5));
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        verifyTrue(customDataDownloadPage.fuelTypeCoal.isEnabled());
-        click(customDataDownloadPage.fuelTypeCoal);
 
-        waitFor(customDataDownloadPage.fuelTypeApplyFilters);
-        click(customDataDownloadPage.fuelTypeApplyFilters);
-    }
-}
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
 
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+        }
+     }
 

@@ -20,103 +20,100 @@ public class TC421_2066_Emissions extends UITestBase {
         goTo("https://campd-dev.app.cloud.gov/select-data-type");
         Actions action = new Actions(driver);
         CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
-
-        verifyEquals(customDataDownloadPage.title, "Custom Data Download");
-
-        click(customDataDownloadPage.emissionsBtn);
+        waitFor(customDataDownloadPage.emissionsBtn);
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("scroll(0, 250);");
+        click(customDataDownloadPage.emissionsBtn.get(0));
 // Navigate to the Emissions Custom Data Download page
-
         changeTab();
 
-
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/manage-data-download");
-//Select Emissions Subtype
+//Select HourlyEmissions Subtype
+
+        waitFor(customDataDownloadPage.subtypeDropdown);
         click(customDataDownloadPage.subtypeDropdown);
+
+        waitFor(customDataDownloadPage.subtypeoption.get(1));
         click(customDataDownloadPage.subtypeoption.get(1));
 
+        waitFor(customDataDownloadPage.applyBtn);
         click(customDataDownloadPage.applyBtn);
-        //apply filter criteria
-
-        waitFor(customDataDownloadPage.timeperiod);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.timeperiod);
 
 
 // apply date range
+
+        click(customDataDownloadPage.filtercriteria.get(0));
+
         waitFor(customDataDownloadPage.datestart);
         input(customDataDownloadPage.datestart, "01/01/2019");
 
         input(customDataDownloadPage.dateend, "01/01/2020");
 
-        waitFor(customDataDownloadPage.applyfilter);
-        click(customDataDownloadPage.applyfilter);
+        waitFor(customDataDownloadPage.applyYear.get(1));
+        click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
 
-//  make sure program data is filtering
+// check Program Filtering
 
-        click(customDataDownloadPage.program);
-
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
-        }
-
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-
-
-        // select program
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        verifyTrue(customDataDownloadPage.arp.isEnabled());
-        click(customDataDownloadPage.arp);
-
-
-        waitFor(customDataDownloadPage.pfb);
-        click(customDataDownloadPage.pfb);
-
-        waitFor(customDataDownloadPage.propill);
-// check Unit Type Filtering
-
-        click(customDataDownloadPage.unitType);
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
 
             if(myBool=true){
-
                 JavascriptExecutor js = (JavascriptExecutor) driver;
                 js.executeScript("arguments[0].click()",webElement);
-
             }
             else{
-
                 continue;
             }
-
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.unitType);
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+//Select Program
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.fuelType);
+        click(customDataDownloadPage.filtercriteria.get(4));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+//  make sure Fuel Type data is filtering
+
+        click(customDataDownloadPage.filtercriteria.get(5));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -133,13 +130,126 @@ public class TC421_2066_Emissions extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+
+// check Control Tech Filtering
+
+        click(customDataDownloadPage.filtercriteria.get(6));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
+
+// SELECT DAILY SUBTYPE
+        click(customDataDownloadPage.changebutton);
+
+        click(customDataDownloadPage.subtypeDropdown);
+        click(customDataDownloadPage.subtypeoption.get(2));
+
+        click(customDataDownloadPage.applyBtn);
+
+// apply date range
+
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+
+        waitFor(customDataDownloadPage.datestart);
+        input(customDataDownloadPage.datestart, "01/01/2019");
+
+        input(customDataDownloadPage.dateend, "01/01/2020");
+        waitFor(customDataDownloadPage.applyYear.get(1));
+        click(customDataDownloadPage.applyYear.get(1));
+
+        waitFor(customDataDownloadPage.previewdata);
+// check Program Filtering
+
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+        }
+
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+//Select Program
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.controlTech);
+        click(customDataDownloadPage.filtercriteria.get(4));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+//  make sure Fuel Type data is filtering
+
+        click(customDataDownloadPage.filtercriteria.get(5));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -156,40 +266,129 @@ public class TC421_2066_Emissions extends UITestBase {
             }
 
         }
-
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.controlTech);
-
-// Remove Program Filter
-
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        verifyTrue(customDataDownloadPage.arp.isEnabled());
-        click(customDataDownloadPage.arp);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
 
-        waitFor(customDataDownloadPage.pfb);
-        click(customDataDownloadPage.pfb);
+// check Control Tech Filtering
 
-        waitFor(customDataDownloadPage.propill);
-//Add State Filter
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.state);
+        click(customDataDownloadPage.filtercriteria.get(6));
 
-        waitFor(customDataDownloadPage.stateInput);
-        click(customDataDownloadPage.stateInput);
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
 
-        waitFor(customDataDownloadPage.nj);
-        click(customDataDownloadPage.nj);
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.stateFilterButton);
-        click(customDataDownloadPage.stateFilterButton);
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
+ // APPLY MONTHLY EMISSIONS SUBTYPE
+
+        click(customDataDownloadPage.changebutton);
+
+        click(customDataDownloadPage.subtypeDropdown);
+        click(customDataDownloadPage.subtypeoption.get(3));
+
+        click(customDataDownloadPage.applyBtn);
+
+// apply date range
+
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+        ;
+
+        waitFor(customDataDownloadPage.yearinput);
+        input(customDataDownloadPage.yearinput, "2015-2020");
+
+        waitFor(customDataDownloadPage.label.get(1));
+        click(customDataDownloadPage.label.get(1));
+
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
+
+        waitFor(customDataDownloadPage.previewdata);
+// check Program Filtering
+
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+        }
+
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+//Select Program
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.unitType);
+        click(customDataDownloadPage.filtercriteria.get(4));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+//  make sure Fuel Type data is filtering
+
+        click(customDataDownloadPage.filtercriteria.get(5));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -206,13 +405,129 @@ public class TC421_2066_Emissions extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.unitType);
+
+// check Control Tech Filtering
+
+        click(customDataDownloadPage.filtercriteria.get(6));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
+//Select Quartetly Emissions Syubtype
+
+        click(customDataDownloadPage.changebutton);
+
+        click(customDataDownloadPage.subtypeDropdown);
+        click(customDataDownloadPage.subtypeoption.get(4));
+
+        click(customDataDownloadPage.applyBtn);
+
+// apply date range
+
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+        ;
+
+        waitFor(customDataDownloadPage.yearinput);
+        input(customDataDownloadPage.yearinput, "2015-2020");
+
+        waitFor(customDataDownloadPage.label.get(1));
+        click(customDataDownloadPage.label.get(1));
+
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
+
+        waitFor(customDataDownloadPage.previewdata);
+// check Program Filtering
+
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+        }
+
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+//Select Program
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.fuelType);
+        click(customDataDownloadPage.filtercriteria.get(4));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+//  make sure Fuel Type data is filtering
+
+        click(customDataDownloadPage.filtercriteria.get(5));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -229,13 +544,129 @@ public class TC421_2066_Emissions extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.fuelType);
+
+// check Control Tech Filtering
+
+        click(customDataDownloadPage.filtercriteria.get(6));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
+
+
+//Select Ozone Season Emissions Syubtype
+
+        click(customDataDownloadPage.changebutton);
+
+        click(customDataDownloadPage.subtypeDropdown);
+        click(customDataDownloadPage.subtypeoption.get(5));
+
+        click(customDataDownloadPage.applyBtn);
+
+// apply date range
+
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+        ;
+
+        waitFor(customDataDownloadPage.yearinput);
+        input(customDataDownloadPage.yearinput, "2015-2020");
+
+
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
+
+        waitFor(customDataDownloadPage.previewdata);
+// check Program Filtering
+
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+        }
+
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+//Select Program
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.controlTech);
+        click(customDataDownloadPage.filtercriteria.get(4));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+//  make sure Fuel Type data is filtering
+
+        click(customDataDownloadPage.filtercriteria.get(5));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -252,13 +683,126 @@ public class TC421_2066_Emissions extends UITestBase {
             }
 
         }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.controlTech);
 
-//  make sure program data is filtering
+// check Control Tech Filtering
 
-        click(customDataDownloadPage.program);
+        click(customDataDownloadPage.filtercriteria.get(6));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
+// Select Annual Emmisions
+
+        click(customDataDownloadPage.changebutton);
+
+        click(customDataDownloadPage.subtypeDropdown);
+        click(customDataDownloadPage.subtypeoption.get(6));
+
+        click(customDataDownloadPage.applyBtn);
+
+// apply date range
+
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+        ;
+
+        waitFor(customDataDownloadPage.yearinput);
+        input(customDataDownloadPage.yearinput, "2015-2020");
+
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
+
+        waitFor(customDataDownloadPage.previewdata);
+// check Program Filtering
+
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+        }
+
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+//Select Program
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
+// check Unit Type Filtering
+
+        click(customDataDownloadPage.filtercriteria.get(4));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+//  make sure Fuel Type data is filtering
+
+        click(customDataDownloadPage.filtercriteria.get(5));
 
         for(WebElement webElement : customDataDownloadPage.checkbox) {
             boolean myBool=webElement.isEnabled();
@@ -275,15 +819,184 @@ public class TC421_2066_Emissions extends UITestBase {
             }
 
         }
-
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        click(customDataDownloadPage.program);
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
 
 
+// check Control Tech Filtering
+
+        click(customDataDownloadPage.filtercriteria.get(6));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
+
+// Select Unit/Fuel SUBTYPE
+
+
+        click(customDataDownloadPage.changebutton);
+
+        click(customDataDownloadPage.subtypeDropdown);
+        click(customDataDownloadPage.subtypeoption.get(7));
+
+        click(customDataDownloadPage.applyBtn);
+
+// apply date range
+
+        waitFor(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(0));
+        ;
+
+        waitFor(customDataDownloadPage.yearinput);
+        input(customDataDownloadPage.yearinput, "2015-2020");
+
+
+        waitFor(customDataDownloadPage.applyYear);
+        click(customDataDownloadPage.applyYear.get(1));
+
+        waitFor(customDataDownloadPage.previewdata);
+
+// check Program Filtering
+
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+        }
+
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+//Select Program
+
+        jse.executeScript("scroll(0, 500);");
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
+
+// check Unit Type Filtering
+
+        click(customDataDownloadPage.filtercriteria.get(4));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+//  make sure Fuel Type data is filtering
+
+        click(customDataDownloadPage.filtercriteria.get(5));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+
+            }
+            else{
+
+                continue;
+            }
+
+        }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+
+// check Control Tech Filtering
+
+        click(customDataDownloadPage.filtercriteria.get(6));
+
+        for(WebElement webElement : customDataDownloadPage.checkbox) {
+            boolean myBool=webElement.isEnabled();
+
+            if(myBool=true){
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()",webElement);
+            }
+            else{
+                continue;
+            }
+
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
+
+
+        waitFor(customDataDownloadPage.label.get(0));
+        click(customDataDownloadPage.label.get(0));
+
+        waitFor(customDataDownloadPage.cancelApply.get(1));
+        click(customDataDownloadPage.cancelApply.get(1));
 
     }
 }
-
 
