@@ -58,6 +58,9 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(id= "facilities-searchbox")
     public WebElement facilitiesSearch;
 
+    @FindBy(id= "source-categories-searchbox")
+    public WebElement sourcesearch;
+
     @FindBy(css = "li[role='option']")
     public List <WebElement> searchoptions;
 
