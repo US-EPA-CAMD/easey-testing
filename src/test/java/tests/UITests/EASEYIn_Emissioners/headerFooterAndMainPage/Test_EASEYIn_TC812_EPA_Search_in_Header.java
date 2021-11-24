@@ -31,6 +31,7 @@ public class Test_EASEYIn_TC812_EPA_Search_in_Header extends UITestBase {
         click(monitoringPlansPage.searchButton);
 
         changeTab();
+        waitFor(searchResultPage.searchResults);
         verifyTrue(searchResultPage.searchResults.getText().contains("Something"));
 
     }
