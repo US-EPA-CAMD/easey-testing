@@ -1,8 +1,15 @@
 package tests.UI_Smoke_Tests;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
+
+/*
+This test verifies that the user
+can successfully get access to the facilities and configurations
+logged out Global View.
+ */
 
 public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
 
@@ -15,21 +22,31 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
+        // Verifying that the page has opened and the title is visible
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
+        // Using input box to search for desired facility
         waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
+        // Selenium does not see the caret icon.
+        // This scrolls down so that the caret is visible.
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
+
         // Clicks on Barry (Oris Code 3)
         click(monitoringPlansPage.facilityCaret.get(0));
 
+        // Opens the desired configuration
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
+        // Clicks on the tab of the configuration
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
+        // Verifies that the configuration is open and its default is Methods
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
     }
