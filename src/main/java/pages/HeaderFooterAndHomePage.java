@@ -258,7 +258,7 @@ public class HeaderFooterAndHomePage extends PageBase {
     public WebElement workspaceEmissions;
 
     @FindBy (css = "div.text-center > h1")
-    public WebElement pageDoesntExist;
+    public WebElement comingSoon;
 
     // This is for the label Log In on the Log In modal pop up
     @FindBy(xpath = "//legend[contains(text(),'Log In')]")
