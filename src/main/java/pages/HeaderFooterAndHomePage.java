@@ -119,19 +119,19 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (css ="a[href='/ecmps/faqs']")
     public WebElement faqsButton;
 
-    @FindBy (css ="#faqPage > div > div:nth-child(1) > span")
+    @FindBy (css ="#faqPage > div > div:nth-child(1) > h2")
     public WebElement faqsPageHeader;
 
-    @FindBy (css ="#faqPage > div > div:nth-child(2) > h2")
+    @FindBy (css ="#faqPage > div > div:nth-child(2) > h3")
     public WebElement faqsPageMonPanHeader;
 
-    @FindBy (css ="#faqPage > div > div:nth-child(3) > h2")
+    @FindBy (css ="#faqPage > div > div:nth-child(3) > h3")
     public WebElement faqsPageQAandCertificationsHeader;
 
-    @FindBy (css ="#faqPage > div > div:nth-child(4) > h2")
+    @FindBy (css ="#faqPage > div > div:nth-child(4) > h3")
     public WebElement faqsPageEmissionsHeader;
 
-    @FindBy (css ="div[class='grid-col-9 fit-content'] > div > div > h2")
+    @FindBy (css ="div[class='usa-accordion'] > h4")
     public List<WebElement> faqsPageAccordionButton;
 
     @FindBy (css ="div[class='usa-accordion__content usa-prose']")
