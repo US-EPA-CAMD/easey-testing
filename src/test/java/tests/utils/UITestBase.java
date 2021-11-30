@@ -23,9 +23,9 @@ public class UITestBase extends TestBase {
     protected EventFiringWebDriver driver;
     WebDriver eventless_driver;
     protected String driverHome;
-    private static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
-    private static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_PASSWORD");
-    private static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
+//    private static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+//    private static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_PASSWORD");
+    private static final String URL = "https://" + System.getenv("BROWSERSTACK_USERNAME") + ":" + System.getenv("BROWSERSTACK_PASSWORD") + "@hub-cloud.browserstack.com/wd/hub";
     private ExceptionListener listener;
     private String runMode = System.getProperty("runMode", "local");
     private boolean debug = System.getProperty("debug", "false").equalsIgnoreCase("true");
@@ -54,7 +54,7 @@ public class UITestBase extends TestBase {
             caps.setCapability("os", "Windows");
             caps.setCapability("name", className); // test name
             if (!driverHome.contains("runner"))
-                caps.setCapability("build", "Local Trigger: " + AUTOMATE_USERNAME + " @ " + java.time.LocalDate.now()); // CI/CD job or build name
+                caps.setCapability("build", "Local Trigger: " + System.getenv("BROWSERSTACK_USERNAME") + " @ " + java.time.LocalDate.now()); // CI/CD job or build name
             else
                 caps.setCapability("build", "Github trigger @" + java.time.LocalDate.now());
             try {
