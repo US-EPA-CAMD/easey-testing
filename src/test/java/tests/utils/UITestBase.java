@@ -1,9 +1,7 @@
 package tests.utils;
 
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
@@ -19,15 +17,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
 
 public class UITestBase extends TestBase {
 
     protected EventFiringWebDriver driver;
     WebDriver eventless_driver;
     protected String driverHome;
-    private static final String AUTOMATE_USERNAME = "yefimabramson1"; // System.getenv("BROWSERSTACK_USERNAME");
-    private static final String AUTOMATE_ACCESS_KEY = "pUQW7AuYCis8NGpp9UnQ"; // System.getenv("BROWSERSTACK_PASSWORD");
+    private static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+    private static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_PASSWORD");
     private static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
     private ExceptionListener listener;
     private String runMode = System.getProperty("runMode", "local");
@@ -56,9 +53,10 @@ public class UITestBase extends TestBase {
             caps.setCapability("browser_version", "latest-beta");
             caps.setCapability("os", "Windows");
             caps.setCapability("name", className); // test name
-            if (!driverHome.contains("runner"))
+            if (!driverHome.contains("runner")) {
+                System.out.println(URL);
                 caps.setCapability("build", "Local Trigger: " + AUTOMATE_USERNAME + " @ " + java.time.LocalDate.now()); // CI/CD job or build name
-            else
+            } else
                 caps.setCapability("build", "Github trigger @" + java.time.LocalDate.now());
             try {
                 eventless_driver = new RemoteWebDriver(new URL(URL), caps);
