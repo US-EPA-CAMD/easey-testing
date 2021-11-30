@@ -1,5 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
@@ -20,6 +21,7 @@ public class Test_EASEYIn_TC1921_ECMPS_FAQs extends UITestBase {
         verifyEquals(monitoringPlansPage.resourcesMenuHeader, "Resources");
         click(monitoringPlansPage.resourcesMenuHeader);
 
+        waitFor(monitoringPlansPage.faqsButton);
         verifyEquals(monitoringPlansPage.faqsButton, "FAQs");
         click(monitoringPlansPage.faqsButton);
 
@@ -31,6 +33,9 @@ public class Test_EASEYIn_TC1921_ECMPS_FAQs extends UITestBase {
         verifyEquals(monitoringPlansPage.faqsPageQAandCertificationsHeader, "QA & Certifications");
 
         verifyEquals(monitoringPlansPage.faqsPageEmissionsHeader, "Emissions");
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
 
         verifyFalse(isDisplayed(monitoringPlansPage.faqsPageAccordionContent.get(0)));
         click(monitoringPlansPage.faqsPageAccordionButton.get(0));

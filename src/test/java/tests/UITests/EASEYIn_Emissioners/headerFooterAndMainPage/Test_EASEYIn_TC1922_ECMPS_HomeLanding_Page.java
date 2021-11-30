@@ -1,5 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.headerFooterAndMainPage;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
@@ -15,15 +16,15 @@ public class Test_EASEYIn_TC1922_ECMPS_HomeLanding_Page extends UITestBase {
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
-        // This is part of the message that appears when a page does not exist yet.
-        String sorryMessage = "Sorry, but this web page does not exist.";
-
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         verifyEquals(monitoringPlansPage.dashHomeTitle, "Home");
         click(monitoringPlansPage.dashHomeTitle);
 
         verifyEquals(monitoringPlansPage.homePgAboutEcmpsHeader, "About ECMPS");
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
 
         verifyEquals(monitoringPlansPage.homePgMonPlansHeader, "Monitoring Plans");
         verifyEquals(monitoringPlansPage.homePgViewMonPlansLink, "View Monitoring Plans");
@@ -34,20 +35,24 @@ public class Test_EASEYIn_TC1922_ECMPS_HomeLanding_Page extends UITestBase {
 
         click(monitoringPlansPage.dashHomeTitle);
 
+        js.executeScript("window.scrollBy(0,250)", "");
+
         verifyEquals(monitoringPlansPage.homePgQaCertHeader, "QA & Certifications");
         verifyEquals(monitoringPlansPage.homePgViewQaCertLink, "View QA & Certifications");
         click(monitoringPlansPage.homePgViewQaCertLink);
 
-        verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
+        verifyEquals(monitoringPlansPage.comingSoon, "Coming Soon");
 
         click(monitoringPlansPage.dashHomeTitle);
+
+        js.executeScript("window.scrollBy(0,500)", "");
 
         waitFor(monitoringPlansPage.homePgEmissionsHeader);
         verifyEquals(monitoringPlansPage.homePgEmissionsHeader, "Emissions");
         verifyEquals(monitoringPlansPage.homePgViewEmissionsLink, "View Emissions");
         click(monitoringPlansPage.homePgViewEmissionsLink);
 
-        verifyEquals(monitoringPlansPage.pageDoesntExist, sorryMessage);
+        verifyEquals(monitoringPlansPage.comingSoon, "Coming Soon");
 
         click(monitoringPlansPage.dashHomeTitle);
 
