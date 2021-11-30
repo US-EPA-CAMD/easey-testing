@@ -46,3 +46,6 @@ jobs:
       # Run Tests
       - name: Maven run tests
         run: mvn test -Dname=~Sample,${{ github.event.inputs.tests }} -DrunMode=browserStack
+        env:
+            BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+            BROWSERSTACK_PASSWORD: ${{ secrets.BROWSERSTACK_PASSWORD }}
