@@ -58,6 +58,7 @@ public class UITestBase extends TestBase {
             else
                 caps.setCapability("build", "Github trigger @" + java.time.LocalDate.now());
             try {
+                System.out.println(URL);
                 eventless_driver = new RemoteWebDriver(new URL(URL), caps);
                 eventless_driver.manage().window().maximize();
             } catch (MalformedURLException e) {
