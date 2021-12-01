@@ -16,6 +16,12 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css = "div.mainContent > div > div > h2")
     public WebElement title;
 
+    @FindBy(css = "div.mainContent > div > h1")
+    public WebElement abouttitle;
+
+    @FindBy(css = "div.usa-accordion > h4 > button")
+    public WebElement accordion;
+
     @FindBy(css = "button[data-testid='selectable-card']")
     public List<WebElement> emissionsBtn;
 
