@@ -13,28 +13,26 @@ public class CustomDataDownloadPage extends PageBase {
         super(driver);
     }
 
-    @FindBy(xpath = "/html/body/div/div/div/div[2]/div/div/h2")
+    @FindBy(css = "div.mainContent > div > div > h2")
     public WebElement title;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]")
-    public WebElement emissionsBtn;
+    @FindBy(css = "button[data-testid='selectable-card']")
+    public List<WebElement> emissionsBtn;
 
-
-
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h2[1]")
-    public WebElement downloadtitle;
+    @FindBy(css = "button[class='usa-button usa-button--outline margin-right-0 desktop:grid-col-4']")
+    public WebElement changebutton;
 
     @FindBy(id = "data-sub-type")
     public WebElement subtypeDropdown;
 
     @FindBy(css = "select[id='data-sub-type'] > option")
-    public List<WebElement> hourlyemissions;
+    public List<WebElement> subtypeoption;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/button[1]")
+    @FindBy(css ="div.border-top-1px.border-base-light.padding-x-6.padding-y-3.minh-mobile-lg > button.usa-button.float-right.clearfix")
     public WebElement applyBtn;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/p[1]/button[1]")
-    public WebElement timeperiod;
+    @FindBy(css = "div.filter-container > p > button")
+    public List<WebElement> filtercriteria;
 
     @FindBy(css = "input[id='event-date-start']")
     public WebElement datestart;
@@ -42,52 +40,36 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css = "input[id='event-date-end']")
     public WebElement dateend;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/form[1]/div[5]/button[2]")
-    public WebElement applyfilter;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/button[1]")
+    @FindBy(id = "event-year-input")
+    public WebElement yearinput;
+
+    @FindBy(css = "div.margin-bottom-3 >button")
+    public List<WebElement> applyYear;
+
+
+    @FindBy(css = "div.padding-top-6.padding-bottom-3.padding-x-1 > div > button")
+    public List<WebElement> cancelApply;
+
+    @FindBy(css= "div.mainContent > div > div:nth-child(2) > div > div > button")
     public WebElement previewdata;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/p[2]/button[1]")
-    public WebElement program;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/p[5]/button[1]")
-    public WebElement unitType;
+    @FindBy(id= "facilities-searchbox")
+    public WebElement facilitiesSearch;
+
+    @FindBy(css = "li[role='option']")
+    public List <WebElement> searchoptions;
 
     @FindBy(css = "div[data-testid='checkbox'] > input")
     public List<WebElement> checkbox;
 
-
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/label[1]")
-    public WebElement arp;
-
-    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/button[2]")
-    public WebElement pfb;
-
-
-    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/button[1]")
-    public WebElement propill;
-
-    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/p[6]/button[1]")
-    public WebElement fuelType;
-
-    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/p[7]/button[1]")
-    public WebElement controlTech;
-
-    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/button[2]")
-    public WebElement xout;
+    @FindBy(css = "div[data-testid='checkbox'] > label")
+    public List<WebElement> label;
 
 
     @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/p[3]/button[1]")
     public WebElement state;
-    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/input[1]")
-    public WebElement stateInput;
-
-    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[31]")
-    public WebElement nj;
-
-    @FindBy(xpath ="/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/button[2]")
-    public WebElement stateFilterButton;
 
 
 
