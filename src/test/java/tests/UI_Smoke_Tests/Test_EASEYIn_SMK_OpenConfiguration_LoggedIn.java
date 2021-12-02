@@ -56,7 +56,6 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
         verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
         // Verifying that the Monitoring Plans in Workspace in Visible
-
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 
