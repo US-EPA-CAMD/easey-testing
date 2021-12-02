@@ -20,6 +20,7 @@ public class Test_EASEYIn_SMK_MonPlanPage extends UITestBase {
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
         // Verifying that the page has opened and the title is visible
+        waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
     }
