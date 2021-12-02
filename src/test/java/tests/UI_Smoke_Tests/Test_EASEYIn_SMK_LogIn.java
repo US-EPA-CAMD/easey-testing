@@ -1,5 +1,7 @@
 package tests.UI_Smoke_Tests;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
@@ -21,6 +23,7 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
         // Verifying that the page has opened and the title is visible
         waitFor(monitoringPlansPage.title);
@@ -52,10 +55,23 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         waitFor(monitoringPlansPage.logOutButton);
         verifyEquals(monitoringPlansPage.logOutButton.getText(), "Log Out");
 
-        // Verifying that Log Out has now changed to Log In
-        click(monitoringPlansPage.logOutButton);
-        waitFor(monitoringPlansPage.logInButtonOpenModal);
-        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+    }
+    @Override
+    @AfterMethod
+    public void afterMethod() {
 
+        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
+
+        if (isDisplayed(monitoringPlansPage.logOutButton)) {
+            click(monitoringPlansPage.logOutButton);
+            waitFor(monitoringPlansPage.logInButtonOpenModal);
+            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        } else {
+            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
+            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        }
+        super.afterMethod();
     }
 }
