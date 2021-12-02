@@ -52,5 +52,10 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         waitFor(monitoringPlansPage.logOutButton);
         verifyEquals(monitoringPlansPage.logOutButton.getText(), "Log Out");
 
+        // Verifying that Log Out has now changed to Log In
+        click(monitoringPlansPage.logOutButton);
+        waitFor(monitoringPlansPage.logInButtonOpenModal);
+        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+
     }
 }

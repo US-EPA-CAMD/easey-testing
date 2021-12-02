@@ -91,5 +91,15 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
         click(monitoringPlansPage.closeConfigTab.get(0));
         waitFor(monitoringPlansPage.selectConfigurationLabel);
         verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationLabel));
+
+        // Selenium does not see the Log Out button.
+        // This scrolls up so that the Log Out is visible.
+        js.executeScript("window.scrollBy(0,-250)", "");
+
+        // Verifying that Log Out has now changed to Log In
+        click(monitoringPlansPage.logOutButton);
+        waitFor(monitoringPlansPage.logInButtonOpenModal);
+        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+
     }
 }
