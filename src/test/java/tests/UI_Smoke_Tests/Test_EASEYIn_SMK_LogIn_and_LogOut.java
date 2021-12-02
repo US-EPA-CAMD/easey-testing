@@ -10,7 +10,7 @@ import tests.utils.UITestBase;
 This test verifies that the user can successfully log In to the application
 */
 
-public class Test_EASEYIn_SMK_LogIn extends UITestBase {
+public class Test_EASEYIn_SMK_LogIn_and_LogOut extends UITestBase {
 
     @Test()
     public void tests() {
@@ -23,7 +23,6 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
 
         // Verifying that the page has opened and the title is visible
         waitFor(monitoringPlansPage.title);
@@ -54,6 +53,11 @@ public class Test_EASEYIn_SMK_LogIn extends UITestBase {
         // Verifying that Log In has now changed to Log Out
         waitFor(monitoringPlansPage.logOutButton);
         verifyEquals(monitoringPlansPage.logOutButton.getText(), "Log Out");
+
+        // Verifying that Log Out has now changed to Log In
+        click(monitoringPlansPage.logOutButton);
+        waitFor(monitoringPlansPage.logInButtonOpenModal);
+        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
 
     }
     @Override

@@ -25,6 +25,7 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
         // Verifying that the page has opened and the title is visible
         waitFor(monitoringPlansPage.title);
@@ -49,15 +50,13 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
 
         // Verifying that the system has logged in by verifying that the Workspace is now visible
         waitFor(monitoringPlansPage.title);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.title);
         waitFor(monitoringPlansPage.dashWorkspace);
         verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
-        // Selenium does not see the Workspace.
-        // This scrolls down so that the Workspace is visible.
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,250)", "");
-
         // Verifying that the Monitoring Plans in Workspace in Visible
+
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 
@@ -65,6 +64,11 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
         waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox, "Widows Creek");
         click(monitoringPlansPage.filterByKeywordButton);
+
+        // Selenium does not see the Workspace.
+        // This scrolls down so that the Workspace is visible.
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.facilityCaret.get(0));
 
         // Clicks on Widows Creek (Oris Code 50)
         click(monitoringPlansPage.facilityCaret.get(0));
@@ -90,17 +94,8 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationLabel));
-
-        // Selenium does not see the Log Out button.
-        // This scrolls up so that the Log Out is visible.
-        js.executeScript("window.scrollBy(0,-250)", "");
-
-        // Verifying that Log Out has now changed to Log In
-        click(monitoringPlansPage.logOutButton);
-        waitFor(monitoringPlansPage.logInButtonOpenModal);
-        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        waitFor(monitoringPlansPage.selectConfigurationsLabel);
+        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
 
     }
     @Override

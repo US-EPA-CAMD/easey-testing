@@ -21,20 +21,21 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
         // Verifying that the page has opened and the title is visible
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
+        // Selenium does not see the caret icon.
+        // This scrolls down so that the caret is visible.
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.title);
+
         // Using input box to search for desired facility
         waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
-
-        // Selenium does not see the caret icon.
-        // This scrolls down so that the caret is visible.
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,250)", "");
 
         // Clicks on Barry (Oris Code 3)
         click(monitoringPlansPage.facilityCaret.get(0));

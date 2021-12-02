@@ -17,7 +17,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public WebElement title;
 
     @FindBy(css = "div.tabContent > div > div > div > div > header > div > div")
-    public WebElement selectConfigurationLabel;
+    public WebElement selectConfigurationsLabel;
 
     @FindBy(css = "button[aria-label='open Select Configurations tab']")
     public WebElement selectConfigurationsButton;
