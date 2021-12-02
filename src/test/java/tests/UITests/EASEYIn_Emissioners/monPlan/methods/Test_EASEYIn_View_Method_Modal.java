@@ -1,5 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.methods;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
@@ -17,8 +18,12 @@ public class Test_EASEYIn_View_Method_Modal extends UITestBase {
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
+        waitFor(monitoringPlansPage.filterByKeywordButton);
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
 
         // Clicks on Barry (Oris Code 3)
         click(monitoringPlansPage.facilityCaret.get(0));
@@ -28,6 +33,8 @@ public class Test_EASEYIn_View_Method_Modal extends UITestBase {
         click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
+
+        js.executeScript("window.scrollBy(0,250)", "");
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
