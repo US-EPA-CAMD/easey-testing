@@ -1,6 +1,8 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.methods;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
@@ -8,7 +10,7 @@ import tests.utils.UITestBase;
 public class Test_EASEYIn_TC1344_Edit_Monitoring_Methods_Section extends UITestBase {
 
     @Test()
-    public void tests() {
+    public void tests() throws InterruptedException {
         String username = System.getenv("MOSES_TESTING_USERNAME");
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
@@ -18,6 +20,7 @@ public class Test_EASEYIn_TC1344_Edit_Monitoring_Methods_Section extends UITestB
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
@@ -35,6 +38,8 @@ public class Test_EASEYIn_TC1344_Edit_Monitoring_Methods_Section extends UITestB
         verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
         click(monitoringPlansPage.logInButtonSubmit);
 
+        js.executeScript("window.scrollBy(0,350)", "");
+
         waitFor(monitoringPlansPage.title);
         waitFor(monitoringPlansPage.dashWorkspace);
         verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
@@ -45,6 +50,7 @@ public class Test_EASEYIn_TC1344_Edit_Monitoring_Methods_Section extends UITestB
         waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox, "Gadsden");
         click(monitoringPlansPage.filterByKeywordButton);
+
 
         // Clicks on Gadsden (Oris Code 7)
         click(monitoringPlansPage.facilityCaret.get(0));
@@ -66,6 +72,9 @@ public class Test_EASEYIn_TC1344_Edit_Monitoring_Methods_Section extends UITestB
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
+        js.executeScript("window.scrollBy(0,250)", "");
+
+        waitFor(monitoringPlansPage.monMethodsTableParameterLabel);
         verifyEquals(monitoringPlansPage.monMethodsTableParameterLabel, "Parameter");
 
         String parameterCode = monitoringPlansPage.monMethodsTableParameterField.get(0).getText();
@@ -85,13 +94,32 @@ public class Test_EASEYIn_TC1344_Edit_Monitoring_Methods_Section extends UITestB
 
         click(monitoringPlansPage.saveCloseModal);
 
+        Thread.sleep(1500);
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationLabel));
+        waitFor(monitoringPlansPage.selectConfigurationsLabel);
+        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
 
+    }
+    @Override
+    @AfterMethod
+    public void afterMethod() {
+
+        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
+
+        if (isDisplayed(monitoringPlansPage.logOutButton)) {
+            click(monitoringPlansPage.logOutButton);
+            waitFor(monitoringPlansPage.logInButtonOpenModal);
+            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        } else {
+            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
+            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        }
+        super.afterMethod();
     }
 }
