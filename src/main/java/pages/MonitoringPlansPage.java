@@ -17,7 +17,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public WebElement title;
 
     @FindBy(css = "div.tabContent > div > div > div > div > header > div > div")
-    public WebElement selectConfigurationLabel;
+    public WebElement selectConfigurationsLabel;
 
     @FindBy(css = "button[aria-label='open Select Configurations tab']")
     public WebElement selectConfigurationsButton;
@@ -58,7 +58,8 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "column-col1")
     public WebElement monMethodsTableParameterLabel;
 
-    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
+    // A better locator is needed
+    @FindBy (css = "div[data-tag='allowRowEvents'] > div")
     public List<WebElement> monMethodsTableParameterField;
 
     @FindBy (css = "#Parameter > option")
