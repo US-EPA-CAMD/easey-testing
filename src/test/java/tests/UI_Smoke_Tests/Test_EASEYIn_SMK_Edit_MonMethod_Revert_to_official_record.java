@@ -62,6 +62,7 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
@@ -109,7 +110,7 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
 
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 

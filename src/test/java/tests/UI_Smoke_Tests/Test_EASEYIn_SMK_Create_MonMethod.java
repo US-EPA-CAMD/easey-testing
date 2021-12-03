@@ -89,7 +89,7 @@ public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
         click(monitoringPlansPage.saveCloseModal);
 
         waitFor(monitoringPlansPage.viewButton);
-        Thread.sleep(2000);
+        Thread.sleep(3000);
 
         int newNumOfMethods = monitoringPlansPage.viewButton.size();
 
