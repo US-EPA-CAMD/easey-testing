@@ -100,8 +100,8 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends UITestBase {
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationLabel));
+        waitFor(monitoringPlansPage.selectConfigurationsLabel);
+        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
 
     }
 }

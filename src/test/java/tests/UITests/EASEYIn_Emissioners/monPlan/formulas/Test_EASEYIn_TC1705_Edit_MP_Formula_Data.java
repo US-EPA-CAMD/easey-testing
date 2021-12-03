@@ -100,8 +100,8 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationLabel));
+        waitFor(monitoringPlansPage.selectConfigurationsLabel);
+        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
 
     }
 }
