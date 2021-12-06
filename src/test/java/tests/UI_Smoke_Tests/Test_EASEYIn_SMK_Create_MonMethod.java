@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends UITestBase {
+public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -60,6 +60,7 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
 
         click(monitoringPlansPage.configTabs.get(0));
 
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         waitFor(monitoringPlansPage.configcheckOutButton);
@@ -72,31 +73,27 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
-        js.executeScript("window.scrollBy(0,200)", "");
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createMonMethodsButton);
 
-        waitFor(monitoringPlansPage.monMethodsTableParameterLabel);
-        verifyEquals(monitoringPlansPage.monMethodsTableParameterLabel, "Parameter");
+        int numOfMethods = monitoringPlansPage.viewButton.size();
 
-        String parameterCode = monitoringPlansPage.monMethodsTableParameterField.get(0).getText();
+        click(monitoringPlansPage.createMonMethodsButton);
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        click(monitoringPlansPage.viewButton.get(0));
-
-        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
-
-        if (parameterCode.equals("CO2")) {
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
-        } else {
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(5));
-        }
+        waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
+        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+        click(monitoringPlansPage.monMethodsModalMethodologyDropdown.get(1));
+        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
+        input(monitoringPlansPage.modalStartTimeField, "1");
 
         click(monitoringPlansPage.saveCloseModal);
 
-        Thread.sleep(2000);
-        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
-        verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
+        waitFor(monitoringPlansPage.viewButton);
+        Thread.sleep(3000);
+
+        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+
+        verifyTrue(newNumOfMethods == numOfMethods + 1);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
@@ -109,10 +106,6 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
-        verifyEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));

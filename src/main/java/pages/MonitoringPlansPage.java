@@ -55,6 +55,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Methods']")
     public WebElement monitoringMethods;
 
+    @FindBy (id = "create-method-add-btn")
+    public WebElement createMonMethodsButton;
+
     @FindBy (id = "column-col1")
     public WebElement monMethodsTableParameterLabel;
 
@@ -64,6 +67,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "#Parameter > option")
     public List<WebElement> monMethodsModalParameterDropdown;
+
+    @FindBy (css = "#Methodology > option")
+    public List<WebElement> monMethodsModalMethodologyDropdown;
 
     @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;

@@ -84,6 +84,7 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         // Checks Out the configuration
+        waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
