@@ -16,11 +16,41 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css = "div.mainContent > div > div > h2")
     public WebElement title;
 
+    @FindBy(css = "button[aria-controls='menu-Help/Support']")
+    public WebElement navitem;
+
+    @FindBy(css=" nav.usa-nav:nth-child(1) > ul >li:nth-child(2) >ul > li:nth-child(4) > a")
+    public WebElement contactuslink;
+
+    @FindBy(css=" nav.usa-nav:nth-child(1) > ul >li:nth-child(2) >ul > li:nth-child(3) > a")
+    public WebElement faqlink;
+
+    @FindBy(css=" nav.usa-nav:nth-child(1) > ul >li:nth-child(2) >ul > li:nth-child(2) > a")
+    public WebElement tutorialslink;
+
     @FindBy(css = "div.mainContent > div > h1")
     public WebElement abouttitle;
 
+    @FindBy(css = "header >  div:nth-child(2) > div > h2")
+    public WebElement hometitle;
+
+    @FindBy(css = "div.mainContent >  div > div > h1")
+    public WebElement pagetitle;
+
     @FindBy(css = "div.usa-accordion > h4 > button")
     public WebElement accordion;
+
+    @FindBy(id = "txtEmail")
+    public WebElement email;
+
+    @FindBy(css = "fieldset >div:nth-child(2)")
+    public WebElement contactradio;
+
+    @FindBy(id = "txtComment")
+    public WebElement comment;
+
+    @FindBy(id = "btnSubmit")
+    public WebElement contactsubmit;
 
     @FindBy(css = "button[data-testid='selectable-card']")
     public List<WebElement> emissionsBtn;
@@ -33,6 +63,12 @@ public class CustomDataDownloadPage extends PageBase {
 
     @FindBy(css = "select[id='data-sub-type'] > option")
     public List<WebElement> subtypeoption;
+
+    @FindBy(id = "multi-select-combobox")
+    public WebElement accountNameSearch;
+
+    @FindBy(css = "ul[id='listbox'] > li > span")
+    public List<WebElement> namenumber;
 
     @FindBy(css ="div.border-top-1px.border-base-light.padding-x-6.padding-y-3.minh-mobile-lg > button.usa-button.float-right.clearfix")
     public WebElement applyBtn;
