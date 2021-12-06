@@ -1,4 +1,4 @@
-package tests.UITests;
+package tests.UITests.EASEYOut_Datateers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 
 
-public class TC458_Control_Type extends UITestBase {
+public class TC421_2066_Emissions extends UITestBase {
     @Test
     public void test() {
 
@@ -54,34 +54,26 @@ public class TC458_Control_Type extends UITestBase {
 
         waitFor(customDataDownloadPage.previewdata);
 
-// Check Control Tech Filtering
+// check Program Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
-        jse.executeScript("scroll(0, 1000);");
+        jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
-
-//Select Control Type
+//Select Program
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
-        click(customDataDownloadPage.filtercriteria.get(6));
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -92,46 +84,15 @@ public class TC458_Control_Type extends UITestBase {
         waitFor(customDataDownloadPage.cancelApply.get(1));
         click(customDataDownloadPage.cancelApply.get(1));
 
-// check Program Filtering
-
-        jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(1));
-
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-        }
-
-        jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
-
-
-
 // check Unit Type Filtering
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -139,29 +100,34 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Control Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
+// check Control Tech Filtering
+
         click(customDataDownloadPage.filtercriteria.get(6));
+
+
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -192,34 +158,27 @@ public class TC458_Control_Type extends UITestBase {
         click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
-// Check Control Tech Filtering
+// check Program Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
 
-        jse.executeScript("scroll(0, 1000);");
+        jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
-
-//Select Control Type
+//Select Program
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
-        click(customDataDownloadPage.filtercriteria.get(6));
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -230,46 +189,15 @@ public class TC458_Control_Type extends UITestBase {
         waitFor(customDataDownloadPage.cancelApply.get(1));
         click(customDataDownloadPage.cancelApply.get(1));
 
-// check Program Filtering
-
-        jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(1));
-
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-        }
-
-        jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
-
-
-
 // check Unit Type Filtering
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -277,29 +205,35 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
+
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Control Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
+// check Control Tech Filtering
+
         click(customDataDownloadPage.filtercriteria.get(6));
+
+
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -308,8 +242,7 @@ public class TC458_Control_Type extends UITestBase {
         waitFor(customDataDownloadPage.cancelApply.get(1));
         click(customDataDownloadPage.cancelApply.get(1));
 
-
-//Select Monthly Emissions Syubtype
+ // APPLY MONTHLY EMISSIONS SUBTYPE
 
         click(customDataDownloadPage.changebutton);
 
@@ -337,20 +270,13 @@ public class TC458_Control_Type extends UITestBase {
 // check Program Filtering
 
         jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(6));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -375,17 +301,10 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
 
         jse.executeScript("scroll(0, 1000);");
@@ -395,20 +314,10 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
@@ -419,27 +328,19 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(6));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
-        click(customDataDownloadPage.filtercriteria.get(6));
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -476,18 +377,12 @@ public class TC458_Control_Type extends UITestBase {
 // check Program Filtering
 
         jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(6));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
 
         jse.executeScript("scroll(0, 500);");
@@ -514,17 +409,10 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
 
         jse.executeScript("scroll(0, 1000);");
@@ -534,20 +422,10 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
@@ -558,17 +436,10 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(6));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
 
         jse.executeScript("scroll(0, 1000);");
@@ -577,8 +448,8 @@ public class TC458_Control_Type extends UITestBase {
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
-        click(customDataDownloadPage.filtercriteria.get(6));
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -586,6 +457,8 @@ public class TC458_Control_Type extends UITestBase {
 
         waitFor(customDataDownloadPage.cancelApply.get(1));
         click(customDataDownloadPage.cancelApply.get(1));
+
+
 
 //Select Ozone Season Emissions Syubtype
 
@@ -610,34 +483,26 @@ public class TC458_Control_Type extends UITestBase {
         click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
-// Check Control Tech Filtering
+// check Program Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
-        jse.executeScript("scroll(0, 1000);");
+        jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
-
-//Select Control Type
+//Select Program
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
-        click(customDataDownloadPage.filtercriteria.get(6));
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -648,46 +513,14 @@ public class TC458_Control_Type extends UITestBase {
         waitFor(customDataDownloadPage.cancelApply.get(1));
         click(customDataDownloadPage.cancelApply.get(1));
 
-// check Program Filtering
-
-        jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(1));
-
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-        }
-
-        jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
-
-
-
 // check Unit Type Filtering
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -695,29 +528,34 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Control Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
+// check Control Tech Filtering
+
         click(customDataDownloadPage.filtercriteria.get(6));
+
+
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -725,7 +563,6 @@ public class TC458_Control_Type extends UITestBase {
 
         waitFor(customDataDownloadPage.cancelApply.get(1));
         click(customDataDownloadPage.cancelApply.get(1));
-
 
 // Select Annual Emmisions
 
@@ -754,16 +591,10 @@ public class TC458_Control_Type extends UITestBase {
         jse.executeScript("scroll(0, 500);");
         click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
 
         jse.executeScript("scroll(0, 500);");
@@ -774,8 +605,8 @@ public class TC458_Control_Type extends UITestBase {
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
-        click(customDataDownloadPage.filtercriteria.get(6));
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -790,17 +621,10 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
 
         jse.executeScript("scroll(0, 1000);");
@@ -810,20 +634,10 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
@@ -834,17 +648,10 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(6));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
 
         jse.executeScript("scroll(0, 1000);");
@@ -853,8 +660,8 @@ public class TC458_Control_Type extends UITestBase {
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
-        click(customDataDownloadPage.filtercriteria.get(6));
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -889,34 +696,26 @@ public class TC458_Control_Type extends UITestBase {
 
         waitFor(customDataDownloadPage.previewdata);
 
-// Check Control Tech Filtering
+// check Program Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        jse.executeScript("scroll(0, 500);");
+        click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
-        jse.executeScript("scroll(0, 1000);");
+        jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
-
-//Select Control Type
+//Select Program
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
-        click(customDataDownloadPage.filtercriteria.get(6));
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));
@@ -927,44 +726,14 @@ public class TC458_Control_Type extends UITestBase {
         waitFor(customDataDownloadPage.cancelApply.get(1));
         click(customDataDownloadPage.cancelApply.get(1));
 
-// check Program Filtering
-
-        jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(1));
-
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-        }
-
-        jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
-
-
-
 // check Unit Type Filtering
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
 
         jse.executeScript("scroll(0, 1000);");
@@ -974,29 +743,35 @@ public class TC458_Control_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
 
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
+
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
-// Remove Control Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(6));
+// check Control Tech Filtering
+
         click(customDataDownloadPage.filtercriteria.get(6));
+
+
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }
+
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+// Remove Program Type Filter
+
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
 
         waitFor(customDataDownloadPage.label.get(0));

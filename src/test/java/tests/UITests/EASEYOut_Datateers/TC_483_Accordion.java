@@ -1,4 +1,4 @@
-package tests.UITests;
+package tests.UITests.EASEYOut_Datateers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -1,4 +1,4 @@
-package tests.UITests;
+package tests.UITests.EASEYOut_Datateers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -58,19 +58,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -97,18 +88,10 @@ public class TC459_Unit_Type extends UITestBase {
         jse.executeScript("scroll(0, 500);");
         click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -118,19 +101,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(6));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -138,22 +112,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
-        }
-        jse.executeScript("scroll(0, 1000);");
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }        jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
@@ -195,19 +157,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -234,18 +187,10 @@ public class TC459_Unit_Type extends UITestBase {
         jse.executeScript("scroll(0, 500);");
         click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -255,19 +200,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(6));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -275,22 +211,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
-        }
-        jse.executeScript("scroll(0, 1000);");
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }        jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
@@ -334,19 +258,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -373,18 +288,10 @@ public class TC459_Unit_Type extends UITestBase {
         jse.executeScript("scroll(0, 500);");
         click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -394,19 +301,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(6));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -414,22 +312,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
-        }
-        jse.executeScript("scroll(0, 1000);");
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }        jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
@@ -474,19 +360,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -513,18 +390,10 @@ public class TC459_Unit_Type extends UITestBase {
         jse.executeScript("scroll(0, 500);");
         click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -534,19 +403,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(6));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -554,22 +414,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
-        }
-        jse.executeScript("scroll(0, 1000);");
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }        jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
@@ -611,19 +459,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -650,18 +489,10 @@ public class TC459_Unit_Type extends UITestBase {
         jse.executeScript("scroll(0, 500);");
         click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -671,19 +502,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(6));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -691,22 +513,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
-        }
-        jse.executeScript("scroll(0, 1000);");
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }        jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
 
@@ -751,19 +561,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(4));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -790,18 +591,10 @@ public class TC459_Unit_Type extends UITestBase {
         jse.executeScript("scroll(0, 500);");
         click(customDataDownloadPage.filtercriteria.get(1));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 500);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -811,19 +604,10 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(6));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-            }
-            else{
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
-
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
@@ -831,20 +615,9 @@ public class TC459_Unit_Type extends UITestBase {
 
         click(customDataDownloadPage.filtercriteria.get(5));
 
-        for(WebElement webElement : customDataDownloadPage.checkbox) {
-            boolean myBool=webElement.isEnabled();
-
-            if(myBool=true){
-
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()",webElement);
-
-            }
-            else{
-
-                continue;
-            }
-
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
