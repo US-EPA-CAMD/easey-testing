@@ -29,6 +29,7 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
         click(monitoringPlansPage.logInButtonOpenModal);
 
+        waitFor(monitoringPlansPage.usernameLabelModal);
         verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
         input(monitoringPlansPage.usernameFieldModal, username);
 
