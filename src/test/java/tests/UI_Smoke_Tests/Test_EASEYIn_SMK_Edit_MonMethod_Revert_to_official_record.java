@@ -123,7 +123,6 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         click(monitoringPlansPage.closeConfigTab.get(0));
         waitFor(monitoringPlansPage.selectConfigurationsLabel);
         verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
-
     }
     @Override
     @AfterMethod
