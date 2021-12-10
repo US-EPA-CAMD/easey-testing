@@ -97,6 +97,7 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
         Thread.sleep(2000);
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));

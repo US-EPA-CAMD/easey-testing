@@ -1,5 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.defaults;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
@@ -23,17 +24,24 @@ public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
         input(monitoringPlansPage.filterByKeywordBox, "Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,350)", "");
+
         // Clicks on Barry (Oris Code 3)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
+        js.executeScript("window.scrollBy(0,250)", "");
+        js.executeScript("document.body.style.zoom = '0.8'");
+
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringDefaults);
         click(monitoringPlansPage.monitoringDefaults);
 
         waitFor(monitoringPlansPage.accordionDefaultsLabel);
@@ -45,6 +53,7 @@ public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
 
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
 
     }
