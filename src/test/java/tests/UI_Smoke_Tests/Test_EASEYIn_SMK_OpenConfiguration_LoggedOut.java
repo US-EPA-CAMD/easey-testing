@@ -46,9 +46,10 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
         click(monitoringPlansPage.configOpenButton.get(0));
 
         // Clicks on the tab of the configuration
-        click(monitoringPlansPage.configTabBarry12CS0AAN);
+        click(monitoringPlansPage.configTabs.get(0));
 
         // Verifies that the configuration is open and its default is Methods
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
     }
