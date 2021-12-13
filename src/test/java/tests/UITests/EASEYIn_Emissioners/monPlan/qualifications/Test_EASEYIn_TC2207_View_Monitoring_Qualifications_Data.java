@@ -58,5 +58,6 @@ public class Test_EASEYIn_TC2207_View_Monitoring_Qualifications_Data extends UIT
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Qualification");
+
     }
 }
