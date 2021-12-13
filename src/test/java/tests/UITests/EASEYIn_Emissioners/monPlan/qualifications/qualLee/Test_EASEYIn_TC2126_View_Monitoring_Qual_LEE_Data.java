@@ -9,7 +9,7 @@ import tests.utils.UITestBase;
 public class Test_EASEYIn_TC2126_View_Monitoring_Qual_LEE_Data extends UITestBase {
 
     @Test
-    public void test() throws InterruptedException {
+    public void test() {
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
@@ -57,24 +57,17 @@ public class Test_EASEYIn_TC2126_View_Monitoring_Qual_LEE_Data extends UITestBas
         verifyEquals(monitoringPlansPage.location.get(0), "H1");
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
-        Thread.sleep(1000); // Maybe a better option can be found other than Thread.sleep();
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Qualification");
 
-        waitFor(monitoringPlansPage.qualificationsHeaders, 2);
+        waitFor(monitoringPlansPage.qualificationsHeaders);
         verifyEquals(monitoringPlansPage.qualificationsHeaders.get(1), "Qualification LEE");
 
-        waitFor(driver -> monitoringPlansPage.viewButtonbtnOpenQualificationLEE.size() > 0);
-        verifyEquals(monitoringPlansPage.viewButtonbtnOpenQualificationLEE.get(0), "View");
-        Thread.sleep(1000); // Maybe a better option can be found other than Thread.sleep();
-        action.moveToElement(monitoringPlansPage.viewButtonbtnOpenQualificationLEE.get(0)).click().build().perform();
-
-        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        waitFor(monitoringPlansPage.qualificationsViewModalHeader);
-        verifyEquals(monitoringPlansPage.qualificationsViewModalHeader, "Qualification LEE");
+        // This test runs until it verifies that the header for the Qualification LEE is visible
+        // Verifying View will be added later on
 
     }
 }
