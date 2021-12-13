@@ -67,6 +67,12 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(id = "multi-select-combobox")
     public WebElement accountNameSearch;
 
+    @FindBy(id = "vintage-years-searchbox")
+    public WebElement vintageyearssearch;
+
+    @FindBy(id = "owners/operators-searchbox")
+    public WebElement ownersearch;
+
     @FindBy(css = "ul[id='listbox'] > li > span")
     public List<WebElement> namenumber;
 
