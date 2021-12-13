@@ -16,16 +16,18 @@ public class Test_EASEYIn_TC2207_View_Monitoring_Qualifications_Data extends UIT
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         Actions action = new Actions(driver);
 
+        waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.title);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox, "Chickasaw");
         click(monitoringPlansPage.filterByKeywordButton);
-
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,250)", "");
 
         // Clicks on Chickasaw (Oris Code 5)
         click(monitoringPlansPage.facilityCaret.get(0));
@@ -38,13 +40,16 @@ public class Test_EASEYIn_TC2207_View_Monitoring_Qualifications_Data extends UIT
 
         js.executeScript("window.scrollBy(0,250)", "");
 
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringQualifications);
         click(monitoringPlansPage.monitoringQualifications);
 
         waitFor(monitoringPlansPage.accordionQualificationsLabel);
         verifyEquals(monitoringPlansPage.accordionQualificationsLabel, "Qualifications");
 
+        waitFor(monitoringPlansPage.location);
         click(monitoringPlansPage.location.get(0));
         verifyEquals(monitoringPlansPage.location.get(0), "110");
 
