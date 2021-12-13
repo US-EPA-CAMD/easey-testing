@@ -146,6 +146,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "span[epa-testid='Qualifications']")
     public WebElement accordionQualificationsLabel;
 
+    @FindBy (css = "h3[class='margin-top-5 text-bold mobile:font-body-xl mobile:text-bold']")
+    public List<WebElement> qualificationsHeaders;
+
     @FindBy (css = "span[epa-testid='WAFsRectangularDuct']")
     public WebElement accordionRectangularDuctWAFsLabel;
 
