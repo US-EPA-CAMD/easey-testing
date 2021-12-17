@@ -150,10 +150,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public List<WebElement> qualificationsHeaders;
 
     @FindBy (css = "h3[class='text-bold float-left mobile:font-body-md mobile:text-bold']")
-    public WebElement qualificationsLeeHeader;
-
-    @FindBy (css = "h3[class='text-bold float-left mobile:font-body-md mobile:text-bold']")
-    public WebElement qualificationsLmeHeader;
+    public WebElement qualificationsViewModalHeader;
 
     @FindBy (css = "span[epa-testid='WAFsRectangularDuct']")
     public WebElement accordionRectangularDuctWAFsLabel;
@@ -254,6 +251,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (id = "btnOpenQualificationLME")
     public List<WebElement> viewButtonbtnOpenQualificationLME;
+
+    @FindBy (id = "btnOpenQualificationPercent")
+    public List<WebElement> viewButtonbtnOpenQualificationPerc;
 
     @FindBy (id = "btnOpenSystemComponents")
     public List<WebElement> viewButtonSystemComponents;
