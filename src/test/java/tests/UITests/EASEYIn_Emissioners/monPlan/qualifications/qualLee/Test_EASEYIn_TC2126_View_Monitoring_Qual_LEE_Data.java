@@ -57,6 +57,7 @@ public class Test_EASEYIn_TC2126_View_Monitoring_Qual_LEE_Data extends UITestBas
         verifyEquals(monitoringPlansPage.location.get(0), "H1");
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
+        Thread.sleep(1000); // Maybe a better option can be found other than Thread.sleep();
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
 
