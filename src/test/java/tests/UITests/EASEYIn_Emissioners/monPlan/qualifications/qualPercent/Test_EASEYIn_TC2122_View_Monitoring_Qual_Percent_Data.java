@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.qualifications.qualLee;
+package tests.UITests.EASEYIn_Emissioners.monPlan.qualifications.qualPercent;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC2126_View_Monitoring_Qual_LEE_Data extends UITestBase {
+public class Test_EASEYIn_TC2122_View_Monitoring_Qual_Percent_Data extends UITestBase {
 
     @Test
     public void test() throws InterruptedException {
@@ -26,10 +26,10 @@ public class Test_EASEYIn_TC2126_View_Monitoring_Qual_LEE_Data extends UITestBas
                 monitoringPlansPage.title);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Hayden");
+        input(monitoringPlansPage.filterByKeywordBox, "Smith Generating Facility");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Hayden (Oris Code 525)
+        // Clicks on Smith Generating Facility (Oris Code 54)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         js.executeScript("window.scrollBy(0,350)", "");
@@ -54,7 +54,7 @@ public class Test_EASEYIn_TC2126_View_Monitoring_Qual_LEE_Data extends UITestBas
 
         waitFor(monitoringPlansPage.location);
         click(monitoringPlansPage.location.get(0));
-        verifyEquals(monitoringPlansPage.location.get(0), "H1");
+        verifyEquals(monitoringPlansPage.location.get(0), "SCT1");
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
@@ -63,17 +63,17 @@ public class Test_EASEYIn_TC2126_View_Monitoring_Qual_LEE_Data extends UITestBas
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Qualification");
 
-        waitFor(monitoringPlansPage.qualificationsHeaders, 2);
-        verifyEquals(monitoringPlansPage.qualificationsHeaders.get(1), "Qualification LEE");
+        waitFor(driver -> monitoringPlansPage.qualificationsHeaders.size() > 2);
+        verifyEquals(monitoringPlansPage.qualificationsHeaders.get(0), "Qualification Percent");
 
-        waitFor(driver -> monitoringPlansPage.viewButtonbtnOpenQualificationLEE.size() > 0);
-        verifyEquals(monitoringPlansPage.viewButtonbtnOpenQualificationLEE.get(0), "View");
+        waitFor(driver -> monitoringPlansPage.viewButtonbtnOpenQualificationPerc.size() > 14);
         Thread.sleep(1000); // Maybe a better option can be found other than Thread.sleep();
-        action.moveToElement(monitoringPlansPage.viewButtonbtnOpenQualificationLEE.get(0)).click().build().perform();
+        verifyEquals(monitoringPlansPage.viewButtonbtnOpenQualificationPerc.get(0), "View");
+        action.moveToElement(monitoringPlansPage.viewButtonbtnOpenQualificationPerc.get(0)).click().build().perform();
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         waitFor(monitoringPlansPage.qualificationsViewModalHeader);
-        verifyEquals(monitoringPlansPage.qualificationsViewModalHeader, "Qualification LEE");
+        verifyEquals(monitoringPlansPage.qualificationsViewModalHeader, "Qualification Percent");
 
     }
 }
