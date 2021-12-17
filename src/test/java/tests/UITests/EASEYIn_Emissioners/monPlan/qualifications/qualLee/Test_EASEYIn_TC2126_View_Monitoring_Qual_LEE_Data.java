@@ -72,8 +72,8 @@ public class Test_EASEYIn_TC2126_View_Monitoring_Qual_LEE_Data extends UITestBas
         action.moveToElement(monitoringPlansPage.viewButtonbtnOpenQualificationLEE.get(0)).click().build().perform();
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        waitFor(monitoringPlansPage.qualificationsLeeHeader);
-        verifyEquals(monitoringPlansPage.qualificationsLeeHeader, "Qualification LEE");
+        waitFor(monitoringPlansPage.qualificationsViewModalHeader);
+        verifyEquals(monitoringPlansPage.qualificationsViewModalHeader, "Qualification LEE");
 
     }
 }
