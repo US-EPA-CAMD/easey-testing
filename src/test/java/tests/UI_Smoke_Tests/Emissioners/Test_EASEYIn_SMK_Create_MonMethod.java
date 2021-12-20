@@ -1,4 +1,4 @@
-package tests.UI_Smoke_Tests;
+package tests.UI_Smoke_Tests.Emissioners;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;

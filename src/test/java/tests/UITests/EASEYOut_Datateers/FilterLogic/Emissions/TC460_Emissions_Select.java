@@ -1,4 +1,4 @@
-package tests.UITests.EASEYOut_Datateers;
+package tests.UITests.EASEYOut_Datateers.FilterLogic.Emissions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,102 +11,68 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 
 
-public class TC_472_Owner_Filter_Logic extends UITestBase {
+public class TC460_Emissions_Select extends UITestBase {
     @Test
     public void test() {
-
-//Navigate to Easey In
-
-        goTo("https://campd-dev.app.cloud.gov/select-data-type");
+        goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
         Actions action = new Actions(driver);
         CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
-        waitFor(customDataDownloadPage.emissionsBtn);
+
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("scroll(0, 250);");
-        //Select data type
-        click(customDataDownloadPage.emissionsBtn.get(1));
-// Navigate to the Emissions Custom Data Download page
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/manage-data-download");
-//Apply Account Info  Subtype
+
+
+        waitFor(customDataDownloadPage.datadropdown);
+        click(customDataDownloadPage.datadropdown);
+
+        waitFor(customDataDownloadPage.dataoption.get(1));
+        click(customDataDownloadPage.dataoption.get(1));
 
         waitFor(customDataDownloadPage.subtypeDropdown);
         click(customDataDownloadPage.subtypeDropdown);
 
         waitFor(customDataDownloadPage.subtypeoption.get(1));
         click(customDataDownloadPage.subtypeoption.get(1));
+//Select  Facility/Unit Subtype
+
+        jse.executeScript("scroll(0, 250);");
 
         waitFor(customDataDownloadPage.applyBtn);
         click(customDataDownloadPage.applyBtn);
-//Select and Apply Filter Critetia for Facility
 
 
-        waitFor(customDataDownloadPage.previewdata);
-        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.filtercriteria.get(4));
-        click(customDataDownloadPage.filtercriteria.get(4));
-
-        waitFor(customDataDownloadPage.ownersearch);
-        click(customDataDownloadPage.ownersearch);
-
-        waitFor(customDataDownloadPage.namenumber.get(0));
-        click(customDataDownloadPage.namenumber.get(0));
-
-        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
-// Check Program Filtering
+// apply date range
 
         click(customDataDownloadPage.filtercriteria.get(0));
 
-        for (WebElement ele : customDataDownloadPage.label) {
-            if (ele.isEnabled())
-                click(ele);
-        }        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(customDataDownloadPage.yearinput);
+        input(customDataDownloadPage.yearinput, "2015-2020");
 
-// Check Account Type Filtering
-
-        click(customDataDownloadPage.filtercriteria.get(1));
-
-        for (WebElement ele : customDataDownloadPage.label) {
-            if (ele.isEnabled())
-                click(ele);
-        }
-        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
-
-// Change to Allowance Holdings Subtype
-        click(customDataDownloadPage.changebutton);
-
-        click(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeoption.get(2));
-
-        click(customDataDownloadPage.applyBtn);
-//Select and Apply Filter Critetia for Facility
-
+        waitFor(customDataDownloadPage.applyYear.get(1));
+        click(customDataDownloadPage.applyYear.get(1));
 
         waitFor(customDataDownloadPage.previewdata);
 
-        waitFor(customDataDownloadPage.filtercriteria.get(3));
-        click(customDataDownloadPage.filtercriteria.get(3));
+        // Apply Facility Logic
 
-        waitFor(customDataDownloadPage.accountNameSearch);
-        click(customDataDownloadPage.accountNameSearch);
+        jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.namenumber.get(0));
-        click(customDataDownloadPage.namenumber.get(0));
+        waitFor(customDataDownloadPage.filtercriteria.get(7));
+        click(customDataDownloadPage.filtercriteria.get(7));
+
+        waitFor(customDataDownloadPage.sourcesearch);
+        click(customDataDownloadPage.sourcesearch);
+
+        waitFor(customDataDownloadPage.searchoptions.get(0));
+        click(customDataDownloadPage.searchoptions.get(0));
 
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(1));
         click(customDataDownloadPage.cancelApply.get(1));
 
 
-// Check Program Filtering
+// Check Unit Type Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(0));
+        click(customDataDownloadPage.filtercriteria.get(7));
 
         for (WebElement ele : customDataDownloadPage.label) {
             if (ele.isEnabled())
@@ -117,17 +83,45 @@ public class TC_472_Owner_Filter_Logic extends UITestBase {
         click(customDataDownloadPage.cancelApply.get(0));
 
 
-// Check Account Type Filtering
 
+// check Program Filtering
+
+        jse.executeScript("scroll(0, 500);");
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
             if (ele.isEnabled())
                 click(ele);
         }
+        jse.executeScript("scroll(0, 500);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+
+// check Control Type Filtering
+
+        click(customDataDownloadPage.filtercriteria.get(6));
+
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(0));
         click(customDataDownloadPage.cancelApply.get(0));
+//  make sure Fuel Type data is filtering
+
+        click(customDataDownloadPage.filtercriteria.get(5));
+
+        for (WebElement ele : customDataDownloadPage.label) {
+            if (ele.isEnabled())
+                click(ele);
+        }
+        jse.executeScript("scroll(0, 1000);");
+        waitFor(customDataDownloadPage.cancelApply.get(0));
+        click(customDataDownloadPage.cancelApply.get(0));
+
+
     }
 
 }

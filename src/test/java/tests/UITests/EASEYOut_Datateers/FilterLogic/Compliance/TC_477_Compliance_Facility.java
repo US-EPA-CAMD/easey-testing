@@ -1,4 +1,4 @@
-package tests.UITests.EASEYOut_Datateers;
+package tests.UITests.EASEYOut_Datateers.FilterLogic.Compliance;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,42 +11,47 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 
 
-public class TC_475_Compliance_Program extends UITestBase {
+public class TC_477_Compliance_Facility extends UITestBase {
     @Test
     public void test() {
 
-//Navigate to Easey In
-
-        goTo("https://campd-dev.app.cloud.gov/select-data-type");
+        goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
         Actions action = new Actions(driver);
         CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
-        waitFor(customDataDownloadPage.emissionsBtn);
+
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("scroll(0, 250);");
-        //Select data type
-        click(customDataDownloadPage.emissionsBtn.get(2));
-// Navigate to the Emissions Custom Data Download page
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/manage-data-download");
-//Apply Allowance  Subtype
+
+
+        waitFor(customDataDownloadPage.datadropdown);
+        click(customDataDownloadPage.datadropdown);
+
+        waitFor(customDataDownloadPage.dataoption.get(3));
+        click(customDataDownloadPage.dataoption.get(3));
+
+
+//Apply Allowance Subtype
 
         waitFor(customDataDownloadPage.subtypeDropdown);
         click(customDataDownloadPage.subtypeDropdown);
 
         waitFor(customDataDownloadPage.subtypeoption.get(1));
         click(customDataDownloadPage.subtypeoption.get(1));
-
+        jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.applyBtn);
         click(customDataDownloadPage.applyBtn);
-//Select and Apply Filter Critetia for Program
+//Select and Apply Filter Critetia for Facility
+
 
         waitFor(customDataDownloadPage.previewdata);
 
-        waitFor(customDataDownloadPage.filtercriteria.get(0));
-        click(customDataDownloadPage.filtercriteria.get(0));
+        waitFor(customDataDownloadPage.filtercriteria.get(1));
+        click(customDataDownloadPage.filtercriteria.get(1));
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(customDataDownloadPage.accountNameSearch);
+        click(customDataDownloadPage.accountNameSearch);
+
+        waitFor(customDataDownloadPage.namenumber.get(0));
+        click(customDataDownloadPage.namenumber.get(0));
 
         jse.executeScript("scroll(0, 1000);");
         waitFor(customDataDownloadPage.cancelApply.get(1));
