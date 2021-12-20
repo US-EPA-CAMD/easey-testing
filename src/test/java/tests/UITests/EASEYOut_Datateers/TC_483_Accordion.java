@@ -32,6 +32,8 @@ public class TC_483_Accordion extends UITestBase {
 
         click(customDataDownloadPage.accordion);
 
+        verifyTrue(customDataDownloadPage.accordion.isEnabled());
+
 
     }
 }

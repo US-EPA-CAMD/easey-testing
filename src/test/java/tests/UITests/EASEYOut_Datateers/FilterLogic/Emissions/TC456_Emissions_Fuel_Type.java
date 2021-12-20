@@ -65,6 +65,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
 
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -93,6 +94,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -106,6 +108,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -119,6 +122,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -169,6 +173,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
 
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -209,6 +214,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -221,6 +227,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -272,6 +279,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
 
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -300,6 +308,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -312,6 +321,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -324,6 +334,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -375,6 +386,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
 
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -403,6 +415,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -415,6 +428,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -427,6 +441,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -477,6 +492,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
 
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -505,6 +521,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -517,6 +534,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -529,6 +547,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -577,6 +596,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
 
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -605,6 +625,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -617,6 +638,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -629,6 +651,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -679,6 +702,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
 
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -707,6 +731,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -719,6 +744,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -731,6 +757,7 @@ public class TC456_Emissions_Fuel_Type extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }

@@ -62,6 +62,7 @@ public class TC_469_Allowance_VinYear extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(0));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -75,6 +76,7 @@ public class TC_469_Allowance_VinYear extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }

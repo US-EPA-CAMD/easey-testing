@@ -9,6 +9,15 @@ import pages.CustomDataDownloadPage;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import java.util.concurrent.TimeUnit;
+import org.testng.annotations.Test;
+import pages.CustomDataDownloadPage;
+import tests.utils.UITestBase;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class TC459_Emissions_Unit extends UITestBase {
@@ -59,6 +68,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -89,6 +99,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -102,6 +113,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -113,6 +125,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(5));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -158,6 +171,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -188,6 +202,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -201,6 +216,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -212,6 +228,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(5));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -259,6 +276,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -289,6 +307,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -302,6 +321,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -313,6 +333,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(5));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -361,6 +382,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -391,6 +413,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -404,6 +427,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -415,6 +439,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(5));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -460,6 +485,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -490,6 +516,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -503,6 +530,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -514,6 +542,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(5));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -562,6 +591,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(4));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -592,6 +622,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(1));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -605,6 +636,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(6));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
@@ -616,6 +648,7 @@ public class TC459_Emissions_Unit extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(5));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }

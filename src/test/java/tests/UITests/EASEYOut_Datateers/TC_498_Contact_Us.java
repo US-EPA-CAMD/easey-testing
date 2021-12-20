@@ -107,10 +107,10 @@ public class TC_498_Contact_Us extends UITestBase {
         // verify page location
 
         changeTab();
-
+        waitFor(customDataDownloadPage.pagetitle);
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
 
-        waitFor(customDataDownloadPage.pagetitle);
+
 
     }
 }

@@ -63,6 +63,7 @@ public class TC_478_Compliance_OwnOp extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(0));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
@@ -99,6 +100,7 @@ public class TC_478_Compliance_OwnOp extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(0));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");

@@ -45,6 +45,7 @@ public class TC_472_Allowance_OwnOp extends UITestBase {
         click(customDataDownloadPage.filtercriteria.get(0));
 
         for (WebElement ele : customDataDownloadPage.label) {
+            verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
