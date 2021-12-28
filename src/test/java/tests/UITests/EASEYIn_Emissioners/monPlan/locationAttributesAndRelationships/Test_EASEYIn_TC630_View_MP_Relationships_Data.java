@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.defaults;
+package tests.UITests.EASEYIn_Emissioners.monPlan.locationAttributesAndRelationships;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
+public class Test_EASEYIn_TC630_View_MP_Relationships_Data extends UITestBase {
 
     @Test
     public void test() throws InterruptedException {
@@ -36,26 +36,25 @@ public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
-        js.executeScript("window.scrollBy(0,250)", "");
-        js.executeScript("document.body.style.zoom = '0.8'");
-
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        waitFor(monitoringPlansPage.monitoringDefaults);
-        click(monitoringPlansPage.monitoringDefaults);
+        waitFor(monitoringPlansPage.monitoringLocationAttributesAndRelationships);
+        click(monitoringPlansPage.monitoringLocationAttributesAndRelationships);
 
         click(monitoringPlansPage.location.get(2));
         verifyEquals(monitoringPlansPage.location.get(2), "CS0AAN");
 
-        waitFor(monitoringPlansPage.accordionDefaultsLabel);
-        verifyEquals(monitoringPlansPage.accordionDefaultsLabel, "Defaults");
+        waitFor(monitoringPlansPage.accordionRelationshipsDataLabel);
+        verifyEquals(monitoringPlansPage.accordionRelationshipsDataLabel, "Relationships Data");
+
+        js.executeScript("window.scrollBy(0,350)", "");
+        js.executeScript("document.body.style.zoom = '0.8'");
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        Thread.sleep(3000);
-        js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(0));
+        js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(1));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Relationship Data");
 
     }
 }

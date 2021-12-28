@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class MonitoringPlansPage extends HeaderFooterAndHomePage {
@@ -74,6 +75,18 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;
 
+    @FindBy (css = "#column-col2")
+    public WebElement monitoringSystemTypeTableLabel;
+
+    @FindBy (css = "div[class='sc-jrQzAO fyPxqe rdt_TableRow'] > div:nth-child(2) > div")
+    public WebElement monitoringSystemTypeTableField;
+
+    @FindBy (css = "select[epadataname='systemTypeCode']")
+    public WebElement monitoringSystemTypeModalField;
+
+    @FindBy (css = "select[epadataname='systemTypeCode'] > option")
+    public List<WebElement> monitoringSystemTypeModalDropdown;
+
     @FindBy (css = "option[data-testid='Defaults']")
     public WebElement monitoringDefaults;
 
@@ -140,8 +153,14 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "span[epa-testid='Loads']")
     public WebElement accordionLoadsLabel;
 
-    @FindBy (css = "Place Holder")
-    public WebElement accordionLocationAttributesAndRelationshipsLabel;
+    @FindBy (css = "div.text-center > p")
+    public WebElement monPlansTablesNoDataPresent;
+
+    @FindBy (css = "span[epa-testid='LocationAttributes']")
+    public WebElement accordionLocationAttributesLabel;
+
+    @FindBy (css = "span[epa-testid='RelationshipsData']")
+    public WebElement accordionRelationshipsDataLabel;
 
     @FindBy (css = "span[epa-testid='Qualifications']")
     public WebElement accordionQualificationsLabel;
