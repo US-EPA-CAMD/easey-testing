@@ -87,6 +87,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "select[epadataname='systemTypeCode'] > option")
     public List<WebElement> monitoringSystemTypeModalDropdown;
 
+    @FindBy (id = "System ID")
+    public WebElement createMonSystemsSysIdField;
+
+    @FindBy (id = "create-system-add-btn")
+    public WebElement createMonSystemsButton;
+
     @FindBy (css = "option[data-testid='Defaults']")
     public WebElement monitoringDefaults;
 
