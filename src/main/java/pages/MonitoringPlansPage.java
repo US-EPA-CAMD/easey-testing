@@ -99,7 +99,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "column-col1")
     public WebElement defaultsTableParameterCodeLabel;
 
-    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
+    @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents'] > div")
     public List<WebElement> defaultsTableParameterCodeField;
 
     @FindBy (css = "option[data-testid='Formulas']")
