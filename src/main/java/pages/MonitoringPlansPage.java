@@ -159,7 +159,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "column-col2")
     public WebElement formulasTableParameterLabel;
 
-    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(2)")
+    @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents']")
     public List<WebElement> formulasTableParameterField;
 
     @FindBy (css = "span[epa-testid='Loads']")

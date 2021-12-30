@@ -1,6 +1,8 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.formulas;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
@@ -18,6 +20,7 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
         goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
@@ -26,6 +29,7 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
         verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
         click(monitoringPlansPage.logInButtonOpenModal);
 
+        waitFor(monitoringPlansPage.usernameLabelModal);
         verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
         input(monitoringPlansPage.usernameFieldModal, username);
 
@@ -34,6 +38,8 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
 
         verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
         click(monitoringPlansPage.logInButtonSubmit);
+
+        js.executeScript("window.scrollBy(0,350)", "");
 
         waitFor(monitoringPlansPage.title);
         waitFor(monitoringPlansPage.dashWorkspace);
@@ -55,8 +61,10 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
 
         click(monitoringPlansPage.configTabs.get(0));
 
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringFormulas);
         click(monitoringPlansPage.monitoringFormulas);
 
         waitFor(monitoringPlansPage.accordionFormulasLabel);
@@ -74,9 +82,13 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
+        js.executeScript("window.scrollBy(0,350)", "");
+
+        waitFor(monitoringPlansPage.formulasTableParameterLabel);
         verifyEquals(monitoringPlansPage.formulasTableParameterLabel, "Parameter");
 
-        String parameterField = monitoringPlansPage.formulasTableParameterField.get(0).getText();
+        waitFor(monitoringPlansPage.formulasTableParameterField);
+        String parameterField = monitoringPlansPage.formulasTableParameterField.get(1).getText();
 
         waitFor(monitoringPlansPage.viewButton,1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
@@ -86,8 +98,10 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Formula");
 
         if (parameterField.equals("CO2")) {
+            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
             click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
         } else {
+            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
             click(monitoringPlansPage.monMethodsModalParameterDropdown.get(5));
         }
 
@@ -96,12 +110,30 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
 
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
         waitFor(monitoringPlansPage.formulasTableParameterLabel,1);
-        verifyNotEquals(monitoringPlansPage.formulasTableParameterField.get(0).getText(), parameterField);
+        verifyNotEquals(monitoringPlansPage.formulasTableParameterField.get(1).getText(), parameterField);
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));
         waitFor(monitoringPlansPage.selectConfigurationsLabel);
         verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
 
+    }
+    @Override
+    @AfterMethod
+    public void afterMethod() {
+
+        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
+
+        if (isDisplayed(monitoringPlansPage.logOutButton)) {
+            js.executeScript("arguments[0].click();", monitoringPlansPage.logOutButton);
+            waitFor(monitoringPlansPage.logInButtonOpenModal);
+            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        } else {
+            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
+            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        }
+        super.afterMethod();
     }
 }
