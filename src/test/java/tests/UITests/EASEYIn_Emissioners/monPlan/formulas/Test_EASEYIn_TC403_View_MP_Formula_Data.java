@@ -52,7 +52,7 @@ public class Test_EASEYIn_TC403_View_MP_Formula_Data extends UITestBase {
         waitFor(monitoringPlansPage.accordionFormulasLabel);
         verifyEquals(monitoringPlansPage.accordionFormulasLabel, "Formulas");
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 2);
         verifyEquals(monitoringPlansPage.viewButton.get(0), "View");
         action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
 
