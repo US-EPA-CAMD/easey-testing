@@ -96,11 +96,17 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Defaults']")
     public WebElement monitoringDefaults;
 
+    @FindBy (id = "create-default-add-btn")
+    public WebElement createDefaultButton;
+
     @FindBy (id = "column-col1")
     public WebElement defaultsTableParameterCodeLabel;
 
     @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents'] > div")
     public List<WebElement> defaultsTableParameterCodeField;
+
+    @FindBy (id = "Default Value")
+    public WebElement defaultValueModalField;
 
     @FindBy (css = "option[data-testid='Formulas']")
     public WebElement monitoringFormulas;
