@@ -111,6 +111,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Formulas']")
     public WebElement monitoringFormulas;
 
+    @FindBy (id = "Formula ID")
+    public WebElement monitoringFormulasIdField;
+
+    @FindBy (id = "create-formula-add-btn")
+    public WebElement createFormulaButton;
+
     @FindBy (css = "option[data-testid='Loads']")
     public WebElement monitoringLoads;
 
