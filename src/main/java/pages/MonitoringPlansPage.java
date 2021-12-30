@@ -74,17 +74,47 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;
 
+    @FindBy (css = "#column-col2")
+    public WebElement monitoringSystemTypeTableLabel;
+
+    @FindBy (css = "div[class='sc-jrQzAO fyPxqe rdt_TableRow'] > div:nth-child(2) > div")
+    public WebElement monitoringSystemTypeTableField;
+
+    @FindBy (css = "select[epadataname='systemTypeCode']")
+    public WebElement monitoringSystemTypeModalField;
+
+    @FindBy (css = "select[epadataname='systemTypeCode'] > option")
+    public List<WebElement> monitoringSystemTypeModalDropdown;
+
+    @FindBy (id = "System ID")
+    public WebElement createMonSystemsSysIdField;
+
+    @FindBy (id = "create-system-add-btn")
+    public WebElement createMonSystemsButton;
+
     @FindBy (css = "option[data-testid='Defaults']")
     public WebElement monitoringDefaults;
+
+    @FindBy (id = "create-default-add-btn")
+    public WebElement createDefaultButton;
 
     @FindBy (id = "column-col1")
     public WebElement defaultsTableParameterCodeLabel;
 
-    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
+    @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents'] > div")
     public List<WebElement> defaultsTableParameterCodeField;
+
+    @FindBy (id = "Default Value")
+    public WebElement defaultValueModalField;
 
     @FindBy (css = "option[data-testid='Formulas']")
     public WebElement monitoringFormulas;
+
+    @FindBy (id = "Formula ID")
+    public WebElement monitoringFormulasIdField;
+
+    @FindBy (id = "create-formula-add-btn")
+    public WebElement createFormulaButton;
 
     @FindBy (css = "option[data-testid='Loads']")
     public WebElement monitoringLoads;
@@ -134,14 +164,20 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "column-col2")
     public WebElement formulasTableParameterLabel;
 
-    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(2)")
+    @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents']")
     public List<WebElement> formulasTableParameterField;
 
     @FindBy (css = "span[epa-testid='Loads']")
     public WebElement accordionLoadsLabel;
 
-    @FindBy (css = "Place Holder")
-    public WebElement accordionLocationAttributesAndRelationshipsLabel;
+    @FindBy (css = "div.text-center > p")
+    public WebElement monPlansTablesNoDataPresent;
+
+    @FindBy (css = "span[epa-testid='LocationAttributes']")
+    public WebElement accordionLocationAttributesLabel;
+
+    @FindBy (css = "span[epa-testid='RelationshipsData']")
+    public WebElement accordionRelationshipsDataLabel;
 
     @FindBy (css = "span[epa-testid='Qualifications']")
     public WebElement accordionQualificationsLabel;

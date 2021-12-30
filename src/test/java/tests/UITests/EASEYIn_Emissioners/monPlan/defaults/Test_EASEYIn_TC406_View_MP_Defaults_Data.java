@@ -9,7 +9,7 @@ import tests.utils.UITestBase;
 public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
@@ -44,14 +44,15 @@ public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
         waitFor(monitoringPlansPage.monitoringDefaults);
         click(monitoringPlansPage.monitoringDefaults);
 
-        waitFor(monitoringPlansPage.accordionDefaultsLabel);
-        verifyEquals(monitoringPlansPage.accordionDefaultsLabel, "Defaults");
-
         click(monitoringPlansPage.location.get(2));
         verifyEquals(monitoringPlansPage.location.get(2), "CS0AAN");
 
+        waitFor(monitoringPlansPage.accordionDefaultsLabel);
+        verifyEquals(monitoringPlansPage.accordionDefaultsLabel, "Defaults");
+
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+        Thread.sleep(3000);
+        js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
