@@ -77,7 +77,7 @@ public class Test_EASEYIn_TC2057_Create_MP_Formula extends UITestBase {
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 2);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createDefaultButton);
+                monitoringPlansPage.createFormulaButton);
 
         int numOfMethods = monitoringPlansPage.viewButton.size();
 
@@ -91,6 +91,7 @@ public class Test_EASEYIn_TC2057_Create_MP_Formula extends UITestBase {
         input(monitoringPlansPage.modalStartTimeField, "1");
 
         click(monitoringPlansPage.saveCloseModal);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
         waitFor(monitoringPlansPage.viewButton);
 
