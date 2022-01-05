@@ -124,7 +124,7 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css = "ul[id='listbox'] > li > span")
     public List<WebElement> namenumber;
 
-    @FindBy(css ="div.border-top-1px.border-base-light.padding-x-6.padding-y-3.minh-mobile-lg > button.usa-button.float-right.clearfix")
+    @FindBy(css ="div.position-relative > div > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)")
     public WebElement applyBtn;
 
     @FindBy(css = "div.filter-container > p.padding-y-0 > button")
@@ -172,7 +172,17 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css = "main > div  > div > div > a")
     public List<WebElement> rrlink;
 
+    @FindBy(css ="div.Tooltip")
+    public WebElement tooltip;
 
+    @FindBy(css ="form > div:nth-child(1) > div")
+    public WebElement datetooltipIcon;
+
+    @FindBy(css ="div.panel-header:nth-child(3) > div")
+    public WebElement tooltipIcon;
+
+    @FindBy(css ="form > div.display-inline-flex > div:nth-child(2) > svg")
+    public WebElement hourlytooltipIcon;
 
 
 }
