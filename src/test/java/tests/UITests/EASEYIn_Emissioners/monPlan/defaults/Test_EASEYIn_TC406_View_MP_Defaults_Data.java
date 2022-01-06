@@ -21,20 +21,23 @@ public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Barry");
+        input(monitoringPlansPage.filterByKeywordBox, "Cross");
         click(monitoringPlansPage.filterByKeywordButton);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,350)", "");
 
-        // Clicks on Barry (Oris Code 3)
+        // Clicks on Cross (Oris Code 113)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTabBarry12CS0AAN);
+        click(monitoringPlansPage.configTabs.get(0));
+
+        waitFor(monitoringPlansPage.titleOfFacilityInConfig);
+        verifyEquals(monitoringPlansPage.titleOfFacilityInConfig, "Cross");
 
         js.executeScript("window.scrollBy(0,250)", "");
         js.executeScript("document.body.style.zoom = '0.8'");
@@ -44,14 +47,14 @@ public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
         waitFor(monitoringPlansPage.monitoringDefaults);
         click(monitoringPlansPage.monitoringDefaults);
 
-        click(monitoringPlansPage.location.get(2));
-        verifyEquals(monitoringPlansPage.location.get(2), "CS0AAN");
+        click(monitoringPlansPage.location.get(0));
+        verifyEquals(monitoringPlansPage.location.get(0), "1");
 
         waitFor(monitoringPlansPage.accordionDefaultsLabel);
         verifyEquals(monitoringPlansPage.accordionDefaultsLabel, "Defaults");
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
