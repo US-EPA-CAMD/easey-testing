@@ -16,6 +16,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "h2[epa-testid='monPlansTitle']")
     public WebElement title;
 
+    @FindBy(css = "span[class='font-body-lg']")
+    public WebElement titleOfFacilityInConfig;
+
     @FindBy(css = "div.tabContent > div > div > div > div > header > div > div")
     public WebElement selectConfigurationsLabel;
 
@@ -169,6 +172,15 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "span[epa-testid='Loads']")
     public WebElement accordionLoadsLabel;
+
+    @FindBy (id = "column-col1")
+    public WebElement LoadsTableMaxLoadValLabel;
+
+    @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents']")
+    public List<WebElement> LoadsTableMaxLoadValField;
+
+    @FindBy (id = "Maximum Load Value")
+    public WebElement LoadsModalMaxLoadValField;
 
     @FindBy (css = "div.text-center > p")
     public WebElement monPlansTablesNoDataPresent;
@@ -415,6 +427,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> configOpenButton;
+
+    @FindBy (id = "btnOpenAndCheckout")
+    public List<WebElement> configOpenAndCheckoutButton;
 
     @FindBy (id ="tabBtn")
     public List<WebElement> configTabs;

@@ -74,7 +74,7 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
 
         // Opens the desired configuration
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
         // Clicks on the tab of the configuration
@@ -82,6 +82,8 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
 
         // Verifies that the configuration is open and its default is Methods
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
+
+        js.executeScript("window.scrollBy(0,250)", "");
 
         // Checks Out the configuration
         waitFor(monitoringPlansPage.configcheckOutButton);
