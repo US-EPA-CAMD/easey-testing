@@ -152,16 +152,16 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "expandBTN")
     public WebElement accordionExpandButtonMonPlan;
 
-    @FindBy (css = "span[epa-testid='Methods']")
+    @FindBy (css = "h3[epa-testid='Methods']")
     public WebElement accordionMethodsLabel;
 
-    @FindBy (css = "span[epa-testid='Systems']")
+    @FindBy (css = "h3[epa-testid='Systems']")
     public WebElement accordionSystemsLabel;
 
-    @FindBy (css = "span[epa-testid='Defaults']")
+    @FindBy (css = "h3[epa-testid='Defaults']")
     public WebElement accordionDefaultsLabel;
 
-    @FindBy (css = "span[epa-testid='Formulas']")
+    @FindBy (css = "h3[epa-testid='Formulas']")
     public WebElement accordionFormulasLabel;
 
     @FindBy (id = "column-col2")
@@ -170,7 +170,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents']")
     public List<WebElement> formulasTableParameterField;
 
-    @FindBy (css = "span[epa-testid='Loads']")
+    @FindBy (css = "h3[epa-testid='Loads']")
     public WebElement accordionLoadsLabel;
 
     @FindBy (id = "column-col1")
@@ -185,13 +185,13 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.text-center > p")
     public WebElement monPlansTablesNoDataPresent;
 
-    @FindBy (css = "span[epa-testid='LocationAttributes']")
+    @FindBy (css = "h3[epa-testid='LocationAttributes']")
     public WebElement accordionLocationAttributesLabel;
 
-    @FindBy (css = "span[epa-testid='RelationshipsData']")
+    @FindBy (css = "h3[epa-testid='RelationshipsData']")
     public WebElement accordionRelationshipsDataLabel;
 
-    @FindBy (css = "span[epa-testid='Qualifications']")
+    @FindBy (css = "h3[epa-testid='Qualifications']")
     public WebElement accordionQualificationsLabel;
 
     @FindBy (css = "h3[class='margin-top-5 text-bold mobile:font-body-xl mobile:text-bold']")
@@ -200,10 +200,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[class='text-bold float-left mobile:font-body-md mobile:text-bold']")
     public WebElement qualificationsViewModalHeader;
 
-    @FindBy (css = "span[epa-testid='WAFsRectangularDuct']")
+    @FindBy (css = "h3[epa-testid='WAFsRectangularDuct']")
     public WebElement accordionRectangularDuctWAFsLabel;
 
-    @FindBy (css = "span[epa-testid='Spans']")
+    @FindBy (css = "h3[epa-testid='Spans']")
     public WebElement accordionSpansLabel;
 
     @FindBy (id = "column-col1")
@@ -215,17 +215,16 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "#Component\\ Type > option")
     public List<WebElement> monMethodsModalComponentTypeDropdown;
 
-
-    @FindBy (css = "span[epa-testid='UnitFuels']")
+    @FindBy (css = "h3[epa-testid='UnitFuels']")
     public WebElement accordionUnitFuelsLabel;
 
-    @FindBy (css = "span[epa-testid='UnitControls']")
+    @FindBy (css = "h3[epa-testid='UnitControls']")
     public WebElement accordionUnitControlsLabel;
 
-    @FindBy (css = "span[epa-testid='UnitCapacities']")
+    @FindBy (css = "h3[epa-testid='UnitCapacities']")
     public WebElement accordionUnitCapacitiesLabel;
 
-    @FindBy (css = "span[epa-testid='SupplementalMethods']")
+    @FindBy (css = "h3[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
 
     @FindBy (css = "div:nth-child(3) > div > div:nth-child(2) > div.text-bold.font-body-xl.display-block.height-auto")
