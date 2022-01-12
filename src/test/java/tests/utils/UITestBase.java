@@ -81,7 +81,7 @@ public class UITestBase extends TestBase {
     public void afterMethod() {
         // close and quit the browser
         driver.quit();
-//        if (debug)
+        if (debug)
             listener.printError();
         super.afterMethod();
     }
@@ -116,10 +116,7 @@ public class UITestBase extends TestBase {
             wait.until(isTrue);
             return true;
         } catch (RuntimeException e) {
-            String line = Arrays.asList(Thread.currentThread().getStackTrace()).toString();
-            line = line.substring(line.indexOf(className));
-            line = line.substring(line.indexOf(":") + 1, line.indexOf(")"));
-            System.err.println(line + ": condition hasn't been met");
+            System.err.println("condition hasn't been met");
             return false;
         }
     }
