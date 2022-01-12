@@ -36,7 +36,7 @@ public class Test_EASEYIn_TC405_View_MP_Load_Data extends UITestBase {
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTabBarry12CS0AAN);
+        click(monitoringPlansPage.configTabs.get(0));
 
         js.executeScript("window.scrollBy(0,250)", "");
         js.executeScript("document.body.style.zoom = '0.6'");
@@ -54,10 +54,30 @@ public class Test_EASEYIn_TC405_View_MP_Load_Data extends UITestBase {
         verifyEquals(monitoringPlansPage.location.get(2), "CS0AAN");
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
-        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+//        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+        js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Load");
+        System.out.println(monitoringPlansPage.monPlanModalHeaderLabel.getText());
+     //   waitFor(monitoringPlansPage.closeModal);
+//        click(monitoringPlansPage.xOutModal);
+//        action.moveToElement(monitoringPlansPage.xOutModal).click().build().perform();
+//        js.executeScript("arguments[0].scrollIntoView(true);",
+//                monitoringPlansPage.closeModal);
+        waitFor(monitoringPlansPage.closeModal);
+        verifyFalse(isDisplayed(monitoringPlansPage.closeModal));
+        verifyTrue(isDisplayed(monitoringPlansPage.closeModal));
+        System.out.println(monitoringPlansPage.closeModal.getText() + " Print");
+        js.executeScript("arguments[0].click();", monitoringPlansPage.closeModal);
+
+
+        // These steps closes the tab and automatically Checks Back In the configuration
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.menuBtn);
+        click(monitoringPlansPage.closeConfigTab.get(0));
+        waitFor(monitoringPlansPage.selectConfigurationsLabel);
+        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
 
     }
 }
