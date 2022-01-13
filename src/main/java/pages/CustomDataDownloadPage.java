@@ -184,5 +184,11 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css ="form > div.display-inline-flex > div:nth-child(2) > svg")
     public WebElement hourlytooltipIcon;
 
+    @FindBy(css ="div.usa-nav-container > div:nth-child(2) > button:nth-child(1)")
+    public WebElement mobilemenu;
+
+    @FindBy(css = "ul.usa-sidenav > li")
+    public List<WebElement> mobilemenulinks;
+
 
 }
