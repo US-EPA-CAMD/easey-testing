@@ -1,4 +1,4 @@
-package tests.UI_Smoke_Tests.Emissioners;
+package tests.UITests.EASEYIn_Emissioners.monPlan.locationAttributesAndRelationships;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
+public class Test_EASEYIn_TC1702_Create_MP_Location_Attributes_Data extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -63,6 +63,11 @@ public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringLocationAttributesAndRelationships);
+        click(monitoringPlansPage.monitoringLocationAttributesAndRelationships);
+        waitFor(monitoringPlansPage.accordionLocationAttributesLabel);
+        verifyEquals(monitoringPlansPage.accordionLocationAttributesLabel, "Location Attributes");
+
         waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
@@ -74,26 +79,27 @@ public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createMonMethodsButton);
+                monitoringPlansPage.createLocationAttributeBTN);
 
-        int numOfMethods = monitoringPlansPage.viewButton.size();
+        int numOfAttributes = monitoringPlansPage.viewButton.size();
 
-        click(monitoringPlansPage.createMonMethodsButton);
+        click(monitoringPlansPage.createLocationAttributeBTN);
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Create Location Attribute");
 
-        waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
-        click(monitoringPlansPage.monMethodsModalMethodologyDropdown.get(1));
-        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
-        input(monitoringPlansPage.modalStartTimeField, "1");
+        waitFor(monitoringPlansPage.locAttributesGroundElevationModalField);
+        monitoringPlansPage.locAttributesGroundElevationModalField.clear();
+        input(monitoringPlansPage.locAttributesGroundElevationModalField, "10");
+        input(monitoringPlansPage.modalStartDateField, "01/01/2022");
 
         click(monitoringPlansPage.saveCloseModal);
 
         waitFor(monitoringPlansPage.viewButton);
         Thread.sleep(3000);
 
-        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+        int newNumOfAttributes = monitoringPlansPage.viewButton.size();
 
-        verifyTrue(newNumOfMethods == numOfMethods + 1);
+        verifyTrue(newNumOfAttributes == numOfAttributes + 1);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
