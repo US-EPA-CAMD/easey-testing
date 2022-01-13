@@ -188,6 +188,15 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[epa-testid='LocationAttributes']")
     public WebElement accordionLocationAttributesLabel;
 
+    @FindBy (id = "create-location-attribute-add-btn")
+    public WebElement createLocationAttributeBTN;
+
+    @FindBy (css = "div[data-tag='allowRowEvents'] > div")
+    public List <WebElement> locAttributesGroundElevationTableField;
+
+    @FindBy (id = "Ground Elevation")
+    public WebElement locAttributesGroundElevationModalField;
+
     @FindBy (css = "h3[epa-testid='RelationshipsData']")
     public WebElement accordionRelationshipsDataLabel;
 
