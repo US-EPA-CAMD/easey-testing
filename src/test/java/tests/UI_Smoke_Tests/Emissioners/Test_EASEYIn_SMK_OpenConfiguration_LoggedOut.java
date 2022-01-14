@@ -37,6 +37,9 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.facilityCaret.get(0));
+
         // Clicks on Barry (Oris Code 3)
         click(monitoringPlansPage.facilityCaret.get(0));
 
