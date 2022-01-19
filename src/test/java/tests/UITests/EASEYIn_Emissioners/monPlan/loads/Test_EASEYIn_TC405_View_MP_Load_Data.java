@@ -31,15 +31,15 @@ public class Test_EASEYIn_TC405_View_MP_Load_Data extends UITestBase {
 
         // Clicks on Barry (Oris Code 3)
         click(monitoringPlansPage.facilityCaret.get(0));
+        js.executeScript("window.scrollBy(0,250)", "");
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTabBarry12CS0AAN);
+        click(monitoringPlansPage.configTabs.get(0));
 
         js.executeScript("window.scrollBy(0,250)", "");
-        js.executeScript("document.body.style.zoom = '0.6'");
 
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
@@ -53,11 +53,22 @@ public class Test_EASEYIn_TC405_View_MP_Load_Data extends UITestBase {
         click(monitoringPlansPage.location.get(2));
         verifyEquals(monitoringPlansPage.location.get(2), "CS0AAN");
 
+        js.executeScript("document.body.style.zoom = '0.6'");
+
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
-        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+        js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Load");
+        js.executeScript("arguments[0].click();", monitoringPlansPage.closeModal);
+
+        js.executeScript("document.body.style.zoom = '1'");
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.menuBtn);
+        click(monitoringPlansPage.closeConfigTab.get(0));
+        waitFor(monitoringPlansPage.selectConfigurationsLabel);
+        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
 
     }
 }
