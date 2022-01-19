@@ -16,6 +16,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "h2[epa-testid='monPlansTitle']")
     public WebElement title;
 
+    @FindBy(css = "span[class='font-body-lg']")
+    public WebElement titleOfFacilityInConfig;
+
     @FindBy(css = "div.tabContent > div > div > div > div > header > div > div")
     public WebElement selectConfigurationsLabel;
 
@@ -74,17 +77,47 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Systems']")
     public WebElement monitoringSystems;
 
+    @FindBy (css = "#column-col2")
+    public WebElement monitoringSystemTypeTableLabel;
+
+    @FindBy (css = "div[class='sc-jrQzAO fyPxqe rdt_TableRow'] > div:nth-child(2) > div")
+    public WebElement monitoringSystemTypeTableField;
+
+    @FindBy (css = "select[epadataname='systemTypeCode']")
+    public WebElement monitoringSystemTypeModalField;
+
+    @FindBy (css = "select[epadataname='systemTypeCode'] > option")
+    public List<WebElement> monitoringSystemTypeModalDropdown;
+
+    @FindBy (id = "System ID")
+    public WebElement createMonSystemsSysIdField;
+
+    @FindBy (id = "create-system-add-btn")
+    public WebElement createMonSystemsButton;
+
     @FindBy (css = "option[data-testid='Defaults']")
     public WebElement monitoringDefaults;
+
+    @FindBy (id = "create-default-add-btn")
+    public WebElement createDefaultButton;
 
     @FindBy (id = "column-col1")
     public WebElement defaultsTableParameterCodeLabel;
 
-    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
+    @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents'] > div")
     public List<WebElement> defaultsTableParameterCodeField;
+
+    @FindBy (id = "Default Value")
+    public WebElement defaultValueModalField;
 
     @FindBy (css = "option[data-testid='Formulas']")
     public WebElement monitoringFormulas;
+
+    @FindBy (id = "Formula ID")
+    public WebElement monitoringFormulasIdField;
+
+    @FindBy (id = "create-formula-add-btn")
+    public WebElement createFormulaButton;
 
     @FindBy (css = "option[data-testid='Loads']")
     public WebElement monitoringLoads;
@@ -119,31 +152,55 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "expandBTN")
     public WebElement accordionExpandButtonMonPlan;
 
-    @FindBy (css = "span[epa-testid='Methods']")
+    @FindBy (css = "h3[epa-testid='Methods']")
     public WebElement accordionMethodsLabel;
 
-    @FindBy (css = "span[epa-testid='Systems']")
+    @FindBy (css = "h3[epa-testid='Systems']")
     public WebElement accordionSystemsLabel;
 
-    @FindBy (css = "span[epa-testid='Defaults']")
+    @FindBy (css = "h3[epa-testid='Defaults']")
     public WebElement accordionDefaultsLabel;
 
-    @FindBy (css = "span[epa-testid='Formulas']")
+    @FindBy (css = "h3[epa-testid='Formulas']")
     public WebElement accordionFormulasLabel;
 
     @FindBy (id = "column-col2")
     public WebElement formulasTableParameterLabel;
 
-    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(2)")
+    @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents']")
     public List<WebElement> formulasTableParameterField;
 
-    @FindBy (css = "span[epa-testid='Loads']")
+    @FindBy (css = "h3[epa-testid='Loads']")
     public WebElement accordionLoadsLabel;
 
-    @FindBy (css = "Place Holder")
-    public WebElement accordionLocationAttributesAndRelationshipsLabel;
+    @FindBy (id = "column-col1")
+    public WebElement LoadsTableMaxLoadValLabel;
 
-    @FindBy (css = "span[epa-testid='Qualifications']")
+    @FindBy (css = "div[role='row']:nth-child(1) > div[data-tag='allowRowEvents']")
+    public List<WebElement> LoadsTableMaxLoadValField;
+
+    @FindBy (id = "Maximum Load Value")
+    public WebElement LoadsModalMaxLoadValField;
+
+    @FindBy (css = "div.text-center > p")
+    public WebElement monPlansTablesNoDataPresent;
+
+    @FindBy (css = "h3[epa-testid='LocationAttributes']")
+    public WebElement accordionLocationAttributesLabel;
+
+    @FindBy (id = "create-location-attribute-add-btn")
+    public WebElement createLocationAttributeBTN;
+
+    @FindBy (css = "div[data-tag='allowRowEvents'] > div")
+    public List <WebElement> locAttributesGroundElevationTableField;
+
+    @FindBy (id = "Ground Elevation")
+    public WebElement locAttributesGroundElevationModalField;
+
+    @FindBy (css = "h3[epa-testid='RelationshipsData']")
+    public WebElement accordionRelationshipsDataLabel;
+
+    @FindBy (css = "h3[epa-testid='Qualifications']")
     public WebElement accordionQualificationsLabel;
 
     @FindBy (css = "h3[class='margin-top-5 text-bold mobile:font-body-xl mobile:text-bold']")
@@ -152,10 +209,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[class='text-bold float-left mobile:font-body-md mobile:text-bold']")
     public WebElement qualificationsViewModalHeader;
 
-    @FindBy (css = "span[epa-testid='WAFsRectangularDuct']")
+    @FindBy (css = "h3[epa-testid='WAFsRectangularDuct']")
     public WebElement accordionRectangularDuctWAFsLabel;
 
-    @FindBy (css = "span[epa-testid='Spans']")
+    @FindBy (css = "h3[epa-testid='Spans']")
     public WebElement accordionSpansLabel;
 
     @FindBy (id = "column-col1")
@@ -167,17 +224,16 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "#Component\\ Type > option")
     public List<WebElement> monMethodsModalComponentTypeDropdown;
 
-
-    @FindBy (css = "span[epa-testid='UnitFuels']")
+    @FindBy (css = "h3[epa-testid='UnitFuels']")
     public WebElement accordionUnitFuelsLabel;
 
-    @FindBy (css = "span[epa-testid='UnitControls']")
+    @FindBy (css = "h3[epa-testid='UnitControls']")
     public WebElement accordionUnitControlsLabel;
 
-    @FindBy (css = "span[epa-testid='UnitCapacities']")
+    @FindBy (css = "h3[epa-testid='UnitCapacities']")
     public WebElement accordionUnitCapacitiesLabel;
 
-    @FindBy (css = "span[epa-testid='SupplementalMethods']")
+    @FindBy (css = "h3[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
 
     @FindBy (css = "div:nth-child(3) > div > div:nth-child(2) > div.text-bold.font-body-xl.display-block.height-auto")
@@ -379,6 +435,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> configOpenButton;
+
+    @FindBy (id = "btnOpenAndCheckout")
+    public List<WebElement> configOpenAndCheckoutButton;
 
     @FindBy (id ="tabBtn")
     public List<WebElement> configTabs;

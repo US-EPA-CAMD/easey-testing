@@ -1,4 +1,4 @@
-package tests.UI_Smoke_Tests;
+package tests.UI_Smoke_Tests.Emissioners;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
@@ -36,6 +36,9 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
         waitFor(monitoringPlansPage.filterByKeywordBox);
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.facilityCaret.get(0));
 
         // Clicks on Barry (Oris Code 3)
         click(monitoringPlansPage.facilityCaret.get(0));

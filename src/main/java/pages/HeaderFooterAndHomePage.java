@@ -264,7 +264,7 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy(xpath = "//legend[contains(text(),'Log In')]")
     public WebElement logInLabel;
 
-    @FindBy(css = "button[epa-testid='openModalBTN']")
+    @FindBy(id = "openModalBTN")
     public WebElement logInButtonOpenModal;
 
     @FindBy(css = "button[data-test='component-login-submit-button']")
@@ -285,7 +285,7 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy (css = "div.padding-bottom-4.position-absolute.bottom-0 > div > div:nth-child(1) > div:nth-child(1)")
     public WebElement welcomeMessage;
 
-    @FindBy(css = "button[epa-testid='logoutBtn']")
+    @FindBy(id = "logoutBtn")
     public WebElement logOutButton;
 
     @FindBy(css = "div.bg-base-lighter > div > div > form > fieldset > legend")

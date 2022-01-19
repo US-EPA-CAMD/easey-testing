@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.formulas;
+package tests.UITests.EASEYIn_Emissioners.monPlan.locationAttributesAndRelationships;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
+public class Test_EASEYIn_TC1703_Edit_MP_Location_Attributes_Data extends UITestBase {
 
     @Test()
-    public void tests() {
+    public void tests() throws InterruptedException {
         String username = System.getenv("MOSES_TESTING_USERNAME");
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
@@ -49,10 +49,10 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Gadsden");
+        input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Gadsden (Oris Code 7)
+        // Clicks on Holcomb (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
@@ -61,18 +61,14 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
 
         click(monitoringPlansPage.configTabs.get(0));
 
-        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        waitFor(monitoringPlansPage.monitoringFormulas);
-        click(monitoringPlansPage.monitoringFormulas);
+        waitFor(monitoringPlansPage.monitoringLocationAttributesAndRelationships);
+        click(monitoringPlansPage.monitoringLocationAttributesAndRelationships);
+        waitFor(monitoringPlansPage.accordionLocationAttributesLabel);
+        verifyEquals(monitoringPlansPage.accordionLocationAttributesLabel, "Location Attributes");
 
-        waitFor(monitoringPlansPage.accordionFormulasLabel);
-        verifyEquals(monitoringPlansPage.accordionFormulasLabel, "Formulas");
-
-        click(monitoringPlansPage.location.get(0));
-        verifyEquals(monitoringPlansPage.location.get(0), "1");
-
+        waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
@@ -82,35 +78,53 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
-        js.executeScript("window.scrollBy(0,350)", "");
+        js.executeScript("window.scrollBy(0,200)", "");
+        js.executeScript("document.body.style.zoom = '0.8'");
 
-        waitFor(monitoringPlansPage.formulasTableParameterLabel);
-        verifyEquals(monitoringPlansPage.formulasTableParameterLabel, "Parameter");
+        waitFor(monitoringPlansPage.locAttributesGroundElevationTableField.get(2));
+        String groundElevationData = monitoringPlansPage.locAttributesGroundElevationTableField.get(2).getText();
 
-        waitFor(monitoringPlansPage.formulasTableParameterField);
-        String parameterField = monitoringPlansPage.formulasTableParameterField.get(1).getText();
-
-        waitFor(monitoringPlansPage.viewButton,1);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+        js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Formula");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Location Attribute");
 
-        if (parameterField.equals("CO2")) {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+        waitFor(monitoringPlansPage.locAttributesGroundElevationModalField);
+        monitoringPlansPage.locAttributesGroundElevationModalField.clear();
+        if (groundElevationData.equals("14")) {
+            input(monitoringPlansPage.locAttributesGroundElevationModalField, "10");
         } else {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(5));
+            input(monitoringPlansPage.locAttributesGroundElevationModalField, "14");
         }
 
-        waitFor(monitoringPlansPage.saveCloseModal);
-        click(monitoringPlansPage.saveCloseModal);
-
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.saveCloseModal);
+        js.executeScript("arguments[0].click();", monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
-        waitFor(monitoringPlansPage.formulasTableParameterLabel,1);
-        verifyNotEquals(monitoringPlansPage.formulasTableParameterField.get(1).getText(), parameterField);
+
+        js.executeScript("document.body.style.zoom = '1'");
+
+        Thread.sleep(2000);
+        waitFor(monitoringPlansPage.locAttributesGroundElevationTableField.get(2));
+        verifyNotEquals(monitoringPlansPage.locAttributesGroundElevationTableField.get(2).getText(), groundElevationData);
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.revertOfficialRecordButton);
+
+        waitFor(monitoringPlansPage.revertOfficialRecordButton);
+        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
+        click(monitoringPlansPage.revertOfficialRecordButton);
+
+        waitFor(monitoringPlansPage.revertModalYesButton);
+        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
+        click(monitoringPlansPage.revertModalYesButton);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
+
+        Thread.sleep(3000);
+        waitFor(monitoringPlansPage.locAttributesGroundElevationTableField.get(2));
+         verifyEquals(monitoringPlansPage.locAttributesGroundElevationTableField.get(2).getText(), groundElevationData);
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));
@@ -127,7 +141,7 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
         js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
 
         if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            js.executeScript("arguments[0].click();", monitoringPlansPage.logOutButton);
+            click(monitoringPlansPage.logOutButton);
             waitFor(monitoringPlansPage.logInButtonOpenModal);
             verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
         } else {

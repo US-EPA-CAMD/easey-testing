@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.formulas;
+package tests.UITests.EASEYIn_Emissioners.monPlan.defaults;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
+public class Test_EASEYIn_TC1698_Create_MP_Defaults_Data extends UITestBase {
 
     @Test()
-    public void tests() {
+    public void tests() throws InterruptedException {
         String username = System.getenv("MOSES_TESTING_USERNAME");
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
@@ -49,68 +49,68 @@ public class Test_EASEYIn_TC1705_Edit_MP_Formula_Data extends UITestBase {
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Gadsden");
+        input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Gadsden (Oris Code 7)
+        // Clicks on Holcomb (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabs.get(0));
 
-        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        waitFor(monitoringPlansPage.monitoringFormulas);
-        click(monitoringPlansPage.monitoringFormulas);
-
-        waitFor(monitoringPlansPage.accordionFormulasLabel);
-        verifyEquals(monitoringPlansPage.accordionFormulasLabel, "Formulas");
-
-        click(monitoringPlansPage.location.get(0));
-        verifyEquals(monitoringPlansPage.location.get(0), "1");
-
+        waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
         waitFor(monitoringPlansPage.configcheckBackInButton);
         verifyEquals(monitoringPlansPage.configcheckBackInButton, "Check Back In");
 
-        // This wait is needed inorder to allow the View button to change from View to View / Edit
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
+        waitFor(monitoringPlansPage.monitoringDefaults);
+        click(monitoringPlansPage.monitoringDefaults);
+        waitFor(monitoringPlansPage.accordionDefaultsLabel);
 
-        js.executeScript("window.scrollBy(0,350)", "");
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 2);
+        Thread.sleep(1000);
 
-        waitFor(monitoringPlansPage.formulasTableParameterLabel);
-        verifyEquals(monitoringPlansPage.formulasTableParameterLabel, "Parameter");
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createDefaultButton);
 
-        waitFor(monitoringPlansPage.formulasTableParameterField);
-        String parameterField = monitoringPlansPage.formulasTableParameterField.get(1).getText();
+        int numOfMethods = monitoringPlansPage.viewButton.size();
 
-        waitFor(monitoringPlansPage.viewButton,1);
-        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+        waitFor(monitoringPlansPage.createDefaultButton);
+        click(monitoringPlansPage.createDefaultButton);
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Formula");
+        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+        input(monitoringPlansPage.defaultValueModalField, "1");
+        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
+        input(monitoringPlansPage.modalStartTimeField, "1");
 
-        if (parameterField.equals("CO2")) {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
-        } else {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(5));
-        }
-
-        waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
-        waitFor(monitoringPlansPage.formulasTableParameterLabel,1);
-        verifyNotEquals(monitoringPlansPage.formulasTableParameterField.get(1).getText(), parameterField);
+        waitFor(monitoringPlansPage.viewButton);
+        Thread.sleep(3000);
+
+        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+
+        verifyTrue(newNumOfMethods == numOfMethods + 1);
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.revertOfficialRecordButton);
+
+        waitFor(monitoringPlansPage.revertOfficialRecordButton);
+        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
+        click(monitoringPlansPage.revertOfficialRecordButton);
+
+        waitFor(monitoringPlansPage.revertModalYesButton);
+        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
+        click(monitoringPlansPage.revertModalYesButton);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));

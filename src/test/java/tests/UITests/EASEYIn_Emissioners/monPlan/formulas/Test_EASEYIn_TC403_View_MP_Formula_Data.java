@@ -18,6 +18,7 @@ public class Test_EASEYIn_TC403_View_MP_Formula_Data extends UITestBase {
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         Actions action = new Actions(driver);
 
+        waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
@@ -25,22 +26,23 @@ public class Test_EASEYIn_TC403_View_MP_Formula_Data extends UITestBase {
         click(monitoringPlansPage.filterByKeywordButton);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,250)", "");
+        js.executeScript("window.scrollBy(0,350)", "");
 
         // Clicks on Barry (Oris Code 3)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabBarry12CS0AAN);
 
-        js.executeScript("window.scrollBy(0,250)", "");
-
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        js.executeScript("window.scrollBy(0,250)", "");
+
+        waitFor(monitoringPlansPage.monitoringFormulas);
         click(monitoringPlansPage.monitoringFormulas);
         verifyEquals(monitoringPlansPage.monitoringFormulas, "Formulas");
 
@@ -50,7 +52,7 @@ public class Test_EASEYIn_TC403_View_MP_Formula_Data extends UITestBase {
         waitFor(monitoringPlansPage.accordionFormulasLabel);
         verifyEquals(monitoringPlansPage.accordionFormulasLabel, "Formulas");
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 2);
         verifyEquals(monitoringPlansPage.viewButton.get(0), "View");
         action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
 
