@@ -203,6 +203,18 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[epa-testid='Qualifications']")
     public WebElement accordionQualificationsLabel;
 
+    @FindBy (id = "create-qualification-add-btn")
+    public WebElement createQualificationButton;
+
+    @FindBy (id = "column-col1")
+    public WebElement qualificationTypeCodeLabel;
+
+    @FindBy (css = "div[data-tag='allowRowEvents'] > div")
+    public List<WebElement> qualificationTypeCodeField;
+
+    @FindBy (css = "select[epadataname='qualificationTypeCode'] > option")
+    public List<WebElement> qualificationTypeCodeModalDropdown;
+
     @FindBy (css = "h3[class='margin-top-5 text-bold mobile:font-body-xl mobile:text-bold']")
     public List<WebElement> qualificationsHeaders;
 
