@@ -224,6 +224,18 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[epa-testid='WAFsRectangularDuct']")
     public WebElement accordionRectangularDuctWAFsLabel;
 
+    @FindBy (id = "column-col2")
+    public WebElement wafMethodTableLabel;
+
+    @FindBy (css = "div[data-tag='allowRowEvents'] > div")
+    public List<WebElement> wafMethodTableField;
+
+    @FindBy (css = "select[epadataname='wafMethodCode'] > option")
+    public List<WebElement> wafMethodModalField;
+
+    @FindBy (css = "select[epadataname='wafMethodCode'] > option")
+    public List<WebElement> wafValueModalDropdown;
+
     @FindBy (css = "h3[epa-testid='Spans']")
     public WebElement accordionSpansLabel;
 
