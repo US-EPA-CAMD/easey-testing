@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1709_Edit_Rectangular_Duct_WAFs_Data extends UITestBase {
+public class Test_EASEYIn_TC1808_Create_MP_Rectangular_Duct_WAFs_Data extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -80,35 +80,27 @@ public class Test_EASEYIn_TC1709_Edit_Rectangular_Duct_WAFs_Data extends UITestB
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
-        js.executeScript("window.scrollBy(0,200)", "");
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionRectangularDuctWAFsLabel);
 
-        waitFor(monitoringPlansPage.wafMethodTableLabel);
-        verifyEquals(monitoringPlansPage.wafMethodTableLabel, "WAF Method");
+        int numOfDuctWAFs = monitoringPlansPage.viewButton.size();
 
-        String WAFMethod = monitoringPlansPage.wafMethodTableField.get(1).getText();
-
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
-        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        click(monitoringPlansPage.viewButton.get(0));
-
-        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Rectangular Duct WAF");
+        click(monitoringPlansPage.createRectangularDuctWafBtn);
 
         waitFor(monitoringPlansPage.wafMethodModalDropdown);
-        if (WAFMethod.equals("DF")) {
-            click(monitoringPlansPage.wafMethodModalDropdown.get(1));
-        } else {
-            click(monitoringPlansPage.wafMethodModalDropdown.get(2));
-        }
+        click(monitoringPlansPage.wafMethodModalDropdown.get(1));
+        input(monitoringPlansPage.wafValueModalField, "10");
+        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
+        input(monitoringPlansPage.modalStartTimeField, "1");
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
-        Thread.sleep(2000);
-        waitFor(monitoringPlansPage.wafMethodTableField.get(1));
-        verifyNotEquals(monitoringPlansPage.wafMethodTableField.get(1).getText(), WAFMethod);
+        waitFor(monitoringPlansPage.viewButton);
+        Thread.sleep(3000);
+
+        int newNumOfDuctWAFs = monitoringPlansPage.viewButton.size();
+
+        verifyTrue(newNumOfDuctWAFs == numOfDuctWAFs + 1);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
@@ -121,10 +113,6 @@ public class Test_EASEYIn_TC1709_Edit_Rectangular_Duct_WAFs_Data extends UITestB
         verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.wafMethodTableField.get(1));
-        verifyEquals(monitoringPlansPage.wafMethodTableField.get(1).getText(), WAFMethod);
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));

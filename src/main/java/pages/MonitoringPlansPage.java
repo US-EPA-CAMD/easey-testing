@@ -224,6 +224,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[epa-testid='WAFsRectangularDuct']")
     public WebElement accordionRectangularDuctWAFsLabel;
 
+    // The XPath was necessary as the CSS was not working for this locator
+    @FindBy (xpath = "//button[contains(text(),'Create Rectangular Duct WAF')]")
+    public WebElement createRectangularDuctWafBtn;
+
     @FindBy (id = "column-col2")
     public WebElement wafMethodTableLabel;
 
@@ -231,10 +235,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public List<WebElement> wafMethodTableField;
 
     @FindBy (css = "select[epadataname='wafMethodCode'] > option")
-    public List<WebElement> wafMethodModalField;
+    public List<WebElement> wafMethodModalDropdown;
 
-    @FindBy (css = "select[epadataname='wafMethodCode'] > option")
-    public List<WebElement> wafValueModalDropdown;
+    @FindBy (css = "input[epadataname='wafValue']")
+    public WebElement wafValueModalField;
 
     @FindBy (css = "h3[epa-testid='Spans']")
     public WebElement accordionSpansLabel;
