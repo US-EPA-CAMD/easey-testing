@@ -61,6 +61,7 @@ public class Test_EASEYIn_TC1709_Edit_Rectangular_Duct_WAFs_Data extends UITestB
 
         click(monitoringPlansPage.configTabs.get(0));
 
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         waitFor(monitoringPlansPage.monitoringRectangularDuctWAFs);
@@ -93,11 +94,11 @@ public class Test_EASEYIn_TC1709_Edit_Rectangular_Duct_WAFs_Data extends UITestB
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Rectangular Duct WAF");
 
-        waitFor(monitoringPlansPage.wafValueModalDropdown);
+        waitFor(monitoringPlansPage.wafMethodModalDropdown);
         if (WAFMethod.equals("DF")) {
-            click(monitoringPlansPage.wafValueModalDropdown.get(1));
+            click(monitoringPlansPage.wafMethodModalDropdown.get(1));
         } else {
-            click(monitoringPlansPage.wafValueModalDropdown.get(2));
+            click(monitoringPlansPage.wafMethodModalDropdown.get(2));
         }
 
         js.executeScript("arguments[0].scrollIntoView(true);",
