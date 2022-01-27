@@ -29,6 +29,7 @@ public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
         verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
         click(monitoringPlansPage.logInButtonOpenModal);
 
+        waitFor(monitoringPlansPage.usernameLabelModal);
         verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
         input(monitoringPlansPage.usernameFieldModal, username);
 
