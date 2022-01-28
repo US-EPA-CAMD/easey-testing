@@ -34,6 +34,9 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css="nav.usa-nav:nth-child(1) > ul >li:nth-child(1) >ul > li:nth-child(2) > a")
     public WebElement resourceslinks;
 
+    @FindBy(css="nav.usa-nav:nth-child(1) > ul >li:nth-child(1) >ul > li:nth-child(1) > a")
+    public WebElement glossary;
+
     @FindBy(css="nav.usa-nav:nth-child(2) > ul >li:nth-child(2) >ul > li:nth-child(3) > a")
     public WebElement bulkdata;
 
@@ -82,7 +85,7 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css = "button[data-testid='Modify']")
     public List<WebElement> modify;
 
-    @FindBy(css = "button[class='usa-button usa-button--outline margin-right-0 desktop:grid-col-4']")
+    @FindBy(css = "div.position-relative > div > div > div:nth-child(2) > div > button")
     public WebElement changebutton;
 
     @FindBy(id = "data-sub-type")
@@ -187,8 +190,41 @@ public class CustomDataDownloadPage extends PageBase {
     @FindBy(css ="div.usa-nav-container > div:nth-child(2) > button:nth-child(1)")
     public WebElement mobilemenu;
 
+    @FindBy(css ="div.filter-container > p > button > svg")
+    public WebElement materialui;
+
     @FindBy(css = "ul.usa-sidenav > li")
     public List<WebElement> mobilemenulinks;
 
+    @FindBy(css = "div.width-full > div > div:nth-child(2) >button")
+    public List<WebElement> mobilefilterbuttons;
+
+    @FindBy(css = "div.position-relative > div > div > div:nth-child(3) > button")
+    public List<WebElement> mobilepanelbuttons;
+
+    @FindBy(css = "div.filter-container > p > button > svg")
+    public List<WebElement> filtercriteriax;
+
+    @FindBy(css ="div.usa-alert__body > p ")
+    public WebElement contactusalert;
+
+    @FindBy(id ="validReportingQuarter")
+    public WebElement warningmessage;
+
+    @FindBy(css ="div.loading-modal")
+    public WebElement loadingmodal;
+
+    @FindBy(css ="div.width-full >div >div > div > button")
+    public WebElement mobilepreviewdata;
+
+    @FindBy(css ="div[id=data-table-title] > div> button")
+    public WebElement mobiletablebackbutton;
+
+
+    @FindBy(css ="div.main-content > p:nth-child(5) > strong  > a")
+    public WebElement cddpdf;
+
+    @FindBy(css ="div.main-content > button")
+    public List<WebElement> downloadbutton;
 
 }
