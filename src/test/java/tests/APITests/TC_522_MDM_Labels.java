@@ -38,7 +38,7 @@ public class TC_522_MDM_Labels extends APITestBase {
 //     Step 1: Perform a GET request to Allowance Holdings
 
         for (String url : Urls) {
-            String resp = getResponse(url).getBody().asString();
+            String resp = getString(url);
             System.out.println(resp);
 
         }

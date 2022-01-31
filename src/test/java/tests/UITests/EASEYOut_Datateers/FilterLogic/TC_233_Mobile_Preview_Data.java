@@ -71,7 +71,7 @@ public class TC_233_Mobile_Preview_Data extends UITestBase {
 
         boolean modal = customDataDownloadPage.loadingmodal.isDisplayed();
 
-        if (modal = true){
+        if (modal == true){
 
             try
             {
