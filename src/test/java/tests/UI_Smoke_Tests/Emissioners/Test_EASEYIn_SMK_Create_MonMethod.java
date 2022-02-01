@@ -52,7 +52,7 @@ public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
         input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Holcomb (Oris Code 8906)
+        // Clicks on Astoria Generating Station (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
