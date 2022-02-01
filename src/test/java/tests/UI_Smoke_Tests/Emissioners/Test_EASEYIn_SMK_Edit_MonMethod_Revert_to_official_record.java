@@ -89,9 +89,11 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
 
         waitFor(monitoringPlansPage.monMethodsTableParameterField);
         if (parameterCode.equals("CO2")) {
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(7));
         } else {
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(5));
+            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
         }
 
         js.executeScript("arguments[0].scrollIntoView(true);",
