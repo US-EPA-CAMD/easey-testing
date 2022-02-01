@@ -52,7 +52,7 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Holcomb (Oris Code 8906)
+        // Clicks on Astoria Generating Station (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
@@ -89,9 +89,11 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
 
         waitFor(monitoringPlansPage.monMethodsTableParameterField);
         if (parameterCode.equals("CO2")) {
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(7));
         } else {
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(5));
+            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
         }
 
         js.executeScript("arguments[0].scrollIntoView(true);",
