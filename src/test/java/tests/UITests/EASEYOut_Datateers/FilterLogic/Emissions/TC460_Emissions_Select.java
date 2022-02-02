@@ -30,6 +30,7 @@ public class TC460_Emissions_Select extends UITestBase {
         waitFor(customDataDownloadPage.subtypeDropdown);
         click(customDataDownloadPage.subtypeDropdown);
 
+
         waitFor(customDataDownloadPage.subtypeoption.get(1));
         click(customDataDownloadPage.subtypeoption.get(1));
 //Select  Facility/Unit Subtype
