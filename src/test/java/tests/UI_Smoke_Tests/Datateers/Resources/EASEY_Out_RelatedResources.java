@@ -1,14 +1,10 @@
-package tests.UI_Smoke_Tests.Datateers;
+package tests.UI_Smoke_Tests.Datateers.Resources;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
-import pages.CustomDataDownloadPage;
+import pages.CampdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Select;
 
 public class EASEY_Out_RelatedResources extends UITestBase  {
     @Test
@@ -18,16 +14,16 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         goTo("https://campd-dev.app.cloud.gov");
         Actions action = new Actions(driver);
-        CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
+        CampdElements campdElements = new CampdElements(driver);
 
-        waitFor(customDataDownloadPage.hometitle);
+        waitFor(campdElements.hometitle);
 // Click data menu
-        waitFor(customDataDownloadPage.resources);
-        click(customDataDownloadPage.resources);
+        waitFor(campdElements.resources);
+        click(campdElements.resources);
 
 // Click Bulk Data
-        waitFor(customDataDownloadPage.resourceslinks);
-        click(customDataDownloadPage.resourceslinks);
+        waitFor(campdElements.resourceslinks);
+        click(campdElements.resourceslinks);
 
 // Change to Related Resources Page
 
@@ -35,14 +31,14 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
 
 // Select AirData Resource
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.rrlink.get(0));
-        click(customDataDownloadPage.rrlink.get(0));
+        waitFor(campdElements.rrlink.get(0));
+        click(campdElements.rrlink.get(0));
 //Check tab Is correct
         changeTab();
 
@@ -53,13 +49,13 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
 // Select Castnet Resource
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.rrlink.get(1));
-        click(customDataDownloadPage.rrlink.get(1));
+        waitFor(campdElements.rrlink.get(1));
+        click(campdElements.rrlink.get(1));
 //Check tab Is correct
         changeTab();
 
@@ -70,13 +66,13 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
 // Select eGrid Resource
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.rrlink.get(2));
-        click(customDataDownloadPage.rrlink.get(2));
+        waitFor(campdElements.rrlink.get(2));
+        click(campdElements.rrlink.get(2));
 //Check tab Is correct
         changeTab();
 
@@ -87,13 +83,13 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
 // Select Energy Info Administration Resource
 
         jse.executeScript("scroll(0,1000);");
 
-        waitFor(customDataDownloadPage.rrlink.get(3));
-        click(customDataDownloadPage.rrlink.get(3));
+        waitFor(campdElements.rrlink.get(3));
+        click(campdElements.rrlink.get(3));
 //Check tab Is correct
         changeTab();
 
@@ -104,13 +100,13 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
 // Select National Pollution Air Trends
 
         jse.executeScript("scroll(0,1000);");
 
-        waitFor(customDataDownloadPage.rrlink.get(4));
-        click(customDataDownloadPage.rrlink.get(4));
+        waitFor(campdElements.rrlink.get(4));
+        click(campdElements.rrlink.get(4));
 //Check tab Is correct
         changeTab();
 
@@ -121,12 +117,12 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
 //Select National Atmosphere Deposition Program
         jse.executeScript("scroll(0,1000);");
 
-        waitFor(customDataDownloadPage.rrlink.get(5));
-        click(customDataDownloadPage.rrlink.get(5));
+        waitFor(campdElements.rrlink.get(5));
+        click(campdElements.rrlink.get(5));
 //Check tab Is correct
         changeTab();
 
@@ -137,13 +133,13 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
+        waitFor(campdElements.pagetitle);
 //Select National Emissions Inventory
         jse.executeScript("scroll(0,1500);");
 
-        waitFor(customDataDownloadPage.rrlink.get(6));
-        click(customDataDownloadPage.rrlink.get(6));
+        waitFor(campdElements.rrlink.get(6));
+        click(campdElements.rrlink.get(6));
 //Check tab Is correct
         changeTab();
 
@@ -154,12 +150,12 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
 //Select Progress Reports
         jse.executeScript("scroll(0,1500);");
 
-        waitFor(customDataDownloadPage.rrlink.get(7));
-        click(customDataDownloadPage.rrlink.get(7));
+        waitFor(campdElements.rrlink.get(7));
+        click(campdElements.rrlink.get(7));
 //Check tab Is correct
         changeTab();
 
@@ -170,12 +166,12 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
 //Select US Greenhouse Gas Inventory
         jse.executeScript("scroll(0,1500);");
 
-        waitFor(customDataDownloadPage.rrlink.get(8));
-        click(customDataDownloadPage.rrlink.get(8));
+        waitFor(campdElements.rrlink.get(8));
+        click(campdElements.rrlink.get(8));
 //Check tab Is correct
         changeTab();
 
@@ -186,7 +182,7 @@ public class EASEY_Out_RelatedResources extends UITestBase  {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
     }
 }
 

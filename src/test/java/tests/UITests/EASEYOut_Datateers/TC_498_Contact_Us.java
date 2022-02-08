@@ -1,14 +1,10 @@
 package tests.UITests.EASEYOut_Datateers;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
-import pages.CustomDataDownloadPage;
+import pages.CampdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Select;
 
 
 public class TC_498_Contact_Us extends UITestBase {
@@ -19,95 +15,95 @@ public class TC_498_Contact_Us extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov");
         Actions action = new Actions(driver);
-        CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
+        CampdElements campdElements = new CampdElements(driver);
 
-        waitFor(customDataDownloadPage.hometitle);
+        waitFor(campdElements.hometitle);
 // Click help and support
-        waitFor(customDataDownloadPage.navitem);
-        click(customDataDownloadPage.navitem);
+        waitFor(campdElements.helpsupport);
+        click(campdElements.helpsupport);
 // click contact us
-        waitFor(customDataDownloadPage.contactuslink);
-        click(customDataDownloadPage.contactuslink);
+        waitFor(campdElements.contactuslink);
+        click(campdElements.contactuslink);
  // verify page location
 
         changeTab();
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
 
 //   Fill out form
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("scroll(0, 250);");
 
-        waitFor(customDataDownloadPage.email);
-        input(customDataDownloadPage.email, "maeganwood@cvpcorp.com");
+        waitFor(campdElements.email);
+        input(campdElements.email, "maeganwood@cvpcorp.com");
         jse.executeScript("scroll(0, 250);");
-        waitFor(customDataDownloadPage.contactradio);
-        click(customDataDownloadPage.contactradio);
+        waitFor(campdElements.contactradio);
+        click(campdElements.contactradio);
         jse.executeScript("scroll(0, 250);");
-        waitFor(customDataDownloadPage.comment);
-        input(customDataDownloadPage.comment, "This is an Automated Test by Maegan Wood");
+        waitFor(campdElements.comment);
+        input(campdElements.comment, "This is an Automated Test by Maegan Wood");
         jse.executeScript("scroll(0, 600);");
-        waitFor(customDataDownloadPage.contactsubmit);
-        click(customDataDownloadPage.contactsubmit);
+        waitFor(campdElements.contactsubmit);
+        click(campdElements.contactsubmit);
 
 
 //navigate to the CAMPD FAQ Page
 
         // Click help and support
-        waitFor(customDataDownloadPage.navitem);
-        click(customDataDownloadPage.navitem);
+        waitFor(campdElements.helpsupport);
+        click(campdElements.helpsupport);
         // click contact us
-        waitFor(customDataDownloadPage.faqlink);
-        click(customDataDownloadPage.faqlink);
+        waitFor(campdElements.faqlink);
+        click(campdElements.faqlink);
         // verify page location
 
         changeTab();
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/faqs");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
         // Click help and support
-        waitFor(customDataDownloadPage.navitem);
-        click(customDataDownloadPage.navitem);
+        waitFor(campdElements.helpsupport);
+        click(campdElements.helpsupport);
         // click contact us
-            waitFor(customDataDownloadPage.contactuslink);
-            click(customDataDownloadPage.contactuslink);
+            waitFor(campdElements.contactuslink);
+            click(campdElements.contactuslink);
             // verify page location
 
             changeTab();
 
             verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
 
-            waitFor(customDataDownloadPage.pagetitle);
+            waitFor(campdElements.pagetitle);
 
 //navigate to the CAMPD Tutorials page
 
         // Click help and support
-        waitFor(customDataDownloadPage.navitem);
-        click(customDataDownloadPage.navitem);
+        waitFor(campdElements.helpsupport);
+        click(campdElements.helpsupport);
         // click contact us
-        waitFor(customDataDownloadPage.tutorialslink);
-        click(customDataDownloadPage.tutorialslink);
+        waitFor(campdElements.tutorialslink);
+        click(campdElements.tutorialslink);
         // verify page location
 
         changeTab();
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/tutorials");
 
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
         // Click help and support
-        waitFor(customDataDownloadPage.navitem);
-        click(customDataDownloadPage.navitem);
+        waitFor(campdElements.helpsupport);
+        click(campdElements.helpsupport);
         // click contact us
-        waitFor(customDataDownloadPage.contactuslink);
-        click(customDataDownloadPage.contactuslink);
+        waitFor(campdElements.contactuslink);
+        click(campdElements.contactuslink);
         // verify page location
 
         changeTab();
-        waitFor(customDataDownloadPage.pagetitle);
+        waitFor(campdElements.pagetitle);
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
 
 

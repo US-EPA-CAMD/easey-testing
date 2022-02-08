@@ -1,14 +1,10 @@
 package tests.UITests.EASEYOut_Datateers;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
-import pages.CustomDataDownloadPage;
+import pages.CampdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Select;
 
 
 public class TC_534_CDD_Quickstart extends UITestBase {
@@ -19,18 +15,18 @@ public class TC_534_CDD_Quickstart extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov");
         Actions action = new Actions(driver);
-        CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
+        CampdElements campdElements = new CampdElements(driver);
 
-        waitFor(customDataDownloadPage.hometitle);
+        waitFor(campdElements.hometitle);
 
 //navigate to the CAMPD FAQ Page
 
         // Click help and support
-        waitFor(customDataDownloadPage.resources);
-        click(customDataDownloadPage.navitem);
+        waitFor(campdElements.helpsupport);
+        click(campdElements.helpsupport);
 
-        waitFor(customDataDownloadPage.tutorialslink);
-        click(customDataDownloadPage.tutorialslink);
+        waitFor(campdElements.tutorialslink);
+        click(campdElements.tutorialslink);
 
         changeTab();
 
@@ -39,14 +35,12 @@ public class TC_534_CDD_Quickstart extends UITestBase {
 
         jse.executeScript("scroll(0, 400);");
 
-        waitFor(customDataDownloadPage.cddpdf);
-        click(customDataDownloadPage.cddpdf);
+        waitFor(campdElements.tutorialspdfs.get(0));
+        click(campdElements.tutorialspdfs.get(0));
 
         changeTab();
 
         verifyEquals(driver.getCurrentUrl(), "https://api.epa.gov/easey/dev/content-mgmt/campd/documents/CustomDataDownload-QuickStartGuide.pdf");
-
-
 
 
 

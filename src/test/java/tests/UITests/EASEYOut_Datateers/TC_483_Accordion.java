@@ -1,14 +1,10 @@
 package tests.UITests.EASEYOut_Datateers;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
-import pages.CustomDataDownloadPage;
+import pages.CampdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Select;
 
 
 public class TC_483_Accordion extends UITestBase {
@@ -19,20 +15,20 @@ public class TC_483_Accordion extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov/help-support/about-campd");
         Actions action = new Actions(driver);
-        CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
-        waitFor(customDataDownloadPage.abouttitle);
+        CampdElements campdElements = new CampdElements(driver);
+        waitFor(campdElements.pagetitle);
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("scroll(0, 2000)");
-        click(customDataDownloadPage.accordion);
+        click(campdElements.accordion.get(0));
 
         jse.executeScript("scroll(0, -2000);");
 
         jse.executeScript("scroll(0, 2000);");
 
-        click(customDataDownloadPage.accordion);
+        click(campdElements.accordion.get(0));
 
-        verifyTrue(customDataDownloadPage.accordion.isEnabled());
+        verifyTrue(campdElements.accordion.get(0).isEnabled());
 
 
     }
