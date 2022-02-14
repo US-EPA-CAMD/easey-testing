@@ -243,6 +243,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[epa-testid='Spans']")
     public WebElement accordionSpansLabel;
 
+    @FindBy (id = "create-span-add-btn")
+    public WebElement createSpanButton;
+
     @FindBy (id = "column-col1")
     public WebElement spansTableComponentTypeLabel;
 
