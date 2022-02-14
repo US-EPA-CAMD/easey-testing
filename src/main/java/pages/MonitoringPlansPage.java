@@ -131,7 +131,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Rectangular Duct WAFs']")
     public WebElement monitoringRectangularDuctWAFs;
 
-    @FindBy (css = "option[data-testid='Span']")
+    @FindBy (css = "option[data-testid='Spans']")
     public WebElement monitoringSpan;
 
     @FindBy (css = "option[data-testid='Unit Information']")
@@ -246,7 +246,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "column-col1")
     public WebElement spansTableComponentTypeLabel;
 
-    @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(1)")
+    @FindBy (css = "div[role='gridcell']:nth-child(1)")
     public List<WebElement> spansTableComponentTypeField;
 
     @FindBy (css = "#Component\\ Type > option")
