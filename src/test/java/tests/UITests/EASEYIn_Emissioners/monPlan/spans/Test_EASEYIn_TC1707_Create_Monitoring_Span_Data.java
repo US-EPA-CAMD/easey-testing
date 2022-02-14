@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends UITestBase {
+public class Test_EASEYIn_TC1707_Create_Monitoring_Span_Data extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -26,7 +26,6 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends UITestBase {
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        waitFor(monitoringPlansPage.logInButtonOpenModal);
         verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
         click(monitoringPlansPage.logInButtonOpenModal);
 
@@ -34,12 +33,13 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends UITestBase {
         verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
         input(monitoringPlansPage.usernameFieldModal, username);
 
-        waitFor(monitoringPlansPage.passwordLabelModal);
         verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
         input(monitoringPlansPage.passwordFieldModal, password);
 
         verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
         click(monitoringPlansPage.logInButtonSubmit);
+
+        js.executeScript("window.scrollBy(0,350)", "");
 
         waitFor(monitoringPlansPage.title);
         waitFor(monitoringPlansPage.dashWorkspace);
@@ -56,11 +56,12 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends UITestBase {
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabs.get(0));
 
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         waitFor(monitoringPlansPage.monitoringSpan);
@@ -79,32 +80,26 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends UITestBase {
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
-        verifyEquals(monitoringPlansPage.spansTableComponentTypeLabel, "Component Type");
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createSpanButton);
 
-        String componentType = monitoringPlansPage.spansTableComponentTypeField.get(0).getText();
+        int numOfSpans = monitoringPlansPage.viewButton.size();
 
-        waitFor(monitoringPlansPage.viewButton,1);
-        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+        click(monitoringPlansPage.createSpanButton);
 
-        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Span");
+        waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
+        click(monitoringPlansPage.monMethodsModalComponentTypeDropdown.get(1));
+        input(monitoringPlansPage.modalStartDateField, "01/01/2022");
+        input(monitoringPlansPage.modalStartTimeField, "1");
 
-        if (componentType.equals("CO2")) {
-            waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
-            click(monitoringPlansPage.monMethodsModalComponentTypeDropdown.get(3));
-        } else {
-            waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
-            click(monitoringPlansPage.monMethodsModalComponentTypeDropdown.get(1));
-        }
-
-        waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
 
+        waitFor(monitoringPlansPage.viewButton);
         Thread.sleep(3000);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
-        waitFor(monitoringPlansPage.spansTableComponentTypeLabel,1);
-        verifyNotEquals(monitoringPlansPage.spansTableComponentTypeField.get(0).getText(), componentType);
+
+        int newNumOfSpans = monitoringPlansPage.viewButton.size();
+
+        verifyTrue(newNumOfSpans == numOfSpans + 1);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);

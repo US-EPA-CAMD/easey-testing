@@ -34,6 +34,7 @@ public class Test_EASEYIn_TC629_View_Monitoring_Span extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringSpan);
         click(monitoringPlansPage.monitoringSpan);
 
         waitFor(monitoringPlansPage.accordionSpansLabel);
