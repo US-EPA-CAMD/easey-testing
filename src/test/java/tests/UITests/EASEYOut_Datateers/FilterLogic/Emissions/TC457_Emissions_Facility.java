@@ -1,14 +1,11 @@
 package tests.UITests.EASEYOut_Datateers.FilterLogic.Emissions;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
-import pages.CustomDataDownloadPage;
+import pages.CampdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Select;
 
 
 public class TC457_Emissions_Facility extends UITestBase {
@@ -17,758 +14,758 @@ public class TC457_Emissions_Facility extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
         Actions action = new Actions(driver);
-        CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
+        CampdElements campdElements = new CampdElements(driver);
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
 
-        waitFor(customDataDownloadPage.datadropdown);
-        click(customDataDownloadPage.datadropdown);
+        waitFor(campdElements.datadropdown);
+        click(campdElements.datadropdown);
 
-        waitFor(customDataDownloadPage.dataoption.get(1));
-        click(customDataDownloadPage.dataoption.get(1));
+        waitFor(campdElements.dataoption.get(1));
+        click(campdElements.dataoption.get(1));
 
-        waitFor(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeDropdown);
+        waitFor(campdElements.subtypeDropdown);
+        click(campdElements.subtypeDropdown);
 
-        waitFor(customDataDownloadPage.subtypeoption.get(1));
-        click(customDataDownloadPage.subtypeoption.get(1));
+        waitFor(campdElements.subtypeoption.get(1));
+        click(campdElements.subtypeoption.get(1));
 //Select HourlyEmissions Subtype
 
-        waitFor(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeDropdown);
+        waitFor(campdElements.subtypeDropdown);
+        click(campdElements.subtypeDropdown);
 
-        waitFor(customDataDownloadPage.subtypeoption.get(1));
-        click(customDataDownloadPage.subtypeoption.get(1));
+        waitFor(campdElements.subtypeoption.get(1));
+        click(campdElements.subtypeoption.get(1));
 
-        waitFor(customDataDownloadPage.applyBtn);
-        click(customDataDownloadPage.applyBtn);
+        waitFor(campdElements.applyBtn);
+        click(campdElements.applyBtn);
 
 // apply date range
 
-        click(customDataDownloadPage.filtercriteria.get(0));
+        click(campdElements.filtercriteria.get(0));
 
-        waitFor(customDataDownloadPage.datestart);
-        input(customDataDownloadPage.datestart, "01/01/2019");
+        waitFor(campdElements.datestart);
+        input(campdElements.datestart, "01/01/2019");
 
-        input(customDataDownloadPage.dateend, "01/01/2020");
+        input(campdElements.dateend, "01/01/2020");
 
-        waitFor(customDataDownloadPage.applyYear.get(1));
-        click(customDataDownloadPage.applyYear.get(1));
+        waitFor(campdElements.applyYear.get(1));
+        click(campdElements.applyYear.get(1));
 
-        waitFor(customDataDownloadPage.previewdata);
+        waitFor(campdElements.previewdata);
 
  // Apply Facility Logic
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(3));
-        click(customDataDownloadPage.filtercriteria.get(3));
+        waitFor(campdElements.filtercriteria.get(3));
+        click(campdElements.filtercriteria.get(3));
 
-        waitFor(customDataDownloadPage.facilitiesSearch);
-        click(customDataDownloadPage.facilitiesSearch);
+        waitFor(campdElements.searchbox);
+        click(campdElements.searchbox);
 
-        waitFor(customDataDownloadPage.searchoptions.get(0));
-        click(customDataDownloadPage.searchoptions.get(0));
+        waitFor(campdElements.searchitem.get(0));
+        click(campdElements.searchitem.get(0));
 
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 
 // check Program Filtering
 
         jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(3));
+        click(campdElements.filtercriteria.get(3));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(4));
+        click(campdElements.filtercriteria.get(4));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 //  make sure Fuel Type data is filtering
 
-        click(customDataDownloadPage.filtercriteria.get(5));
+        click(campdElements.filtercriteria.get(5));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        click(campdElements.filtercriteria.get(6));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 
 // SELECT DAILY SUBTYPE
-        click(customDataDownloadPage.changebutton);
+        click(campdElements.changebutton);
 
-        click(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeoption.get(2));
+        click(campdElements.subtypeDropdown);
+        click(campdElements.subtypeoption.get(2));
 
-        click(customDataDownloadPage.applyBtn);
+        click(campdElements.applyBtn);
 
 // apply date range
 
-        waitFor(customDataDownloadPage.filtercriteria.get(0));
-        click(customDataDownloadPage.filtercriteria.get(0));
+        waitFor(campdElements.filtercriteria.get(0));
+        click(campdElements.filtercriteria.get(0));
 
-        waitFor(customDataDownloadPage.datestart);
-        input(customDataDownloadPage.datestart, "01/01/2019");
+        waitFor(campdElements.datestart);
+        input(campdElements.datestart, "01/01/2019");
 
-        input(customDataDownloadPage.dateend, "01/01/2020");
-        waitFor(customDataDownloadPage.applyYear.get(1));
-        click(customDataDownloadPage.applyYear.get(1));
+        input(campdElements.dateend, "01/01/2020");
+        waitFor(campdElements.applyYear.get(1));
+        click(campdElements.applyYear.get(1));
 
-        waitFor(customDataDownloadPage.previewdata);
+        waitFor(campdElements.previewdata);
 // check Program Filtering
 
         jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 //Select Program
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
 
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(4));
+        click(campdElements.filtercriteria.get(4));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 //  make sure Fuel Type data is filtering
 
-        click(customDataDownloadPage.filtercriteria.get(5));
+        click(campdElements.filtercriteria.get(5));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        click(campdElements.filtercriteria.get(6));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
         // APPLY MONTHLY EMISSIONS SUBTYPE
 
-        click(customDataDownloadPage.changebutton);
+        click(campdElements.changebutton);
 
-        click(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeoption.get(3));
+        click(campdElements.subtypeDropdown);
+        click(campdElements.subtypeoption.get(3));
 
-        click(customDataDownloadPage.applyBtn);
+        click(campdElements.applyBtn);
 
 // apply date range
 
-        waitFor(customDataDownloadPage.filtercriteria.get(0));
-        click(customDataDownloadPage.filtercriteria.get(0));
+        waitFor(campdElements.filtercriteria.get(0));
+        click(campdElements.filtercriteria.get(0));
         ;
 
-        waitFor(customDataDownloadPage.yearinput);
-        input(customDataDownloadPage.yearinput, "2015-2020");
+        waitFor(campdElements.yearinput);
+        input(campdElements.yearinput, "2015-2020");
 
-        waitFor(customDataDownloadPage.label.get(1));
-        click(customDataDownloadPage.label.get(1));
+        waitFor(campdElements.label.get(1));
+        click(campdElements.label.get(1));
 
-        waitFor(customDataDownloadPage.applyYear);
-        click(customDataDownloadPage.applyYear.get(1));
+        waitFor(campdElements.applyYear);
+        click(campdElements.applyYear.get(1));
 
-        waitFor(customDataDownloadPage.previewdata);
+        waitFor(campdElements.previewdata);
         // Apply Facility Logic
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(3));
-        click(customDataDownloadPage.filtercriteria.get(3));
+        waitFor(campdElements.filtercriteria.get(3));
+        click(campdElements.filtercriteria.get(3));
 
-        waitFor(customDataDownloadPage.facilitiesSearch);
-        click(customDataDownloadPage.facilitiesSearch);
+        waitFor(campdElements.searchbox);
+        click(campdElements.searchbox);
 
-        waitFor(customDataDownloadPage.searchoptions.get(0));
-        click(customDataDownloadPage.searchoptions.get(0));
+        waitFor(campdElements.searchitem.get(0));
+        click(campdElements.searchitem.get(0));
 
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 
 // check Program Filtering
 
         jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(3));
+        click(campdElements.filtercriteria.get(3));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(4));
+        click(campdElements.filtercriteria.get(4));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 //  make sure Fuel Type data is filtering
 
-        click(customDataDownloadPage.filtercriteria.get(5));
+        click(campdElements.filtercriteria.get(5));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        click(campdElements.filtercriteria.get(6));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 
 // SELECT Quarterly  SUBTYPE
-        click(customDataDownloadPage.changebutton);
+        click(campdElements.changebutton);
 
-        click(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeoption.get(4));
+        click(campdElements.subtypeDropdown);
+        click(campdElements.subtypeoption.get(4));
 
 
-        click(customDataDownloadPage.applyBtn);
+        click(campdElements.applyBtn);
 
 // apply date range
 
-        waitFor(customDataDownloadPage.filtercriteria.get(0));
-        click(customDataDownloadPage.filtercriteria.get(0));
+        waitFor(campdElements.filtercriteria.get(0));
+        click(campdElements.filtercriteria.get(0));
 
-        waitFor(customDataDownloadPage.yearinput);
-        input(customDataDownloadPage.yearinput, "2015-2020");
+        waitFor(campdElements.yearinput);
+        input(campdElements.yearinput, "2015-2020");
 
-        waitFor(customDataDownloadPage.label.get(1));
-        click(customDataDownloadPage.label.get(1));
+        waitFor(campdElements.label.get(1));
+        click(campdElements.label.get(1));
 
-        waitFor(customDataDownloadPage.applyYear.get(1));
-        click(customDataDownloadPage.applyYear.get(1));
+        waitFor(campdElements.applyYear.get(1));
+        click(campdElements.applyYear.get(1));
 
-        waitFor(customDataDownloadPage.previewdata);
+        waitFor(campdElements.previewdata);
 // check Program Filtering
 
         jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 //Select Program
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
 
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(4));
+        click(campdElements.filtercriteria.get(4));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 //  make sure Fuel Type data is filtering
 
-        click(customDataDownloadPage.filtercriteria.get(5));
+        click(campdElements.filtercriteria.get(5));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        click(campdElements.filtercriteria.get(6));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 //Select Ozone Emissions Syubtype
 
-        click(customDataDownloadPage.changebutton);
+        click(campdElements.changebutton);
 
-        click(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeoption.get(5));
+        click(campdElements.subtypeDropdown);
+        click(campdElements.subtypeoption.get(5));
 
-        click(customDataDownloadPage.applyBtn);
+        click(campdElements.applyBtn);
 
 // apply date range
 
-        waitFor(customDataDownloadPage.filtercriteria.get(0));
-        click(customDataDownloadPage.filtercriteria.get(0));
+        waitFor(campdElements.filtercriteria.get(0));
+        click(campdElements.filtercriteria.get(0));
         ;
 
-        waitFor(customDataDownloadPage.yearinput);
-        input(customDataDownloadPage.yearinput, "2015-2020");
+        waitFor(campdElements.yearinput);
+        input(campdElements.yearinput, "2015-2020");
 
-        waitFor(customDataDownloadPage.applyYear);
-        click(customDataDownloadPage.applyYear.get(1));
+        waitFor(campdElements.applyYear);
+        click(campdElements.applyYear.get(1));
 
-        waitFor(customDataDownloadPage.previewdata);
+        waitFor(campdElements.previewdata);
         // Apply Facility Logic
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(3));
-        click(customDataDownloadPage.filtercriteria.get(3));
+        waitFor(campdElements.filtercriteria.get(3));
+        click(campdElements.filtercriteria.get(3));
 
-        waitFor(customDataDownloadPage.facilitiesSearch);
-        click(customDataDownloadPage.facilitiesSearch);
+        waitFor(campdElements.searchbox);
+        click(campdElements.searchbox);
 
-        waitFor(customDataDownloadPage.searchoptions.get(0));
-        click(customDataDownloadPage.searchoptions.get(0));
+        waitFor(campdElements.searchitem.get(0));
+        click(campdElements.searchitem.get(0));
 
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 
 // check Program Filtering
 
         jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(3));
+        click(campdElements.filtercriteria.get(3));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(4));
+        click(campdElements.filtercriteria.get(4));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 //  make sure Fuel Type data is filtering
 
-        click(customDataDownloadPage.filtercriteria.get(5));
+        click(campdElements.filtercriteria.get(5));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        click(campdElements.filtercriteria.get(6));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 // SELECT Annual SUBTYPE
-        click(customDataDownloadPage.changebutton);
+        click(campdElements.changebutton);
 
-        click(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeoption.get(6));
+        click(campdElements.subtypeDropdown);
+        click(campdElements.subtypeoption.get(6));
 
-        click(customDataDownloadPage.applyBtn);
+        click(campdElements.applyBtn);
 
 // apply date range
 
-        waitFor(customDataDownloadPage.filtercriteria.get(0));
-        click(customDataDownloadPage.filtercriteria.get(0));
+        waitFor(campdElements.filtercriteria.get(0));
+        click(campdElements.filtercriteria.get(0));
 
 
-        waitFor(customDataDownloadPage.yearinput);
-        input(customDataDownloadPage.yearinput, "2015-2020");
-        waitFor(customDataDownloadPage.applyYear.get(1));
-        click(customDataDownloadPage.applyYear.get(1));
+        waitFor(campdElements.yearinput);
+        input(campdElements.yearinput, "2015-2020");
+        waitFor(campdElements.applyYear.get(1));
+        click(campdElements.applyYear.get(1));
 
-        waitFor(customDataDownloadPage.previewdata);
+        waitFor(campdElements.previewdata);
 // check Program Filtering
 
         jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 //Select Program
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
 
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(4));
+        click(campdElements.filtercriteria.get(4));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 //  make sure Fuel Type data is filtering
 
-        click(customDataDownloadPage.filtercriteria.get(5));
+        click(campdElements.filtercriteria.get(5));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        click(campdElements.filtercriteria.get(6));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 
 // Select Unit/Fuel SUBTYPE
 
 
-        click(customDataDownloadPage.changebutton);
+        click(campdElements.changebutton);
 
-        click(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeoption.get(7));
+        click(campdElements.subtypeDropdown);
+        click(campdElements.subtypeoption.get(7));
 
-        click(customDataDownloadPage.applyBtn);
+        click(campdElements.applyBtn);
 
 // apply date range
 
-        waitFor(customDataDownloadPage.filtercriteria.get(0));
-        click(customDataDownloadPage.filtercriteria.get(0));
+        waitFor(campdElements.filtercriteria.get(0));
+        click(campdElements.filtercriteria.get(0));
         ;
 
-        waitFor(customDataDownloadPage.yearinput);
-        input(customDataDownloadPage.yearinput, "2015-2020");
+        waitFor(campdElements.yearinput);
+        input(campdElements.yearinput, "2015-2020");
 
 
-        waitFor(customDataDownloadPage.applyYear);
-        click(customDataDownloadPage.applyYear.get(1));
+        waitFor(campdElements.applyYear);
+        click(campdElements.applyYear.get(1));
 
-        waitFor(customDataDownloadPage.previewdata);
+        waitFor(campdElements.previewdata);
 
         // Apply Facility Logic
 
         jse.executeScript("scroll(0, 500);");
 
-        waitFor(customDataDownloadPage.filtercriteria.get(3));
-        click(customDataDownloadPage.filtercriteria.get(3));
+        waitFor(campdElements.filtercriteria.get(3));
+        click(campdElements.filtercriteria.get(3));
 
-        waitFor(customDataDownloadPage.facilitiesSearch);
-        click(customDataDownloadPage.facilitiesSearch);
+        waitFor(campdElements.searchbox);
+        click(campdElements.searchbox);
 
-        waitFor(customDataDownloadPage.searchoptions.get(0));
-        click(customDataDownloadPage.searchoptions.get(0));
+        waitFor(campdElements.searchitem.get(0));
+        click(campdElements.searchitem.get(0));
 
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 
 // check Program Filtering
 
         jse.executeScript("scroll(0, 500);");
-        click(customDataDownloadPage.filtercriteria.get(3));
+        click(campdElements.filtercriteria.get(3));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 500);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Unit Type Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(4));
+        click(campdElements.filtercriteria.get(4));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 //  make sure Fuel Type data is filtering
 
-        click(customDataDownloadPage.filtercriteria.get(5));
+        click(campdElements.filtercriteria.get(5));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }        jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 
 // check Control Tech Filtering
 
-        click(customDataDownloadPage.filtercriteria.get(6));
+        click(campdElements.filtercriteria.get(6));
 
-        for (WebElement ele : customDataDownloadPage.label) {
+        for (WebElement ele : campdElements.label) {
             verifyTrue(ele.isEnabled());
             if (ele.isEnabled())
                 click(ele);
         }
         jse.executeScript("scroll(0, 1000);");
-        waitFor(customDataDownloadPage.cancelApply.get(0));
-        click(customDataDownloadPage.cancelApply.get(0));
+        waitFor(campdElements.cancelApply.get(0));
+        click(campdElements.cancelApply.get(0));
 
 // Remove Program Type Filter
 
-        waitFor(customDataDownloadPage.filtercriteria.get(1));
-        click(customDataDownloadPage.filtercriteria.get(1));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
 
 
-        waitFor(customDataDownloadPage.label.get(0));
-        click(customDataDownloadPage.label.get(0));
+        waitFor(campdElements.label.get(0));
+        click(campdElements.label.get(0));
 
-        waitFor(customDataDownloadPage.cancelApply.get(1));
-        click(customDataDownloadPage.cancelApply.get(1));
+        waitFor(campdElements.cancelApply.get(1));
+        click(campdElements.cancelApply.get(1));
 
 
 

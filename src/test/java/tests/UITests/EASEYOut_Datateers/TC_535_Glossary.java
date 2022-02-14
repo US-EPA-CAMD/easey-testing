@@ -1,14 +1,10 @@
 package tests.UITests.EASEYOut_Datateers;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
-import pages.CustomDataDownloadPage;
+import pages.CampdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Select;
 
 
 public class TC_535_Glossary extends UITestBase {
@@ -19,18 +15,18 @@ public class TC_535_Glossary extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov");
         Actions action = new Actions(driver);
-        CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
+        CampdElements campdElements = new CampdElements(driver);
 
-        waitFor(customDataDownloadPage.hometitle);
+        waitFor(campdElements.hometitle);
 
 //navigate to the CAMPD FAQ Page
 
         // Click help and support
-        waitFor(customDataDownloadPage.resources);
-        click(customDataDownloadPage.resources);
+        waitFor(campdElements.resources);
+        click(campdElements.resources);
 
-        waitFor(customDataDownloadPage.glossary);
-        click(customDataDownloadPage.glossary);
+        waitFor(campdElements.glossary);
+        click(campdElements.glossary);
 
         changeTab();
 
@@ -39,12 +35,12 @@ public class TC_535_Glossary extends UITestBase {
 
         jse.executeScript("scroll(0, 400);");
 
-        waitFor(customDataDownloadPage.downloadbutton.get(0));
-        click(customDataDownloadPage.downloadbutton.get(0));
+        waitFor(campdElements.downloadbutton.get(0));
+        click(campdElements.downloadbutton.get(0));
 
 
-        waitFor(customDataDownloadPage.downloadbutton.get(1));
-        click(customDataDownloadPage.downloadbutton.get(1));
+        waitFor(campdElements.downloadbutton.get(1));
+        click(campdElements.downloadbutton.get(1));
 
 
 

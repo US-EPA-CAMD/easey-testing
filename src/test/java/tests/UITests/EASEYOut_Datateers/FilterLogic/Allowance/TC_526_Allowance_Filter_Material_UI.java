@@ -3,7 +3,7 @@ package tests.UITests.EASEYOut_Datateers.FilterLogic.Allowance;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CustomDataDownloadPage;
+import pages.CampdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -13,77 +13,77 @@ public class TC_526_Allowance_Filter_Material_UI extends UITestBase {
     public void test() {
         goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
         Actions action = new Actions(driver);
-        CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
+        CampdElements campdElements = new CampdElements(driver);
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
 
-        waitFor(customDataDownloadPage.datadropdown);
-        click(customDataDownloadPage.datadropdown);
+        waitFor(campdElements.datadropdown);
+        click(campdElements.datadropdown);
 
-        waitFor(customDataDownloadPage.dataoption.get(2));
-        click(customDataDownloadPage.dataoption.get(2));
+        waitFor(campdElements.dataoption.get(2));
+        click(campdElements.dataoption.get(2));
 
 //Select Account Info Subtype
 
-        waitFor(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeDropdown);
+        waitFor(campdElements.subtypeDropdown);
+        click(campdElements.subtypeDropdown);
 
-        waitFor(customDataDownloadPage.subtypeoption.get(1));
-        click(customDataDownloadPage.subtypeoption.get(1));
+        waitFor(campdElements.subtypeoption.get(1));
+        click(campdElements.subtypeoption.get(1));
         jse.executeScript("scroll(0, 400);");
-        waitFor(customDataDownloadPage.applyBtn);
-        click(customDataDownloadPage.applyBtn);
+        waitFor(campdElements.applyBtn);
+        click(campdElements.applyBtn);
 
 
 // Verify Material UI Presence
 
-        waitFor(customDataDownloadPage.previewdata);
-        for (WebElement ele : customDataDownloadPage.filtercriteria) {
+        waitFor(campdElements.previewdata);
+        for (WebElement ele : campdElements.filtercriteria) {
 
-            verifyTrue(customDataDownloadPage.materialui.isDisplayed());
+            verifyTrue(campdElements.materialui.isDisplayed());
         }
 
 //Select Account Holdings  Subtype
-        click(customDataDownloadPage.changebutton);
+        click(campdElements.changebutton);
 
 
-        waitFor(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeDropdown);
+        waitFor(campdElements.subtypeDropdown);
+        click(campdElements.subtypeDropdown);
 
-        waitFor(customDataDownloadPage.subtypeoption.get(2));
-        click(customDataDownloadPage.subtypeoption.get(2));
+        waitFor(campdElements.subtypeoption.get(2));
+        click(campdElements.subtypeoption.get(2));
         jse.executeScript("scroll(0, 400);");
 
-        waitFor(customDataDownloadPage.applyBtn);
-        click(customDataDownloadPage.applyBtn);
+        waitFor(campdElements.applyBtn);
+        click(campdElements.applyBtn);
 
 
 // Verify Material UI Presence
 
-        waitFor(customDataDownloadPage.previewdata);
-        for (WebElement ele : customDataDownloadPage.filtercriteria) {
+        waitFor(campdElements.previewdata);
+        for (WebElement ele : campdElements.filtercriteria) {
 
-            verifyTrue(customDataDownloadPage.materialui.isDisplayed());
+            verifyTrue(campdElements.materialui.isDisplayed());
         }
 //Select Account Transactions Subtype
-        click(customDataDownloadPage.changebutton);
-        waitFor(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeDropdown);
+        click(campdElements.changebutton);
+        waitFor(campdElements.subtypeDropdown);
+        click(campdElements.subtypeDropdown);
 
-        waitFor(customDataDownloadPage.subtypeoption.get(3));
-        click(customDataDownloadPage.subtypeoption.get(3));
+        waitFor(campdElements.subtypeoption.get(3));
+        click(campdElements.subtypeoption.get(3));
 
-        waitFor(customDataDownloadPage.applyBtn);
-        click(customDataDownloadPage.applyBtn);
+        waitFor(campdElements.applyBtn);
+        click(campdElements.applyBtn);
 
 
 // Verify Material UI Presence
 
-        waitFor(customDataDownloadPage.previewdata);
-        for (WebElement ele : customDataDownloadPage.filtercriteria) {
+        waitFor(campdElements.previewdata);
+        for (WebElement ele : campdElements.filtercriteria) {
 
-            verifyTrue(customDataDownloadPage.materialui.isDisplayed());
+            verifyTrue(campdElements.materialui.isDisplayed());
         }
 
 

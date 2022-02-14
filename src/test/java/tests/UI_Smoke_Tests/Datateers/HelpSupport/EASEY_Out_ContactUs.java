@@ -1,4 +1,4 @@
-package tests.UITests.EASEYOut_Datateers;
+package tests.UI_Smoke_Tests.Datateers.HelpSupport;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
@@ -7,7 +7,7 @@ import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 
 
-public class TC_537_Contact_Us_Message extends UITestBase {
+public class EASEY_Out_ContactUs extends UITestBase {
     @Test
     public void test() {
 
@@ -32,20 +32,9 @@ public class TC_537_Contact_Us_Message extends UITestBase {
 
         waitFor(campdElements.pagetitle);
 
-//   Submit without filling out form
+//   Fill out form
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("scroll(0, 1000);");
-
-        waitFor(campdElements.contactsubmit);
-        click(campdElements.contactsubmit);
-
-        waitFor(campdElements.contactusalert);
-        verifyEquals(campdElements.contactusalert.getText(),"All fields are required. Please fill in the form completely and try again.");
-
-// Reload, submit properly
-        goTo("https://campd-dev.app.cloud.gov/help-support/contact-us");
-
         jse.executeScript("scroll(0, 250);");
 
         waitFor(campdElements.email);
@@ -56,8 +45,7 @@ public class TC_537_Contact_Us_Message extends UITestBase {
         jse.executeScript("scroll(0, 250);");
         waitFor(campdElements.comment);
         input(campdElements.comment, "This is an Automated Test by Maegan Wood");
-        jse.executeScript("scroll(0, 700);");
-
+        jse.executeScript("scroll(0, 800);");
         waitFor(campdElements.contactsubmit);
         click(campdElements.contactsubmit);
 
@@ -65,5 +53,7 @@ public class TC_537_Contact_Us_Message extends UITestBase {
         verifyEquals(campdElements.contactusalert.getText(),"Success! You will be sent a confirmation email within the next 24 hours. If you do not receive a notification, please resubmit your issue, reach out to the Clean Air Markets Division hotline at 202-343-9620, or email campd-support@camdsupport.com directly.");
 
 
+
     }
 }
+

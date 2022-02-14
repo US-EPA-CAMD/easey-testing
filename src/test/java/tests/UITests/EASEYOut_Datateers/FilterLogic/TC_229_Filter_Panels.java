@@ -2,10 +2,9 @@ package tests.UITests.EASEYOut_Datateers.FilterLogic;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CustomDataDownloadPage;
+import pages.CampdElements;
 import tests.utils.UITestBase;
 
 
@@ -14,7 +13,7 @@ public class TC_229_Filter_Panels extends UITestBase {
     public void test() {
         goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
         Actions action = new Actions(driver);
-        CustomDataDownloadPage customDataDownloadPage = new CustomDataDownloadPage(driver);
+        CampdElements campdElements = new CampdElements(driver);
         Dimension dimension = new Dimension(480, 1080);
 
         driver.manage().window().setSize(dimension);
@@ -22,58 +21,58 @@ public class TC_229_Filter_Panels extends UITestBase {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
         // apply data type
-        waitFor(customDataDownloadPage.mobilefilterbuttons.get(0));
-        click(customDataDownloadPage.mobilefilterbuttons.get(0));
+        waitFor(campdElements.mobilefilterbuttons.get(0));
+        click(campdElements.mobilefilterbuttons.get(0));
 
-        waitFor(customDataDownloadPage.datadropdown);
-        click(customDataDownloadPage.datadropdown);
+        waitFor(campdElements.datadropdown);
+        click(campdElements.datadropdown);
 
-        waitFor(customDataDownloadPage.dataoption.get(1));
-        click(customDataDownloadPage.dataoption.get(1));
-
-
-        waitFor(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeDropdown);
-
-        waitFor(customDataDownloadPage.subtypeoption.get(1));
-        click(customDataDownloadPage.subtypeoption.get(1));
+        waitFor(campdElements.dataoption.get(1));
+        click(campdElements.dataoption.get(1));
 
 
-        assertFalse(customDataDownloadPage.subtypeDropdown.isSelected());
+        waitFor(campdElements.subtypeDropdown);
+        click(campdElements.subtypeDropdown);
+
+        waitFor(campdElements.subtypeoption.get(1));
+        click(campdElements.subtypeoption.get(1));
+
+
+        assertFalse(campdElements.subtypeDropdown.isSelected());
 
         jse.executeScript("scroll(0, 350);");
 
-        waitFor(customDataDownloadPage.applyBtn);
-        click(customDataDownloadPage.applyBtn);
+        waitFor(campdElements.applyBtn);
+        click(campdElements.applyBtn);
 
-        waitFor(customDataDownloadPage.mobilepreviewdata);
+        waitFor(campdElements.mobilepreviewdata);
 
 
         // Apply Filters
-        waitFor(customDataDownloadPage.mobilepanelbuttons.get(0));
-        click(customDataDownloadPage.mobilepanelbuttons.get(0));
+        waitFor(campdElements.mobilepanelbuttons.get(0));
+        click(campdElements.mobilepanelbuttons.get(0));
 
-        waitFor(customDataDownloadPage.mobilefilterbuttons.get(1));
-        click(customDataDownloadPage.mobilefilterbuttons.get(1));
+        waitFor(campdElements.mobilefilterbuttons.get(1));
+        click(campdElements.mobilefilterbuttons.get(1));
 
-        waitFor(customDataDownloadPage.filtercriteria.get(0));
-        click(customDataDownloadPage.filtercriteria.get(0));
+        waitFor(campdElements.filtercriteria.get(0));
+        click(campdElements.filtercriteria.get(0));
 
 // apply date range
 
-        waitFor(customDataDownloadPage.datestart);
-        input(customDataDownloadPage.datestart, "01/01/2019");
+        waitFor(campdElements.datestart);
+        input(campdElements.datestart, "01/01/2019");
 
-        input(customDataDownloadPage.dateend, "01/01/2020");
+        input(campdElements.dateend, "01/01/2020");
 
-        waitFor(customDataDownloadPage.applyYear.get(1));
-        click(customDataDownloadPage.applyYear.get(1));
+        waitFor(campdElements.applyYear.get(1));
+        click(campdElements.applyYear.get(1));
 
-        waitFor(customDataDownloadPage.previewdata);
+        waitFor(campdElements.previewdata);
  // X out filter with X button
 
-        waitFor(customDataDownloadPage.filtercriteriax);
-        click(customDataDownloadPage.filtercriteriax.get(0));
+        waitFor(campdElements.filtercriteriax);
+        click(campdElements.filtercriteriax.get(0));
 
 // 640 p
         goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
@@ -84,56 +83,56 @@ public class TC_229_Filter_Panels extends UITestBase {
 
 
         // apply data type
-        waitFor(customDataDownloadPage.mobilefilterbuttons.get(0));
-        click(customDataDownloadPage.mobilefilterbuttons.get(0));
+        waitFor(campdElements.mobilefilterbuttons.get(0));
+        click(campdElements.mobilefilterbuttons.get(0));
 
-        waitFor(customDataDownloadPage.datadropdown);
-        click(customDataDownloadPage.datadropdown);
+        waitFor(campdElements.datadropdown);
+        click(campdElements.datadropdown);
 
-        waitFor(customDataDownloadPage.dataoption.get(1));
-        click(customDataDownloadPage.dataoption.get(1));
-
-
-        waitFor(customDataDownloadPage.subtypeDropdown);
-        click(customDataDownloadPage.subtypeDropdown);
-
-        waitFor(customDataDownloadPage.subtypeoption.get(1));
-        click(customDataDownloadPage.subtypeoption.get(1));
+        waitFor(campdElements.dataoption.get(1));
+        click(campdElements.dataoption.get(1));
 
 
-        assertFalse(customDataDownloadPage.subtypeDropdown.isSelected());
+        waitFor(campdElements.subtypeDropdown);
+        click(campdElements.subtypeDropdown);
+
+        waitFor(campdElements.subtypeoption.get(1));
+        click(campdElements.subtypeoption.get(1));
+
+
+        assertFalse(campdElements.subtypeDropdown.isSelected());
 
         jse.executeScript("scroll(0, 350);");
 
-        waitFor(customDataDownloadPage.applyBtn);
-        click(customDataDownloadPage.applyBtn);
+        waitFor(campdElements.applyBtn);
+        click(campdElements.applyBtn);
 
-        waitFor(customDataDownloadPage.mobilepreviewdata);
+        waitFor(campdElements.mobilepreviewdata);
 
 
         // Apply Filters
-        waitFor(customDataDownloadPage.mobilepanelbuttons.get(0));
-        click(customDataDownloadPage.mobilepanelbuttons.get(0));
+        waitFor(campdElements.mobilepanelbuttons.get(0));
+        click(campdElements.mobilepanelbuttons.get(0));
 
-        waitFor(customDataDownloadPage.mobilefilterbuttons.get(1));
-        click(customDataDownloadPage.mobilefilterbuttons.get(1));
+        waitFor(campdElements.mobilefilterbuttons.get(1));
+        click(campdElements.mobilefilterbuttons.get(1));
 
-        waitFor(customDataDownloadPage.filtercriteria.get(0));
-        click(customDataDownloadPage.filtercriteria.get(0));
+        waitFor(campdElements.filtercriteria.get(0));
+        click(campdElements.filtercriteria.get(0));
 
 // apply date range
 
-        waitFor(customDataDownloadPage.datestart);
-        input(customDataDownloadPage.datestart, "01/01/2019");
+        waitFor(campdElements.datestart);
+        input(campdElements.datestart, "01/01/2019");
 
-        input(customDataDownloadPage.dateend, "01/01/2020");
+        input(campdElements.dateend, "01/01/2020");
 
-        waitFor(customDataDownloadPage.applyYear.get(1));
-        click(customDataDownloadPage.applyYear.get(1));
+        waitFor(campdElements.applyYear.get(1));
+        click(campdElements.applyYear.get(1));
 
-        waitFor(customDataDownloadPage.previewdata);
+        waitFor(campdElements.previewdata);
         // X out filter with X button
-        waitFor(customDataDownloadPage.filtercriteriax);
+        waitFor(campdElements.filtercriteriax);
 
 
 
