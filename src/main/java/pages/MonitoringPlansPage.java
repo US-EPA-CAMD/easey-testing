@@ -233,6 +233,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "Qualification-Test-Date")
     public WebElement qualLeeQualTestDataField;
 
+    @FindBy (css = "div[aria-label='DataTable for LEE Qualifications'] > div > div > div:nth-child(3) > #column-col2")
+    public WebElement qualLeeParameterCodeTableHeader;
+
+    @FindBy (css = "div[aria-label='DataTable for LEE Qualifications'] > div:nth-child(2) > div[role='row'] > div")
+    public List<WebElement> qualLeeParameterCodeTableField;
+
     @FindBy (css = "#Parameter-Code > option")
     public List<WebElement> qualLeeParameterCodeDropdown;
 
