@@ -113,7 +113,7 @@ public class Test_EASEYIn_TC2125_Create_Monitoring_Qual_LEE_Data extends UITestB
         verifyEquals(monitoringPlansPage.saveCloseModal, "Create Qualification LEE");
         click(monitoringPlansPage.saveCloseModal);
 
-        waitFor(monitoringPlansPage.viewButtonbtnOpenQualificationLEE);
+        waitFor(monitoringPlansPage.viewEditQualLeeBtn);
 
         int newNumOfQualLee = monitoringPlansPage.viewEditQualLeeBtn.size();
 

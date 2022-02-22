@@ -206,6 +206,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "create-qualification-add-btn")
     public WebElement createQualificationButton;
 
+    @FindBy (id = "btnOpenQualificationLME")
+    public List<WebElement> viewEditQualLmeBtn;
+
     @FindBy (id = "column-col1")
     public WebElement qualificationTypeCodeLabel;
 
@@ -223,6 +226,15 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h3")
     public WebElement qualificationsModalSubHeaders;
+
+    @FindBy (id = "create-qualification-percent-add-btn")
+    public WebElement createQualPercentButton;
+
+    @FindBy (id = "btnOpenQualificationPercent")
+    public List<WebElement> viewEditQualPercentBtn;
+
+    @FindBy (css = "#Qualification-Year > option")
+    public List<WebElement> qualPercentQualYearDropdown;
 
     @FindBy (id = "addBtn")
     public List<WebElement> createQualLeeButton;
@@ -356,15 +368,6 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButton;
-
-    @FindBy (id = "btnOpenQualificationLEE")
-    public List<WebElement> viewButtonbtnOpenQualificationLEE;
-
-    @FindBy (id = "btnOpenQualificationLME")
-    public List<WebElement> viewButtonbtnOpenQualificationLME;
-
-    @FindBy (id = "btnOpenQualificationPercent")
-    public List<WebElement> viewButtonbtnOpenQualificationPerc;
 
     @FindBy (id = "btnOpenSystemComponents")
     public List<WebElement> viewButtonSystemComponents;

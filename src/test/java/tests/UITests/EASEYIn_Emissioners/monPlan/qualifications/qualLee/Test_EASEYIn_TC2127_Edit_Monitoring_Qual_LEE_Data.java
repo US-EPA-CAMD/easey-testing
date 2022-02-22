@@ -113,7 +113,7 @@ public class Test_EASEYIn_TC2127_Edit_Monitoring_Qual_LEE_Data extends UITestBas
         verifyEquals(monitoringPlansPage.saveCloseModal, "Save and Close");
         click(monitoringPlansPage.saveCloseModal);
 
-        waitFor(monitoringPlansPage.viewButtonbtnOpenQualificationLEE);
+        waitFor(monitoringPlansPage.viewEditQualPercentBtn);
 
         Thread.sleep(3000);
         waitFor(monitoringPlansPage.qualLeeParameterCodeTableField.get(2));
