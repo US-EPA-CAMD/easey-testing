@@ -221,6 +221,30 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[class='text-bold float-left mobile:font-body-md mobile:text-bold']")
     public WebElement qualificationsViewModalHeader;
 
+    @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h3")
+    public WebElement qualificationsModalSubHeaders;
+
+    @FindBy (id = "addBtn")
+    public List<WebElement> createQualLeeButton;
+
+    @FindBy (id = "btnOpenQualificationLEE")
+    public List<WebElement> viewEditQualLeeBtn;
+
+    @FindBy (id = "Qualification-Test-Date")
+    public WebElement qualLeeQualTestDataField;
+
+    @FindBy (css = "div[aria-label='DataTable for LEE Qualifications'] > div > div > div:nth-child(3) > #column-col2")
+    public WebElement qualLeeParameterCodeTableHeader;
+
+    @FindBy (css = "div[aria-label='DataTable for LEE Qualifications'] > div:nth-child(2) > div[role='row'] > div")
+    public List<WebElement> qualLeeParameterCodeTableField;
+
+    @FindBy (css = "#Parameter-Code > option")
+    public List<WebElement> qualLeeParameterCodeDropdown;
+
+    @FindBy (css = "#Qualification-Test-Type > option")
+    public List<WebElement> qualLeeQualTestTypeDropdown;
+
     @FindBy (css = "h3[epa-testid='WAFsRectangularDuct']")
     public WebElement accordionRectangularDuctWAFsLabel;
 
