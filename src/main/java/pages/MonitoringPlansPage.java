@@ -233,6 +233,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "btnOpenQualificationPercent")
     public List<WebElement> viewEditQualPercentBtn;
 
+    @FindBy (css = "div[aria-label='DataTable for PCT Qualifications'] > div > div > div:nth-child(2)")
+    public List<WebElement> qualPercentQualYearTableHeader;
+
+    @FindBy (css = "div[aria-label='DataTable for PCT Qualifications'] > div > div > div:nth-child(2)")
+    public List<WebElement> qualPercentQualYearTableField;
+
     @FindBy (css = "#Qualification-Year > option")
     public List<WebElement> qualPercentQualYearDropdown;
 
