@@ -345,16 +345,16 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "label[for='fueltype']")
     public WebElement modalFuelType;
 
-    @FindBy (id = "Start Date")
+    @FindBy (id = "Start-Date")
     public WebElement modalStartDateField;
 
-    @FindBy (id = "Start Time")
+    @FindBy (id = "Start-Time")
     public WebElement modalStartTimeField;
 
-    @FindBy (id = "End Date")
+    @FindBy (id = "End-Date")
     public WebElement modalEndDateField;
 
-    @FindBy (id = "End Time")
+    @FindBy (id = "End-Time")
     public WebElement modalEndTimeField;
 
     @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h4")
