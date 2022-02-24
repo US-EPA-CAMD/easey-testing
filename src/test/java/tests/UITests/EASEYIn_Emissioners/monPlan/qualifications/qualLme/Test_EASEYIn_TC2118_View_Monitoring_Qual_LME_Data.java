@@ -66,9 +66,9 @@ public class Test_EASEYIn_TC2118_View_Monitoring_Qual_LME_Data extends UITestBas
         waitFor(monitoringPlansPage.qualificationsHeaders, 2);
         verifyEquals(monitoringPlansPage.qualificationsHeaders.get(2), "Qualification LME");
 
-        waitFor(driver -> monitoringPlansPage.viewButtonbtnOpenQualificationLME.size() > 1);
-        verifyEquals(monitoringPlansPage.viewButtonbtnOpenQualificationLME.get(0), "View");
-        action.moveToElement(monitoringPlansPage.viewButtonbtnOpenQualificationLME.get(0)).click().build().perform();
+        waitFor(driver -> monitoringPlansPage.viewEditQualLmeBtn.size() > 1);
+        verifyEquals(monitoringPlansPage.viewEditQualLmeBtn.get(0), "View");
+        action.moveToElement(monitoringPlansPage.viewEditQualLmeBtn.get(0)).click().build().perform();
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         waitFor(monitoringPlansPage.qualificationsViewModalHeader);

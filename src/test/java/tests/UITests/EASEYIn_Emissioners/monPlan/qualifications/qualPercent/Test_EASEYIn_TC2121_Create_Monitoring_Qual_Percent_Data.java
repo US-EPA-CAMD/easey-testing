@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.qualifications.qualLee;
+package tests.UITests.EASEYIn_Emissioners.monPlan.qualifications.qualPercent;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC2127_Edit_Monitoring_Qual_LEE_Data extends UITestBase {
+public class Test_EASEYIn_TC2121_Create_Monitoring_Qual_Percent_Data extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -47,10 +47,10 @@ public class Test_EASEYIn_TC2127_Edit_Monitoring_Qual_LEE_Data extends UITestBas
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Seminole");
+        input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Seminole (Oris Code 136)
+        // Clicks on Astoria Generating Station (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
@@ -89,35 +89,33 @@ public class Test_EASEYIn_TC2127_Edit_Monitoring_Qual_LEE_Data extends UITestBas
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Qualification");
 
+
         waitFor(driver -> monitoringPlansPage.qualificationsHeaders.size() > 2);
+        int numOfQualPercent = monitoringPlansPage.viewEditQualPercentBtn.size();
 
-        waitFor(monitoringPlansPage.qualLeeParameterCodeTableHeader);
-        verifyEquals(monitoringPlansPage.qualLeeParameterCodeTableHeader, "Parameter Code");
 
-        String parameterCode = monitoringPlansPage.qualLeeParameterCodeTableField.get(2).getText();
-
-        waitFor(driver -> monitoringPlansPage.viewEditQualLeeBtn.size() > 0);
-        verifyEquals(monitoringPlansPage.viewEditQualLeeBtn.get(0).getText(), "View / Edit");
-        click(monitoringPlansPage.viewEditQualLeeBtn.get(0));
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.qualificationsHeaders.get(0));
+        waitFor(monitoringPlansPage.createQualPercentButton);
+        click(monitoringPlansPage.createQualPercentButton);
 
         waitFor(monitoringPlansPage.qualificationsModalSubHeaders);
-        verifyEquals(monitoringPlansPage.qualificationsModalSubHeaders, "Qualification LEE");
-        if (parameterCode.equals("HCL")) {
-            waitFor(monitoringPlansPage.qualLeeParameterCodeDropdown);
-            click(monitoringPlansPage.qualLeeParameterCodeDropdown.get(2));
-        } else {
-            waitFor(monitoringPlansPage.qualLeeParameterCodeDropdown);
-            click(monitoringPlansPage.qualLeeParameterCodeDropdown.get(1));
-        }
+        verifyEquals(monitoringPlansPage.qualificationsModalSubHeaders, "Qualification Percent");
 
-        verifyEquals(monitoringPlansPage.saveCloseModal, "Save and Close");
+        waitFor(monitoringPlansPage.qualPercentQualYearDropdown);
+        click(monitoringPlansPage.qualPercentQualYearDropdown.get(1));
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.saveCloseModal);
+
+        verifyEquals(monitoringPlansPage.saveCloseModal, "Create Qualification Percent");
         click(monitoringPlansPage.saveCloseModal);
 
-        waitFor(monitoringPlansPage.viewEditQualPercentBtn);
+        waitFor(monitoringPlansPage.viewEditQualLeeBtn);
 
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.qualLeeParameterCodeTableField.get(2));
-        verifyNotEquals(monitoringPlansPage.qualLeeParameterCodeTableField.get(2).getText(), parameterCode);
+        int newNumOfQualPercent = monitoringPlansPage.viewEditQualPercentBtn.size();
+
+        verifyTrue(newNumOfQualPercent == numOfQualPercent + 1);
 
         // Waiting for clicking Save and Close button
         waitFor(monitoringPlansPage.saveCloseModal);

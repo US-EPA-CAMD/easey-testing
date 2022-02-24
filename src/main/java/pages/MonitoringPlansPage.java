@@ -206,6 +206,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "create-qualification-add-btn")
     public WebElement createQualificationButton;
 
+    @FindBy (id = "btnOpenQualificationLME")
+    public List<WebElement> viewEditQualLmeBtn;
+
     @FindBy (id = "column-col1")
     public WebElement qualificationTypeCodeLabel;
 
@@ -223,6 +226,21 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h3")
     public WebElement qualificationsModalSubHeaders;
+
+    @FindBy (id = "create-qualification-percent-add-btn")
+    public WebElement createQualPercentButton;
+
+    @FindBy (id = "btnOpenQualificationPercent")
+    public List<WebElement> viewEditQualPercentBtn;
+
+    @FindBy (css = "div[aria-label='DataTable for PCT Qualifications'] > div > div > div:nth-child(2)")
+    public List<WebElement> qualPercentQualYearTableHeader;
+
+    @FindBy (css = "div[aria-label='DataTable for PCT Qualifications'] > div > div > div:nth-child(2)")
+    public List<WebElement> qualPercentQualYearTableField;
+
+    @FindBy (css = "#Qualification-Year > option")
+    public List<WebElement> qualPercentQualYearDropdown;
 
     @FindBy (id = "addBtn")
     public List<WebElement> createQualLeeButton;
@@ -327,16 +345,16 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "label[for='fueltype']")
     public WebElement modalFuelType;
 
-    @FindBy (id = "Start Date")
+    @FindBy (id = "Start-Date")
     public WebElement modalStartDateField;
 
-    @FindBy (id = "Start Time")
+    @FindBy (id = "Start-Time")
     public WebElement modalStartTimeField;
 
-    @FindBy (id = "End Date")
+    @FindBy (id = "End-Date")
     public WebElement modalEndDateField;
 
-    @FindBy (id = "End Time")
+    @FindBy (id = "End-Time")
     public WebElement modalEndTimeField;
 
     @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h4")
@@ -356,15 +374,6 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButton;
-
-    @FindBy (id = "btnOpenQualificationLEE")
-    public List<WebElement> viewButtonbtnOpenQualificationLEE;
-
-    @FindBy (id = "btnOpenQualificationLME")
-    public List<WebElement> viewButtonbtnOpenQualificationLME;
-
-    @FindBy (id = "btnOpenQualificationPercent")
-    public List<WebElement> viewButtonbtnOpenQualificationPerc;
 
     @FindBy (id = "btnOpenSystemComponents")
     public List<WebElement> viewButtonSystemComponents;

@@ -67,10 +67,10 @@ public class Test_EASEYIn_TC2126_View_Monitoring_Qual_LEE_Data extends UITestBas
         waitFor(monitoringPlansPage.qualificationsHeaders, 2);
         verifyEquals(monitoringPlansPage.qualificationsHeaders.get(1), "Qualification LEE");
 
-        waitFor(driver -> monitoringPlansPage.viewButtonbtnOpenQualificationLEE.size() > 0);
-        verifyEquals(monitoringPlansPage.viewButtonbtnOpenQualificationLEE.get(0), "View");
+        waitFor(driver -> monitoringPlansPage.viewEditQualLeeBtn.size() > 0);
+        verifyEquals(monitoringPlansPage.viewEditQualLeeBtn.get(0), "View");
         Thread.sleep(1000); // Maybe a better option can be found other than Thread.sleep();
-        action.moveToElement(monitoringPlansPage.viewButtonbtnOpenQualificationLEE.get(0)).click().build().perform();
+        action.moveToElement(monitoringPlansPage.viewEditQualLeeBtn.get(0)).click().build().perform();
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         waitFor(monitoringPlansPage.qualificationsViewModalHeader);

@@ -66,10 +66,10 @@ public class Test_EASEYIn_TC2122_View_Monitoring_Qual_Percent_Data extends UITes
         waitFor(driver -> monitoringPlansPage.qualificationsHeaders.size() > 2);
         verifyEquals(monitoringPlansPage.qualificationsHeaders.get(0), "Qualification Percent");
 
-        waitFor(driver -> monitoringPlansPage.viewButtonbtnOpenQualificationPerc.size() > 14);
+        waitFor(driver -> monitoringPlansPage.viewEditQualPercentBtn.size() > 14);
         Thread.sleep(1000); // Maybe a better option can be found other than Thread.sleep();
-        verifyEquals(monitoringPlansPage.viewButtonbtnOpenQualificationPerc.get(0), "View");
-        action.moveToElement(monitoringPlansPage.viewButtonbtnOpenQualificationPerc.get(0)).click().build().perform();
+        verifyEquals(monitoringPlansPage.viewEditQualPercentBtn.get(0), "View");
+        action.moveToElement(monitoringPlansPage.viewEditQualPercentBtn.get(0)).click().build().perform();
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         waitFor(monitoringPlansPage.qualificationsViewModalHeader);
