@@ -227,6 +227,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h3")
     public WebElement qualificationsModalSubHeaders;
 
+    @FindBy (id = "addBtn")
+    public List<WebElement> createQualLmeButton;
+
+    @FindBy (css = "#Qualification-Data-Year > option")
+    public List<WebElement> qualDataYearDropdown;
+
     @FindBy (id = "create-qualification-percent-add-btn")
     public WebElement createQualPercentButton;
 

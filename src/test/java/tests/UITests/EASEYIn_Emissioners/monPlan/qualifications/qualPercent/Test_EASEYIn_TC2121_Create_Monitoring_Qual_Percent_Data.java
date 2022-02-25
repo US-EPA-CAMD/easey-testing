@@ -111,7 +111,7 @@ public class Test_EASEYIn_TC2121_Create_Monitoring_Qual_Percent_Data extends UIT
         verifyEquals(monitoringPlansPage.saveCloseModal, "Create Qualification Percent");
         click(monitoringPlansPage.saveCloseModal);
 
-        waitFor(monitoringPlansPage.viewEditQualLeeBtn);
+        waitFor(monitoringPlansPage.viewEditQualPercentBtn);
 
         int newNumOfQualPercent = monitoringPlansPage.viewEditQualPercentBtn.size();
 

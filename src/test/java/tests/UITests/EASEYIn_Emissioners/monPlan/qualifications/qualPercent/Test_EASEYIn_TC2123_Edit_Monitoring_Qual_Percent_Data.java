@@ -113,7 +113,7 @@ public class Test_EASEYIn_TC2123_Edit_Monitoring_Qual_Percent_Data extends UITes
         verifyEquals(monitoringPlansPage.saveCloseModal, "Save and Close");
         click(monitoringPlansPage.saveCloseModal);
 
-        waitFor(monitoringPlansPage.viewEditQualLeeBtn);
+        waitFor(monitoringPlansPage.viewEditQualPercentBtn);
 
         Thread.sleep(3000);
         waitFor(monitoringPlansPage.qualPercentQualYearTableField.get(1));
