@@ -1,7 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.qualifications.qualLee;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;

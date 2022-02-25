@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.qualifications.qualPercent;
+package tests.UITests.EASEYIn_Emissioners.monPlan.qualifications.qualLme;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC2123_Edit_Monitoring_Qual_Percent_Data extends UITestBase {
+public class Test_EASEYIn_TC2119_Create_Monitoring_Qual_LME_Data extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -47,10 +47,10 @@ public class Test_EASEYIn_TC2123_Edit_Monitoring_Qual_Percent_Data extends UITes
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Wallingford Energy");
+        input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Wallingford Energy (Oris Code 55517)
+        // Clicks on Astoria Generating Station (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
@@ -82,7 +82,7 @@ public class Test_EASEYIn_TC2123_Edit_Monitoring_Qual_Percent_Data extends UITes
         waitFor(monitoringPlansPage.qualificationTypeCodeLabel);
         verifyEquals(monitoringPlansPage.qualificationTypeCodeLabel, "Qualification Type Code");
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
         click(monitoringPlansPage.viewButton.get(0));
 
@@ -90,34 +90,30 @@ public class Test_EASEYIn_TC2123_Edit_Monitoring_Qual_Percent_Data extends UITes
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Qualification");
 
         waitFor(driver -> monitoringPlansPage.qualificationsHeaders.size() > 2);
+        int numOfQualLme = monitoringPlansPage.viewEditQualLmeBtn.size();
 
-        waitFor(monitoringPlansPage.qualPercentQualYearTableHeader.get(0));
-        verifyEquals(monitoringPlansPage.qualPercentQualYearTableHeader.get(0), "Qualification Year");
-
-        String qualYear = monitoringPlansPage.qualPercentQualYearTableField.get(1).getText();
-
-        waitFor(driver -> monitoringPlansPage.viewEditQualPercentBtn.size() > 1);
-        verifyEquals(monitoringPlansPage.viewEditQualPercentBtn.get(0).getText(), "View / Edit");
-        click(monitoringPlansPage.viewEditQualPercentBtn.get(0));
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.qualificationsHeaders.get(2));
+        waitFor(monitoringPlansPage.createQualLmeButton);
+        click(monitoringPlansPage.createQualLmeButton.get(1));
 
         waitFor(monitoringPlansPage.qualificationsModalSubHeaders);
-        verifyEquals(monitoringPlansPage.qualificationsModalSubHeaders, "Qualification Percent");
-        if (qualYear.equals("2021")) {
-            waitFor(monitoringPlansPage.qualPercentQualYearDropdown);
-            click(monitoringPlansPage.qualPercentQualYearDropdown.get(1));
-        } else {
-            waitFor(monitoringPlansPage.qualPercentQualYearDropdown);
-            click(monitoringPlansPage.qualPercentQualYearDropdown.get(22));
-        }
+        verifyEquals(monitoringPlansPage.qualificationsModalSubHeaders, "Qualification LME");
 
-        verifyEquals(monitoringPlansPage.saveCloseModal, "Save and Close");
+        waitFor(monitoringPlansPage.qualDataYearDropdown);
+        click(monitoringPlansPage.qualDataYearDropdown.get(1));
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.saveCloseModal);
+
+        verifyEquals(monitoringPlansPage.saveCloseModal, "Create Qualification LME");
         click(monitoringPlansPage.saveCloseModal);
 
-        waitFor(monitoringPlansPage.viewEditQualPercentBtn);
+        waitFor(monitoringPlansPage.viewEditQualLmeBtn);
 
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.qualPercentQualYearTableField.get(1));
-        verifyNotEquals(monitoringPlansPage.qualPercentQualYearTableField.get(1).getText(), qualYear);
+        int newNumOfQualLme = monitoringPlansPage.viewEditQualLmeBtn.size();
+
+        verifyTrue(newNumOfQualLme == numOfQualLme + 1);
 
         // Waiting for clicking Save and Close button
         waitFor(monitoringPlansPage.saveCloseModal);
