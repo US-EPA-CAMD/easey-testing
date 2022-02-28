@@ -227,6 +227,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h3")
     public WebElement qualificationsModalSubHeaders;
 
+    @FindBy (css = "div[aria-label='DataTable for LME Qualifications'] > div:nth-child(1) > div > div:nth-child(2)")
+    public WebElement qualDataYearTableHeader;
+
+    @FindBy (css = "div[aria-label='DataTable for LME Qualifications'] > div:nth-child(2) > div > div:nth-child(2)")
+    public List<WebElement> qualDataYearTableField;
+
     @FindBy (id = "addBtn")
     public List<WebElement> createQualLmeButton;
 
