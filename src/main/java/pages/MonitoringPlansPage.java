@@ -140,7 +140,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.modal-header.modal-color > div > h2")
     public WebElement monPlanModalHeaderLabel;
 
-    @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h4")
+    @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h3")
     public WebElement monPlanModalSysSecondTableHeaderLabel;
 
     @FindBy (css = "div.methodTable > div > div > div > h4")
@@ -369,7 +369,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "End-Time")
     public WebElement modalEndTimeField;
 
-    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h4")
+    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h3")
     public WebElement systemComponentsHeader;
 
     @FindBy (css = "#column-col1")
