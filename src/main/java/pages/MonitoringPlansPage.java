@@ -222,7 +222,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public List<WebElement> qualificationsHeaders;
 
     @FindBy (css = "#backBtn + h3")
-    public WebElement qualificationsViewModalHeader;
+    public WebElement createModalSubHeader;
 
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h3")
     public WebElement qualificationsModalSubHeaders;
@@ -372,6 +372,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h3")
     public WebElement systemComponentsHeader;
 
+    @FindBy (id = "addBtn")
+    public List<WebElement> addComponentBtn;
+
+    @FindBy (id = "saveExtraBtn")
+    public WebElement createNewComponentBtn;
+
     @FindBy (css = "#column-col1")
     public List<WebElement> componentIdHeader;
 
@@ -383,6 +389,27 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "#column-undefined > div")
     public List<WebElement> componentActionsHeader;
+
+    @FindBy (id = "Component-ID")
+    public WebElement componentIdFieldModal;
+
+    @FindBy (css = "#Sample-Acquistion-Method > option")
+    public List<WebElement> componentSamDropdown;
+
+    @FindBy (css = "#Component-Type > option")
+    public List<WebElement> componentTypeDropdown;
+
+    @FindBy (css = "#Basis-Description > option")
+    public List<WebElement> componentBasisDescriptionDropdown;
+
+    @FindBy (id = "Manufacturer")
+    public WebElement componentManufacturerFieldModal;
+
+    @FindBy (id = "Model-or-Version")
+    public WebElement componentModelVersionFieldModal;
+
+    @FindBy (id = "Serial-Number")
+    public WebElement serialNumberFieldModal;
 
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButton;
@@ -401,9 +428,6 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (id = "btnOpenAnalyzerRanges")
     public List<WebElement> analyzerRangesViewButton;
-
-    @FindBy (css = "button[class='usa-button addCompBTN align-right']")
-    public WebElement addComponentButton;
 
     @FindBy (css = "label[for='ComponentID']")
     public WebElement componentIdModal;
