@@ -450,7 +450,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "button[aria-label='go back to systems details']")
     public WebElement componentBackButton;
 
-    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(2) > div > div > h4")
+    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(2) > div > div > h3")
     public WebElement systemFuelFlowsHeader;
 
     @FindBy (css = "div.padding-top-4.padding-left-2 > h2 > button")
