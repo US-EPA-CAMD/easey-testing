@@ -130,6 +130,7 @@ public class CampdElements extends PageBase {
 
     @FindBy(id = "data-sub-type")
     public WebElement subtypeDropdown;
+
     @FindBy(css = "select[id='data-sub-type'] > option")
     public List<WebElement> subtypeoption;
 
@@ -173,8 +174,14 @@ public class CampdElements extends PageBase {
     @FindBy(css = "div[data-testid='alert']")
     public WebElement alert;
 
+    @FindBy(css = "div[data-testid='alert'] > div > p > span > a")
+    public WebElement alertlink;
+
     @FindBy(css ="div.Tooltip")
     public WebElement tooltip;
+
+    @FindBy(css ="div.usa-checkbox > label")
+    public WebElement ophours;
 
     @FindBy(css ="form > div:nth-child(1) > div")
     public WebElement datetooltipIcon;
