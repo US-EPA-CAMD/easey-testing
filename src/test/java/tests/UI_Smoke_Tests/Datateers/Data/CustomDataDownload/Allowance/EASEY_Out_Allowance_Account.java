@@ -103,31 +103,31 @@ public class EASEY_Out_Allowance_Account extends UITestBase {
 
 //        // navigate to chrome downloads
 //
-//        driver.get("chrome://downloads");
+        driver.get("chrome://downloads");
 //
         JavascriptExecutor js1 = (JavascriptExecutor)driver;
 
-//            {
-//                try
-//                {
-//                    Thread.sleep(1000);
-//                }
-//                catch(InterruptedException ex)
-//                {
-//                    Thread.currentThread().interrupt();
-//                }
-//            }
-//        }
+            {
+                try
+                {
+                    Thread.sleep(1000);
+                }
+                catch(InterruptedException ex)
+                {
+                    Thread.currentThread().interrupt();
+                }
+            }
 
-//        // get the latest downloaded file name
-//        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
-//
-//        System.out.println(fileName);
-//
-//        String fileconfirm = "allowance-account";
-//
-//        verifyTrue(fileName.contains(fileconfirm));
-//
+
+        // get the latest downloaded file name
+        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
+
+        System.out.println(fileName);
+
+        String fileconfirm = "allowance-account";
+
+        verifyTrue(fileName.contains(fileconfirm));
+
 
         // test for JSON
 
@@ -222,28 +222,28 @@ public class EASEY_Out_Allowance_Account extends UITestBase {
         click(campdElements.downloaddata);
 //        // navigate to chrome downloads
 //
-//        driver.get("chrome://downloads");
-//
-//            {
-//                try
-//                {
-//                    Thread.sleep(1000);
-//                }
-//                catch(InterruptedException ex)
-//                {
-//                    Thread.currentThread().interrupt();
-//                }
-//            }
-//        }
+        driver.get("chrome://downloads");
 
-//        // get the latest downloaded file name
-//        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
-//
-//        System.out.println(fileName);
-//
-//        String fileconfirm = "allowance-account";
-//
-//        verifyTrue(fileName.contains(fileconfirm));
+            {
+                try
+                {
+                    Thread.sleep(1000);
+                }
+                catch(InterruptedException ex)
+                {
+                    Thread.currentThread().interrupt();
+                }
+            }
+
+
+        // get the latest downloaded file name
+        String fileName1 = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
+
+        System.out.println(fileName1);
+
+        String fileconfirm1 = "allowance-account";
+
+        verifyTrue(fileName.contains(fileconfirm));
 //
 
     }
