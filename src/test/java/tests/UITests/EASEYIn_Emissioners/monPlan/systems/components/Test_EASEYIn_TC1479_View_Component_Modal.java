@@ -32,11 +32,13 @@ public class Test_EASEYIn_TC1479_View_Component_Modal extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringSystems);
         click(monitoringPlansPage.monitoringSystems);
 
         waitFor(monitoringPlansPage.accordionSystemsLabel);
         verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
 
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
@@ -44,11 +46,14 @@ public class Test_EASEYIn_TC1479_View_Component_Modal extends UITestBase {
 
         waitFor(monitoringPlansPage.systemFuelFlowsHeader);
 
+        waitFor(monitoringPlansPage.systemComponentsHeader);
         verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
 
+        waitFor(driver -> monitoringPlansPage.viewButtonSystemComponents.size() > 1);
         verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View");
         click(monitoringPlansPage.viewButtonSystemComponents.get(0));
 
+        waitFor(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Component: AFA");
 
     }

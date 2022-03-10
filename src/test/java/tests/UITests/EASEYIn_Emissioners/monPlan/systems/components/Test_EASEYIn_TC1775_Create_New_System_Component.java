@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.systems;
+package tests.UITests.EASEYIn_Emissioners.monPlan.systems.components;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1768_Create_Systems_Data extends UITestBase {
+public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -21,7 +21,6 @@ public class Test_EASEYIn_TC1768_Create_Systems_Data extends UITestBase {
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -73,29 +72,56 @@ public class Test_EASEYIn_TC1768_Create_Systems_Data extends UITestBase {
         click(monitoringPlansPage.monitoringSystems);
         waitFor(monitoringPlansPage.accordionSystemsLabel);
 
-        waitFor(monitoringPlansPage.viewButton);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createMonSystemsButton);
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: 211");
 
-        int numOfMethods = monitoringPlansPage.viewButton.size();
+        waitFor(monitoringPlansPage.systemComponentsHeader);
+        verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
 
-        click(monitoringPlansPage.createMonSystemsButton);
+        int numOfComponents = monitoringPlansPage.viewButtonSystemComponents.size();
 
-        waitFor(monitoringPlansPage.monitoringSystemTypeModalField);
-        input(monitoringPlansPage.createMonSystemsSysIdField, "TES");
-        click(monitoringPlansPage.monitoringSystemTypeModalDropdown.get(1));
-        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
+        waitFor(monitoringPlansPage.addComponentBtn);
+        click(monitoringPlansPage.addComponentBtn.get(0));
+
+        waitFor(monitoringPlansPage.createNewComponentBtn);
+        click(monitoringPlansPage.createNewComponentBtn);
+
+        waitFor(monitoringPlansPage.createModalSubHeader);
+        verifyEquals(monitoringPlansPage.createModalSubHeader, "Create Component");
+
+        input(monitoringPlansPage.componentIdFieldModal, "TES");
+
+        waitFor(driver -> monitoringPlansPage.componentTypeDropdown.size() > 1);
+        click(monitoringPlansPage.componentTypeDropdown.get(1));
+
+        waitFor(driver -> monitoringPlansPage.componentSamDropdown.size() > 1);
+        click(monitoringPlansPage.componentSamDropdown.get(1));
+
+        waitFor(driver -> monitoringPlansPage.componentBasisDescriptionDropdown.size() > 1);
+        click(monitoringPlansPage.componentBasisDescriptionDropdown.get(1));
+
+        input(monitoringPlansPage.componentManufacturerFieldModal, "TEST Manu");
+
+        input(monitoringPlansPage.componentModelVersionFieldModal, "TEST Mod & Ver");
+
+        input(monitoringPlansPage.serialNumberFieldModal, "TES 12345");
+
+        input(monitoringPlansPage.modalStartDateField,"03/01/2022");
         input(monitoringPlansPage.modalStartTimeField, "1");
 
         click(monitoringPlansPage.saveCloseModal);
 
-        waitFor(monitoringPlansPage.viewButton);
+        waitFor(driver -> monitoringPlansPage.viewButtonSystemComponents.size() > 1);
         Thread.sleep(3000);
 
-        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+        int newNumOfComponents = monitoringPlansPage.viewButtonSystemComponents.size();
 
-        verifyTrue(newNumOfMethods == numOfMethods + 1);
+        verifyTrue(newNumOfComponents == numOfComponents + 1);
+
+        click(monitoringPlansPage.saveCloseModal);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);

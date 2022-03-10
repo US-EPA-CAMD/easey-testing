@@ -80,7 +80,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "#column-col2")
     public WebElement monitoringSystemTypeTableLabel;
 
-    @FindBy (css = "div[class='sc-jrQzAO fyPxqe rdt_TableRow'] > div:nth-child(2) > div")
+    @FindBy (css = "div[class='sc-jrQzAO fyPxqe rdt_TableRow'] > div:nth-child(3) > div")
     public WebElement monitoringSystemTypeTableField;
 
     @FindBy (css = "select[epadataname='systemTypeCode']")
@@ -89,7 +89,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "select[epadataname='systemTypeCode'] > option")
     public List<WebElement> monitoringSystemTypeModalDropdown;
 
-    @FindBy (id = "System ID")
+    @FindBy (id = "System-ID")
     public WebElement createMonSystemsSysIdField;
 
     @FindBy (id = "create-system-add-btn")
@@ -140,7 +140,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.modal-header.modal-color > div > h2")
     public WebElement monPlanModalHeaderLabel;
 
-    @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h4")
+    @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h3")
     public WebElement monPlanModalSysSecondTableHeaderLabel;
 
     @FindBy (css = "div.methodTable > div > div > div > h4")
@@ -222,7 +222,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public List<WebElement> qualificationsHeaders;
 
     @FindBy (css = "#backBtn + h3")
-    public WebElement qualificationsViewModalHeader;
+    public WebElement createModalSubHeader;
 
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h3")
     public WebElement qualificationsModalSubHeaders;
@@ -369,8 +369,14 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "End-Time")
     public WebElement modalEndTimeField;
 
-    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h4")
+    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h3")
     public WebElement systemComponentsHeader;
+
+    @FindBy (id = "addBtn")
+    public List<WebElement> addComponentBtn;
+
+    @FindBy (id = "saveExtraBtn")
+    public WebElement createNewComponentBtn;
 
     @FindBy (css = "#column-col1")
     public List<WebElement> componentIdHeader;
@@ -383,6 +389,27 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css = "#column-undefined > div")
     public List<WebElement> componentActionsHeader;
+
+    @FindBy (id = "Component-ID")
+    public WebElement componentIdFieldModal;
+
+    @FindBy (css = "#Sample-Acquistion-Method > option")
+    public List<WebElement> componentSamDropdown;
+
+    @FindBy (css = "#Component-Type > option")
+    public List<WebElement> componentTypeDropdown;
+
+    @FindBy (css = "#Basis-Description > option")
+    public List<WebElement> componentBasisDescriptionDropdown;
+
+    @FindBy (id = "Manufacturer")
+    public WebElement componentManufacturerFieldModal;
+
+    @FindBy (id = "Model-or-Version")
+    public WebElement componentModelVersionFieldModal;
+
+    @FindBy (id = "Serial-Number")
+    public WebElement serialNumberFieldModal;
 
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButton;
@@ -401,9 +428,6 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (id = "btnOpenAnalyzerRanges")
     public List<WebElement> analyzerRangesViewButton;
-
-    @FindBy (css = "button[class='usa-button addCompBTN align-right']")
-    public WebElement addComponentButton;
 
     @FindBy (css = "label[for='ComponentID']")
     public WebElement componentIdModal;
@@ -450,7 +474,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "button[aria-label='go back to systems details']")
     public WebElement componentBackButton;
 
-    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(2) > div > div > h4")
+    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(2) > div > div > h3")
     public WebElement systemFuelFlowsHeader;
 
     @FindBy (css = "div.padding-top-4.padding-left-2 > h2 > button")

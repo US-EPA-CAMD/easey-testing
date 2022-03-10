@@ -72,8 +72,8 @@ public class Test_EASEYIn_TC2122_View_Monitoring_Qual_Percent_Data extends UITes
         action.moveToElement(monitoringPlansPage.viewEditQualPercentBtn.get(0)).click().build().perform();
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        waitFor(monitoringPlansPage.qualificationsViewModalHeader);
-        verifyEquals(monitoringPlansPage.qualificationsViewModalHeader, "Qualification Percent");
+        waitFor(monitoringPlansPage.createModalSubHeader);
+        verifyEquals(monitoringPlansPage.createModalSubHeader, "Qualification Percent");
 
     }
 }

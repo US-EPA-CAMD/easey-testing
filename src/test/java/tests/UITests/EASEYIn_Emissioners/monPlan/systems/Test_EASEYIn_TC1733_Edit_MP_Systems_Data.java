@@ -52,7 +52,7 @@ public class Test_EASEYIn_TC1733_Edit_MP_Systems_Data extends UITestBase {
         input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Holcomb (Oris Code 8906)
+        // Clicks on Astoria Generating Station (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
@@ -103,7 +103,7 @@ public class Test_EASEYIn_TC1733_Edit_MP_Systems_Data extends UITestBase {
         click(monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), systemType);
 
