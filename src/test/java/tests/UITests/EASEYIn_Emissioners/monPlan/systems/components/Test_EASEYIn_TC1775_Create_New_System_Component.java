@@ -1,7 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.systems.components;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
@@ -73,6 +72,7 @@ public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase 
         waitFor(monitoringPlansPage.accordionSystemsLabel);
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: 211");
@@ -83,7 +83,7 @@ public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase 
         int numOfComponents = monitoringPlansPage.viewButtonSystemComponents.size();
 
         waitFor(monitoringPlansPage.addComponentBtn);
-        click(monitoringPlansPage.addComponentBtn.get(0));
+        click(monitoringPlansPage.addComponentBtn);
 
         waitFor(monitoringPlansPage.createNewComponentBtn);
         click(monitoringPlansPage.createNewComponentBtn);
