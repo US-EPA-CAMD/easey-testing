@@ -372,8 +372,8 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h3")
     public WebElement systemComponentsHeader;
 
-    @FindBy (id = "addBtn")
-    public List<WebElement> addComponentBtn;
+    @FindBy (id = "add-component-add-btn")
+    public WebElement addComponentBtn;
 
     @FindBy (id = "saveExtraBtn")
     public WebElement createNewComponentBtn;
@@ -545,7 +545,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
 
-    @FindBy (id ="closeXBtnTab")
+    @FindBy (css ="svg[id^='closeXBtnTab']")
     public List<WebElement> closeConfigTab;
 
     @FindBy (id ="checkOutBTN")
