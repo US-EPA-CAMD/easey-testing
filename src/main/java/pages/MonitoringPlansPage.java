@@ -414,7 +414,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButton;
 
-    @FindBy (id = "btnOpenSystemComponents")
+    @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButtonSystemComponents;
 
     @FindBy (id = "btnOpenFuelFlows")

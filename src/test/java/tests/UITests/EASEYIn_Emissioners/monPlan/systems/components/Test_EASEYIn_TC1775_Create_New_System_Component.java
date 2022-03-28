@@ -31,6 +31,7 @@ public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase 
         verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
         input(monitoringPlansPage.usernameFieldModal, username);
 
+        waitFor(monitoringPlansPage.passwordLabelModal);
         verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
         input(monitoringPlansPage.passwordFieldModal, password);
 
