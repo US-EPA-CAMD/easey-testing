@@ -1,12 +1,13 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.systems.components;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase {
+public class Test_EASEYIn_TC1776_Edit_System_Component extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -20,6 +21,7 @@ public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase 
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
+        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -31,7 +33,6 @@ public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase 
         verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
         input(monitoringPlansPage.usernameFieldModal, username);
 
-        waitFor(monitoringPlansPage.passwordLabelModal);
         verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
         input(monitoringPlansPage.passwordFieldModal, password);
 
@@ -55,7 +56,7 @@ public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase 
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
         click(monitoringPlansPage.configTabs.get(0));
@@ -81,48 +82,41 @@ public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase 
         waitFor(monitoringPlansPage.systemComponentsHeader);
         verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
 
-        int numOfComponents = monitoringPlansPage.viewButtonSystemComponents.size();
+        waitFor(monitoringPlansPage.systemComponentsTypeLabel);
+        verifyEquals(monitoringPlansPage.systemComponentsTypeLabel.get(1), "Type");
 
-        waitFor(monitoringPlansPage.addComponentBtn);
-        click(monitoringPlansPage.addComponentBtn);
-
-        waitFor(monitoringPlansPage.createNewComponentBtn);
-        click(monitoringPlansPage.createNewComponentBtn);
-
-        waitFor(monitoringPlansPage.createModalSubHeader);
-        verifyEquals(monitoringPlansPage.createModalSubHeader, "Create Component");
-
-        input(monitoringPlansPage.componentIdFieldModal, "TES");
-
-        waitFor(driver -> monitoringPlansPage.componentTypeDropdown.size() > 1);
-        click(monitoringPlansPage.componentTypeDropdown.get(1));
-
-        waitFor(driver -> monitoringPlansPage.componentSamDropdown.size() > 1);
-        click(monitoringPlansPage.componentSamDropdown.get(1));
-
-        waitFor(driver -> monitoringPlansPage.componentBasisDescriptionDropdown.size() > 1);
-        click(monitoringPlansPage.componentBasisDescriptionDropdown.get(1));
-
-        input(monitoringPlansPage.componentManufacturerFieldModal, "TEST Manu");
-
-        input(monitoringPlansPage.componentModelVersionFieldModal, "TEST Mod & Ver");
-
-        input(monitoringPlansPage.serialNumberFieldModal, "TES 12345");
-
-        input(monitoringPlansPage.modalStartDateField,"03/01/2022");
-        input(monitoringPlansPage.modalStartTimeField, "1");
-
-        click(monitoringPlansPage.saveCloseModal);
+        String componentType = monitoringPlansPage.systemComponentsTypeTableField.get(0).getText();
 
         waitFor(driver -> monitoringPlansPage.viewButtonSystemComponents.size() > 1);
-        Thread.sleep(3000);
+        verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View / Edit");
+        click(monitoringPlansPage.viewButtonSystemComponents.get(0));
 
-        int newNumOfComponents = monitoringPlansPage.viewButtonSystemComponents.size();
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: 211");
 
-        verifyTrue(newNumOfComponents == numOfComponents + 1);
+        waitFor(monitoringPlansPage.systemComponentsTypeModalLabel);
+        verifyEquals(monitoringPlansPage.systemComponentsTypeModalLabel, "Component Type");
 
+        if (componentType.equals("GFFM")) {
+            waitFor(monitoringPlansPage.systemComponentsTypeDropdown);
+            click(monitoringPlansPage.systemComponentsTypeDropdown.get(1));
+        } else {
+            waitFor(monitoringPlansPage.systemComponentsTypeDropdown);
+            click(monitoringPlansPage.systemComponentsTypeDropdown.get(11));
+        }
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.saveCloseModal);
+        waitFor(monitoringPlansPage.saveCloseModal);
+        click(monitoringPlansPage.saveCloseModal);
+
+        waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
+
+        Thread.sleep(2000);
+        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
+        verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), componentType);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
@@ -151,7 +145,7 @@ public class Test_EASEYIn_TC1775_Create_New_System_Component extends UITestBase 
         js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
 
         if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            js.executeScript("arguments[0].click();", monitoringPlansPage.logOutButton);
+            click(monitoringPlansPage.logOutButton);
             waitFor(monitoringPlansPage.logInButtonOpenModal);
             verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
         } else {

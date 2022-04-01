@@ -372,6 +372,18 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(1) > div > div > h3")
     public WebElement systemComponentsHeader;
 
+    @FindBy (id = "column-col2")
+    public List<WebElement> systemComponentsTypeLabel;
+
+    @FindBy (css = "div[class='systemsCompTable'] > div > div > div > div > div > div > div > div[role='gridcell']:nth-child(3)")
+    public List<WebElement> systemComponentsTypeTableField;
+
+    @FindBy (css = "label[for='Component Type']")
+    public WebElement systemComponentsTypeModalLabel;
+
+    @FindBy (css = "#Component-Type > option")
+    public List<WebElement> systemComponentsTypeDropdown;
+
     @FindBy (id = "add-component-add-btn")
     public WebElement addComponentBtn;
 
@@ -414,7 +426,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButton;
 
-    @FindBy (id = "btnOpenSystemComponents")
+    @FindBy (css = "div[role='gridcell'] > div > button[data-testid='button']")
     public List<WebElement> viewButtonSystemComponents;
 
     @FindBy (id = "btnOpenFuelFlows")
