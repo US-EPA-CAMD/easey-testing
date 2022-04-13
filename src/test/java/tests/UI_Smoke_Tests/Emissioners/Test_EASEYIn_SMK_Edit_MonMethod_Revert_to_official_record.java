@@ -21,7 +21,6 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -42,9 +41,8 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         js.executeScript("window.scrollBy(0,350)", "");
 
         waitFor(monitoringPlansPage.title);
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
+        waitFor(monitoringPlansPage.workspaceMonPlan);
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 
