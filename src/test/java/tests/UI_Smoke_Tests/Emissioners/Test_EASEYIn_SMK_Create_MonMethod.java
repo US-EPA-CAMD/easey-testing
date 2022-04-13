@@ -42,9 +42,8 @@ public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
         js.executeScript("window.scrollBy(0,350)", "");
 
         waitFor(monitoringPlansPage.title);
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
+        waitFor(monitoringPlansPage.workspaceMonPlan);
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 
