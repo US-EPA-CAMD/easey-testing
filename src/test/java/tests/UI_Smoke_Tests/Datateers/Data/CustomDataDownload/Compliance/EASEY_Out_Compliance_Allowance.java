@@ -114,39 +114,35 @@ public class EASEY_Out_Compliance_Allowance extends UITestBase {
         waitFor(campdElements.previewdata);
         click(campdElements.previewdata);
 
-        // Download as csv
 
         waitFor(campdElements.downloaddata);
-//        click(customDataDownloadPage.downloaddata);
+        click(campdElements.downloaddata);
 
+        {
+            try
+            {
+                Thread.sleep(10000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+        }
 
-//        // navigate to chrome downloads
-//
-//        driver.get("chrome://downloads");
-//
+        driver.get("chrome://downloads");
+
         JavascriptExecutor js1 = (JavascriptExecutor)driver;
 
-//            {
-//                try
-//                {
-//                    Thread.sleep(1000);
-//                }
-//                catch(InterruptedException ex)
-//                {
-//                    Thread.currentThread().interrupt();
-//                }
-//            }
-//        }
+        // get the latest downloaded file name
+        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
 
-//        // get the latest downloaded file name
-//        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
-//
-//        System.out.println(fileName);
-//
-//        String fileconfirm = "compliance-allowance";
-//
-//        verifyTrue(fileName.contains(fileconfirm));
-//
+        System.out.println(fileName);
+
+        String fileconfirm = "compliance-allowance";
+
+        verifyTrue(fileName.contains(fileconfirm));
+
+
 
         // test for JSON
 
@@ -249,38 +245,53 @@ public class EASEY_Out_Compliance_Allowance extends UITestBase {
         waitFor(campdElements.previewdata);
         click(campdElements.previewdata);
 
-        // Download as JSON
+    // Download as JSON
 
-        waitFor(campdElements.json);
+    waitFor(campdElements.downloaddata);
+    click(campdElements.downloaddata);
+
+    {
+        try
+        {
+            Thread.sleep(10000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+    waitFor(campdElements.json);
         js1.executeScript("arguments[0].click();", campdElements.json);
-        waitFor(campdElements.downloaddata);
-//        click(customDataDownloadPage.downloaddata);
+    waitFor(campdElements.downloaddata);
+    click(campdElements.downloaddata);
 
-//        // navigate to chrome downloads
-//
-//        driver.get("chrome://downloads");
-//
-//            {
-//                try
-//                {
-//                    Thread.sleep(1000);
-//                }
-//                catch(InterruptedException ex)
-//                {
-//                    Thread.currentThread().interrupt();
-//                }
-//            }
-//        }
+    {
+        try
+        {
+            Thread.sleep(10000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
 
-//        // get the latest downloaded file name
-//        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
-//
-//        System.out.println(fileName);
-//
-//        String fileconfirm = "compliance-allowance";
-//
-//        verifyTrue(fileName.contains(fileconfirm));
-//
+
+    //navigate to chrome downloads
+
+        driver.get("chrome://downloads");
+
+
+
+    // get the latest downloaded file name
+    String JfileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
+
+        System.out.println(JfileName);
+
+    String Jfileconfirm = "compliance-allowance";
+
+    verifyTrue(JfileName.contains(Jfileconfirm));
+
 
     }
 }

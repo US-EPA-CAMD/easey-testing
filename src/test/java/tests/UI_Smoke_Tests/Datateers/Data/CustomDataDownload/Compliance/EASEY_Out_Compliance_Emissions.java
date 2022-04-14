@@ -106,36 +106,32 @@ public class EASEY_Out_Compliance_Emissions extends UITestBase {
 
         // Download as csv
 
+
         waitFor(campdElements.downloaddata);
-//        click(customDataDownloadPage.downloaddata);
+        click(campdElements.downloaddata);
+        {
+            try
+            {
+                Thread.sleep(10000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+        }
 
+        driver.get("chrome://downloads");
 
-//        // navigate to chrome downloads
-//
-//        driver.get("chrome://downloads");
-//
         JavascriptExecutor js1 = (JavascriptExecutor)driver;
 
-//            {
-//                try
-//                {
-//                    Thread.sleep(1000);
-//                }
-//                catch(InterruptedException ex)
-//                {
-//                    Thread.currentThread().interrupt();
-//                }
-//            }
-//        }
+        // get the latest downloaded file name
+        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
 
-//        // get the latest downloaded file name
-//        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
-//
-//        System.out.println(fileName);
-//
-//        String fileconfirm = "compliance-allowance";
-//
-//        verifyTrue(fileName.contains(fileconfirm));
+        System.out.println(fileName);
+
+        String fileconfirm = "compliance-emissions";
+
+        verifyTrue(fileName.contains(fileconfirm));
 //
 
         // test for JSON
@@ -234,33 +230,52 @@ public class EASEY_Out_Compliance_Emissions extends UITestBase {
         waitFor(campdElements.json);
         js1.executeScript("arguments[0].click();", campdElements.json);
         waitFor(campdElements.downloaddata);
-//        click(customDataDownloadPage.downloaddata);
+        // Download as JSON
 
-//        // navigate to chrome downloads
-//
-//        driver.get("chrome://downloads");
-//
-//            {
-//                try
-//                {
-//                    Thread.sleep(1000);
-//                }
-//                catch(InterruptedException ex)
-//                {
-//                    Thread.currentThread().interrupt();
-//                }
-//            }
-//        }
+        waitFor(campdElements.downloaddata);
+        click(campdElements.downloaddata);
 
-//        // get the latest downloaded file name
-//        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
-//
-//        System.out.println(fileName);
-//
-//        String fileconfirm = "compliance-emissions";
-//
-//        verifyTrue(fileName.contains(fileconfirm));
-//
+        {
+            try
+            {
+                Thread.sleep(10000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+        }
+        waitFor(campdElements.json);
+        js1.executeScript("arguments[0].click();", campdElements.json);
+        waitFor(campdElements.downloaddata);
+        click(campdElements.downloaddata);
+
+        {
+            try
+            {
+                Thread.sleep(10000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+        }
+
+
+        //navigate to chrome downloads
+
+        driver.get("chrome://downloads");
+
+
+
+        // get the latest downloaded file name
+        String JfileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
+
+        System.out.println(JfileName);
+
+        String Jfileconfirm = "compliance-emissions";
+
+        verifyTrue(JfileName.contains(Jfileconfirm));
 
     }
 }
