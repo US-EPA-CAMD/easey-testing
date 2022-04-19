@@ -2,7 +2,7 @@ package tests.UI_Smoke_Tests.Datateers.Data;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CampdElements;
+import pages.campdElements;
 import tests.utils.UITestBase;
 
 public class EASEY_Out_APIS extends UITestBase  {
@@ -13,7 +13,7 @@ public class EASEY_Out_APIS extends UITestBase  {
 
         goTo("https://campd-dev.app.cloud.gov");
         Actions action = new Actions(driver);
-        CampdElements campdElements = new CampdElements(driver);
+        campdElements campdElements = new campdElements(driver);
 
         waitFor(campdElements.hometitle);
 // Click data menu

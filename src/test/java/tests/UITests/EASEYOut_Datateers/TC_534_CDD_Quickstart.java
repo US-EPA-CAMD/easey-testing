@@ -2,7 +2,7 @@ package tests.UITests.EASEYOut_Datateers;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CampdElements;
+import pages.campdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -15,7 +15,7 @@ public class TC_534_CDD_Quickstart extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov");
         Actions action = new Actions(driver);
-        CampdElements campdElements = new CampdElements(driver);
+        campdElements campdElements = new campdElements(driver);
 
         waitFor(campdElements.hometitle);
 

@@ -2,7 +2,7 @@ package tests.UI_Smoke_Tests.Datateers.Resources;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CampdElements;
+import pages.campdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -15,7 +15,7 @@ public class EASEY_Out_Glossary extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov");
         Actions action = new Actions(driver);
-        CampdElements campdElements = new CampdElements(driver);
+        campdElements campdElements = new campdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
         waitFor(campdElements.resources);

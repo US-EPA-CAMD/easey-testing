@@ -7,7 +7,7 @@ import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 
 
-public class TC_541_Facility_DataType extends UITestBase {
+public class TC_655_Update_Facility_Attributes extends UITestBase {
     @Test
     public void test() {
 
@@ -24,21 +24,13 @@ public class TC_541_Facility_DataType extends UITestBase {
         waitFor(campdElements.dataoption.get(4));
         click(campdElements.dataoption.get(4));
 
-        waitFor(campdElements.subtypeDropdown);
-        click(campdElements.subtypeDropdown);
         jse.executeScript("scroll(0, 250);");
-        waitFor(campdElements.subtypeoption.get(1));
-        click(campdElements.subtypeoption.get(1));
+ ;
 
         waitFor(campdElements.applyBtn);
         click(campdElements.applyBtn);
 
         waitFor(campdElements.previewdata);
-
-        waitFor(campdElements.filtercriteria.get(0));
-        int filters = campdElements.filtercriteria.size();
-
-        System.out.println(filters);
 
 
     }

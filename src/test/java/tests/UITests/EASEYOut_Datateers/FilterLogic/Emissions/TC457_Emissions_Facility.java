@@ -3,7 +3,7 @@ package tests.UITests.EASEYOut_Datateers.FilterLogic.Emissions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CampdElements;
+import pages.campdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -14,7 +14,7 @@ public class TC457_Emissions_Facility extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
         Actions action = new Actions(driver);
-        CampdElements campdElements = new CampdElements(driver);
+        campdElements campdElements = new campdElements(driver);
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
@@ -31,12 +31,6 @@ public class TC457_Emissions_Facility extends UITestBase {
         waitFor(campdElements.subtypeoption.get(1));
         click(campdElements.subtypeoption.get(1));
 //Select HourlyEmissions Subtype
-
-        waitFor(campdElements.subtypeDropdown);
-        click(campdElements.subtypeDropdown);
-
-        waitFor(campdElements.subtypeoption.get(1));
-        click(campdElements.subtypeoption.get(1));
 
         waitFor(campdElements.applyBtn);
         click(campdElements.applyBtn);

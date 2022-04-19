@@ -7,9 +7,9 @@ import utils.PageBase;
 
 import java.util.List;
 
-public class CampdElements extends PageBase {
+public class campdElements extends PageBase {
 
-    public CampdElements(WebDriver driver) {
+    public campdElements(WebDriver driver) {
         super(driver);
     }
 
@@ -51,16 +51,16 @@ public class CampdElements extends PageBase {
         @FindBy(css = "button[aria-controls='menu-DATA']")
         public WebElement datamenu;
 
-            @FindBy(css="nav.usa-nav:nth-child(2) > ul >li:nth-child(2) >ul > li:nth-child(2) > a")
+            @FindBy(css="span:nth-child(2) > nav.usa-nav > ul > li:nth-child(2) > ul  > li:nth-child(2) > a")
             public WebElement datadownload;
 
-            @FindBy(css="nav.usa-nav:nth-child(2) > ul >li:nth-child(2) >ul > li:nth-child(3) > a")
+            @FindBy(css="span:nth-child(2) > nav.usa-nav > ul > li:nth-child(2) > ul  > li:nth-child(3) > a")
             public WebElement bulkdata;
 
-            @FindBy(css="nav.usa-nav:nth-child(2) > ul >li:nth-child(2) >ul > li:nth-child(1) > a")
+            @FindBy(css="span:nth-child(2) > nav.usa-nav > ul > li:nth-child(2) > ul  > li:nth-child(1) > a ")
             public WebElement datahome;
 
-            @FindBy(css="nav.usa-nav:nth-child(2) > ul >li:nth-child(2) >ul > li:nth-child(4) > a")
+            @FindBy(css="span:nth-child(2) > nav.usa-nav > ul > li:nth-child(2) > ul  > li:nth-child(4) > a")
             public WebElement camapi;
 
       // Related Resources Links
@@ -105,6 +105,33 @@ public class CampdElements extends PageBase {
     public List<WebElement> datahomebutton;
 
 // Bulk Data
+    @FindBy(id = "bulk-data-files-table-search")
+    public WebElement bddsearch;
+
+    @FindBy(css = "div.width-full > header > form > button")
+    public WebElement bddsearchsubmit;
+
+    @FindBy(css = "span[aria-live='assertive']")
+    public WebElement bddalert;
+
+    @FindBy(id = "sub-type")
+    public WebElement bddsubtype;
+
+    @FindBy(css = "select[id='sub-type'] > option")
+    public List<WebElement> suboption;
+
+    @FindBy(id = "grouping")
+    public WebElement grouping;
+
+    @FindBy(css = "select[id='grouping'] > option")
+    public List<WebElement> groupingoption;
+
+    @FindBy(id = "states")
+    public WebElement states;
+
+    @FindBy(css = "select[id='states'] > option")
+    public List<WebElement> statesoption;
+
     @FindBy(id = "Allowances")
     public WebElement allowance;
 
@@ -116,6 +143,37 @@ public class CampdElements extends PageBase {
 
     @FindBy(id = "RawEmissions(XML)")
     public WebElement rawemissions;
+
+    @FindBy(css = "div[role='columnheader']")
+    public List<WebElement> columnheaders;
+
+    @FindBy(css = "div[role='columnheader'] > span ")
+    public List<WebElement> columnheaderssort;
+
+
+    @FindBy(css = "nav.rdt_Pagination")
+    public WebElement paginationnav;
+
+    @FindBy(css = "nav.rdt_Pagination > div > select")
+    public WebElement paginationAmount;
+
+    @FindBy(css = "button[id='pagination-next-page']")
+    public WebElement paginationbutton;
+
+    @FindBy(css = "div[id='bulk-data-files'] > div:nth-child(2) > div:nth-child(2) > div > div > div.width-full > div > div > div > div:nth-child(2) > div > div:nth-child(4)  > div")
+    public List<WebElement> BDDdescription;
+
+    @FindBy(css = "div[id='bulk-data-files'] > div > div >div > button")
+    public WebElement clearAll;
+
+    @FindBy(css = "div.download-wrapper > button")
+    public WebElement bulkDataDownload;
+
+    @FindBy(css = "input[type='checkbox']")
+    public List<WebElement> checkbox;
+
+    @FindBy(css = "a[id='file-link']")
+    public List<WebElement> filelinks;
 
 // Custom Data Download
 
@@ -149,6 +207,15 @@ public class CampdElements extends PageBase {
     @FindBy(css = "div.filter-container > p.padding-y-0 > button")
     public List<WebElement> filtercriteria;
 
+    @FindBy(css = "div[id='container']")
+    public List<WebElement> columnhead;
+
+    @FindBy(css = "div[id='container'] > span > svg:nth-child(2) > path")
+    public List<WebElement> ellipsis;
+
+    @FindBy(css = "div[id='basic-menu'] > div:nth-child(3) > ul > li")
+    public List<WebElement> ellipsisModal;
+
     @FindBy(css = "input[id='event-date-start']")
     public WebElement datestart;
 
@@ -166,7 +233,6 @@ public class CampdElements extends PageBase {
 
     @FindBy(id= "previewDataButton")
     public WebElement previewdata;
-
 
     @FindBy(css = "div[data-testid='checkbox'] > label")
     public List<WebElement> label;

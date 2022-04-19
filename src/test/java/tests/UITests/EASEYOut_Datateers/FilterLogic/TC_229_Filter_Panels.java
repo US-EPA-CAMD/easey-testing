@@ -4,7 +4,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CampdElements;
+import pages.campdElements;
 import tests.utils.UITestBase;
 
 
@@ -13,7 +13,7 @@ public class TC_229_Filter_Panels extends UITestBase {
     public void test() {
         goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
         Actions action = new Actions(driver);
-        CampdElements campdElements = new CampdElements(driver);
+        campdElements campdElements = new campdElements(driver);
         Dimension dimension = new Dimension(480, 1080);
 
         driver.manage().window().setSize(dimension);

@@ -4,7 +4,7 @@ package tests.UITests.EASEYOut_Datateers.FilterLogic.Allowance;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CampdElements;
+import pages.campdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -17,7 +17,7 @@ public class TC_470_Allowance_Account extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov/");
         Actions action = new Actions(driver);
-        CampdElements campdElements = new CampdElements(driver);
+        campdElements campdElements = new campdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
         // Navigate to Custom Data Download
@@ -148,7 +148,7 @@ public class TC_470_Allowance_Account extends UITestBase {
         {
             try
             {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             }
             catch(InterruptedException ex)
             {

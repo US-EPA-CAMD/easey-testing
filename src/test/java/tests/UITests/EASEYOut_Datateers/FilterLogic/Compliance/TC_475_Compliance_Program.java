@@ -3,7 +3,7 @@ package tests.UITests.EASEYOut_Datateers.FilterLogic.Compliance;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CampdElements;
+import pages.campdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -14,7 +14,7 @@ public class TC_475_Compliance_Program extends UITestBase {
 
         goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
         Actions action = new Actions(driver);
-        CampdElements campdElements = new CampdElements(driver);
+        campdElements campdElements = new campdElements(driver);
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 

@@ -2,7 +2,7 @@ package tests.UITests.EASEYOut_Datateers.FilterLogic.Emissions;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CampdElements;
+import pages.campdElements;
 import tests.utils.UITestBase;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -12,7 +12,7 @@ public class TC_525_Emissions_Update_Facility_Year_CDD extends UITestBase {
     public void test() {
         goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
         Actions action = new Actions(driver);
-        CampdElements campdElements = new CampdElements(driver);
+        campdElements campdElements = new campdElements(driver);
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
