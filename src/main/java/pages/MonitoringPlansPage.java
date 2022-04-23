@@ -438,8 +438,24 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.sc-jrsJWt.khlPsW.rdt_TableRow > div:nth-child(4)")
     public List<WebElement> componentsViewButton;
 
-    @FindBy (id = "btnOpenAnalyzerRanges")
+    @FindBy (css = "div[id='datatableContainer'] > div > h3")
+    public WebElement analyzerRangesHeader;
+
+    // Shorter Locator is needed
+    @FindBy (css = "div[class='systemsCompTable'] > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div > div > div > button[epa-testid='btnOpen']")
     public List<WebElement> analyzerRangesViewButton;
+
+    @FindBy (css = "div[aria-label='DataTable for Analyzer Ranges'] > div:nth-child(2) > div > div:nth-child(2) > div")
+    public List<WebElement> analyzerRangesRangeTableField;
+
+    @FindBy (css = "div[class='usa-form-group margin-top-0'] > h3")
+    public List<WebElement> analyzerRangesLabelsGlobal;
+
+    @FindBy (css = "label[for='Range']")
+    public WebElement analyzerRangesRangeLabelLoggedIn;
+
+    @FindBy (css = "#Range > option")
+    public List<WebElement> analyzerRangesRangeDropdown;
 
     @FindBy (css = "label[for='ComponentID']")
     public WebElement componentIdModal;
