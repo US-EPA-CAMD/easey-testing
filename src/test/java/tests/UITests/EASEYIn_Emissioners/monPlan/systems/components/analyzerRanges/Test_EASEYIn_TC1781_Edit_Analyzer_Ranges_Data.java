@@ -1,4 +1,4 @@
-package tests.UI_Smoke_Tests.Emissioners;
+package tests.UITests.EASEYIn_Emissioners.monPlan.systems.components.analyzerRanges;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
+public class Test_EASEYIn_TC1781_Edit_Analyzer_Ranges_Data extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -60,7 +60,6 @@ public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
 
         click(monitoringPlansPage.configTabs.get(0));
 
-        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         waitFor(monitoringPlansPage.configcheckOutButton);
@@ -70,30 +69,65 @@ public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
         waitFor(monitoringPlansPage.configcheckBackInButton);
         verifyEquals(monitoringPlansPage.configcheckBackInButton, "Check Back In");
 
-        // This wait is needed inorder to allow the View button to change from View to View / Edit
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
+        click(monitoringPlansPage.monitoringSystems);
+        waitFor(monitoringPlansPage.accordionSystemsLabel);
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createMonMethodsButton);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        click(monitoringPlansPage.viewButton.get(0));
 
-        int numOfMethods = monitoringPlansPage.viewButton.size();
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: 211");
 
-        click(monitoringPlansPage.createMonMethodsButton);
+        waitFor(monitoringPlansPage.systemComponentsHeader);
+        verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
 
-        waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
-        click(monitoringPlansPage.monMethodsModalMethodologyDropdown.get(1));
-        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
-        input(monitoringPlansPage.modalStartTimeField, "1");
+        waitFor(driver -> monitoringPlansPage.viewButtonSystemComponents.size() > 1);
+        verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View / Edit");
+        click(monitoringPlansPage.viewButtonSystemComponents.get(0));
 
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: 211");
+
+        // Verify Analyzer Ranges header
+        waitFor(monitoringPlansPage.analyzerRangesHeader);
+        verifyEquals(monitoringPlansPage.analyzerRangesHeader, "Analyzer Ranges");
+
+        // Confirm Range of Analyzer Ranges
+        waitFor(driver -> monitoringPlansPage.analyzerRangesRangeTableField.size() > 0);
+        String range = monitoringPlansPage.analyzerRangesRangeTableField.get(0).getText();
+
+        // Open Analyzer Range
+        click(monitoringPlansPage.analyzerRangesViewButton.get(0));
+
+        // Select new Range
+        waitFor(monitoringPlansPage.analyzerRangesRangeLabelLoggedIn);
+        verifyEquals(monitoringPlansPage.analyzerRangesRangeLabelLoggedIn, "Range");
+
+
+        if (range.equals("A")) {
+            waitFor(monitoringPlansPage.analyzerRangesRangeDropdown);
+            click(monitoringPlansPage.analyzerRangesRangeDropdown.get(2));
+        } else {
+            waitFor(monitoringPlansPage.analyzerRangesRangeDropdown);
+            click(monitoringPlansPage.analyzerRangesRangeDropdown.get(1));
+        }
+
+        // Confirm that Range has updated
+        waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
 
-        waitFor(monitoringPlansPage.viewButton);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        waitFor(monitoringPlansPage.analyzerRangesRangeTableField.get(0));
+        verifyNotEquals(monitoringPlansPage.analyzerRangesRangeTableField.get(0).getText(), range);
 
-        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.saveCloseModal);
+        waitFor(monitoringPlansPage.saveCloseModal);
+        click(monitoringPlansPage.saveCloseModal);
 
-        verifyTrue(newNumOfMethods == numOfMethods + 1);
+        waitFor(monitoringPlansPage.saveCloseModal);
+        click(monitoringPlansPage.saveCloseModal);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
@@ -107,10 +141,12 @@ public class Test_EASEYIn_SMK_Create_MonMethod extends UITestBase {
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
 
-        // These steps closes the tab and automatically Checks Back In the configuration
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        // These steps Checks Back In the configuration
+        waitFor(monitoringPlansPage.configcheckBackInButton);
+        click(monitoringPlansPage.configcheckBackInButton);
+
+        waitFor(monitoringPlansPage.configcheckOutButton);
+        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
 
     }
     @Override

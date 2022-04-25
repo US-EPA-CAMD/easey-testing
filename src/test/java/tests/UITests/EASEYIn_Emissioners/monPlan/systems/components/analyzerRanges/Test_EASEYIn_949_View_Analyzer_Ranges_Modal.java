@@ -32,6 +32,7 @@ public class Test_EASEYIn_949_View_Analyzer_Ranges_Modal extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringSystems);
         click(monitoringPlansPage.monitoringSystems);
 
         waitFor(monitoringPlansPage.accordionSystemsLabel);
@@ -41,6 +42,7 @@ public class Test_EASEYIn_949_View_Analyzer_Ranges_Modal extends UITestBase {
         click(monitoringPlansPage.location.get(2));
         verifyTrue(monitoringPlansPage.location.get(2).isSelected());
 
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
@@ -48,20 +50,24 @@ public class Test_EASEYIn_949_View_Analyzer_Ranges_Modal extends UITestBase {
 
         waitFor(monitoringPlansPage.systemFuelFlowsHeader);
 
+        waitFor(monitoringPlansPage.systemComponentsHeader);
         verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
 
+        waitFor(driver -> monitoringPlansPage.viewButtonSystemComponents.size() > 1);
         verifyEquals(monitoringPlansPage.viewButtonSystemComponents.get(0).getText(), "View");
         click(monitoringPlansPage.viewButtonSystemComponents.get(0));
 
         verifyEquals(monitoringPlansPage.monPlanModalSysSecondTableHeaderLabel, "Component: AA7");
 
-        waitFor(monitoringPlansPage.monPlanAnalyzerRangesHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanAnalyzerRangesHeaderLabel, "Analyzer Ranges");
+        waitFor(monitoringPlansPage.analyzerRangesHeader);
+        verifyEquals(monitoringPlansPage.analyzerRangesHeader, "Analyzer Ranges");
 
         waitFor(driver -> monitoringPlansPage.analyzerRangesViewButton.size() > 0);
         verifyEquals(monitoringPlansPage.analyzerRangesViewButton.get(0).getText(), "View");
+        click(monitoringPlansPage.analyzerRangesViewButton.get(0));
 
-        // Clicking on the View button is not implemented at this time
+        waitFor(monitoringPlansPage.analyzerRangesLabelsGlobal);
+        verifyEquals(monitoringPlansPage.analyzerRangesLabelsGlobal.get(0), "Range");
 
     }
 }

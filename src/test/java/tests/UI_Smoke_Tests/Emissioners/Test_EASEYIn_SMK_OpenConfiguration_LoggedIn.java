@@ -52,10 +52,9 @@ public class Test_EASEYIn_SMK_OpenConfiguration_LoggedIn extends UITestBase {
         waitFor(monitoringPlansPage.title);
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.title);
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
         // Verifying that the Monitoring Plans in Workspace in Visible
+        waitFor(monitoringPlansPage.workspaceMonPlan);
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 

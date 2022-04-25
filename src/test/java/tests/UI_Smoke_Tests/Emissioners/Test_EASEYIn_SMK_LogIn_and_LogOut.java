@@ -47,8 +47,6 @@ public class Test_EASEYIn_SMK_LogIn_and_LogOut extends UITestBase {
 
         // Verifying that the system has logged in by verifying that the Workspace is now visible
         waitFor(monitoringPlansPage.title);
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
         // Verifying that Log In has now changed to Log Out
         waitFor(monitoringPlansPage.logOutButton);
