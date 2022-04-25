@@ -445,6 +445,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div[class='systemsCompTable'] > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div > div > div > button[epa-testid='btnOpen']")
     public List<WebElement> analyzerRangesViewButton;
 
+    @FindBy (id = "create-new-analyzer-range-add-btn")
+    public WebElement createAnalyzerRangeButton;
+
     @FindBy (css = "div[aria-label='DataTable for Analyzer Ranges'] > div:nth-child(2) > div > div:nth-child(2) > div")
     public List<WebElement> analyzerRangesRangeTableField;
 
