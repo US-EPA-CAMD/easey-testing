@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class API_TC_599_MATS_Data_Filter extends APITestBase {
+    String apikey = System.getenv("campdAPI");
 
     @BeforeMethod
     public void beforeMethod() {
@@ -32,7 +33,7 @@ public class API_TC_599_MATS_Data_Filter extends APITestBase {
     @Test(dataProvider = "csv")
     public void test2(Map<String, String> map) {
 
-        String url2 = "/emissions-mgmt/apportioned/mats/hourly/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&beginDate=2020-01-01&endDate=2020-01-01";
+        String url2 = "/emissions-mgmt/apportioned/mats/hourly/stream?api_key=" + apikey + "&beginDate=2020-01-01&endDate=2020-01-01";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -79,7 +80,7 @@ public class API_TC_599_MATS_Data_Filter extends APITestBase {
     }
     @Test(dataProvider = "csv")
     public void test3(Map<String, String> map) {
-        String url3 = "/emissions-mgmt/apportioned/mats/hourly/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&facilityId=invalid&unitType=invalid&unitFuelType=invalid&controlTechnologies=invalid&stateCode=texas&beginDate=2019-01-01&endDate=2019-01-01";
+        String url3 = "/emissions-mgmt/apportioned/mats/hourly/stream?api_key="+ apikey + "&facilityId=invalid&unitType=invalid&unitFuelType=invalid&controlTechnologies=invalid&stateCode=texas&beginDate=2019-01-01&endDate=2019-01-01";
         Response response;
         String expectedResult1 = "One or more stateCodes are not valid. Use the two letter postal abbreviation (use TX, not Texas)";
         String expectedResult2 = "One or more facilityIds are not valid. Refer to the list of available facilityIds for valid values https://api.epa.gov/easey/dev/facilities-mgmt/facilities";

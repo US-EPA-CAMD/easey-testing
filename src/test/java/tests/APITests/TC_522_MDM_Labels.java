@@ -15,8 +15,11 @@ import java.util.Map;
 import java.util.Timer;
 
 public class TC_522_MDM_Labels extends APITestBase {
+    String apikey = System.getenv("campdAPI");
+
     @BeforeMethod
     public void beforeMethod() {
+
         super.beforeMethod();
         super.setup("https://api.epa.gov/easey/dev");
     }
@@ -31,7 +34,7 @@ public class TC_522_MDM_Labels extends APITestBase {
     @Test(dataProvider = "csv")
     public void test(Map<String, String> map) {
 
-        String [] Urls  = {"/master-data-mgmt/control-technologies?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB"};
+        String [] Urls  = {"/master-data-mgmt/control-technologies?api_key="+ apikey};
 
 
         Response response;

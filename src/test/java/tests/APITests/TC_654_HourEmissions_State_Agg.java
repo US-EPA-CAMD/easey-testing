@@ -14,6 +14,8 @@ import java.util.Map;
 
 public class TC_654_HourEmissions_State_Agg extends APITestBase {
 
+    String apikey = System.getenv("campdAPI");
+
     @BeforeMethod
     public void beforeMethod() {
         super.beforeMethod();
@@ -31,9 +33,10 @@ public class TC_654_HourEmissions_State_Agg extends APITestBase {
 
     @Test(dataProvider = "csv")
     public void test1(Map<String, String> map) {
+        String apikey = System.getenv("campdAPI");
 
     //      Step 1: Perform a Request on streaming Endpoint with no criteria
-        String url = "/emissions-mgmt/apportioned/hourly/state/?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&stateCode=TX&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
+        String url = "/emissions-mgmt/apportioned/hourly/state/?api_key=" + apikey + "&stateCode=TX&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
         JSONArray res = getJSONArray(url);
 
         for (Object r : res) {
@@ -90,7 +93,7 @@ public class TC_654_HourEmissions_State_Agg extends APITestBase {
     public void test3(Map<String, String> map) {
 
     //      Step 1: Perform a Request on streaming Endpoint with no criteria
-        String url3 = "/emissions-mgmt/apportioned/hourly/state/?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&stateCode=AL&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
+        String url3 = "/emissions-mgmt/apportioned/hourly/state/?api_key="+ apikey +"&stateCode=AL&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
         JSONArray res3 = getJSONArray(url3);
 
         for (Object r : res3) {
@@ -120,7 +123,7 @@ public class TC_654_HourEmissions_State_Agg extends APITestBase {
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
-        String url4 = "/emissions-mgmt/apportioned/hourly/state/?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&unitType=Stoker&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
+        String url4 = "/emissions-mgmt/apportioned/hourly/state/?api_key="+ apikey +"&unitType=Stoker&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
         JSONArray res4 = getJSONArray(url4);
 
         for (Object r : res4) {
@@ -149,7 +152,7 @@ public class TC_654_HourEmissions_State_Agg extends APITestBase {
     public void test5(Map<String, String> map) {
 
     //      Step 1: Perform a Request on streaming Endpoint with no criteria
-        String url5  = "/emissions-mgmt/apportioned/hourly/state/?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&unitFuelType=coal&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
+        String url5  = "/emissions-mgmt/apportioned/hourly/state/?api_key="+ apikey +"&unitFuelType=coal&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
         JSONArray res5 = getJSONArray(url5);
 
         for (Object r : res5) {
@@ -178,7 +181,7 @@ public class TC_654_HourEmissions_State_Agg extends APITestBase {
     public void test6(Map<String, String> map) {
 
         //      Step 1: Perform a Request on streaming Endpoint with no criteria
-        String url6 = "/emissions-mgmt/apportioned/hourly/state/?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&controlTechnologies=Other&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
+        String url6 = "/emissions-mgmt/apportioned/hourly/state/?api_key="+ apikey +"&controlTechnologies=Other&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
         JSONArray res6 = getJSONArray(url6);
 
         for (Object r : res6) {
@@ -207,7 +210,7 @@ public class TC_654_HourEmissions_State_Agg extends APITestBase {
     public void test7(Map<String, String> map) {
 
         //      Step 1: Perform a Request on streaming Endpoint with no criteria
-        String url7 = "/emissions-mgmt/apportioned/hourly/state/?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&programCodeInfo=ARP&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
+        String url7 = "/emissions-mgmt/apportioned/hourly/state/?api_key=" + apikey + "&programCodeInfo=ARP&beginDate=2020-01-01&endDate=2020-01-01&page=1&perPage=100";
         JSONArray res7 = getJSONArray(url7);
 
         for (Object r : res7) {
@@ -240,7 +243,7 @@ public class TC_654_HourEmissions_State_Agg extends APITestBase {
     public void test8(Map<String, String> map) {
 
 
-        String url8 = "/emissions-mgmt/apportioned/hourly/state/?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&stateCode=Texas&facilityId=h&unitType=j&unitFuelType=k&controlTechnologies=l&programCodeInfo=m&beginDate=01/01/0128&endDate=2023-01-01";
+        String url8 = "/emissions-mgmt/apportioned/hourly/state/?api_key="+ apikey +"&stateCode=Texas&facilityId=h&unitType=j&unitFuelType=k&controlTechnologies=l&programCodeInfo=m&beginDate=01/01/0128&endDate=2023-01-01";
         Response response;
         response = getResponse(url8);
         verifyTrue((response.getStatusCode() == 400));
@@ -253,7 +256,7 @@ public class TC_654_HourEmissions_State_Agg extends APITestBase {
     public void test9(Map<String, String> map) {
 
 
-        String url9 = "/emissions-mgmt/apportioned/hourly/state/stream/?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&stateCode=invalid&facilityId=invalid&unitType=invalid&unitFuelType=invalid&controlTechnologies=invalid&programCodeInfo=invalid&beginDate=01/01/2020&endDate=01/01/2020";
+        String url9 = "/emissions-mgmt/apportioned/hourly/state/stream/?api_key=" + apikey + "&stateCode=invalid&facilityId=invalid&unitType=invalid&unitFuelType=invalid&controlTechnologies=invalid&programCodeInfo=invalid&beginDate=01/01/2020&endDate=01/01/2020";
         Response response;
         response = getResponse(url9);
         verifyTrue((response.getStatusCode() == 400));

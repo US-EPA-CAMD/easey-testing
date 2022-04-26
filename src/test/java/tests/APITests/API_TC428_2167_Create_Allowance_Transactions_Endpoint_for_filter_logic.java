@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 public class API_TC428_2167_Create_Allowance_Transactions_Endpoint_for_filter_logic extends APITestBase {
+    String apikey = System.getenv("campdAPI");
 
     @BeforeMethod
     public void beforeMethod() {
@@ -36,7 +37,7 @@ public class API_TC428_2167_Create_Allowance_Transactions_Endpoint_for_filter_lo
     @Test(dataProvider = "csv")
     public void test(Map<String, String> map) {
 
-        String url = "/account-mgmt/allowance-transactions/attributes/applicable/?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&transactionBeginDate=2020-09-30&transactionEndDate=2021-09-30";
+        String url = "/account-mgmt/allowance-transactions/attributes/applicable/?api_key=" + apikey + "&transactionBeginDate=2020-09-30&transactionEndDate=2021-09-30";
         Response response;
 
 //      Step 1: Perform a GET request without entering beginDate or endDate

@@ -11,6 +11,7 @@ import tests.utils.CSVParser;
 import java.util.List;
 import java.util.Map;
 public class API_TC_567_Emissions_Compliance_Streaming extends APITestBase {
+    String apikey = System.getenv("campdAPI");
 
     @BeforeMethod
     public void beforeMethod() {
@@ -29,7 +30,7 @@ public class API_TC_567_Emissions_Compliance_Streaming extends APITestBase {
 
     @Test(dataProvider = "csv")
     public void test(Map<String, String> map) {
-        String url = "/account-mgmt/emissions-compliance/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB";
+        String url = "/account-mgmt/emissions-compliance/stream?api_key=" + apikey;
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
         JSONArray res = getJSONArray(url);
         for (Object r : res) {
@@ -56,7 +57,7 @@ public class API_TC_567_Emissions_Compliance_Streaming extends APITestBase {
     @Test(dataProvider = "csv")
     public void test2(Map<String, String> map) {
 
-        String url2 = "/account-mgmt/emissions-compliance/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&sellState=GA";
+        String url2 = "/account-mgmt/emissions-compliance/stream?api_key=" + apikey + "&sellState=GA";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -87,7 +88,7 @@ public class API_TC_567_Emissions_Compliance_Streaming extends APITestBase {
     @Test(dataProvider = "csv")
     public void test3(Map<String, String> map) {
 
-        String url3 = "/account-mgmt/emissions-compliance/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&sellState=GA&page=1&perPage=1";
+        String url3 = "/account-mgmt/emissions-compliance/stream?api_key=" + apikey + "&sellState=GA&page=1&perPage=1";
 
         JSONArray res3 = getJSONArray(url3);
 

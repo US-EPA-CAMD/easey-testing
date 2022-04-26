@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class API_TC_596_MATS_Data extends APITestBase {
+    String apikey = System.getenv("campdAPI");
 
     @BeforeMethod
     public void beforeMethod() {
@@ -31,10 +32,10 @@ public class API_TC_596_MATS_Data extends APITestBase {
 
     @Test(dataProvider = "csv")
     public void test(Map<String, String> map) {
-        String url = "/emissions-mgmt/apportioned/mats/hourly?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&page=1&perPage=1";
+        String url = "/emissions-mgmt/apportioned/mats/hourly?api_key=" + apikey + "&page=1&perPage=1";
         Response response;
-        String expectedResult1 = "beginDate should not be null or undefined";
-        String expectedResult2 = "endDate should not be null or undefined";
+        String expectedResult1 = "beginDate should not be null, undefined, or empty";
+        String expectedResult2 = "endDate should not be null, undefined, or empty";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
         response = getResponse(url);
@@ -45,7 +46,7 @@ public class API_TC_596_MATS_Data extends APITestBase {
     @Test(dataProvider = "csv")
     public void test2(Map<String, String> map) {
 
-        String url2 = "/emissions-mgmt/apportioned/mats/hourly?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&beginDate=2020-01-01&endDate=2020-01-02&page=1&perPage=1";
+        String url2 = "/emissions-mgmt/apportioned/mats/hourly?api_key=" + apikey +"&beginDate=2020-01-01&endDate=2020-01-02&page=1&perPage=1";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -92,7 +93,7 @@ public class API_TC_596_MATS_Data extends APITestBase {
     }
     @Test(dataProvider = "csv")
     public void test3(Map<String, String> map) {
-        String url3 = "/emissions-mgmt/apportioned/mats/hourly?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&facilityId=invalid&unitType=invalid&unitFuelType=invalid&controlTechnologies=invalid&stateCode=texas&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=1";
+        String url3 = "/emissions-mgmt/apportioned/mats/hourly?api_key="+ apikey +"&facilityId=invalid&unitType=invalid&unitFuelType=invalid&controlTechnologies=invalid&stateCode=texas&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=1";
         Response response;
         String expectedResult1 = "One or more stateCodes are not valid. Use the two letter postal abbreviation (use TX, not Texas)";
         String expectedResult2 = "One or more facilityIds are not valid. Refer to the list of available facilityIds for valid values https://api.epa.gov/easey/dev/facilities-mgmt/facilities";
@@ -110,7 +111,7 @@ public class API_TC_596_MATS_Data extends APITestBase {
     }
     @Test(dataProvider = "csv")
     public void test4(Map<String, String> map) {
-        String url = "/emissions-mgmt/apportioned/mats/hourly?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&beginDate=01-01-2020&endDate=01-02-2020&page=1&perPage=1";
+        String url = "/emissions-mgmt/apportioned/mats/hourly?api_key="+ apikey +"&beginDate=01-01-2020&endDate=01-02-2020&page=1&perPage=1";
         Response response;
         String expectedResult1 = "Ensure that beginDate is in the YYYY-MM-DD format.";
         String expectedResult2 = "Ensure that endDate is in the YYYY-MM-DD format.";
@@ -123,10 +124,10 @@ public class API_TC_596_MATS_Data extends APITestBase {
     }
     @Test(dataProvider = "csv")
     public void test5(Map<String, String> map) {
-        String url = "/emissions-mgmt/apportioned/mats/hourly?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&beginDate=1995-01-01&endDate=2014-01-01&page=1&perPage=1";
+        String url = "/emissions-mgmt/apportioned/mats/hourly?api_key="+ apikey +"&beginDate=1995-01-01&endDate=2014-01-01&page=1&perPage=1";
         Response response;
-        String expectedResult1 = "Update the beginDate to a date between 01/01/2015 and the quarter ending on 12/31/2021";
-        String expectedResult2 = "Update the endDate to a date between 01/01/2015 and the quarter ending on 12/31/2021";
+        String expectedResult1 = "Update the beginDate to a date between 01/01/2015 and the quarter ending on 03/31/2022";
+        String expectedResult2 = "Update the endDate to a date between 01/01/2015 and the quarter ending on 03/31/2022";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
         response = getResponse(url);
@@ -136,9 +137,9 @@ public class API_TC_596_MATS_Data extends APITestBase {
     }
     @Test(dataProvider = "csv")
     public void test6(Map<String, String> map) {
-        String url = "/emissions-mgmt/apportioned/mats/hourly?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&beginDate=2015-01-02&endDate=2015-01-01&page=1&perPage=1";
+        String url = "/emissions-mgmt/apportioned/mats/hourly?api_key="+ apikey +"&beginDate=2015-01-02&endDate=2015-01-01&page=1&perPage=1";
         Response response;
-        String expectedResult1 = "Enter an endDate that is greater than or equal to the beginDate";
+        String expectedResult1 = "Enter an endDate that is greater than or equal to the beginDate\"";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
         response = getResponse(url);

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class API_TC_566_Allowance_Transactions_Streaming extends APITestBase {
+    String apikey = System.getenv("campdAPI");
 
     @BeforeMethod
     public void beforeMethod() {
@@ -30,7 +31,7 @@ public class API_TC_566_Allowance_Transactions_Streaming extends APITestBase {
 
     @Test(dataProvider = "csv")
     public void test(Map<String, String> map) {
-        String url = "/account-mgmt/allowance-transactions/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&transactionBeginDate=2019-01-01&transactionEndDate=2019-01-31";
+        String url = "/account-mgmt/allowance-transactions/stream?api_key=" + apikey + "&transactionBeginDate=2019-01-01&transactionEndDate=2019-01-31";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -75,7 +76,7 @@ public class API_TC_566_Allowance_Transactions_Streaming extends APITestBase {
     @Test(dataProvider = "csv")
     public void test2(Map<String, String> map) {
 
-        String url2 = "/account-mgmt/allowance-transactions/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&stateCode=GA&transactionBeginDate=2019-01-01&transactionEndDate=2019-01-31";
+        String url2 = "/account-mgmt/allowance-transactions/stream?api_key=" + apikey + "&stateCode=GA&transactionBeginDate=2019-01-01&transactionEndDate=2019-01-31";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -121,7 +122,7 @@ public class API_TC_566_Allowance_Transactions_Streaming extends APITestBase {
     @Test(dataProvider = "csv")
     public void test3(Map<String, String> map) {
 
-        String url3 = "/account-mgmt/allowance-transactions?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&stateCode=GA&transactionBeginDate=2019-01-01&transactionEndDate=2019-01-31&page=1&perPage=1";
+        String url3 = "/account-mgmt/allowance-transactions?api_key="+ apikey + "&stateCode=GA&transactionBeginDate=2019-01-01&transactionEndDate=2019-01-31&page=1&perPage=1";
 
         JSONArray res3 = getJSONArray(url3);
 

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class API_TC_565_Allowance_Compliance_Streaming extends APITestBase {
+    String apikey = System.getenv("campdAPI");
 
     @BeforeMethod
     public void beforeMethod() {
@@ -70,7 +71,7 @@ public class API_TC_565_Allowance_Compliance_Streaming extends APITestBase {
     @Test(dataProvider = "csv")
     public void test2(Map<String, String> map) {
 
-        String url2 = "/account-mgmt/allowance-compliance/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&programCodeInfo=ARP";
+        String url2 = "/account-mgmt/allowance-compliance/stream?api_key=" + apikey +"&programCodeInfo=ARP";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -105,7 +106,7 @@ public class API_TC_565_Allowance_Compliance_Streaming extends APITestBase {
     @Test(dataProvider = "csv")
     public void test3(Map<String, String> map) {
 
-        String url3 = "/account-mgmt/allowance-compliance/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&programCodeInfo=OTC";
+        String url3 = "/account-mgmt/allowance-compliance/stream?api_key=" + apikey +"&programCodeInfo=OTC";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -139,7 +140,7 @@ public class API_TC_565_Allowance_Compliance_Streaming extends APITestBase {
     @Test(dataProvider = "csv")
     public void test4(Map<String, String> map) {
 
-        String url4 = "/account-mgmt/allowance-compliance?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&programCodeInfo=NBP&page=1&perPage=1";
+        String url4 = "/account-mgmt/allowance-compliance?api_key=" + apikey +"&programCodeInfo=NBP&page=1&perPage=1";
 
 
         JSONArray res2 = getJSONArray(url4);

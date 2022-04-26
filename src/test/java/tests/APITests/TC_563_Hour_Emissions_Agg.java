@@ -14,8 +14,12 @@ import java.util.Map;
 
 public class TC_563_Hour_Emissions_Agg extends APITestBase {
 
+    String apikey = System.getenv("campdAPI");
+
+
     @BeforeMethod
     public void beforeMethod() {
+        String apikey = System.getenv("campdAPI");
         super.beforeMethod();
         super.setup("https://api.epa.gov/easey/dev");
     }
@@ -31,8 +35,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
 
     @Test(dataProvider = "csv")
     public void test1(Map<String, String> map) {
-
-        String url = "/emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=10";
+        String url = "/emissions-mgmt/apportioned/hourly/facility?api_key=" + apikey + "&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=10";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -64,7 +67,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
     @Test(dataProvider = "csv")
     public void test2(Map<String, String> map) {
 
-        String url2 = "/emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&facilityId=000003|000612&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
+        String url2 = "/emissions-mgmt/apportioned/hourly/facility?api_key=" + apikey +"&facilityId=000003|000612&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -96,7 +99,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
     @Test(dataProvider = "csv")
     public void test3(Map<String, String> map) {
 
-        String url3 = "/emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&stateCode=AL|TX&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
+        String url3 = "/emissions-mgmt/apportioned/hourly/facility?api_key=" + apikey +"&stateCode=AL|TX&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
         JSONArray res3 = getJSONArray(url3);
@@ -127,7 +130,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
     @Test(dataProvider = "csv")
     public void test4(Map<String, String> map) {
 
-        String url4 = "/emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&unitType=Tangentially-fired&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
+        String url4 = "/emissions-mgmt/apportioned/hourly/facility?api_key="+ apikey +"&unitType=Tangentially-fired&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -159,7 +162,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
     @Test(dataProvider = "csv")
     public void test5(Map<String, String> map) {
 
-        String url5 = "/emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&unitFuelType=Coal&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
+        String url5 = "/emissions-mgmt/apportioned/hourly/facility?api_key=" + apikey + "&unitFuelType=Coal&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
         JSONArray res5 = getJSONArray(url5);
@@ -190,7 +193,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
     @Test(dataProvider = "csv")
     public void test6(Map<String, String> map) {
 
-        String url6 = "/emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&controlTechnologies=Other&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
+        String url6 = "/emissions-mgmt/apportioned/hourly/facility?api_key="+ apikey +"&controlTechnologies=Other&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=75";
         //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
         JSONArray res6 = getJSONArray(url6);
@@ -221,7 +224,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
     @Test(dataProvider = "csv")
     public void test7(Map<String, String> map) {
 
-        String url7 = "/emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&programCodeInfo=ARP|CAIROS&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=50";
+        String url7 = "/emissions-mgmt/apportioned/hourly/facility?api_key=" + apikey + "&programCodeInfo=ARP|CAIROS&beginDate=2019-01-01&endDate=2019-01-01&page=1&perPage=50";
         //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
         JSONArray res7 = getJSONArray(url7);
@@ -253,7 +256,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
     @Test(dataProvider = "csv")
     public void test8(Map<String, String> map) {
 
-        String url8 = "emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&beginDate=2019-01-01&endDate=2019-01-01&operatingHoursOnly=true&page=1&perPage=10";
+        String url8 = "emissions-mgmt/apportioned/hourly/facility?api_key=" + apikey + "&beginDate=2019-01-01&endDate=2019-01-01&operatingHoursOnly=true&page=1&perPage=10";
         //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
         JSONArray res8 = getJSONArray(url8);
@@ -285,8 +288,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
     @Test(dataProvider = "csv")
     public void test9(Map<String, String> map) {
 
-
-        String url9 = "/emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&stateCode=&facilityId=0000000&unitType=&unitFuelType=&controlTechnologies=&programCodeInfo=&beginDate=1994-01-01&endDate=2023-01-01&page=&perPage=";
+        String url9 = "/emissions-mgmt/apportioned/hourly/facility?api_key=" + apikey + "&stateCode=&facilityId=0000000&unitType=&unitFuelType=&controlTechnologies=&programCodeInfo=&beginDate=1994-01-01&endDate=2023-01-01&page=&perPage=";
 
     Response response;
     response = getResponse(url9);
@@ -298,8 +300,7 @@ public class TC_563_Hour_Emissions_Agg extends APITestBase {
     @Test(dataProvider = "csv")
     public void test10(Map<String, String> map) {
 
-
-        String url10 = "/emissions-mgmt/apportioned/hourly/facility?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&stateCode=&facilityId=0000000&unitType=&unitFuelType=&controlTechnologies=&programCodeInfo=&beginDate=1994-01-01&endDate=2023-01-01&page=&perPage=";
+        String url10 = "/emissions-mgmt/apportioned/hourly/facility?api_key=" + apikey + "&stateCode=&facilityId=0000000&unitType=&unitFuelType=&controlTechnologies=&programCodeInfo=&beginDate=1994-01-01&endDate=2023-01-01&page=&perPage=";
         Response response;
         response = getResponse(url10);
         verifyTrue((response.getStatusCode() == 400));
