@@ -429,9 +429,6 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div[role='gridcell'] > div > button[data-testid='button']")
     public List<WebElement> viewButtonSystemComponents;
 
-    @FindBy (id = "btnOpenFuelFlows")
-    public List<WebElement> viewButtonFuelFlow;
-
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h4")
     public WebElement systemComponentModal;
 
@@ -505,8 +502,23 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "button[aria-label='go back to systems details']")
     public WebElement componentBackButton;
 
-    @FindBy (css = "div.methodTable.react-transition.fade-in > div > div:nth-child(2) > div > div > h3")
-    public WebElement systemFuelFlowsHeader;
+    @FindBy (css = "h3[class='margin-top-5 text-bold mobile:font-body-xl mobile:text-bold']")
+    public List<WebElement> systemFuelFlowsHeader;
+
+    @FindBy (css = "div[role='row'] > div[role='gridcell']> div >  button[epa-testid='btnOpen']")
+    public List<WebElement> viewButtonFuelFlow;
+
+    @FindBy (css = "div[role='row'] > div[role='gridcell']:nth-child(4)")
+    public List<WebElement> dateAndTimeFuelFlow;
+
+    @FindBy (xpath = "//label[contains(text(),'Units of Measure Code')]//following::div[1]")
+    public WebElement unitsOfMeasureCodeField;
+
+    @FindBy (id = "Units-of-Measure-Code > option")
+    public List<WebElement> unitsOfMeasureCodeDropdown;
+
+    @FindBy (id = "Max-Fuel-Flow-Rate")
+    public WebElement maxFuelFlowRateField;
 
     @FindBy (css = "div.padding-top-4.padding-left-2 > h2 > button")
     public WebElement addFuelFlowButton;
