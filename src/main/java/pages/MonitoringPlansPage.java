@@ -511,6 +511,18 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div[role='row'] > div[role='gridcell']:nth-child(4)")
     public List<WebElement> dateAndTimeFuelFlow;
 
+    @FindBy (id = "create-new-fuel-flow-add-btn")
+    public WebElement createFuelFlowButton;
+
+    @FindBy (css = "label[for='Max Fuel Flow Rate']")
+    public WebElement matFuelFlowRateHeader;
+
+    @FindBy (id = "Max-Fuel-Flow-Rate")
+    public WebElement matFuelFlowRateField;
+
+    @FindBy (css = "#Units-of-Measure-Code > option")
+    public List<WebElement> fuelFlowUnitsOfMeasureCodeDropdown;
+
     @FindBy (xpath = "//label[contains(text(),'Units of Measure Code')]//following::div[1]")
     public WebElement unitsOfMeasureCodeField;
 
