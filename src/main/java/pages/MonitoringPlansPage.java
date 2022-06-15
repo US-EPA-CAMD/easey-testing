@@ -318,6 +318,12 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[epa-testid='UnitCapacities']")
     public WebElement accordionUnitCapacitiesLabel;
 
+    @FindBy (id = "create-unit-capacity-add-btn")
+    public WebElement createUnitCapacityButton;
+
+    @FindBy (id = "Maximum-Hourly-Heat-Input-Capacity")
+    public WebElement maxHourlyHeatInputCapacityField;
+
     @FindBy (css = "h3[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
 
