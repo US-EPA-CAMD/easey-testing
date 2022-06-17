@@ -330,6 +330,21 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div[role='gridcell']:nth-child(7)")
     public List<WebElement> maxHourlyHeatInputCapacityTableField;
 
+    @FindBy (id = "create-unit-control-add-btn")
+    public WebElement createUnitControlButton;
+
+    @FindBy (css = "select[id='Parameter Code'] > option")
+    public List<WebElement> paramCodeUnitControlDropdown;
+
+    @FindBy (css = "select[id='Control Code'] > option")
+    public List<WebElement> controlCodeUnitControlDropdown;
+
+    @FindBy (id = "Install Date")
+    public WebElement installDateUnitControl;
+
+    @FindBy (id = "Optimization Date")
+    public WebElement optimizationDateUnitControl;
+
     @FindBy (css = "h3[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
 
