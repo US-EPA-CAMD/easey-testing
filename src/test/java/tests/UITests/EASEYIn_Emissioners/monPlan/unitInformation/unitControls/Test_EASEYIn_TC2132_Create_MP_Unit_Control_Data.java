@@ -68,8 +68,8 @@ public class Test_EASEYIn_TC2132_Create_MP_Unit_Control_Data extends UITestBase 
         click(monitoringPlansPage.monitoringUnitInformation);
         verifyEquals(monitoringPlansPage.monitoringUnitInformation, "Unit Information");
 
-        waitFor(monitoringPlansPage.accordionUnitCapacitiesLabel);
-        verifyEquals(monitoringPlansPage.accordionUnitCapacitiesLabel, "Unit Capacities");
+        waitFor(monitoringPlansPage.accordionUnitControlsLabel);
+        verifyEquals(monitoringPlansPage.accordionUnitControlsLabel, "Unit Controls");
 
         waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
