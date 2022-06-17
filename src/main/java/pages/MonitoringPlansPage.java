@@ -345,6 +345,15 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "Optimization Date")
     public WebElement optimizationDateUnitControl;
 
+    @FindBy (id = "create-unit-fuel-add-btn")
+    public WebElement createUnitFuelsButton;
+
+    @FindBy(css = "select[id='Fuel Type'] > option")
+    public List<WebElement> fuelTypeUnitFuelDropdown;
+
+    @FindBy (id = "Start Date")
+    public WebElement modalStartDateFieldUnitFuel;
+
     @FindBy (css = "h3[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
 
