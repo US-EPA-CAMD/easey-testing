@@ -312,6 +312,15 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[epa-testid='UnitFuels']")
     public WebElement accordionUnitFuelsLabel;
 
+    @FindBy (id = "column-col2")
+    public List<WebElement> indicatorCodeUnitFuelsHeader;
+
+    @FindBy (css = "div[role='gridcell']:nth-child(3)")
+    public List<WebElement> indicatorCodeUnitFuelsTableField;
+
+    @FindBy (css = "select[id='Indicator Code'] > option")
+    public List<WebElement> indicatorCodeUnitFuelsDropdown;
+
     @FindBy (css = "h3[epa-testid='UnitControls']")
     public WebElement accordionUnitControlsLabel;
 
