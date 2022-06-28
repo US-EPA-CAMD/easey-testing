@@ -312,11 +312,65 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h3[epa-testid='UnitFuels']")
     public WebElement accordionUnitFuelsLabel;
 
+    @FindBy (id = "column-col2")
+    public List<WebElement> indicatorCodeUnitFuelsHeader;
+
+    @FindBy (css = "div[role='gridcell']:nth-child(3)")
+    public List<WebElement> indicatorCodeUnitFuelsTableField;
+
+    @FindBy (css = "select[id='Indicator Code'] > option")
+    public List<WebElement> indicatorCodeUnitFuelsDropdown;
+
     @FindBy (css = "h3[epa-testid='UnitControls']")
     public WebElement accordionUnitControlsLabel;
 
+    @FindBy (id = "column-col2")
+    public List<WebElement> controlCodeUnitControlsHeader;
+
+    @FindBy (css = "div[role='gridcell']:nth-child(3)")
+    public List<WebElement> controlCodeUnitControlsTableField;
+
+    @FindBy (css = "select[id='Control Code'] > option")
+    public List<WebElement> controlCodeUnitControlsDropdown;
+
     @FindBy (css = "h3[epa-testid='UnitCapacities']")
     public WebElement accordionUnitCapacitiesLabel;
+
+    @FindBy (id = "create-unit-capacity-add-btn")
+    public WebElement createUnitCapacityButton;
+
+    @FindBy (id = "Maximum-Hourly-Heat-Input-Capacity")
+    public WebElement maxHourlyHeatInputCapacityField;
+
+    @FindBy (id = "column-col6")
+    public List<WebElement> maxHourlyHeatInputCapacityHeader;
+
+    @FindBy (css = "div[role='gridcell']:nth-child(7)")
+    public List<WebElement> maxHourlyHeatInputCapacityTableField;
+
+    @FindBy (id = "create-unit-control-add-btn")
+    public WebElement createUnitControlButton;
+
+    @FindBy (css = "select[id='Parameter Code'] > option")
+    public List<WebElement> paramCodeUnitControlDropdown;
+
+    @FindBy (css = "select[id='Control Code'] > option")
+    public List<WebElement> controlCodeUnitControlDropdown;
+
+    @FindBy (id = "Install Date")
+    public WebElement installDateUnitControl;
+
+    @FindBy (id = "Optimization Date")
+    public WebElement optimizationDateUnitControl;
+
+    @FindBy (id = "create-unit-fuel-add-btn")
+    public WebElement createUnitFuelsButton;
+
+    @FindBy(css = "select[id='Fuel Type'] > option")
+    public List<WebElement> fuelTypeUnitFuelDropdown;
+
+    @FindBy (id = "Start Date")
+    public WebElement modalStartDateFieldUnitFuel;
 
     @FindBy (css = "h3[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
