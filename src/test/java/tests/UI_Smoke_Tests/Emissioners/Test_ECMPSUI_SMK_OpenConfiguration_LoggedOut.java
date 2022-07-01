@@ -11,7 +11,7 @@ can successfully get access to the facilities and configurations
 logged out Global View.
  */
 
-public class Test_EASEYIn_SMK_OpenConfiguration_LoggedOut extends UITestBase {
+public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedOut extends UITestBase {
 
     @Test
     public void test() {

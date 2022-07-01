@@ -10,7 +10,7 @@ import tests.utils.UITestBase;
 This test verifies that the user can successfully log In to the application
 */
 
-public class Test_EASEYIn_SMK_LogIn_and_LogOut extends UITestBase {
+public class Test_ECMPSUI_SMK_LogIn_and_LogOut extends UITestBase {
 
     @Test()
     public void tests() {

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends UITestBase {
+public class Test_ECMPSUI_SMK_Create_MonMethod extends UITestBase {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -21,6 +21,7 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
+        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -59,6 +60,7 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
 
         click(monitoringPlansPage.configTabs.get(0));
 
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         waitFor(monitoringPlansPage.configcheckOutButton);
@@ -71,37 +73,27 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
-        js.executeScript("window.scrollBy(0,200)", "");
-
-        waitFor(monitoringPlansPage.monMethodsTableParameterLabel);
-        verifyEquals(monitoringPlansPage.monMethodsTableParameterLabel, "Parameter");
-
-        String parameterCode = monitoringPlansPage.monMethodsTableParameterField.get(0).getText();
-
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        click(monitoringPlansPage.viewButton.get(0));
-
-        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
-
-        waitFor(monitoringPlansPage.monMethodsTableParameterField);
-        if (parameterCode.equals("CO2")) {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(7));
-        } else {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
-        }
-
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.saveCloseModal);
-        click(monitoringPlansPage.saveCloseModal);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
+                monitoringPlansPage.createMonMethodsButton);
 
-        Thread.sleep(2000);
-        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
-        verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
+        int numOfMethods = monitoringPlansPage.viewButton.size();
+
+        click(monitoringPlansPage.createMonMethodsButton);
+
+        waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
+        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+        click(monitoringPlansPage.monMethodsModalMethodologyDropdown.get(1));
+        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
+        input(monitoringPlansPage.modalStartTimeField, "1");
+
+        click(monitoringPlansPage.saveCloseModal);
+
+        waitFor(monitoringPlansPage.viewButton);
+        Thread.sleep(3000);
+
+        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+
+        verifyTrue(newNumOfMethods == numOfMethods + 1);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
@@ -114,10 +106,6 @@ public class Test_EASEYIn_SMK_Edit_MonMethod_Revert_to_official_record extends U
         verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
-        verifyEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
         // These steps closes the tab and automatically Checks Back In the configuration
         click(monitoringPlansPage.closeConfigTab.get(0));
