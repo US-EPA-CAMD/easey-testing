@@ -13,12 +13,11 @@ public class EASEY_Out_About extends UITestBase {
 
         // Navigate to EASEY In
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd.epa.gov");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
-        waitFor(campdElements.hometitle);
 // Click help and support
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
@@ -29,9 +28,8 @@ public class EASEY_Out_About extends UITestBase {
 
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/about");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/help-support/about");
 
-        waitFor(campdElements.pagetitle);
 
 // Test Accordions
 

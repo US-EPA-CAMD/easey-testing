@@ -13,7 +13,7 @@ public class EASEY_Out_Tutorials extends UITestBase {
 
         // Navigate to EASEY In
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd.epa.gov");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -29,7 +29,7 @@ public class EASEY_Out_Tutorials extends UITestBase {
 
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/tutorials");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/help-support/tutorials");
 
         waitFor(campdElements.pagetitle);
 
@@ -37,69 +37,23 @@ public class EASEY_Out_Tutorials extends UITestBase {
 
 // Test FAQS Link
         waitFor(campdElements.firstparalinks.get(0));
-        click(campdElements.firstparalinks.get(0));
+        verifyTrue((campdElements.firstparalinks.get(0)).getAttribute("href").contains("https://campd.epa.gov/help-support/faqs"));
+        verifyTrue((campdElements.firstparalinks.get(1)).getAttribute("href").contains("https://www.epa.gov/airmarkets/forms/campd-contact-us"));
 
-        changeTab();
-
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/faqs");
-// Test Contact Us Link
-        goTo("https://campd-dev.app.cloud.gov/help-support/tutorials");
-        waitFor(campdElements.firstparalinks.get(1));
-        click(campdElements.firstparalinks.get(1));
-        changeTab();
-
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
-
- // Test PDF's
-        goTo("https://campd-dev.app.cloud.gov/help-support/tutorials");
-        waitFor(campdElements.pagetitle);
 
  // CDD PDF
         jse.executeScript("scroll(0, 600);");
         waitFor(campdElements.tutorialspdfs.get(0));
-        click(campdElements.tutorialspdfs.get(0));
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://api.epa.gov/easey/dev/content-mgmt/campd/documents/CustomDataDownload-QuickStartGuide.pdf");
-//Allowance PDF
-        goTo("https://campd-dev.app.cloud.gov/help-support/tutorials");
-        waitFor(campdElements.pagetitle);
+        verifyTrue((campdElements.tutorialspdfs.get(0)).getAttribute("href").contains("https://api.epa.gov/easey/content-mgmt/campd/documents/CustomDataDownload-QuickStartGuide.pdf"));
+        verifyTrue((campdElements.tutorialspdfs.get(1)).getAttribute("href").contains("https://www.epa.gov/airmarkets/allowance-data"));
+        jse.executeScript("scroll(0, 600);");
+        verifyTrue((campdElements.tutorialspdfs.get(2)).getAttribute("href").contains("https://www.epa.gov/airmarkets/power-sector-emissions-data"));
+        jse.executeScript("scroll(0, 600);");
+        verifyTrue((campdElements.tutorialspdfs.get(3)).getAttribute("href").contains("https://api.epa.gov/easey/content-mgmt/campd/documents/data_caveats_5_3_2022.xlsx"));
+        verifyTrue((campdElements.tutorialspdfs.get(4)).getAttribute("href").contains("https://www.epa.gov/airmarkets/monitoring-insights"));
 
-        jse.executeScript("scroll(0, 800);");
-        waitFor(campdElements.tutorialspdfs.get(1));
-        click(campdElements.tutorialspdfs.get(1));
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/airmarkets/allowance-data");
-// Emissions PDF
-        goTo("https://campd-dev.app.cloud.gov/help-support/tutorials");
-        waitFor(campdElements.pagetitle);
-
-        jse.executeScript("scroll(0, 1000);");
-        waitFor(campdElements.tutorialspdfs.get(2));
-        click(campdElements.tutorialspdfs.get(2));
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/airmarkets/power-sector-emissions-data");
-
-// substitute data
-        goTo("https://campd-dev.app.cloud.gov/help-support/tutorials");
-        waitFor(campdElements.pagetitle);
-
-        jse.executeScript("scroll(0, 1200);");
-        waitFor(campdElements.tutorialspdfs.get(3));
-        click(campdElements.tutorialspdfs.get(3));
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/airmarkets/monitoring-insights");
-
-// Data Crosswalk
-
-        goTo("https://campd-dev.app.cloud.gov/help-support/tutorials");
-        waitFor(campdElements.pagetitle);
-
-        jse.executeScript("scroll(0, 1400);");
-        waitFor(campdElements.tutorialspdfs.get(4));
-        click(campdElements.tutorialspdfs.get(4));
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/airmarkets/power-sector-data-crosswalk");
-
+        verifyTrue((campdElements.tutorialspdfs.get(5)).getAttribute("href").contains("https://www.epa.gov/airmarkets/power-sector-data-crosswalk"));
+        jse.executeScript("scroll(0, 600);");
 
 
     }

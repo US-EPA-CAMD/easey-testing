@@ -11,7 +11,7 @@ public class EASEY_Out_APIS extends UITestBase  {
 
 // Navigate to CAMPD homepage
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd.epa.gov/");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
 
