@@ -10,7 +10,7 @@ import tests.utils.CSVParser;
 
 import java.util.List;
 import java.util.Map;
-public class API_TC_567_Emissions_Compliance_Streaming extends APITestBase {
+public class API_TC568_EmissionsComplianceEndpoints extends APITestBase {
 
     @BeforeMethod
     public void beforeMethod() {
@@ -28,7 +28,7 @@ public class API_TC_567_Emissions_Compliance_Streaming extends APITestBase {
     }
 
     @Test(dataProvider = "csv")
-    public void test(Map<String, String> map) {
+    public void emissionsComplianceStream(Map<String, String> map) {
         String url = "/account-mgmt/emissions-compliance/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB";
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
         JSONArray res = getJSONArray(url);
@@ -54,9 +54,9 @@ public class API_TC_567_Emissions_Compliance_Streaming extends APITestBase {
 
     }
     @Test(dataProvider = "csv")
-    public void test2(Map<String, String> map) {
-
-        String url2 = "/account-mgmt/emissions-compliance/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&sellState=GA";
+    public void emissionsComplianceOwnOp(Map<String, String> map) {
+        String apikey = System.getenv("campdAPI");
+        String url2 = "/account-mgmt/emissions-compliance/owner-operators?api_key="+apikey+"&sellState=GA";
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
@@ -65,18 +65,8 @@ public class API_TC_567_Emissions_Compliance_Streaming extends APITestBase {
         for (Object r : res2) {
             if (r instanceof JSONObject) {
                 JSONObject response = (JSONObject) r;
-                verifyTrue(response.has("year"));
-                verifyTrue(response.has("facilityName"));
-                verifyTrue(response.has("facilityId"));
-                verifyTrue(response.has("unitId"));
-                verifyTrue(response.has("complianceApproach"));
-                verifyTrue(response.has("avgPlanId"));
-                verifyTrue(response.has("emissionsLimitDisplay"));
-                verifyTrue(response.has("actualEmissionsRate"));
-                verifyTrue(response.has("avgPlanActual"));
-                verifyTrue(response.has("inCompliance"));
                 verifyTrue(response.has("ownerOperator"));
-                verifyTrue(response.has("stateCode"));
+                verifyTrue(response.has("ownType"));
 
             } else
                 verifyFail("Response returned non JSONObject\n" + r.toString());
@@ -85,9 +75,9 @@ public class API_TC_567_Emissions_Compliance_Streaming extends APITestBase {
 
     }
     @Test(dataProvider = "csv")
-    public void test3(Map<String, String> map) {
-
-        String url3 = "/account-mgmt/emissions-compliance/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB&sellState=GA&page=1&perPage=1";
+    public void emissionsCompliance(Map<String, String> map) {
+        String apikey = System.getenv("campdAPI");
+        String url3 = "/account-mgmt/emissions-compliance/?api_key="+apikey+"&page=1&perPage=1";
 
         JSONArray res3 = getJSONArray(url3);
 
