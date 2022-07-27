@@ -1,5 +1,6 @@
-package tests.APITests;
+package tests.APITests.AccountMgmtEndpoints;
 
+import io.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeMethod;
@@ -33,37 +34,10 @@ public class API_TC565_AllowanceComplianceEndpoints extends APITestBase {
     public void allowanceStream(Map<String, String> map) {
         String apikey = System.getenv("campdAPI");
         String url = "/streaming-services/allowance-compliance/?api_key="+apikey;
-//      Step 1: Perform a Request on streaming Endpoint with no criteria
-        JSONArray res = getJSONArray(url);
-        for (Object r : res) {
-            if (r instanceof JSONObject) {
-                JSONObject response = (JSONObject) r;
-                verifyTrue(response.has("programCodeInfo"));
-                verifyTrue(response.has("year"));
-                verifyTrue(response.has("accountNumber"));
-                verifyTrue(response.has("accountName"));
-                verifyTrue(response.has("facilityName"));
-                verifyTrue(response.has("facilityId"));
-                verifyTrue(response.has("unitsAffected"));
-                verifyTrue(response.has("allocated"));
-                verifyTrue(response.has("bankedHeld"));
-                verifyTrue(response.has("currentHeld"));
-                verifyTrue(response.has("totalAllowancesHeld"));
-                verifyTrue(response.has("complianceYearEmissions"));
-                verifyTrue(response.has("otherDeductions"));
-                verifyTrue(response.has("totalRequiredDeductions"));
-                verifyTrue(response.has("currentDeductions"));
-                verifyTrue(response.has("deductOneToOne"));
-                verifyTrue(response.has("deductTwoToOne"));
-                verifyTrue(response.has("totalAllowancesDeducted"));
-                verifyTrue(response.has("carriedOver"));
-                verifyTrue(response.has("excessEmissions"));
-                verifyTrue(response.has("ownerOperator"));
-                verifyTrue(response.has("stateCode"));
+        Response response;
+        response = getResponse(url);
+        verifyTrue(response.getStatusCode()==200);
 
-            } else
-                verifyFail("Response returned non JSONObject\n" + r.toString());
-        }
 
     }
     //Allowance Owner Operator

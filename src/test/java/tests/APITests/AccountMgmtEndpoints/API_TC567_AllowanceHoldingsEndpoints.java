@@ -1,5 +1,6 @@
-package tests.APITests;
+package tests.APITests.AccountMgmtEndpoints;
 
+import io.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeMethod;
@@ -33,25 +34,11 @@ public class API_TC567_AllowanceHoldingsEndpoints extends APITestBase {
         String apikey = System.getenv("campdAPI");
         String url = "/streaming-services/allowance-holdings/?api_key="+apikey+"&transactionBeginDate=2019-01-01&transactionEndDate=2019-01-31";
 
-        JSONArray res = getJSONArray(url);
+        Response response;
 
-        for (Object r : res) {
-            if (r instanceof JSONObject) {
-                JSONObject response = (JSONObject) r;
-                verifyTrue(response.has("accountNumber"));
-                verifyTrue(response.has("accountName"));
-                verifyTrue(response.has("facilityId"));
-                verifyTrue(response.has("programCodeInfo"));
-                verifyTrue(response.has("vintageYear"));
-                verifyTrue(response.has("totalBlock"));
-                verifyTrue(response.has("endBlock"));
-                verifyTrue(response.has("statdeCode"));
-                verifyTrue(response.has("epaRegion"));
-                verifyTrue(response.has("ownerOperator"));
-                verifyTrue(response.has("accountType"));
-            } else
-                verifyFail("Response returned non JSONObject\n" + r.toString());
-        }
+        response = getResponse(url);
+
+        verifyTrue(response.getStatusCode()==200);
 
     }
     //
@@ -94,7 +81,7 @@ public class API_TC567_AllowanceHoldingsEndpoints extends APITestBase {
                 verifyTrue(response.has("vintageYear"));
                 verifyTrue(response.has("totalBlock"));
                 verifyTrue(response.has("endBlock"));
-                verifyTrue(response.has("statdeCode"));
+                verifyTrue(response.has("stateCode"));
                 verifyTrue(response.has("epaRegion"));
                 verifyTrue(response.has("ownerOperator"));
                 verifyTrue(response.has("accountType"));

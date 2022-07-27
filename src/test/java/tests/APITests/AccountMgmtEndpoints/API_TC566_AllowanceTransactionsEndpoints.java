@@ -1,5 +1,6 @@
-package tests.APITests;
+package tests.APITests.AccountMgmtEndpoints;
 
+import io.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeMethod;
@@ -32,46 +33,12 @@ public class API_TC566_AllowanceTransactionsEndpoints extends APITestBase {
     public void allowTransactionsStream(Map<String, String> map) {
         String apikey = System.getenv("campdAPI");
         String url = "/streaming-services/allowance-transactions/?api_key="+apikey+"&transactionBeginDate=2019-01-01&transactionEndDate=2019-01-31";
+        Response response;
 
-//      Step 1: Perform a Request on streaming Endpoint with no criteria
+        response = getResponse(url);
 
-        JSONArray res = getJSONArray(url);
-
-        for (Object r : res) {
-            if (r instanceof JSONObject) {
-                JSONObject response = (JSONObject) r;
-                verifyTrue(response.has("programCodeInfo"));
-                verifyTrue(response.has("transactionId"));
-                verifyTrue(response.has("transactionTotal"));
-                verifyTrue(response.has("transactionType"));
-                verifyTrue(response.has("sellAccountNumber"));
-                verifyTrue(response.has("sellAccountName"));
-                verifyTrue(response.has("sellAccountType"));
-                verifyTrue(response.has("sellFacilityName"));
-                verifyTrue(response.has("sellFacilityId"));
-                verifyTrue(response.has("sellState"));
-                verifyTrue(response.has("sellEpaRegion"));
-                verifyTrue(response.has("sellSourceCategory"));
-                verifyTrue(response.has("sellOwner"));
-                verifyTrue(response.has("buyAccountNumber"));
-                verifyTrue(response.has("buyAccountName"));
-                verifyTrue(response.has("buyAccountType"));
-                verifyTrue(response.has("buyFacilityName"));
-                verifyTrue(response.has("buyFacilityId"));
-                verifyTrue(response.has("buyState"));
-                verifyTrue(response.has("buyEpaRegion"));
-                verifyTrue(response.has("buySourceCategory"));
-                verifyTrue(response.has("buyOwner"));
-                verifyTrue(response.has("transactionDate"));
-                verifyTrue(response.has("vintageYear"));
-                verifyTrue(response.has("startBlock"));
-                verifyTrue(response.has("endBlock"));
-                verifyTrue(response.has("totalBlock"));
-
-            } else
-                verifyFail("Response returned non JSONObject\n" + r.toString());
-        }
-
+        verifyTrue(response.getStatusCode()==200);
+//
     }
     //
 

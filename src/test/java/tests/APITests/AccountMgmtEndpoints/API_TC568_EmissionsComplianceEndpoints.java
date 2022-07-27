@@ -1,5 +1,6 @@
-package tests.APITests;
+package tests.APITests.AccountMgmtEndpoints;
 
+import io.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeMethod;
@@ -29,34 +30,18 @@ public class API_TC568_EmissionsComplianceEndpoints extends APITestBase {
 
     @Test(dataProvider = "csv")
     public void emissionsComplianceStream(Map<String, String> map) {
-        String url = "/account-mgmt/emissions-compliance/stream?api_key=T8r7OW4f12XtWKLY7CPgKmKu1WoP3TVG0x4eqmlB";
-//      Step 1: Perform a Request on streaming Endpoint with no criteria
-        JSONArray res = getJSONArray(url);
-        for (Object r : res) {
-            if (r instanceof JSONObject) {
-                JSONObject response = (JSONObject) r;
-                verifyTrue(response.has("year"));
-                verifyTrue(response.has("facilityName"));
-                verifyTrue(response.has("facilityId"));
-                verifyTrue(response.has("unitId"));
-                verifyTrue(response.has("complianceApproach"));
-                verifyTrue(response.has("avgPlanId"));
-                verifyTrue(response.has("emissionsLimitDisplay"));
-                verifyTrue(response.has("actualEmissionsRate"));
-                verifyTrue(response.has("avgPlanActual"));
-                verifyTrue(response.has("inCompliance"));
-                verifyTrue(response.has("ownerOperator"));
-                verifyTrue(response.has("stateCode"));
+        String apikey = System.getenv("campdAPI");
+        String url = "/streaming-services/emissions-compliance/?api_key="+apikey;
 
-            } else
-                verifyFail("Response returned non JSONObject\n" + r.toString());
-        }
+        Response response;
+        response = getResponse(url);
+        verifyTrue(response.getStatusCode()==200);
 
     }
     @Test(dataProvider = "csv")
     public void emissionsComplianceOwnOp(Map<String, String> map) {
         String apikey = System.getenv("campdAPI");
-        String url2 = "/account-mgmt/emissions-compliance/owner-operators?api_key="+apikey+"&sellState=GA";
+        String url2 = "/account-mgmt/emissions-compliance/owner-operators?api_key="+apikey;
 
 //      Step 1: Perform a Request on streaming Endpoint with no criteria
 
