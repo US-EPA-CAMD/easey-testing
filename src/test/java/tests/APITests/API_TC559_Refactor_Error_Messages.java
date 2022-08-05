@@ -1,8 +1,6 @@
 package tests.APITests;
 
 import io.restassured.response.Response;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -12,7 +10,7 @@ import tests.utils.CSVParser;
 import java.util.List;
 import java.util.Map;
 
-public class API_TC_559_Refactor_Error_Messages extends APITestBase {
+public class API_TC559_Refactor_Error_Messages extends APITestBase {
 
     @BeforeMethod
     public void beforeMethod() {
