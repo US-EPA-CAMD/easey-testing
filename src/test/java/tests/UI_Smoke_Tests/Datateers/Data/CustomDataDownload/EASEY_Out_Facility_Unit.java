@@ -14,10 +14,12 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
 
         // Navigate to CAMPD
 
-        goTo("https://campd-dev.app.cloud.gov/");
+        goTo("https://campd.epa.gov/");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+        waitFor(campdElements.hometitle);
 
         // Navigate to Custom Data Download
         waitFor(campdElements.datamenu);
@@ -28,7 +30,7 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
 
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/data/custom-data-download");
 
         // Select Allowance Data Type
         waitFor(campdElements.datadropdown);
@@ -158,7 +160,7 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
 
         // Navigate to CAMPD
 
-        goTo("https://campd-dev.app.cloud.gov/");
+        goTo("https://campd.epa.gov/");
 
 
         // Navigate to Custom Data Download
@@ -170,7 +172,7 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
 
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/data/custom-data-download");
 
         // Select Allowance Data Type
         waitFor(campdElements.datadropdown);

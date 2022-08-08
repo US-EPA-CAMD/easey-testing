@@ -12,7 +12,7 @@ public class EASEY_Out_BulkData extends UITestBase  {
 
 // Navigate to CAMPD homepage
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd.epa.gov/");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
 
@@ -29,13 +29,13 @@ public class EASEY_Out_BulkData extends UITestBase  {
 
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/bulk-data-files");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/data/bulk-data-files");
 
         waitFor(campdElements.pagetitle);
 
 // Select Allowance Data
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("scroll(0, 250);");
+        jse.executeScript("scroll(0, 400);");
 
         waitFor(campdElements.allowance);
         click(campdElements.allowance);
@@ -46,7 +46,7 @@ public class EASEY_Out_BulkData extends UITestBase  {
 
 // Test from another CAMPD Page
 
-        goTo("https://campd-dev.app.cloud.gov/resources/related-resources");
+        goTo("https://campd.epa.gov/resources/related-resources");
 
         waitFor(campdElements.hometitle);
 // Click data menu
@@ -61,13 +61,13 @@ public class EASEY_Out_BulkData extends UITestBase  {
 
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/bulk-data-files");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/data/bulk-data-files");
 
         waitFor(campdElements.pagetitle);
 
 // Select Compliance Data
 
-        jse.executeScript("scroll(0, 250);");
+        jse.executeScript("scroll(0, 400);");
         waitFor(campdElements.compliance);
         click(campdElements.compliance);
 //Check tab Is correct
@@ -76,7 +76,7 @@ public class EASEY_Out_BulkData extends UITestBase  {
         verifyEquals(driver.getCurrentUrl(), "https://gaftp.epa.gov/DMDnLoad/compliance/");
 // Test from another CAMPD Page
 
-        goTo("https://campd-dev.app.cloud.gov/help-support/contact-us");
+        goTo("https://campd.epa.gov/");
 
         waitFor(campdElements.hometitle);
 // Click data menu
@@ -91,7 +91,7 @@ public class EASEY_Out_BulkData extends UITestBase  {
 
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/bulk-data-files");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/data/bulk-data-files");
 
         waitFor(campdElements.pagetitle);
 
@@ -107,7 +107,7 @@ public class EASEY_Out_BulkData extends UITestBase  {
 
 // Test from another CAMPD Page
 
-        goTo("https://campd-dev.app.cloud.gov/resources/glossary");
+        goTo("https://campd.epa.gov/resources/glossary");
 
         waitFor(campdElements.hometitle);
 // Click data menu
@@ -122,7 +122,7 @@ public class EASEY_Out_BulkData extends UITestBase  {
 
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/bulk-data-files");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/data/bulk-data-files");
 
         waitFor(campdElements.pagetitle);
 

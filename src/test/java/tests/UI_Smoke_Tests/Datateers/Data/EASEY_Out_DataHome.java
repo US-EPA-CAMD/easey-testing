@@ -12,7 +12,7 @@ public class EASEY_Out_DataHome extends UITestBase  {
 
 // Navigate to CAMPD homepage
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd.epa.gov");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
 
@@ -28,7 +28,7 @@ public class EASEY_Out_DataHome extends UITestBase  {
 // Change to  Data Page
 
         changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/data");
         waitFor(campdElements.pagetitle);
 
 // Select CDD
@@ -40,11 +40,11 @@ public class EASEY_Out_DataHome extends UITestBase  {
 //Check tab Is correct
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/data/custom-data-download");
 
 // Bulk Data Test
 
-       goTo("https://campd-dev.app.cloud.gov/data/");
+       goTo("https://campd.epa.gov/data/");
 
         waitFor(campdElements.hometitle);
 
@@ -56,13 +56,12 @@ public class EASEY_Out_DataHome extends UITestBase  {
 //Check tab Is correct
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/bulk-data-files");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/data/bulk-data-files");
 
 // Test for CAM API
 
-        goTo("https://campd-dev.app.cloud.gov/data/");
+        goTo("https://campd.epa.gov/data/");
 
-        waitFor(campdElements.hometitle);
         jse.executeScript("scroll(0, 500);");
 
         waitFor(campdElements.datahomebutton.get(2));
@@ -71,7 +70,6 @@ public class EASEY_Out_DataHome extends UITestBase  {
         changeTab();
 
         verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/airmarkets/cam-api-portal");
-
 
 
     }

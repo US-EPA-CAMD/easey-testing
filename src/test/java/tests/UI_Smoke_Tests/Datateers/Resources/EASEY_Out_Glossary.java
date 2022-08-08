@@ -13,7 +13,7 @@ public class EASEY_Out_Glossary extends UITestBase {
 
         // Navigate to EASEY In
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd.epa.gov");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -26,51 +26,20 @@ public class EASEY_Out_Glossary extends UITestBase {
         // Click Data Button
 
         changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/glossary");
-        jse.executeScript("scroll(0, 500);");
+        verifyEquals(driver.getCurrentUrl(), "https://campd.epa.gov/resources/glossary");
+        jse.executeScript("scroll(0, 1000);");
 
         //
         waitFor(campdElements.glossarylink.get(0));
         click(campdElements.glossarylink.get(0));
 
-        {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-        }
 
-        driver.get("chrome://downloads");
-
-        // get the latest downloaded file name
-        String fileName = (String) jse.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
-
-        System.out.println(fileName);
-
-        String fileconfirm = ".xlsx";
-
-        verifyTrue(fileName.contains(fileconfirm));
 // Test for second button
-        goTo("https://campd-dev.app.cloud.gov");
-
-        waitFor(campdElements.resources);
-        click(campdElements.resources);
-
-        waitFor(campdElements.glossary);
-        click(campdElements.glossary);
-        // Click Data Button
-
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/glossary");
-        jse.executeScript("scroll(0, 500);");
 
         //
         waitFor(campdElements.glossarylink.get(1));
         click(campdElements.glossarylink.get(1));
 
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://api.epa.gov/easey/dev/content-mgmt/campd/resources/glossary/CAMPD-Glossary.pdf");
 
     }
 }

@@ -13,7 +13,7 @@ public class EASEY_Out_Navigation extends UITestBase {
 
         // Navigate to EASEY In
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd.epa.gov/");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -21,95 +21,51 @@ public class EASEY_Out_Navigation extends UITestBase {
 // Click Resources
         waitFor(campdElements.resources);
         click(campdElements.resources);
-        // click tutorials
+        // click glossary
         waitFor(campdElements.glossary);
-        click(campdElements.glossary);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/glossary");
- //Click Resources
-        waitFor(campdElements.resources);
-        click(campdElements.resources);
-        // click tutorials
+        verifyTrue((campdElements.glossary).getAttribute("href").contains("/resources/glossary"));
+
+        // click related resources
         waitFor(campdElements.resourceslinks);
-        click(campdElements.resourceslinks);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/resources/related-resources");
-// Click Help/support
+        verifyTrue((campdElements.resourceslinks).getAttribute("href").contains("/resources/related-resources"));
+// Click help/support
+
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
         // click tutorials
         waitFor(campdElements.aboutlink);
-        click(campdElements.aboutlink);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/about");
-// Click Help/support
-        waitFor(campdElements.helpsupport);
-        click(campdElements.helpsupport);
-        // click tutorials
+        verifyTrue((campdElements.aboutlink).getAttribute("href").contains("/help-support/about"));
+
         waitFor(campdElements.contactuslink);
-        click(campdElements.contactuslink);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
-// Click Help/support
-        waitFor(campdElements.helpsupport);
-        click(campdElements.helpsupport);
+        verifyTrue((campdElements.contactuslink).getAttribute("href").contains("https://www.epa.gov/airmarkets/forms/campd-contact-us"));
+
         // click tutorials
         waitFor(campdElements.faqlink);
-        click(campdElements.faqlink);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/faqs");
-// Click Help/support
-        waitFor(campdElements.helpsupport);
-        click(campdElements.helpsupport);
+        verifyTrue((campdElements.faqlink).getAttribute("href").contains("/help-support/faqs"));
+
         // click tutorials
         waitFor(campdElements.tutorialslink);
-        click(campdElements.tutorialslink);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/tutorials");
+        verifyTrue((campdElements.tutorialslink).getAttribute("href").contains("/help-support/tutorials"));
+
 // Click data
         waitFor(campdElements.datamenu);
         click(campdElements.datamenu);
-        // click tutorials
+        // click datahome
         waitFor(campdElements.datahome);
-        click(campdElements.datahome);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data");
-// Click data
-        waitFor(campdElements.datamenu);
-        click(campdElements.datamenu);
-        // click tutorials
+        verifyTrue((campdElements.datahome).getAttribute("href").contains("/data"));
+        // Click cdd
         waitFor(campdElements.datadownload);
-        click(campdElements.datadownload);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
-
-// Click data
-        waitFor(campdElements.datamenu);
-        click(campdElements.datamenu);
-        // click tutorials
+        verifyTrue((campdElements.datadownload).getAttribute("href").contains("/data/custom-data-download"));
+        // click bulk data
         waitFor(campdElements.bulkdata);
-        click(campdElements.bulkdata);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/bulk-data-files");
+        verifyTrue((campdElements.bulkdata).getAttribute("href").contains("/data/bulk-data-files"));
 
-// Click data
-        waitFor(campdElements.datamenu);
-        click(campdElements.datamenu);
-        // click tutorials
+        // click camAPI
         waitFor(campdElements.camapi);
-        click(campdElements.camapi);
-        // verify page location
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://www.epa.gov/airmarkets/cam-api-portal");
+        verifyTrue((campdElements.camapi).getAttribute("href").contains("https://www.epa.gov/airmarkets/cam-api-portal"));
+
+
+
     }
 
 }
