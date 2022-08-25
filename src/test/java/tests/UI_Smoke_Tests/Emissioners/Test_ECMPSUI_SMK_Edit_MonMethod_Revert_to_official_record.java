@@ -99,7 +99,7 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
         click(monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
@@ -114,15 +114,18 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
         verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
 
         Thread.sleep(3000);
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
-        // These steps closes the tab and automatically Checks Back In the configuration
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        // These steps Checks Back In the configuration
+        waitFor(monitoringPlansPage.configcheckBackInButton);
+        click(monitoringPlansPage.configcheckBackInButton);
+
+        waitFor(monitoringPlansPage.configcheckOutButton);
+        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
 
     }
     @Override

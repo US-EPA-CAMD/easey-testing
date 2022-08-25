@@ -21,7 +21,6 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends UITestBase {
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -106,11 +105,14 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends UITestBase {
         verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
 
-        // These steps closes the tab and automatically Checks Back In the configuration
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        // These steps Checks Back In the configuration
+        waitFor(monitoringPlansPage.configcheckBackInButton);
+        click(monitoringPlansPage.configcheckBackInButton);
+
+        waitFor(monitoringPlansPage.configcheckOutButton);
+        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
 
     }
     @Override
