@@ -1,16 +1,15 @@
 package tests.UI_Smoke_Tests.Emissioners;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
-import tests.utils.UITestBase;
+import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.emMonPlanReusables;
 
 /*
 This test verifies that the user can successfully log In to the application
 */
 
-public class Test_ECMPSUI_SMK_LogIn_and_LogOut extends UITestBase {
+public class Test_ECMPSUI_SMK_LogIn_and_LogOut extends emMonPlanReusables {
 
     @Test()
     public void tests() {
@@ -61,19 +60,7 @@ public class Test_ECMPSUI_SMK_LogIn_and_LogOut extends UITestBase {
     @Override
     @AfterMethod
     public void afterMethod() {
-
-        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
-
-        if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            click(monitoringPlansPage.logOutButton);
-            waitFor(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        } else {
-            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        }
+        logOutMethod();
         super.afterMethod();
     }
 }
