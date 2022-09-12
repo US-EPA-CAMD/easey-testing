@@ -21,10 +21,28 @@ public class EASEY_Out_Home extends UITestBase {
         jse.executeScript("scroll(0, 1000);");
         // Click Data Button
 
-        waitFor(campdElements.homepageData);
-        click(campdElements.homepageData);
+        waitFor(campdElements.homepageHeader.get(0));
+        click(campdElements.homepageHeader.get(0));
 
-        changeTab();
+
+
+        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data");
+
+        goTo("https://campd-dev.app.cloud.gov");
+        jse.executeScript("scroll(0, 1000);");
+
+        // Click Viz  Button
+
+        waitFor(campdElements.homepageHeader.get(1));
+        click(campdElements.homepageHeader.get(1));
+
+        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/visualization-gallery");
+        goTo("https://campd-dev.app.cloud.gov");
+        jse.executeScript("scroll(0, 1000);");
+        // Click Data Query Button
+
+        waitFor(campdElements.dataQuery);
+        click(campdElements.dataQuery);
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
 
@@ -60,15 +78,8 @@ public class EASEY_Out_Home extends UITestBase {
         changeTab();
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
 
-        goTo("https://campd-dev.app.cloud.gov");
-        jse.executeScript("scroll(0, 1400);");
 
-        // CAMPD Email List
-        waitFor(campdElements.whatsnewlink.get(3));
-        click(campdElements.whatsnewlink.get(3));
 
-        changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://lp.constantcontactpages.com/su/SmTSbfJ");
     }
 }
 

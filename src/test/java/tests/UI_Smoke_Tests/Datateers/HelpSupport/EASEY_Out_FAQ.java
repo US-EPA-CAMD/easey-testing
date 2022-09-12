@@ -22,26 +22,23 @@ public class EASEY_Out_FAQ extends UITestBase {
 // Click help and support
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
-// click contact us
         waitFor(campdElements.faqlink);
         click(campdElements.faqlink);
         // verify page location
 
-        changeTab();
-
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/faqs");
 
+// Test Accordions
         {
             try
             {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
             }
             catch(InterruptedException ex)
             {
                 Thread.currentThread().interrupt();
             }
         }
-// Test Accordions
 
         jse.executeScript("scroll(0, 600);");
 
@@ -58,19 +55,27 @@ public class EASEY_Out_FAQ extends UITestBase {
 // Test Tutorials Link
         waitFor(campdElements.firstparalinks.get(0));
         click(campdElements.firstparalinks.get(0));
-
-        changeTab();
-
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/tutorials");
 // Test Contact Us Link
+        changeTab();
         goTo("https://campd-dev.app.cloud.gov/help-support/faqs");
 // Test Contact Us Link
+        {
+            try
+            {
+                Thread.sleep(3000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+        }
+
         waitFor(campdElements.firstparalinks.get(1));
         click(campdElements.firstparalinks.get(1));
-
-        changeTab();
-
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
     }
+
+
 }
 

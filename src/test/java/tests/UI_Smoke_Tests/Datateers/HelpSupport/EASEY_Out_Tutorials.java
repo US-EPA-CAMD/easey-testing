@@ -19,19 +19,24 @@ public class EASEY_Out_Tutorials extends UITestBase {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
         waitFor(campdElements.hometitle);
-// Click help and support
+        // Navigate to Tutorials Page
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
-// click tutorials
         waitFor(campdElements.tutorialslink);
         click(campdElements.tutorialslink);
-        // verify page location
-
-        changeTab();
-
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/tutorials");
 
-        waitFor(campdElements.pagetitle);
+        {
+            try
+            {
+                Thread.sleep(1000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+        }
+
 
 // Test First Paragraph Links
 
@@ -39,15 +44,11 @@ public class EASEY_Out_Tutorials extends UITestBase {
         waitFor(campdElements.firstparalinks.get(0));
         click(campdElements.firstparalinks.get(0));
 
-        changeTab();
-
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/faqs");
 // Test Contact Us Link
         goTo("https://campd-dev.app.cloud.gov/help-support/tutorials");
         waitFor(campdElements.firstparalinks.get(1));
         click(campdElements.firstparalinks.get(1));
-        changeTab();
-
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
 
  // Test PDF's

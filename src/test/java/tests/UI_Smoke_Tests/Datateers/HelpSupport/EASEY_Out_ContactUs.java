@@ -30,7 +30,6 @@ public class EASEY_Out_ContactUs extends UITestBase {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
 
-        waitFor(campdElements.pagetitle);
 
 //   Fill out form
 
@@ -50,10 +49,11 @@ public class EASEY_Out_ContactUs extends UITestBase {
         click(campdElements.contactsubmit);
 
         waitFor(campdElements.contactusalert);
-        verifyEquals(campdElements.contactusalert.getText(),"Success! You will be sent a confirmation email within the next 24 hours. If you do not receive a notification, please resubmit your issue, reach out to the Clean Air Markets Division hotline at 202-343-9620, or email campd-support@camdsupport.com directly.");
+        verifyEquals(campdElements.contactusalert.getText(),"Success! You will be sent a confirmation email within the next 24 hours. If you do not receive a notification, please resubmit your issue, reach out to the Clean Air Markets Division hotline at 202-343-9620, or email campd-support@camdsupport.com.");
 
 
 
     }
+
 }
 

@@ -31,15 +31,13 @@ public class EASEY_Out_About extends UITestBase {
 
         verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/about");
 
-        waitFor(campdElements.pagetitle);
 
 // Test Accordions
 
-        jse.executeScript("scroll(0, 1000);");
+        jse.executeScript("scroll(0, 1500);");
 
         waitFor(campdElements.accordion.get(0));
         click(campdElements.accordion.get(0));
-
         verifyEquals(campdElements.accordion.get(0).getAttribute("aria-expanded"),"true");
         waitFor(campdElements.accordion.get(0));
         click(campdElements.accordion.get(0));

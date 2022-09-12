@@ -16,46 +16,66 @@ public class CampdElements extends PageBase {
     @FindBy(css = "div.mainContent > div > div > h2")
     public WebElement title;
 
+
+    // Data Nav
+    @FindBy(css = "a[aria-label='DATA']")
+    public WebElement datamenu;
+
+    // Viz Nav
+    @FindBy(css = "a[aria-label='VIZ GALLERY']")
+    public WebElement viznav;
+
+
+    // Help/Support Drop Down
+
+    @FindBy(css = "button[aria-controls='menu-HELP/SUPPORT']")
+    public WebElement helpsupport;
+
+
+    @FindBy(css="ul[id='extended-nav-section-last'] > li:nth-child(1) > a")
+    public WebElement aboutlink;
+
+    @FindBy(css="ul[id='extended-nav-section-last'] > li:nth-child(2) > a")
+    public WebElement tutorialslink;
+
+    @FindBy(css="ul[id='extended-nav-section-last'] > li:nth-child(3) > a")
+    public WebElement faqlink;
+
+    @FindBy(css="ul[id='extended-nav-section-last'] > li:nth-child(4) > a")
+    public WebElement glossary;
+
+    @FindBy(css="ul[id='extended-nav-section-last'] > li:nth-child(5) > a")
+    public WebElement resourceslinks;
+
+    @FindBy(css="ul[id='extended-nav-section-last'] > li:nth-child(6) > a")
+    public WebElement contactuslink;
+
+    // Data Home Page Links
+    @FindBy(id = "CustomDataDownloadTool")
+    public WebElement  cdd;
+
+    @FindBy(id = "BulkDataFiles")
+    public WebElement bulkdata;
+
+    @FindBy(id = "APIs")
+    public WebElement apis;
+
 // Navigation Items
 
     // Help/Support Links
-
-        @FindBy(css = "button[aria-controls='menu-Help/Support']")
-        public WebElement helpsupport;
-
-
-            @FindBy(css=" nav.usa-nav:nth-child(1) > ul >li:nth-child(2) >ul > li:nth-child(1) > a")
-            public WebElement aboutlink;
-
-            @FindBy(css=" nav.usa-nav:nth-child(1) > ul >li:nth-child(2) >ul > li:nth-child(4) > a")
-            public WebElement contactuslink;
-
-
-            @FindBy(css=" nav.usa-nav:nth-child(1) > ul >li:nth-child(2) >ul > li:nth-child(3) > a")
-            public WebElement faqlink;
-
-            @FindBy(css=" nav.usa-nav:nth-child(1) > ul >li:nth-child(2) >ul > li:nth-child(2) > a")
-            public WebElement tutorialslink;
 
     // Resources Links
         @FindBy(css = "button[aria-controls='menu-Resources']")
         public WebElement resources;
 
-            @FindBy(css="nav.usa-nav:nth-child(1) > ul >li:nth-child(1) >ul > li:nth-child(2) > a")
-            public WebElement resourceslinks;
-
-            @FindBy(css="nav.usa-nav:nth-child(1) > ul >li:nth-child(1) >ul > li:nth-child(1) > a")
-            public WebElement glossary;
 
      // Data Links
-        @FindBy(css = "button[aria-controls='menu-DATA']")
-        public WebElement datamenu;
 
-            @FindBy(css="nav.usa-nav:nth-child(2) > ul >li:nth-child(2) >ul > li:nth-child(2) > a")
+
+            @FindBy(css="a[href^='/data/custom-data-download']")
             public WebElement datadownload;
 
-            @FindBy(css="nav.usa-nav:nth-child(2) > ul >li:nth-child(2) >ul > li:nth-child(3) > a")
-            public WebElement bulkdata;
+
 
             @FindBy(css="nav.usa-nav:nth-child(2) > ul >li:nth-child(2) >ul > li:nth-child(1) > a")
             public WebElement datahome;
@@ -76,7 +96,7 @@ public class CampdElements extends PageBase {
     @FindBy(css = "main >  div > div > h1")
     public WebElement pagetitle;
 
-    @FindBy(css = "div.usa-accordion > h3 > button")
+    @FindBy(css = "div.usa-accordion > h3.usa-accordion__heading > button")
     public List<WebElement> accordion;
 
     @FindBy(css = "div.usa-accordion > div")
@@ -146,7 +166,7 @@ public class CampdElements extends PageBase {
     @FindBy(css ="div.position-relative > div > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)")
     public WebElement applyBtn;
 
-    @FindBy(css = "div.filter-container > p.padding-y-0 > button")
+    @FindBy(css = "div.filter-container > p > button")
     public List<WebElement> filtercriteria;
 
     @FindBy(css = "input[id='event-date-start']")
@@ -168,7 +188,7 @@ public class CampdElements extends PageBase {
     public WebElement previewdata;
 
 
-    @FindBy(css = "div[data-testid='checkbox'] > label")
+    @FindBy(css = "div[data-testid='checkbox']")
     public List<WebElement> label;
 
     @FindBy(css = "div[data-testid='alert']")
@@ -192,10 +212,10 @@ public class CampdElements extends PageBase {
     @FindBy(css ="div.main-content > button")
     public List<WebElement> downloadbutton;
 
-    @FindBy(css ="button[label='JSON']")
+    @FindBy(css ="div.download-wrapper > button")
     public WebElement downloaddata;
 
-    @FindBy(id ="json")
+    @FindBy(css ="label.usa-radio__label[for='json']")
     public WebElement json;
 
     // Mobile Elements
@@ -233,12 +253,15 @@ public class CampdElements extends PageBase {
     @FindBy(css ="div.main-content > p > strong  > a")
     public List<WebElement> tutorialspdfs;
 
-    @FindBy(css ="main > div > p > a")
+    @FindBy(css ="p > a.usa-link")
     public List<WebElement> firstparalinks;
  // Homepage and What's new
 
-    @FindBy(id ="Data")
-    public WebElement homepageData;
+    @FindBy(css = "strong > h2 > button")
+    public List<WebElement> homepageHeader;
+
+    @FindBy(css = "td> strong > button")
+    public WebElement dataQuery;
 
     @FindBy(css ="div.what-is-new-box > ul > li > strong > a")
     public List<WebElement> whatsnewlink;

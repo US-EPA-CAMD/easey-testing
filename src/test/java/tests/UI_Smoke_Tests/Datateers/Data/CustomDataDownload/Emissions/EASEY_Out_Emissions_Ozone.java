@@ -17,17 +17,25 @@ public class EASEY_Out_Emissions_Ozone extends UITestBase {
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-
-        // Navigate to Custom Data Download
+        // Navigate to Data Home Page
         waitFor(campdElements.datamenu);
         click(campdElements.datamenu);
 
-        waitFor(campdElements.datadownload);
-        click(campdElements.datadownload);
-
-        changeTab();
-
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
+        //Click CDD
+        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data");
+        {
+            try
+            {
+                Thread.sleep(1000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+        }
+        jse.executeScript("scroll(0, 250);");
+        waitFor(campdElements.cdd);
+        click(campdElements.cdd);
 
         // Select Emmissions Data Type
         waitFor(campdElements.datadropdown);
@@ -151,19 +159,10 @@ public class EASEY_Out_Emissions_Ozone extends UITestBase {
         verifyTrue(fileName.contains(fileconfirm));
 
 // Test for JSON
-        goTo("https://campd-dev.app.cloud.gov/");
-
-
-        // Navigate to Custom Data Download
-        waitFor(campdElements.datamenu);
-        click(campdElements.datamenu);
-
-        waitFor(campdElements.datadownload);
-        click(campdElements.datadownload);
-
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
+        // Navigate to CAMPD
+        goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
 
         // Select Emmissions Data Type
         waitFor(campdElements.datadropdown);
@@ -254,21 +253,11 @@ public class EASEY_Out_Emissions_Ozone extends UITestBase {
         waitFor(campdElements.previewdata);
         click(campdElements.previewdata);
 
-        //navigate to chrome downloads
+        waitFor(campdElements.json);
+        click(campdElements.json);
 
-        driver.get("chrome://downloads");
-
-
-
-        // get the latest downloaded file name
-        String JfileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
-
-        System.out.println(JfileName);
-
-        String Jfileconfirm = "ozone-emissions";
-
-        verifyTrue(JfileName.contains(Jfileconfirm));
-
+        waitFor(campdElements.downloaddata);
+        click(campdElements.downloaddata);
 
     }
 }
