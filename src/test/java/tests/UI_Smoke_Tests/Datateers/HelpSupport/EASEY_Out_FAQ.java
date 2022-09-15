@@ -13,7 +13,7 @@ public class EASEY_Out_FAQ extends UITestBase {
 
         // Navigate to EASEY In
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd-perf.app.cloud.gov");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -26,7 +26,7 @@ public class EASEY_Out_FAQ extends UITestBase {
         click(campdElements.faqlink);
         // verify page location
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/faqs");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/faqs");
 
 // Test Accordions
         {
@@ -55,10 +55,10 @@ public class EASEY_Out_FAQ extends UITestBase {
 // Test Tutorials Link
         waitFor(campdElements.firstparalinks.get(0));
         click(campdElements.firstparalinks.get(0));
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/tutorials");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/tutorials");
 // Test Contact Us Link
         changeTab();
-        goTo("https://campd-dev.app.cloud.gov/help-support/faqs");
+        goTo("https://campd-perf.app.cloud.gov/help-support/faqs");
 // Test Contact Us Link
         {
             try
@@ -73,7 +73,7 @@ public class EASEY_Out_FAQ extends UITestBase {
 
         waitFor(campdElements.firstparalinks.get(1));
         click(campdElements.firstparalinks.get(1));
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/contact-us");
     }
 
 

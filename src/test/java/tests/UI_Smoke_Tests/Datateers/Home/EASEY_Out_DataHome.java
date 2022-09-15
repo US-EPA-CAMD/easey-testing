@@ -1,4 +1,4 @@
-package tests.UI_Smoke_Tests.Datateers.Data;
+package tests.UI_Smoke_Tests.Datateers.Home;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
@@ -12,7 +12,7 @@ public class EASEY_Out_DataHome extends UITestBase  {
 
 // Navigate to CAMPD homepage
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd-perf.app.cloud.gov");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -37,11 +37,11 @@ public class EASEY_Out_DataHome extends UITestBase  {
 
         waitFor(campdElements.cdd);
         click(campdElements.cdd);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/data/custom-data-download");
 
 // Bulk Data Test
 
-       goTo("https://campd-dev.app.cloud.gov/data");
+       goTo("https://campd-perf.app.cloud.gov/data");
         {
             try
             {
@@ -56,11 +56,11 @@ public class EASEY_Out_DataHome extends UITestBase  {
 
         waitFor(campdElements.bulkdata);
         click(campdElements.bulkdata);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/bulk-data-files");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/data/bulk-data-files");
 
 
 // Test for CAM API
-        goTo("https://campd-dev.app.cloud.gov/data");
+        goTo("https://campd-perf.app.cloud.gov/data");
         {
             try
             {

@@ -14,7 +14,7 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
 
         // Navigate to CAMPD
 
-        goTo("https://campd-dev.app.cloud.gov/");
+        goTo("https://campd-perf.app.cloud.gov/");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -24,7 +24,7 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
         click(campdElements.datamenu);
 
         //Click CDD
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/data");
         {
             try
             {
@@ -41,7 +41,7 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
 
         // Select Allowance Data Type
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/data/custom-data-download");
 
         waitFor(campdElements.datadropdown);
         click(campdElements.datadropdown);
@@ -63,7 +63,7 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
         {
             try
             {
-                Thread.sleep(15000);
+                Thread.sleep(5000);
             }
             catch(InterruptedException ex)
             {
@@ -114,8 +114,8 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
         waitFor(campdElements.filtercriteria.get(2));
         click(campdElements.filtercriteria.get(2));
 
-        waitFor(campdElements.searchitem);
-        click(campdElements.searchitem.get(0));
+        waitFor(campdElements.searchbox);
+        click(campdElements.searchbox);
 
         waitFor(campdElements.searchitem.get(0));
         click(campdElements.searchitem.get(0));
@@ -144,7 +144,7 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
         changeTab();
 
         // Navigate to CAMPD
-        goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
+        goTo("https://campd-perf.app.cloud.gov/data/custom-data-download");
 
         // Select Allowance Data Type
         waitFor(campdElements.datadropdown);
@@ -154,12 +154,7 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
         click(campdElements.dataoption.get(4));
 
         jse.executeScript("scroll(0, 250);");
-        // Select Allowance Subtype
-        waitFor(campdElements.subtypeDropdown);
-        click(campdElements.subtypeDropdown);
-
-        waitFor(campdElements.subtypeoption.get(1));
-        click(campdElements.subtypeoption.get(1));
+        // Select Allowance Subtyp
         //Apply  Subtype
 
         jse.executeScript("scroll(0, 250);");
@@ -221,8 +216,10 @@ public class EASEY_Out_Facility_Unit extends UITestBase {
         waitFor(campdElements.filtercriteria.get(2));
         click(campdElements.filtercriteria.get(2));
 
-        waitFor(campdElements.searchitem);
-        click(campdElements.searchitem.get(0));
+
+        waitFor(campdElements.searchbox);
+        click(campdElements.searchbox);
+
 
         waitFor(campdElements.searchitem.get(0));
         click(campdElements.searchitem.get(0));

@@ -13,7 +13,7 @@ public class EASEY_Out_Navigation extends UITestBase {
 
         // Navigate to EASEY In
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd-perf.app.cloud.gov");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -21,53 +21,53 @@ public class EASEY_Out_Navigation extends UITestBase {
 // Click Data
         waitFor(campdElements.datamenu);
         click(campdElements.datamenu);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/data");
 // Click Vizualizations
         waitFor(campdElements.viznav);
         click(campdElements.viznav);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/visualization-gallery");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/visualization-gallery");
 
  // Click About
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
         waitFor(campdElements.aboutlink);
         click(campdElements.aboutlink);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/about");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/about");
 
         // Click Tutorials
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
         waitFor(campdElements.tutorialslink);
         click(campdElements.tutorialslink);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/tutorials");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/tutorials");
 
         // Click FAQS
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
         waitFor(campdElements.faqlink);
         click(campdElements.faqlink);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/faqs");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/faqs");
 
         // Click Glossary
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
         waitFor(campdElements.glossary);
         click(campdElements.glossary);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/glossary");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/glossary");
 
         // Click Related Resources
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
         waitFor(campdElements.resourceslinks);
         click(campdElements.resourceslinks);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/related-resources");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/related-resources");
 
         // Click Contact-Us
         waitFor(campdElements.helpsupport);
         click(campdElements.helpsupport);
         waitFor(campdElements.contactuslink);
         click(campdElements.contactuslink);
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/contact-us");
 
     }
 

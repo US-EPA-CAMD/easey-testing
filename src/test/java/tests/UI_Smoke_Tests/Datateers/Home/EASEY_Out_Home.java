@@ -13,7 +13,7 @@ public class EASEY_Out_Home extends UITestBase {
 
         // Navigate to EASEY In
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd-perf.app.cloud.gov");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -26,9 +26,9 @@ public class EASEY_Out_Home extends UITestBase {
 
 
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/data");
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd-perf.app.cloud.gov");
         jse.executeScript("scroll(0, 1000);");
 
         // Click Viz  Button
@@ -36,18 +36,18 @@ public class EASEY_Out_Home extends UITestBase {
         waitFor(campdElements.homepageHeader.get(1));
         click(campdElements.homepageHeader.get(1));
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/visualization-gallery");
-        goTo("https://campd-dev.app.cloud.gov");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/visualization-gallery");
+        goTo("https://campd-perf.app.cloud.gov");
         jse.executeScript("scroll(0, 1000);");
         // Click Data Query Button
 
         waitFor(campdElements.dataQuery);
         click(campdElements.dataQuery);
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data/custom-data-download");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/data/custom-data-download");
 
         // Test what's new links
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd-perf.app.cloud.gov");
         jse.executeScript("scroll(0, 1000);");
 
         // Tutorials
@@ -55,10 +55,10 @@ public class EASEY_Out_Home extends UITestBase {
         click(campdElements.whatsnewlink.get(0));
 
         changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/tutorials");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/tutorials");
 
         // Quick Start Guides
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd-perf.app.cloud.gov");
         jse.executeScript("scroll(0, 1000);");
 
         // Quick Start Guides
@@ -66,17 +66,28 @@ public class EASEY_Out_Home extends UITestBase {
         click(campdElements.whatsnewlink.get(1));
 
         changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://api.epa.gov/easey/dev/content-mgmt/campd/documents/CustomDataDownload-QuickStartGuide.pdf");
+        verifyEquals(driver.getCurrentUrl(), "https://api.epa.gov/easey/perf/content-mgmt/campd/documents/CustomDataDownload-QuickStartGuide.pdf");
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd-perf.app.cloud.gov");
         jse.executeScript("scroll(0, 1400);");
-
-        // Contact Us
+        // Email List
         waitFor(campdElements.whatsnewlink.get(2));
         click(campdElements.whatsnewlink.get(2));
 
         changeTab();
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
+        verifyEquals(driver.getCurrentUrl(), "https://lp.constantcontactpages.com/su/SmTSbfJ");
+
+
+        goTo("https://campd-perf.app.cloud.gov");
+
+        // Contact Us
+        jse.executeScript("scroll(0, 1400);");
+
+        waitFor(campdElements.whatsnewlink.get(3));
+        click(campdElements.whatsnewlink.get(3));
+
+        changeTab();
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/contact-us");
 
 
 

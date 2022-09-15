@@ -1,16 +1,17 @@
-package tests.UI_Smoke_Tests.Datateers.Data.CustomDataDownload.Emissions;
+package tests.UI_Smoke_Tests.Datateers.Data.CustomDataDownload;
 
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.CampdElements;
 import tests.utils.UITestBase;
+import org.openqa.selenium.JavascriptExecutor;
 
-public class EASEY_Out_Emissions_Quarterly extends UITestBase {
 
+public class EASEY_Out_MATS extends UITestBase {
     @Test
     public void test() {
-// Test for CSV
+
         // Navigate to CAMPD
 
         goTo("https://campd-perf.app.cloud.gov/");
@@ -38,67 +39,61 @@ public class EASEY_Out_Emissions_Quarterly extends UITestBase {
         waitFor(campdElements.cdd);
         click(campdElements.cdd);
 
-        // Select Emmissions Data Type
+        // Select Allowance Data Type
+
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/data/custom-data-download");
+
         waitFor(campdElements.datadropdown);
         click(campdElements.datadropdown);
 
-        waitFor(campdElements.dataoption.get(1));
-        click(campdElements.dataoption.get(1));
-
-        // Select Quarterly  Subtype
-        jse.executeScript("scroll(0, 250);");
-        waitFor(campdElements.subtypeDropdown);
-        click(campdElements.subtypeDropdown);
-
-        waitFor(campdElements.subtypeoption.get(4));
-        click(campdElements.subtypeoption.get(4));
-
+        waitFor(campdElements.dataoption.get(5));
+        click(campdElements.dataoption.get(5));
 
         jse.executeScript("scroll(0, 250);");
 
         waitFor(campdElements.applyBtn);
         click(campdElements.applyBtn);
 
-
-        // Apply Date Range
         {
             try
             {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             }
             catch(InterruptedException ex)
             {
                 Thread.currentThread().interrupt();
             }
         }
+
+        // Apply date range
+
         click(campdElements.filtercriteria.get(0));
+        waitFor(campdElements.datestart);
+        input(campdElements.datestart, "01/01/2019");
 
-        waitFor(campdElements.yearinput);
-        input(campdElements.yearinput, "2020");
+        input(campdElements.dateend, "01/02/2019");
 
-        waitFor(campdElements.label.get(1));
-        click(campdElements.label.get(1));
-
-        waitFor(campdElements.applyYear);
+        waitFor(campdElements.applyYear.get(1));
         click(campdElements.applyYear.get(1));
 
         waitFor(campdElements.previewdata);
 
-        // Apply unit fuel type Filter Logic
+        // Apply Program Filter Logic
 
         {
             try
             {
-                Thread.sleep(10000);
+                Thread.sleep(15000);
             }
             catch(InterruptedException ex)
             {
                 Thread.currentThread().interrupt();
             }
         }
+
         jse.executeScript("scroll(0, 500);");
-        waitFor(campdElements.filtercriteria.get(5));
-        click(campdElements.filtercriteria.get(5));
+        waitFor(campdElements.filtercriteria.get(3));
+        click(campdElements.filtercriteria.get(3));
 
         waitFor(campdElements.label.get(0));
         click(campdElements.label.get(0));
@@ -107,12 +102,12 @@ public class EASEY_Out_Emissions_Quarterly extends UITestBase {
         waitFor(campdElements.cancelApply.get(1));
         click(campdElements.cancelApply.get(1));
 
-        // Apply Facility Filter
+        // Apply Facility
 
         waitFor(campdElements.previewdata);
 
-        waitFor(campdElements.filtercriteria.get(3));
-        click(campdElements.filtercriteria.get(3));
+        waitFor(campdElements.filtercriteria.get(2));
+        click(campdElements.filtercriteria.get(2));
 
         waitFor(campdElements.searchbox);
         click(campdElements.searchbox);
@@ -134,84 +129,74 @@ public class EASEY_Out_Emissions_Quarterly extends UITestBase {
         waitFor(campdElements.downloaddata);
         click(campdElements.downloaddata);
 
-        {
-            try
-            {
-                Thread.sleep(10000);
-            }
-            catch(InterruptedException ex)
-            {
-                Thread.currentThread().interrupt();
-            }
-        }
+        JavascriptExecutor js1 = (JavascriptExecutor)driver;
 
 
-// Test for JSON
+
+        // test for JSON
+
+        // Navigate to CAMPD
+        changeTab();
 
         // Navigate to CAMPD
         goTo("https://campd-perf.app.cloud.gov/data/custom-data-download");
 
-        // Select Emmissions Data Type
+        // Select Allowance Data Type
         waitFor(campdElements.datadropdown);
         click(campdElements.datadropdown);
 
-        waitFor(campdElements.dataoption.get(1));
-        click(campdElements.dataoption.get(1));
+        waitFor(campdElements.dataoption.get(5));
+        click(campdElements.dataoption.get(5));
 
-        // Select Quarterly  Subtype
         jse.executeScript("scroll(0, 250);");
-        waitFor(campdElements.subtypeDropdown);
-        click(campdElements.subtypeDropdown);
-
-        waitFor(campdElements.subtypeoption.get(4));
-        click(campdElements.subtypeoption.get(4));
-
+        // Select Allowance Subtyp
+        //Apply  Subtype
 
         jse.executeScript("scroll(0, 250);");
 
         waitFor(campdElements.applyBtn);
         click(campdElements.applyBtn);
 
-
-        // Apply Date Range
         {
             try
             {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             }
             catch(InterruptedException ex)
             {
                 Thread.currentThread().interrupt();
             }
         }
+
+        // Apply date range
+
         click(campdElements.filtercriteria.get(0));
+        waitFor(campdElements.datestart);
+        input(campdElements.datestart, "01/01/2019");
 
-        waitFor(campdElements.yearinput);
-        input(campdElements.yearinput, "2020");
+        input(campdElements.dateend, "01/02/2019");
 
-        waitFor(campdElements.label.get(1));
-        click(campdElements.label.get(1));
-
-        waitFor(campdElements.applyYear);
+        waitFor(campdElements.applyYear.get(1));
         click(campdElements.applyYear.get(1));
 
         waitFor(campdElements.previewdata);
 
-        // Apply unit fuel type Filter Logic
+        // Apply Program Filter Logic
 
         {
             try
             {
-                Thread.sleep(10000);
+                Thread.sleep(15000);
             }
             catch(InterruptedException ex)
             {
                 Thread.currentThread().interrupt();
             }
         }
+
         jse.executeScript("scroll(0, 500);");
-        waitFor(campdElements.filtercriteria.get(5));
-        click(campdElements.filtercriteria.get(5));
+        waitFor(campdElements.filtercriteria.get(4));
+        click(campdElements.filtercriteria.get(4));
 
         waitFor(campdElements.label.get(0));
         click(campdElements.label.get(0));
@@ -220,15 +205,17 @@ public class EASEY_Out_Emissions_Quarterly extends UITestBase {
         waitFor(campdElements.cancelApply.get(1));
         click(campdElements.cancelApply.get(1));
 
-        // Apply Facility Filter
+        // Apply Facility
 
         waitFor(campdElements.previewdata);
 
-        waitFor(campdElements.filtercriteria.get(3));
-        click(campdElements.filtercriteria.get(3));
+        waitFor(campdElements.filtercriteria.get(1));
+        click(campdElements.filtercriteria.get(1));
+
 
         waitFor(campdElements.searchbox);
         click(campdElements.searchbox);
+
 
         waitFor(campdElements.searchitem.get(0));
         click(campdElements.searchitem.get(0));
@@ -241,42 +228,14 @@ public class EASEY_Out_Emissions_Quarterly extends UITestBase {
 
         waitFor(campdElements.previewdata);
         click(campdElements.previewdata);
-
-        {
-            try
-            {
-                Thread.sleep(10000);
-            }
-            catch(InterruptedException ex)
-            {
-                Thread.currentThread().interrupt();
-            }
-        }
-
-        // Download as json
+        // Download as JSON
 
         waitFor(campdElements.json);
         click(campdElements.json);
         waitFor(campdElements.downloaddata);
         click(campdElements.downloaddata);
 
-        //navigate to chrome downloads
-
-        driver.get("chrome://downloads");
-
-        JavascriptExecutor js1 = (JavascriptExecutor)driver;
-        // get the latest downloaded file name
-        String fileName = (String) js1.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content #file-link').text");
-
-        System.out.println(fileName);
-
-        String fileconfirm = "quarterly-emissions";
-
-        verifyTrue(fileName.contains(fileconfirm));
-
-
 
 
     }
 }
-

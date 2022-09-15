@@ -157,13 +157,43 @@ public class CampdElements extends PageBase {
     @FindBy(css = "select[id='data-type'] > option")
     public List<WebElement> dataoption;
 
+    @FindBy(id = "sub-type")
+    public WebElement subtypeBDD;
+
+    @FindBy(css = "option[data-testid='subtype-select-option']")
+    public List<WebElement> bddSubtype;
+
+    @FindBy(id = "grouping")
+    public WebElement grouping;
+
+    @FindBy(css = "option[data-testid='grouping-select-option']")
+    public List<WebElement> groupingoption;
+
+    @FindBy(id = "years")
+    public WebElement yearBDD;
+
+    @FindBy(css = "option[data-testid='year-select-option']")
+    public List<WebElement> yearoption;
+
+    @FindBy(id = "quarters")
+    public WebElement quarterbdd;
+
+    @FindBy(css = "option[data-testid='quarter-select-option']")
+    public List<WebElement> quarteroption;
+
+    @FindBy(id = "states")
+    public WebElement statesbdd;
+
+    @FindBy(css = "option[data-testid='state-select-option']")
+    public List<WebElement> stateoption;
+
     @FindBy(id = "multi-select-combobox")
     public WebElement searchbox;
 
     @FindBy(css = "ul[id='listbox'] > li > span")
     public List<WebElement> searchitem;
 
-    @FindBy(css ="div.position-relative > div > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)")
+    @FindBy(css ="div.side-nav > div > button")
     public WebElement applyBtn;
 
     @FindBy(css = "div.filter-container > p > button")
@@ -187,9 +217,20 @@ public class CampdElements extends PageBase {
     @FindBy(id= "previewDataButton")
     public WebElement previewdata;
 
+    @FindBy(css= "div[id='cdd-data-preview'] > div > div  > div > div > button.width-card")
+    public List<WebElement> bookmark;
+
+    @FindBy(id= "bookmark-modal-heading")
+    public WebElement bookmarkModal;
+
+    @FindBy(css= "a.display-block")
+    public WebElement bookmarkLink;
 
     @FindBy(css = "div[data-testid='checkbox']")
     public List<WebElement> label;
+
+    @FindBy(css = "div.rdt_TableCell > input")
+    public List<WebElement> bddCheckbox;
 
     @FindBy(css = "div[data-testid='alert']")
     public WebElement alert;

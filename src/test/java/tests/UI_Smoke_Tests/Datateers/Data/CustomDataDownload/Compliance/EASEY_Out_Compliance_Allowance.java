@@ -14,7 +14,7 @@ public class EASEY_Out_Compliance_Allowance extends UITestBase {
 
         // Navigate to CAMPD
 
-        goTo("https://campd-dev.app.cloud.gov/");
+        goTo("https://campd-perf.app.cloud.gov/");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -25,7 +25,7 @@ public class EASEY_Out_Compliance_Allowance extends UITestBase {
         click(campdElements.datamenu);
 
         //Click CDD
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/data");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/data");
         {
             try
             {
@@ -152,7 +152,7 @@ public class EASEY_Out_Compliance_Allowance extends UITestBase {
         changeTab();
 
         // Navigate to CAMPD
-        goTo("https://campd-dev.app.cloud.gov/data/custom-data-download");
+        goTo("https://campd-perf.app.cloud.gov/data/custom-data-download");
 
         // Select Allowance Data Type
         waitFor(campdElements.datadropdown);

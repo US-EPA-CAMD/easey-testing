@@ -13,7 +13,7 @@ public class EASEY_Out_ContactUs extends UITestBase {
 
         // Navigate to EASEY In
 
-        goTo("https://campd-dev.app.cloud.gov");
+        goTo("https://campd-perf.app.cloud.gov");
         Actions action = new Actions(driver);
         CampdElements campdElements = new CampdElements(driver);
 
@@ -28,7 +28,7 @@ public class EASEY_Out_ContactUs extends UITestBase {
 
         changeTab();
 
-        verifyEquals(driver.getCurrentUrl(), "https://campd-dev.app.cloud.gov/help-support/contact-us");
+        verifyEquals(driver.getCurrentUrl(), "https://campd-perf.app.cloud.gov/help-support/contact-us");
 
 
 //   Fill out form
