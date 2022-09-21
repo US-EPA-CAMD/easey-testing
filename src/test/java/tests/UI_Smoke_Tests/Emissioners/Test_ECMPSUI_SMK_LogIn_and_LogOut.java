@@ -17,9 +17,9 @@ public class Test_ECMPSUI_SMK_LogIn_and_LogOut extends emMonPlanReusables {
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
         //Navigate to EASEY In
-        //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+        //https://ecmps-dev.app.cloud.gov/monitoring-plans
 
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goTo("https://ecmps-dev.app.cloud.gov/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
