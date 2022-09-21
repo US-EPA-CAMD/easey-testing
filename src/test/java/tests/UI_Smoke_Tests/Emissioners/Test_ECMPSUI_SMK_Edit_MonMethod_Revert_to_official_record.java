@@ -15,9 +15,9 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
         //Navigate to EASEY In
-        //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+        //https://ecmps-dev.app.cloud.gov/monitoring-plans
 
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goTo("https://ecmps-dev.app.cloud.gov/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
