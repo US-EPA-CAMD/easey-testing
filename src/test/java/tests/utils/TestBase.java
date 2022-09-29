@@ -18,7 +18,9 @@ public class TestBase {
             "/work/easey-testing/easey-testing" : "\\IdeaProjects\\easey-testing") +
             "/src/main/resources/";
     protected double num;
-    
+
+    protected String env = System.getProperty("env", "dev");
+
     @BeforeMethod
     public void beforeMethod() {
         softAssert = new SoftAssert();

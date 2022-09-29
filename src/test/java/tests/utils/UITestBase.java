@@ -90,6 +90,16 @@ public class UITestBase extends TestBase {
         driver.get(url);
     }
 
+    protected void goToo(String app, String url) {
+        if (!url.startsWith("https:")) {
+            url = String.format("https://%s-%s.app.cloud.gov%s", app, env, url);
+        }
+        else {
+            System.out.print(className + " needs to have goto method updated");
+        }
+        driver.get(url);
+    }
+
     protected boolean isDisplayed(WebElement ele) {
         try {
             return ele.isDisplayed();

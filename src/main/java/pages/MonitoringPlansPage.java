@@ -13,7 +13,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "table.usa-table.usa-table--borderless")
     public WebElement table;
 
-    @FindBy(css = "h2[epa-testid='monPlansTitle']")
+    @FindBy(css = "h2[epa-testid='MonitoringPlansTitle']")
     public WebElement title;
 
     @FindBy(css = "span[class='font-body-lg']")
