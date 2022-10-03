@@ -3,13 +3,13 @@ package tests.UI_Smoke_Tests.Emissioners;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
-import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.emMonPlanReusables;
+import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
 
 /*
 This test verifies that the user can successfully log In to the application
 */
 
-public class Test_ECMPSUI_SMK_LogIn_and_LogOut extends emMonPlanReusables {
+public class Test_ECMPSUI_SMK_LogIn_and_LogOut extends EmMonPlanReusables {
 
     @Test()
     public void tests() {
