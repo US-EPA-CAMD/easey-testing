@@ -17,7 +17,7 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
         //Navigate to EASEY In
         //https://ecmps-dev.app.cloud.gov/monitoring-plans
 
-        goTo("https://ecmps-dev.app.cloud.gov/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;

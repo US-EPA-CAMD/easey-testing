@@ -4,7 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class emMonPlanReusables extends UITestBase {
+public class EmMonPlanReusables extends UITestBase {
 
     protected void logOutMethod() {
 
