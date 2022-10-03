@@ -13,7 +13,7 @@ public class Test_EASEYIn_TC406_View_MP_Defaults_Data extends UITestBase {
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         Actions action = new Actions(driver);
