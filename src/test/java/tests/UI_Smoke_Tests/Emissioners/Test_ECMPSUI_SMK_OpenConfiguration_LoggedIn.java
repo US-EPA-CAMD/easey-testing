@@ -22,7 +22,7 @@ public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedIn extends EmMonPlanReusab
         //Navigate to EASEY In
         //https://ecmps-dev.app.cloud.gov/monitoring-plans
 
-        goTo("https://ecmps-dev.app.cloud.gov/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
