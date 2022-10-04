@@ -12,7 +12,7 @@ public class Test_EASEYIn_TC1924_ECMPS_Resources extends UITestBase {
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         String sorryMessage = "Sorry, but this web page does not exist.";

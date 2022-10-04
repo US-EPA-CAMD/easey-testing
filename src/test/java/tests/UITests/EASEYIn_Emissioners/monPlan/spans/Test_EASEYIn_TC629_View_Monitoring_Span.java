@@ -12,7 +12,7 @@ public class Test_EASEYIn_TC629_View_Monitoring_Span extends UITestBase {
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         Actions action = new Actions(driver);

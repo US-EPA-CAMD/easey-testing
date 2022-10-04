@@ -11,7 +11,7 @@ public class Test_ECMPSUI_Fun_TC542_View_Supplemental_Method_Modal extends UITes
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 

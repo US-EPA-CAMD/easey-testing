@@ -13,7 +13,7 @@ public class Test_EASEYIn_TC1414_LogIn_Home_Page extends UITestBase {
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
