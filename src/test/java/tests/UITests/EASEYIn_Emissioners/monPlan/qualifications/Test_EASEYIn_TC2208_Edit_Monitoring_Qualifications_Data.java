@@ -17,7 +17,7 @@ public class Test_EASEYIn_TC2208_Edit_Monitoring_Qualifications_Data extends UIT
         //Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
 
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;

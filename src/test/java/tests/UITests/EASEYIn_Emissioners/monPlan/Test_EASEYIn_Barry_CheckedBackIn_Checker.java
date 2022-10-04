@@ -14,7 +14,7 @@ public class Test_EASEYIn_Barry_CheckedBackIn_Checker extends UITestBase {
         //Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
 
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 

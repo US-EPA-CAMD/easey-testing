@@ -12,7 +12,7 @@ public class Test_EASEYIn_1088_Keep_state_of_facilities_among_tabs_in_Mon_Plans 
         //Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
 
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 

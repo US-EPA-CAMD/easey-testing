@@ -13,7 +13,7 @@ public class Test_EASEYIn_TC630_View_MP_Location_Attributes extends UITestBase {
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goTo("https://easey-dev.app.cloud.gov/ecmps/monitoring-plans");
+        goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         Actions action = new Actions(driver);
