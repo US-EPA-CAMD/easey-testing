@@ -34,7 +34,7 @@ public class Test_EASEYIn_TC630_View_MP_Relationships_Data extends UITestBase {
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTabBarry12CS0AAN);
+        click(monitoringPlansPage.configTabs.get(0));
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
