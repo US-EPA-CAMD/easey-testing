@@ -1,6 +1,7 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.methods;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
@@ -8,7 +9,7 @@ import tests.utils.UITestBase;
 public class Test_EASEYIn_View_Method_Modal extends UITestBase {
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
@@ -24,7 +25,7 @@ public class Test_EASEYIn_View_Method_Modal extends UITestBase {
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        js.executeScript("window.scrollBy(0,350)", "");
+        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.selectConfigurationsLabel);
 
         // Clicks on Barry (Oris Code 3)
         click(monitoringPlansPage.facilityCaret.get(0));
@@ -35,27 +36,30 @@ public class Test_EASEYIn_View_Method_Modal extends UITestBase {
 
         click(monitoringPlansPage.configTabs.get(0));
 
-        js.executeScript("window.scrollBy(0,250)", "");
+        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.accordionMethodsLabel);
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 4);
+
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
-
         verifyEquals(monitoringPlansPage.closeModal, "Close");
         click(monitoringPlansPage.closeModal);
 
         waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
         verifyFalse(isDisplayed(monitoringPlansPage.monPlanModalHeaderLabel));
 
+        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.accordionMethodsLabel);
+
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 4);
+        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
-
+        waitFor(monitoringPlansPage.xOutModal);
         click(monitoringPlansPage.xOutModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
 
