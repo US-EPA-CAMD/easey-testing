@@ -5,9 +5,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
+import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
 import tests.utils.UITestBase;
 
-public class Test_ECMPSUI_SMK_Create_MonMethod extends UITestBase {
+public class Test_ECMPSUI_SMK_Create_MonMethod extends EmMonPlanReusables {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -72,9 +73,11 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends UITestBase {
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
+        waitFor(monitoringPlansPage.createMonMethodsButton);
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.createMonMethodsButton);
 
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 5);
         int numOfMethods = monitoringPlansPage.viewButton.size();
 
         click(monitoringPlansPage.createMonMethodsButton);
@@ -118,19 +121,7 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends UITestBase {
     @Override
     @AfterMethod
     public void afterMethod() {
-
-        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
-
-        if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            click(monitoringPlansPage.logOutButton);
-            waitFor(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        } else {
-            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        }
+        logOutMethod();
         super.afterMethod();
     }
 }
