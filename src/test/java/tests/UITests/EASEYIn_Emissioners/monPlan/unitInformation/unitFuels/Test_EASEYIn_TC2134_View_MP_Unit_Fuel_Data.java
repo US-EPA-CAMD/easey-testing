@@ -34,6 +34,7 @@ public class Test_EASEYIn_TC2134_View_MP_Unit_Fuel_Data extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringUnitInformation);
         click(monitoringPlansPage.monitoringUnitInformation);
         verifyEquals(monitoringPlansPage.monitoringUnitInformation, "Unit Information");
 
