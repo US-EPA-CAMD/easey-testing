@@ -51,7 +51,7 @@ public class Test_EASEYIn_TC402_View_System_Modal extends UITestBase {
         verifyEquals(monitoringPlansPage.systemComponentsHeader, "System Components");
 
         waitFor(monitoringPlansPage.systemFuelFlowsHeader);
-        verifyEquals(monitoringPlansPage.systemFuelFlowsHeader, "Fuel Flows");
+        verifyEquals(monitoringPlansPage.systemFuelFlowsHeader.get(1), "Fuel Flows");
 
         verifyEquals(monitoringPlansPage.closeModal, "Close");
         click(monitoringPlansPage.closeModal);

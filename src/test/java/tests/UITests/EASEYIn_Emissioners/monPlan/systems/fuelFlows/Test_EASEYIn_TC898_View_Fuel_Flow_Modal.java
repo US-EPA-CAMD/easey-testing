@@ -32,18 +32,20 @@ public class Test_EASEYIn_TC898_View_Fuel_Flow_Modal extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringSystems);
         click(monitoringPlansPage.monitoringSystems);
 
         waitFor(monitoringPlansPage.accordionSystemsLabel);
         verifyEquals(monitoringPlansPage.accordionSystemsLabel, "Systems");
 
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: AF1");
 
         waitFor(monitoringPlansPage.systemFuelFlowsHeader);
-        verifyEquals(monitoringPlansPage.systemFuelFlowsHeader, "Fuel Flows");
+        verifyEquals(monitoringPlansPage.systemFuelFlowsHeader.get(0), "Fuel Flows");
 
         verifyEquals(monitoringPlansPage.viewButtonFuelFlow.get(0).getText(), "View");
         click(monitoringPlansPage.viewButtonFuelFlow.get(0));
