@@ -1,5 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.unitInformation.unitCapacity;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
@@ -15,7 +16,7 @@ public class Test_EASEYIn_TC1722_View_MP_Unit_Capacity_Data extends UITestBase {
         goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        Actions action = new Actions(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
@@ -34,18 +35,23 @@ public class Test_EASEYIn_TC1722_View_MP_Unit_Capacity_Data extends UITestBase {
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringUnitInformation);
         click(monitoringPlansPage.monitoringUnitInformation);
         verifyEquals(monitoringPlansPage.monitoringUnitInformation, "Unit Information");
 
         waitFor(monitoringPlansPage.accordionUnitCapacitiesLabel);
         verifyEquals(monitoringPlansPage.accordionUnitCapacitiesLabel, "Unit Capacities");
 
+        waitFor(monitoringPlansPage.location.get(0));
         click(monitoringPlansPage.location.get(0));
         verifyEquals(monitoringPlansPage.location.get(0), "1");
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        action.moveToElement(monitoringPlansPage.viewButton.get(1)).click().build().perform();
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.viewButton.get(1));
+        click(monitoringPlansPage.viewButton.get(1));
 
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Unit Capacity");
 
     }
