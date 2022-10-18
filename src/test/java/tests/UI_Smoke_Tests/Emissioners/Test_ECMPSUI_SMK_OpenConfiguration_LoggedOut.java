@@ -32,11 +32,12 @@ public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedOut extends UITestBase {
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.title);
 
-        // Using input box to search for desired facility
+//        Using input box to search for desired facility
 //        waitFor(monitoringPlansPage.filterByKeywordBox);
 //        input(monitoringPlansPage.filterByKeywordBox,"Barry");
 //        click(monitoringPlansPage.filterByKeywordButton);
 
+        waitFor(driver -> monitoringPlansPage.facilityCaret.size() > 0);
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.facilityCaret.get(0));
 
