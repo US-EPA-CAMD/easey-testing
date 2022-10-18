@@ -79,6 +79,8 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
         String parameterCode = monitoringPlansPage.monMethodsTableParameterField.get(0).getText();
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.viewButton.get(0));
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
         click(monitoringPlansPage.viewButton.get(0));
 
