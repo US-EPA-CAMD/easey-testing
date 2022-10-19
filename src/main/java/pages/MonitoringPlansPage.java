@@ -257,7 +257,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "addBtn")
     public List<WebElement> createQualLeeButton;
 
-    @FindBy (id = "btnOpenQualificationLEE")
+    @FindBy (id = "div[aria-label='DataTable for LEE Qualifications'] > div > div > div > div > button[epa-testid='btnOpen']")
     public List<WebElement> viewEditQualLeeBtn;
 
     @FindBy (id = "Qualification-Test-Date")
