@@ -117,6 +117,7 @@ public class Test_EASEYIn_TC1711_Edit_MP_Load_Data extends EmMonPlanReusables {
         waitFor(monitoringPlansPage.LoadsTableMaxLoadValField.get(0));
         verifyNotEquals(monitoringPlansPage.LoadsTableMaxLoadValField.get(0).getText(), maxLoadVal);
 
+        // Revert starts here
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
 
@@ -128,34 +129,21 @@ public class Test_EASEYIn_TC1711_Edit_MP_Load_Data extends EmMonPlanReusables {
         verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
 
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
-        verifyEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), maxLoadVal);
+        // These steps Checks Back In the configuration
+        waitFor(monitoringPlansPage.configcheckBackInButton);
+        click(monitoringPlansPage.configcheckBackInButton);
 
-        // Closing tab
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.menuBtn);
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        waitFor(monitoringPlansPage.configcheckOutButton);
+        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
+
     }
     @Override
     @AfterMethod
     public void afterMethod() {
-
-        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
-
-        if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            click(monitoringPlansPage.logOutButton);
-            waitFor(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        } else {
-            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        }
+        logOutMethod();
         super.afterMethod();
     }
 }
