@@ -58,6 +58,7 @@ public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends EmMonPlanReu
 
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
