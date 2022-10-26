@@ -79,6 +79,7 @@ public class Test_EASEYIn_TC1702_Create_MP_Location_Attributes_Data extends EmMo
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
+        waitFor(monitoringPlansPage.createLocationAttributeBTN);
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.createLocationAttributeBTN);
 
@@ -94,6 +95,7 @@ public class Test_EASEYIn_TC1702_Create_MP_Location_Attributes_Data extends EmMo
         input(monitoringPlansPage.modalStartDateField, "01/01/2022");
 
         click(monitoringPlansPage.saveCloseModal);
+        waitFor(monitoringPlansPage.createLocationAttributeBTN);
 
         waitFor(monitoringPlansPage.viewButton);
         Thread.sleep(3000);
@@ -102,40 +104,14 @@ public class Test_EASEYIn_TC1702_Create_MP_Location_Attributes_Data extends EmMo
 
         verifyTrue(newNumOfAttributes == numOfAttributes + 1);
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-
-        // These steps closes the tab and automatically Checks Back In the configuration
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        // Revert starts here
+        revertToOfficial();
 
     }
     @Override
     @AfterMethod
     public void afterMethod() {
-
-        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
-
-        if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            click(monitoringPlansPage.logOutButton);
-            waitFor(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        } else {
-            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        }
+        logOutMethod();
         super.afterMethod();
     }
 }
