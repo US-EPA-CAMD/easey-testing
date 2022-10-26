@@ -97,6 +97,7 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends EmMonPlanReusables {
 
         verifyTrue(newNumOfMethods == numOfMethods + 1);
 
+        // Revert starts here
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
 
@@ -109,6 +110,8 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends EmMonPlanReusables {
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
         waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
+
 
         // These steps Checks Back In the configuration
         waitFor(monitoringPlansPage.configcheckBackInButton);

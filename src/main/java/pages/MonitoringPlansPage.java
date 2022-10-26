@@ -671,4 +671,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (id ="btnStopAnimation")
     public WebElement stopAnimationButton;
+
+    @FindBy (css ="img[title='Content loading']")
+    public WebElement stopAnimationImage;
 }

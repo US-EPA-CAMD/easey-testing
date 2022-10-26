@@ -5,9 +5,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
+import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
 import tests.utils.UITestBase;
 
-public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends UITestBase {
+public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends EmMonPlanReusables {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -105,6 +106,7 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
+        // Revert starts here
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
 
@@ -117,10 +119,8 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
         click(monitoringPlansPage.revertModalYesButton);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
         waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
 
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
-        verifyEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
         // These steps Checks Back In the configuration
         waitFor(monitoringPlansPage.configcheckBackInButton);
@@ -133,19 +133,7 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
     @Override
     @AfterMethod
     public void afterMethod() {
-
-        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
-
-        if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            click(monitoringPlansPage.logOutButton);
-            waitFor(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        } else {
-            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        }
+        logOutMethod();
         super.afterMethod();
     }
 }
