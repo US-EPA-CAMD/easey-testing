@@ -112,7 +112,6 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends EmMonPlanReusables {
         waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
         waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
 
-
         // These steps Checks Back In the configuration
         waitFor(monitoringPlansPage.configcheckBackInButton);
         click(monitoringPlansPage.configcheckBackInButton);
