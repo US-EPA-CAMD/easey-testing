@@ -107,27 +107,7 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends E
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
         // Revert starts here
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
-
-
-        // These steps Checks Back In the configuration
-        waitFor(monitoringPlansPage.configcheckBackInButton);
-        click(monitoringPlansPage.configcheckBackInButton);
-
-        waitFor(monitoringPlansPage.configcheckOutButton);
-        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
+        revertToOfficial();
 
     }
     @Override
