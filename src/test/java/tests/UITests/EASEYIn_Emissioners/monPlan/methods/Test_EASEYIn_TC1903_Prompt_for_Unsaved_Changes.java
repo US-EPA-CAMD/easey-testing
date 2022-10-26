@@ -3,9 +3,10 @@ package tests.UITests.EASEYIn_Emissioners.monPlan.methods;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
+import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends UITestBase {
+public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends EmMonPlanReusables {
 
     @Test()
     public void tests() {

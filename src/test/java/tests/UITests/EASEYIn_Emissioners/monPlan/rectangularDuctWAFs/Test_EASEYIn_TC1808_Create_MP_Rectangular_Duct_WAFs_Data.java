@@ -5,9 +5,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
+import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1808_Create_MP_Rectangular_Duct_WAFs_Data extends UITestBase {
+public class Test_EASEYIn_TC1808_Create_MP_Rectangular_Duct_WAFs_Data extends EmMonPlanReusables {
 
     @Test()
     public void tests() throws InterruptedException {

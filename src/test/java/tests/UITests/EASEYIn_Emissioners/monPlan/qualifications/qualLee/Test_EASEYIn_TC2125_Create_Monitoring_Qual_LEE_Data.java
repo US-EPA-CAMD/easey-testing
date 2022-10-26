@@ -4,9 +4,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
+import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
 import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC2125_Create_Monitoring_Qual_LEE_Data extends UITestBase {
+public class Test_EASEYIn_TC2125_Create_Monitoring_Qual_LEE_Data extends EmMonPlanReusables {
 
     @Test()
     public void tests() throws InterruptedException {
