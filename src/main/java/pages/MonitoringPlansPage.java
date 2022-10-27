@@ -480,7 +480,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButton;
 
-    @FindBy (css = "div[role='gridcell'] > div > button[data-testid='button']")
+    @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> viewButtonSystemComponents;
 
     @FindBy (css = "div.display-inline-flex.padding-top-1.padding-bottom-3 > div > h4")
