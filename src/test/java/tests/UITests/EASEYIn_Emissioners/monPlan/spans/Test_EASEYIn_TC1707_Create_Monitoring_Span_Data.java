@@ -81,11 +81,15 @@ public class Test_EASEYIn_TC1707_Create_Monitoring_Span_Data extends EmMonPlanRe
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
+        js.executeScript("document.body.style.zoom = '0.8'");
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        int numOfSpans = monitoringPlansPage.viewButton.size();
+        js.executeScript("document.body.style.zoom = '1'");
+
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.createSpanButton);
 
-        int numOfSpans = monitoringPlansPage.viewButton.size();
-
+        waitFor(monitoringPlansPage.createSpanButton);
         click(monitoringPlansPage.createSpanButton);
 
         waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
@@ -98,44 +102,21 @@ public class Test_EASEYIn_TC1707_Create_Monitoring_Span_Data extends EmMonPlanRe
         waitFor(monitoringPlansPage.viewButton);
         Thread.sleep(3000);
 
+        js.executeScript("document.body.style.zoom = '0.8'");
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         int newNumOfSpans = monitoringPlansPage.viewButton.size();
+        js.executeScript("document.body.style.zoom = '1'");
 
         verifyTrue(newNumOfSpans == numOfSpans + 1);
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-
-        // These steps closes the tab and automatically Checks Back In the configuration
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        // Revert starts here
+        revertToOfficial();
 
     }
     @Override
     @AfterMethod
     public void afterMethod() {
-
-        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
-
-        if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            click(monitoringPlansPage.logOutButton);
-            waitFor(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        } else {
-            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        }
+        logOutMethod();
         super.afterMethod();
     }
 }

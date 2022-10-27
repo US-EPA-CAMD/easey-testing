@@ -80,8 +80,10 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends EmMonPlanReus
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
+        waitFor(monitoringPlansPage.spansTableComponentTypeLabel);
         verifyEquals(monitoringPlansPage.spansTableComponentTypeLabel, "Component Type");
 
+        waitFor(monitoringPlansPage.spansTableComponentTypeField);
         String componentType = monitoringPlansPage.spansTableComponentTypeField.get(0).getText();
 
         waitFor(monitoringPlansPage.viewButton,1);
@@ -107,40 +109,14 @@ public class Test_EASEYIn_TC1706_Edit_Monitoring_Span_data extends EmMonPlanReus
         waitFor(monitoringPlansPage.spansTableComponentTypeLabel,1);
         verifyNotEquals(monitoringPlansPage.spansTableComponentTypeField.get(0).getText(), componentType);
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-
-        // These steps closes the tab and automatically Checks Back In the configuration
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        // Revert starts here
+        revertToOfficial();
 
     }
     @Override
     @AfterMethod
     public void afterMethod() {
-
-        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
-
-        if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            click(monitoringPlansPage.logOutButton);
-            waitFor(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        } else {
-            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        }
+        logOutMethod();
         super.afterMethod();
     }
 }

@@ -303,7 +303,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "column-col1")
     public WebElement spansTableComponentTypeLabel;
 
-    @FindBy (css = "div[role='gridcell']:nth-child(1)")
+    @FindBy (css = "div[role='rowgroup'] > div[role='row'] > div[role='cell']:nth-child(2)")
     public List<WebElement> spansTableComponentTypeField;
 
     @FindBy (css = "#Component\\ Type > option")
