@@ -83,7 +83,7 @@ public class Test_EASEYIn_TC1721_Edit_MP_Unit_Capacity_Data extends EmMonPlanReu
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         waitFor(monitoringPlansPage.maxHourlyHeatInputCapacityHeader);
-        verifyEquals(monitoringPlansPage.maxHourlyHeatInputCapacityHeader.get(2), "Maximum Hourly Heat Input Capacity");
+        verifyEquals(monitoringPlansPage.maxHourlyHeatInputCapacityHeader, "Maximum Hourly Heat Input Capacity");
 
 
         String maxHeatInputCap = monitoringPlansPage.maxHourlyHeatInputCapacityTableField.get(4).getText();

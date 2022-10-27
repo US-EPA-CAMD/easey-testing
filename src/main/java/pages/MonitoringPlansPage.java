@@ -342,10 +342,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "Maximum-Hourly-Heat-Input-Capacity")
     public WebElement maxHourlyHeatInputCapacityField;
 
-    @FindBy (id = "column-col6")
-    public List<WebElement> maxHourlyHeatInputCapacityHeader;
+    @FindBy (css = "h3[epa-testid='UnitCapacities']")
+    public WebElement maxHourlyHeatInputCapacityHeader;
 
-    @FindBy (css = "div[role='gridcell']:nth-child(7)")
+    @FindBy (css = "div[role='cell']:nth-child(7)")
     public List<WebElement> maxHourlyHeatInputCapacityTableField;
 
     @FindBy (id = "create-unit-control-add-btn")
