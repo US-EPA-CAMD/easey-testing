@@ -60,15 +60,6 @@ public class Test_EASEYIn_TC405_View_MP_Load_Data extends UITestBase {
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Load");
-        js.executeScript("arguments[0].click();", monitoringPlansPage.closeModal);
-
-        js.executeScript("document.body.style.zoom = '1'");
-
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.menuBtn);
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
 
     }
 }
