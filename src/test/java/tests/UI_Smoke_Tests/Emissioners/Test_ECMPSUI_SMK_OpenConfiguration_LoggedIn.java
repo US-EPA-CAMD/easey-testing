@@ -80,9 +80,8 @@ public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedIn extends EmMonPlanReusab
         click(monitoringPlansPage.configTabs.get(0));
 
         // Verifies that the configuration is open and its default is Methods
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
-
-        js.executeScript("window.scrollBy(0,250)", "");
 
         // Checks Out the configuration
         waitFor(monitoringPlansPage.configcheckOutButton);
@@ -93,10 +92,16 @@ public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedIn extends EmMonPlanReusab
         waitFor(monitoringPlansPage.configcheckBackInButton);
         verifyEquals(monitoringPlansPage.configcheckBackInButton, "Check Back In");
 
-        // These steps closes the tab and automatically Checks Back In the configuration
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        // Verifies that the configuration is open and its default is Methods
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
+        verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
+
+        // These steps Checks Back In the configuration
+        waitFor(monitoringPlansPage.configcheckBackInButton);
+        click(monitoringPlansPage.configcheckBackInButton);
+
+        waitFor(monitoringPlansPage.configcheckOutButton);
+        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
 
     }
     @Override
