@@ -75,6 +75,7 @@ public class Test_EASEYIn_TC1697_Edit_MP_Defaults_Data extends EmMonPlanReusable
         click(monitoringPlansPage.location.get(2));
         verifyEquals(monitoringPlansPage.location.get(2), "CS0BAN");
 
+        waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
