@@ -80,8 +80,8 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "#column-col2")
     public WebElement monitoringSystemTypeTableLabel;
 
-    @FindBy (css = "div[class='sc-jrQzAO fyPxqe rdt_TableRow'] > div:nth-child(3) > div")
-    public WebElement monitoringSystemTypeTableField;
+    @FindBy (css = "div[data-tag='allowRowEvents']:nth-child(3)")
+    public List<WebElement> monitoringSystemTypeTableField;
 
     @FindBy (css = "select[epadataname='systemTypeCode']")
     public WebElement monitoringSystemTypeModalField;

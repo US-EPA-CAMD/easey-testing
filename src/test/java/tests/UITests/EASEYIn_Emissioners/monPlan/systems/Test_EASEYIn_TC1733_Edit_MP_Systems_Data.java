@@ -82,11 +82,14 @@ public class Test_EASEYIn_TC1733_Edit_MP_Systems_Data extends EmMonPlanReusables
         waitFor(monitoringPlansPage.monitoringSystemTypeTableLabel);
         verifyEquals(monitoringPlansPage.monitoringSystemTypeTableLabel, "System Type");
 
-        String systemType = monitoringPlansPage.monitoringSystemTypeTableField.getText();
+        waitFor(monitoringPlansPage.monitoringSystemTypeTableField);
+        String systemType = monitoringPlansPage.monitoringSystemTypeTableField.get(0).getText();
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        click(monitoringPlansPage.viewButton.get(0));
+//        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+//        click(monitoringPlansPage.viewButton.get(0));
+        js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "System: 211");
@@ -101,6 +104,7 @@ public class Test_EASEYIn_TC1733_Edit_MP_Systems_Data extends EmMonPlanReusables
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.saveCloseModal);
+        waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
@@ -108,44 +112,14 @@ public class Test_EASEYIn_TC1733_Edit_MP_Systems_Data extends EmMonPlanReusables
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), systemType);
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.monitoringSystemTypeTableField);
-        verifyEquals(monitoringPlansPage.monitoringSystemTypeTableField.getText(), systemType);
-
-        // These steps closes the tab and automatically Checks Back In the configuration
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        // Revert starts here
+        revertToOfficial();
 
     }
     @Override
     @AfterMethod
     public void afterMethod() {
-
-        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
-
-        if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            js.executeScript("arguments[0].click();", monitoringPlansPage.logOutButton);
-            waitFor(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        } else {
-            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        }
+        logOutMethod();
         super.afterMethod();
     }
 }
