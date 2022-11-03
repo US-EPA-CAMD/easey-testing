@@ -19,7 +19,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "h3[class='margin-y-auto font-body-lg margin-right-2']")
     public WebElement titleOfFacilityInConfig;
 
-    @FindBy(css = "div.tabContent > div > div > div > div > header > div > div")
+    @FindBy(css = "div.tabContent > div > div > div > div > header > div")
     public WebElement selectConfigurationsLabel;
 
     @FindBy(css = "button[aria-label='open Select Configurations tab']")

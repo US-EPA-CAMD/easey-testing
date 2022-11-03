@@ -25,6 +25,7 @@ public class Test_EASEYIn_View_Method_Modal extends UITestBase {
         input(monitoringPlansPage.filterByKeywordBox,"Barry");
         click(monitoringPlansPage.filterByKeywordButton);
 
+        waitFor(monitoringPlansPage.selectConfigurationsLabel);
         js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.selectConfigurationsLabel);
 
         // Clicks on Barry (Oris Code 3)
@@ -34,6 +35,7 @@ public class Test_EASEYIn_View_Method_Modal extends UITestBase {
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
+        waitFor(driver -> monitoringPlansPage.configTabs.size() > 2);
         click(monitoringPlansPage.configTabs.get(0));
 
         js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.accordionMethodsLabel);
