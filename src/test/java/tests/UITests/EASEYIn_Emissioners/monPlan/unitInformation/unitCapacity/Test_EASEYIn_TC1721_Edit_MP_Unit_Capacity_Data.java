@@ -83,14 +83,17 @@ public class Test_EASEYIn_TC1721_Edit_MP_Unit_Capacity_Data extends EmMonPlanReu
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         waitFor(monitoringPlansPage.maxHourlyHeatInputCapacityHeader);
-        verifyEquals(monitoringPlansPage.maxHourlyHeatInputCapacityHeader, "Maximum Hourly Heat Input Capacity");
+        verifyEquals(monitoringPlansPage.maxHourlyHeatInputCapacityHeader.get(2), "Maximum Hourly Heat Input Capacity");
 
-
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 4);
+        waitFor(monitoringPlansPage.maxHourlyHeatInputCapacityTableField);
+        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.accordionUnitCapacitiesLabel);
         String maxHeatInputCap = monitoringPlansPage.maxHourlyHeatInputCapacityTableField.get(4).getText();
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 4);
         verifyEquals(monitoringPlansPage.viewButton.get(4).getText(), "View / Edit");
-        click(monitoringPlansPage.viewButton.get(4));
+        js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(4));
+//        click(monitoringPlansPage.viewButton.get(4));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Unit Capacity");
