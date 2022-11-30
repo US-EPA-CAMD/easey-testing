@@ -84,10 +84,8 @@ public class Test_EASEYIn_TC1808_Create_MP_Rectangular_Duct_WAFs_Data extends Em
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.accordionRectangularDuctWAFsLabel);
 
-        js.executeScript("document.body.style.zoom = '0.8'");
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         int numOfDuctWAFs = monitoringPlansPage.viewButton.size();
-        js.executeScript("document.body.style.zoom = '1'");
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.createRectangularDuctWafBtn);
@@ -105,12 +103,10 @@ public class Test_EASEYIn_TC1808_Create_MP_Rectangular_Duct_WAFs_Data extends Em
         waitFor(monitoringPlansPage.viewButton);
         Thread.sleep(3000);
 
-        js.executeScript("document.body.style.zoom = '0.8'");
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         int newNumOfDuctWAFs = monitoringPlansPage.viewButton.size();
 
         verifyTrue(newNumOfDuctWAFs == numOfDuctWAFs + 1);
-        js.executeScript("document.body.style.zoom = '1'");
 
         // Revert starts here
         revertToOfficial();
