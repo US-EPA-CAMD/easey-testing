@@ -97,18 +97,20 @@ public class Test_EASEYIn_TC2127_Edit_Monitoring_Qual_LEE_Data extends EmMonPlan
 
         String parameterCode = monitoringPlansPage.qualLeeParameterCodeTableField.get(2).getText();
 
+        Thread.sleep(4000);
         waitFor(driver -> monitoringPlansPage.viewEditQualLeeBtn.size() > 0);
         verifyEquals(monitoringPlansPage.viewEditQualLeeBtn.get(0).getText(), "View / Edit");
         click(monitoringPlansPage.viewEditQualLeeBtn.get(0));
 
         waitFor(monitoringPlansPage.qualificationsModalSubHeaders);
         verifyEquals(monitoringPlansPage.qualificationsModalSubHeaders, "Qualification LEE");
-        if (parameterCode.equals("HCL")) {
-            waitFor(monitoringPlansPage.qualLeeParameterCodeDropdown);
-            click(monitoringPlansPage.qualLeeParameterCodeDropdown.get(2));
-        } else {
+        if (parameterCode.equals("HG")) {
             waitFor(monitoringPlansPage.qualLeeParameterCodeDropdown);
             click(monitoringPlansPage.qualLeeParameterCodeDropdown.get(1));
+//            js.executeScript("arguments[0].click();", monitoringPlansPage.qualLeeParameterCodeDropdown.get(1));
+        } else {
+            waitFor(monitoringPlansPage.qualLeeParameterCodeDropdown);
+            click(monitoringPlansPage.qualLeeParameterCodeDropdown.get(2));
         }
 
         verifyEquals(monitoringPlansPage.saveCloseModal, "Save and Close");
@@ -126,40 +128,14 @@ public class Test_EASEYIn_TC2127_Edit_Monitoring_Qual_LEE_Data extends EmMonPlan
         click(monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-
-        // These steps closes the tab and automatically Checks Back In the configuration
-        click(monitoringPlansPage.closeConfigTab.get(0));
-        waitFor(monitoringPlansPage.selectConfigurationsLabel);
-        verifyTrue(isDisplayed(monitoringPlansPage.selectConfigurationsLabel));
+        // Revert starts here
+        revertToOfficial();
 
     }
     @Override
     @AfterMethod
     public void afterMethod() {
-
-        MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
-
-        if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            click(monitoringPlansPage.logOutButton);
-            waitFor(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        } else {
-            isDisplayed(monitoringPlansPage.logInButtonOpenModal);
-            verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        }
+        logOutMethod();
         super.afterMethod();
     }
 }

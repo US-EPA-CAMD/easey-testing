@@ -257,7 +257,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "addBtn")
     public List<WebElement> createQualLeeButton;
 
-    @FindBy (id = "div[aria-label='DataTable for LEE Qualifications'] > div > div > div > div > button[epa-testid='btnOpen']")
+    @FindBy (css = "div[aria-label='DataTable for LEE Qualifications'] > div > div > div > div > button[epa-testid='btnOpen']")
     public List<WebElement> viewEditQualLeeBtn;
 
     @FindBy (id = "Qualification-Test-Date")
@@ -269,7 +269,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div[aria-label='DataTable for LEE Qualifications'] > div:nth-child(2) > div[role='row'] > div")
     public List<WebElement> qualLeeParameterCodeTableField;
 
-    @FindBy (css = "#Parameter-Code > option")
+    @FindBy (css = "select[epadataname='parameterCode'] > option")
     public List<WebElement> qualLeeParameterCodeDropdown;
 
     @FindBy (css = "#Qualification-Test-Type > option")
