@@ -47,11 +47,9 @@ public class Test_EASEYIn_TC630_View_MP_Location_Attributes extends UITestBase {
         waitFor(monitoringPlansPage.accordionLocationAttributesLabel);
         verifyEquals(monitoringPlansPage.accordionLocationAttributesLabel, "Location Attributes");
 
-        js.executeScript("window.scrollBy(0,350)", "");
-        js.executeScript("document.body.style.zoom = '0.8'");
-
+        Thread.sleep(3000);
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        js.executeScript("arguments[0].click();", monitoringPlansPage.viewButton.get(0));
+        click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Location Attribute");
