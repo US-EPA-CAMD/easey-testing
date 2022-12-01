@@ -61,6 +61,9 @@ public class Test_EASEYIn_View_Method_Modal extends UITestBase {
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
+
         waitFor(monitoringPlansPage.xOutModal);
         click(monitoringPlansPage.xOutModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
