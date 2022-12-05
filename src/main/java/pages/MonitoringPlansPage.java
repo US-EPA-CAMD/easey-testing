@@ -654,6 +654,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
 
+    @FindBy (css ="li[title='Gadsden (1, 2, CS0BAN) ']")
+    public WebElement configTabGadsden12CS0BAN;
+
     @FindBy (css ="svg[id^='closeXBtnTab']")
     public List<WebElement> closeConfigTab;
 
@@ -674,4 +677,11 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (css ="img[title='Content loading']")
     public WebElement stopAnimationImage;
+
+//    @FindBy(linkText = "/export")
+//    public WebElement export;
+
+    @FindBy(css = "a[href=\"/export\"]")
+    public WebElement export;
+
 }
