@@ -381,6 +381,21 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "div[class='cursor-pointer']")
     public List<WebElement> systemTableButtonList;
 
+    @FindBy (xpath = "//button[contains(text(),'Evaluate')]")
+    public WebElement evaluateButton;
+
+    @FindBy (xpath = "//p[contains(text(),'In Queue')]")
+    public WebElement evalStatusInQueue;
+
+    @FindBy (xpath = "//p[contains(text(),'In Progress')]")
+    public WebElement evalStatusInProgress;
+
+    @FindBy (xpath = "//button[contains(text(),'Passed')]")
+    public WebElement evalStatusPassed;
+
+    @FindBy (xpath = "//button[contains(text(),'Critical Errors')]")
+    public WebElement evalStatusCriticalErrors;
+
     @FindBy(id = "closeModalBtn")
     public WebElement xOutModal;
 

@@ -150,6 +150,18 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends EmMonPlanReusables {
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
         // End of Edit
 
+        // Evaluate starts here
+       js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.evaluateButton);
+       waitFor(monitoringPlansPage.evaluateButton);
+       click(monitoringPlansPage.evaluateButton);
+
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors);
+        verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
+        // Evaluate ends here
+
         // Revert starts here
         revertToOfficial();
 

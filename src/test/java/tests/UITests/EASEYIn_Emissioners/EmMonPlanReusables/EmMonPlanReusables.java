@@ -39,7 +39,7 @@ public class EmMonPlanReusables extends UITestBase {
         js.executeScript("arguments[0].scrollIntoView(true);", monitoringPlansPage.menuBtn);
 
         if (isDisplayed(monitoringPlansPage.logOutButton)) {
-            click(monitoringPlansPage.logOutButton);
+            js.executeScript("arguments[0].click();", monitoringPlansPage.logOutButton);
             waitFor(monitoringPlansPage.logInButtonOpenModal);
             verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
         } else {
