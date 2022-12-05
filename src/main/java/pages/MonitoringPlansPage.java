@@ -621,10 +621,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(4)")
     public List<WebElement> FuelFlowViewButton;
 
-    @FindBy (xpath ="/html/body/div/div/div[2]/div/div[4]/div[2]/main/div/div[3]/div/div/div[2]/div/div/div[1]/table[1]/tbody/tr/td[3]/button")
+    @FindBy (xpath ="//tbody/tr[1]/td[3]/button[1]")
     public WebElement filterByKeywordButton;
 
-    @FindBy (xpath ="/html/body/div/div/div[2]/div/div[4]/div[2]/main/div/div[3]/div/div/div[2]/div/div/div[1]/table[1]/tbody/tr/td[2]/input")
+    @FindBy (xpath ="//tbody/tr[1]/td[2]/input[1]")
     public WebElement filterByKeywordBox;
 
     @FindBy (css = "#column-col1 > div")
