@@ -651,11 +651,24 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id ="tabBtn")
     public List<WebElement> configTabs;
 
+    //Facilities to pick from
     @FindBy (css ="li[title='Barry (1, 2, CS0AAN) ']")
     public WebElement configTabBarry12CS0AAN;
 
     @FindBy (css ="li[title='Gadsden (1, 2, CS0BAN) ']")
     public WebElement configTabGadsden12CS0BAN;
+
+    @FindBy (css ="li[title='Smith Generating Facility (SCT1 ) ']")
+    public WebElement configTabSmith;
+
+    //*[@id="main-content"]/div/div[3]/div/div/div[1]/ul/li[2]
+    @FindBy (xpath ="//div[@id='tabBtn']")
+    public WebElement configTab1;
+
+    @FindBy (css ="li[title='Harvey Couch 1']")
+    public WebElement configTabHarvey;
+    /// Facility
+
 
     @FindBy (css ="svg[id^='closeXBtnTab']")
     public List<WebElement> closeConfigTab;
@@ -681,7 +694,13 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 //    @FindBy(linkText = "/export")
 //    public WebElement export;
 
-    @FindBy(css = "a[href=\"/export\"]")
+    @FindBy(id = "Export")
     public WebElement export;
+
+    @FindBy (xpath ="//a[@id='Export']")
+    public WebElement exportTab ;
+
+    @FindBy (xpath = "//button[contains(text(),'Export')]")
+    public WebElement exportButton ;
 
 }

@@ -12,16 +12,22 @@ public class ExportPage extends HeaderFooterAndHomePage  {
         super(driver);
     }
 
+    @FindBy(css = "h2[epa-testid='ExportDataTitle']")
+    public WebElement title;
+
     @FindBy(linkText = "/export")
     public WebElement export;
 
-    @FindBy (id ="qa-and-certification")
+    @FindBy (xpath = "//strong[contains(text(),'QA & Certification')]")
     public WebElement qaButton;
 
     @FindBy (id ="monitoring-plan")
     public WebElement mpButton;
 
-    @FindBy (id ="emissions")
+    @FindBy (xpath = "//strong[contains(text(),'Monitoring Plan')]")
+    public WebElement MPButton ;
+
+    @FindBy (xpath = "//strong[contains(text(),'Emissions')]")
     public WebElement emissionsButton;
 
     @FindBy (id = "year-dropdown")
@@ -36,7 +42,7 @@ public class ExportPage extends HeaderFooterAndHomePage  {
     @FindBy(css = "select[data-testid='quarter-dropdown'] > option")
     public List<WebElement> QuarterDD;
 
-    @FindBy (css = "option[data-testid='Button']")
+    @FindBy (xpath = "//button[contains(text(),'Export')]")
     public WebElement exportButton ;
 
 }
