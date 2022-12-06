@@ -152,7 +152,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "expandBTN")
     public WebElement accordionExpandButtonMonPlan;
 
-    @FindBy (css = "h3[epa-testid='Methods']")
+    @FindBy (css = "h4[epa-testid='Methods']")
     public WebElement accordionMethodsLabel;
 
     @FindBy (css = "h3[epa-testid='Systems']")
