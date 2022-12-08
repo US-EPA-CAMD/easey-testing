@@ -10,7 +10,10 @@ import org.testng.annotations.Test;
 import pages.ExportPage;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
+
+import java.util.regex.Pattern;
 import java.util.regex.Pattern.*;
+import java.util.regex.Matcher;
 import java.io.File;
 import java.util.HashMap;
 
@@ -21,6 +24,12 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
     //boolean method- traverse through downloads and get name of files
 
     public void VerifyDownloadWithFileExtension(WebElement element){
+
+        Pattern pattern = Pattern.compile("QA & Certification", Pattern.CASE_INSENSITIVE);
+        //Matcher matcher = pattern.matcher();
+        //Matcher matcher = new Matcher(pattern);
+       // boolean matchFound = matcher.find();
+
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory",  "C:\\Users\\mackenzieharwood\\Downloads");
         ChromeOptions options = new ChromeOptions();
@@ -30,22 +39,24 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
         File folder = new File(("C:\\Users\\mackenzieharwood\\Downloads"));
         //List the files on that folder
         File[] listOfFiles = folder.listFiles();
-        boolean found = false;
+       // boolean found = false;
         File f = null;
         //Look for the file in the files
         // You should write smart REGEX according to the filename
         for (File listOfFile : listOfFiles) {
+
             if (listOfFile.isFile()) {
                 String fileName = listOfFile.getName();
+                pattern.matcher(listOfFile.getName());
                 System.out.println("File " + fileName);
-                System.out.println("File " + fileName);
-                if (fileName.matches("QA & Certification _ Export - Smith Generating Facility (SCT1).json")) {
+                if (matchFound) {
                     f = new File(fileName);
-                    found = true;
+                    System.out.println("File " + fileName);
+                    matchFound = true;
                 }
             }
         }
-        Assert.assertTrue(found, "Downloaded document is not found");
+        Assert.assertTrue(matchFound, "Downloaded document is not found");
        // f.deleteOnExit();
 
 
