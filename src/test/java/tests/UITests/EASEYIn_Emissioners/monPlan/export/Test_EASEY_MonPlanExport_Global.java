@@ -77,18 +77,18 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
             System.out.println("Inside For LOOP ");
             System.out.println("File " + fileName);
 
-            if (listOfFile.isFile()) {
-
-               // pattern.matcher(listOfFile.getName());
-                System.out.println("File " + fileName);
-                if (stringToBeMatched == listOfFile.getName() ) {
+//            if (listOfFile.isFile()) {
+//
+//               // pattern.matcher(listOfFile.getName());
+//                System.out.println("File " + fileName);
+                if (stringToBeMatched == f.getName() ) {
 
                     System.out.println("File " + fileName);
                     matchFound = true;
                 }
-            }
+            //}
         }
-           // Assert.assertTrue(matchFound, "Downloaded document is not found");
+           //Assert.assertTrue(matchFound, "Downloaded document is not found");
        // f.deleteOnExit();
             System.out.println("the method ran girl !!!!!");
 
