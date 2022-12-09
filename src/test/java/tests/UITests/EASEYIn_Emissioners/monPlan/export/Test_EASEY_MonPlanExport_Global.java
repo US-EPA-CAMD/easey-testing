@@ -11,6 +11,7 @@ import pages.ExportPage;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import java.util.regex.Pattern.*;
 import java.util.regex.Matcher;
@@ -20,45 +21,76 @@ import java.util.HashMap;
 public class Test_EASEY_MonPlanExport_Global extends UITestBase {
 
     //set download path
-    private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
+    String fileDownloadpath = "C:\\EPA\\easey-testing\\src\\downloads";
     //boolean method- traverse through downloads and get name of files
+    String stringToBeMatched = "QA & Certification";
 
-    public void VerifyDownloadWithFileExtension(WebElement element){
-
-        Pattern pattern = Pattern.compile("QA & Certification", Pattern.CASE_INSENSITIVE);
-        //Matcher matcher = pattern.matcher();
-        //Matcher matcher = new Matcher(pattern);
-       // boolean matchFound = matcher.find();
+    public void setChromeDownloadPath() {
 
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download.default_directory",  "C:\\Users\\mackenzieharwood\\Downloads");
+        chromePrefs.put("download.default_directory", System.getProperty("downloads"));
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
-        //driver.options; //= new ChromeDriver(options);
+        ChromeDriver driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    }
 
-        File folder = new File(("C:\\Users\\mackenzieharwood\\Downloads"));
-        //List the files on that folder
+    public void VerifyDownloadWithFileExtension(WebElement element){
+        //click export button
+        click(element);
+        System.out.println("Clicked EXPORT gurllll");
+        //give time to download
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        sleep(900000000);
+        System.out.println("WAITED");
+
+        File folder = new File(fileDownloadpath);
+       // List the files on that folder
         File[] listOfFiles = folder.listFiles();
-       // boolean found = false;
+        boolean matchFound = false;
         File f = null;
         //Look for the file in the files
         // You should write smart REGEX according to the filename
+        System.out.println("folder: " + folder);
+
+
         for (File listOfFile : listOfFiles) {
+            String fileName = listOfFile.getName();
+            f = new File(fileName);
+            System.out.println("Inside For LOOP ");
+            System.out.println("File " + fileName);
 
             if (listOfFile.isFile()) {
-                String fileName = listOfFile.getName();
-                pattern.matcher(listOfFile.getName());
+
+               // pattern.matcher(listOfFile.getName());
                 System.out.println("File " + fileName);
-                if (matchFound) {
-                    f = new File(fileName);
+                if (stringToBeMatched == listOfFile.getName() ) {
+
                     System.out.println("File " + fileName);
                     matchFound = true;
                 }
             }
         }
-        Assert.assertTrue(matchFound, "Downloaded document is not found");
+           // Assert.assertTrue(matchFound, "Downloaded document is not found");
        // f.deleteOnExit();
-
+            System.out.println("the method ran girl !!!!!");
 
     }
 
@@ -115,7 +147,7 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
 
         //validation method that clicks export button and checks something was downloaded
         VerifyDownloadWithFileExtension(exportPage.exportButton);
-        sleep(50);
+        click(exportPage.exportButton);
 
         //close everything
         closebrowser();
