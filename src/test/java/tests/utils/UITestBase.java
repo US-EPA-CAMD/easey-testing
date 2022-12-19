@@ -2,6 +2,7 @@ package tests.utils;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
@@ -16,7 +17,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class UITestBase extends TestBase {
 
@@ -241,6 +244,19 @@ class ExceptionListener extends AbstractWebDriverEventListener {
     }
     private static void printError(String error) {
         System.err.println("[\u001B[31mERROR\u001B[0m] " + error);
+    }
+
+
+    public void setChromeDownloadPath() {
+        String fileDownloadPath = "C:\\EPA\\easey-testing\\src\\downloads";
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("download.default_directory",fileDownloadPath);
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", chromePrefs);
+        ChromeDriver driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
     }
 
 }
