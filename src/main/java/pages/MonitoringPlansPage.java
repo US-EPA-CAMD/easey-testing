@@ -375,7 +375,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "h4[epa-testid='SupplementalMethods']")
     public WebElement accordionSupplementalMethodsLabel;
 
-    @FindBy (id = "create-mats-add-btn")
+    @FindBy (xpath = "//button[contains(text(),'Create MATS')]")
     public WebElement createMatsMethodsButton;
 
     @FindBy(css = "div[class='cursor-pointer']")
