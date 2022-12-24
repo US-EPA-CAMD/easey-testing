@@ -102,26 +102,7 @@ public class Test_EASEYIn_TC1698_Create_MP_Defaults_Data extends EmMonPlanReusab
         verifyTrue(newNumOfMethods == numOfMethods + 1);
 
         // Revert starts here
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
-
-        // These steps Checks Back In the configuration
-        waitFor(monitoringPlansPage.configcheckBackInButton);
-        click(monitoringPlansPage.configcheckBackInButton);
-
-        waitFor(monitoringPlansPage.configcheckOutButton);
-        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
+        revertToOfficial();
 
     }
     @Override

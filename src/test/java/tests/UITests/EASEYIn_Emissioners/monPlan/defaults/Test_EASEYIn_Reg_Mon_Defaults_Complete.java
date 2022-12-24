@@ -1,28 +1,25 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.defaults;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
-import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1697_Edit_MP_Defaults_Data extends EmMonPlanReusables {
+public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends EmMonPlanReusables {
 
     @Test()
-    public void tests() {
+    public void tests() throws InterruptedException {
         String username = System.getenv("MOSES_TESTING_USERNAME");
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
         //Navigate to EASEY In
-        //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+        //https://ecmps-dev.app.cloud.gov/monitoring-plans
 
         goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -34,7 +31,6 @@ public class Test_EASEYIn_TC1697_Edit_MP_Defaults_Data extends EmMonPlanReusable
         verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
         input(monitoringPlansPage.usernameFieldModal, username);
 
-        waitFor(monitoringPlansPage.passwordLabelModal);
         verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
         input(monitoringPlansPage.passwordFieldModal, password);
 
@@ -44,20 +40,19 @@ public class Test_EASEYIn_TC1697_Edit_MP_Defaults_Data extends EmMonPlanReusable
         js.executeScript("window.scrollBy(0,350)", "");
 
         waitFor(monitoringPlansPage.title);
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
+        waitFor(monitoringPlansPage.workspaceMonPlan);
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Gadsden");
+        input(monitoringPlansPage.filterByKeywordBox, "C P Crane");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Gadsden (Oris Code 7)
+        // Clicks on C P Crane (Oris Code 1552)
         click(monitoringPlansPage.facilityCaret.get(0));
 
-        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
@@ -72,8 +67,25 @@ public class Test_EASEYIn_TC1697_Edit_MP_Defaults_Data extends EmMonPlanReusable
         waitFor(monitoringPlansPage.accordionDefaultsLabel);
         verifyEquals(monitoringPlansPage.accordionDefaultsLabel, "Defaults");
 
-        click(monitoringPlansPage.location.get(2));
-        verifyEquals(monitoringPlansPage.location.get(2), "CS0BAN");
+        // Start of View
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        Thread.sleep(1000);
+
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        click(monitoringPlansPage.viewButton.get(0));
+
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
+
+        waitFor(monitoringPlansPage.closeModal);
+        click(monitoringPlansPage.closeModal);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
+
+        verifyFalse(isDisplayed(monitoringPlansPage.monPlanModalHeaderLabel));
+        // End of View
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.configcheckOutButton);
 
         waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
@@ -85,8 +97,33 @@ public class Test_EASEYIn_TC1697_Edit_MP_Defaults_Data extends EmMonPlanReusable
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
-        js.executeScript("window.scrollBy(0,350)", "");
+        // Start of Create
+        waitFor(monitoringPlansPage.createDefaultButton);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createDefaultButton);
 
+        int numOfMethods = monitoringPlansPage.viewButton.size();
+
+        waitFor(monitoringPlansPage.createDefaultButton);
+        click(monitoringPlansPage.createDefaultButton);
+
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(7));
+        input(monitoringPlansPage.defaultValueModalField, "1");
+        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
+        input(monitoringPlansPage.modalStartTimeField, "1");
+
+        click(monitoringPlansPage.saveCloseModal);
+
+        waitFor(monitoringPlansPage.viewButton);
+        Thread.sleep(3000);
+
+        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+
+        verifyTrue(newNumOfMethods == numOfMethods + 1);
+        // End of Create
+
+        // Start of Edit
         waitFor(monitoringPlansPage.defaultsTableParameterCodeLabel);
         verifyEquals(monitoringPlansPage.defaultsTableParameterCodeLabel, "Parameter Code");
 
@@ -94,7 +131,7 @@ public class Test_EASEYIn_TC1697_Edit_MP_Defaults_Data extends EmMonPlanReusable
 
         waitFor(monitoringPlansPage.viewButton,1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+        click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
@@ -115,6 +152,19 @@ public class Test_EASEYIn_TC1697_Edit_MP_Defaults_Data extends EmMonPlanReusable
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
         waitFor(monitoringPlansPage.defaultsTableParameterCodeField,1);
         verifyNotEquals(monitoringPlansPage.defaultsTableParameterCodeField.get(0).getText(), parameterCode);
+        // End of Edit
+
+        // Evaluate starts here
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.evaluateButton);
+        waitFor(monitoringPlansPage.evaluateButton);
+        click(monitoringPlansPage.evaluateButton);
+
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors);
+        verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
+        // Evaluate ends here
 
         // Revert starts here
         revertToOfficial();
