@@ -163,8 +163,8 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends EmMonPlanReusabl
 
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
-        waitFor(monitoringPlansPage.evalStatusPassed);
-        verifyEquals(monitoringPlansPage.evalStatusPassed, "Passed");
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors);
+        verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
         // Evaluate ends here
 
         // Revert starts here
