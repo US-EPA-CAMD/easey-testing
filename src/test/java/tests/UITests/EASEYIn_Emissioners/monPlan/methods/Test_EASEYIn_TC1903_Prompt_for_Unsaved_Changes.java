@@ -1,6 +1,8 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.methods;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
@@ -9,7 +11,7 @@ import tests.utils.UITestBase;
 public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends EmMonPlanReusables {
 
     @Test()
-    public void tests() {
+    public void tests() throws InterruptedException {
         String username = System.getenv("MOSES_TESTING_USERNAME");
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
@@ -19,6 +21,7 @@ public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends EmMonPlanReu
         goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
@@ -36,26 +39,28 @@ public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends EmMonPlanReu
         verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
         click(monitoringPlansPage.logInButtonSubmit);
 
-        waitFor(monitoringPlansPage.title);
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
+        js.executeScript("window.scrollBy(0,350)", "");
 
+        waitFor(monitoringPlansPage.title);
+
+        waitFor(monitoringPlansPage.workspaceMonPlan);
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Barry");
+        input(monitoringPlansPage.filterByKeywordBox, "Delaware City");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Barry (Oris Code 3)
+        // Clicks on Delaware City (Oris Code 592)
         click(monitoringPlansPage.facilityCaret.get(0));
 
-        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
-        click(monitoringPlansPage.configTabBarry12CS0AAN);
+        click(monitoringPlansPage.configTabs.get(0));
 
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         waitFor(monitoringPlansPage.configcheckOutButton);
@@ -68,15 +73,21 @@ public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends EmMonPlanReu
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
+        waitFor(monitoringPlansPage.createMonMethodsButton);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createMonMethodsButton);
+
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
         click(monitoringPlansPage.viewButton.get(0));
 
-        waitFor(monitoringPlansPage.modalEndTimeField);
-        input(monitoringPlansPage.modalEndTimeField, "1");
+        waitFor(monitoringPlansPage.modalEndDateField);
+        input(monitoringPlansPage.modalEndDateField, "1");
 
+        waitFor(monitoringPlansPage.cancelModal);
+        Thread.sleep(1000);
         verifyEquals(monitoringPlansPage.cancelModal, "Cancel");
-        click(monitoringPlansPage.cancelModal);
+        action.moveToElement(monitoringPlansPage.cancelModal).click().build().perform();
 
         String closeWindowMsg = "Closing this window will discard any unsaved changes.";
         String alertText = driver.switchTo().alert().getText();
@@ -88,5 +99,11 @@ public class Test_EASEYIn_TC1903_Prompt_for_Unsaved_Changes extends EmMonPlanReu
         waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
 
+    }
+    @Override
+    @AfterMethod
+    public void afterMethod() {
+        logOutMethod();
+        super.afterMethod();
     }
 }
