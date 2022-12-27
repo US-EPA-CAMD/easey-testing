@@ -79,8 +79,9 @@ public class Test_EASEYIn_TC1703_Edit_MP_Location_Attributes_Data extends EmMonP
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
-        js.executeScript("window.scrollBy(0,200)", "");
-        js.executeScript("document.body.style.zoom = '0.8'");
+        waitFor(monitoringPlansPage.createLocationAttributeBTN);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createLocationAttributeBTN);
 
         waitFor(monitoringPlansPage.locAttributesGroundElevationTableField.get(2));
         String groundElevationData = monitoringPlansPage.locAttributesGroundElevationTableField.get(2).getText();
