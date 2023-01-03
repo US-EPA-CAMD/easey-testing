@@ -13,9 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Test_EASEY_MonPlanExport_Global extends UITestBase {
-
-
+public class Test_EASEY_MonPlanExportLocal extends UITestBase {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
@@ -45,7 +43,7 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
         return chosenFile;
     }
 
-    public void VerifyDownloadWithFileExtension(){
+    public void VerifyDownload(){
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory",  "C:\\Users\\mackenzieharwood\\Downloads");
         ChromeOptions options = new ChromeOptions();
@@ -70,17 +68,38 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
 
     }
 
+    @Test()
+    public void tests() throws InterruptedException {
+        String username = System.getenv("MACKENZIE_TESTING_USERNAME");
+        String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
 
-    @Test
-    public void test() throws InterruptedException {
-//        Navigate to EASEY In
-//        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+
+
+       // Navigate to EASEY In
+       //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/monitoring-plans");
-
-
-
-
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+
+        waitFor(monitoringPlansPage.title);
+        verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
+
+        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        click(monitoringPlansPage.logInButtonOpenModal);
+
+        verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
+        input(monitoringPlansPage.usernameFieldModal, username);
+
+        verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
+        input(monitoringPlansPage.passwordFieldModal, password);
+
+        verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
+        click(monitoringPlansPage.logInButtonSubmit);
+
+        waitFor(monitoringPlansPage.dashWorkspace);
+        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
+
+        verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
+        click(monitoringPlansPage.workspaceMonPlan);
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
@@ -95,16 +114,18 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
 
         //waits for return
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        sleep(90000);
         //verifies at least one search result returns
-        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         //clicks "open" button for first result
         //add wait to let build TODO
-        Thread.sleep(9000);
         click(monitoringPlansPage.configOpenButton.get(5));
         Thread.sleep(9000);
-        click(monitoringPlansPage.configTab1);
-        sleep(9000);
+
+        // Clicks on Smith
+        //configTabSmith
+        click(monitoringPlansPage.configTabSmith);
+        //click(monitoringPlansPage.facilityCaret.get(0));
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         //clicks the export tab on the left menu  column
         click(monitoringPlansPage.exportTab);
         //creates new export page object to access properties specific to export
@@ -122,20 +143,19 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
         //click export button
         click(exportPage.exportButton);
 
-        //give time
-        Thread.sleep(5000);
-        Thread.sleep(5000);
 
         //check if downloaded file
-        VerifyDownloadWithFileExtension();
+        VerifyDownload();
 
         closebrowser();
-    }
 
+
+
+
+    }
     //Quit from browser
     @AfterClass
     public void closebrowser(){
         driver.quit();
     }
-
 }
