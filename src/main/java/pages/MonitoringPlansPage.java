@@ -71,6 +71,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "#Parameter > option")
     public List<WebElement> monMethodsModalParameterDropdown;
 
+    @FindBy (css = "select[id='Formula Code'] > option")
+    public List<WebElement> monMethodsModalFormulaCodeDropdown;
+
     @FindBy (css = "#Methodology > option")
     public List<WebElement> monMethodsModalMethodologyDropdown;
 
