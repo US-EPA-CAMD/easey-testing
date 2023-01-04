@@ -1,5 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.export;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class Test_EASEY_MonPlanExportLocal extends UITestBase {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
-    //boolean method- traverse through downloads and get name of files
+    //boolean method-traverse through downloads and get name of files
 
     public static File getLatestFileFromDir(String directoryFilePath)
     {
@@ -54,17 +55,15 @@ public class Test_EASEY_MonPlanExportLocal extends UITestBase {
 
         Format f = new SimpleDateFormat("(MM-dd-yyyy)");
         String currentDate = f.format(new Date());
-        //Look for the file in the files
-        // You should write smart REGEX according to the filename
-        if(fileName.equalsIgnoreCase("MP Export - Smith Generating Facility, SCT5 "+currentDate+".json")){
+        //if file name = fileName print success
+        if(fileName.equalsIgnoreCase("MP Export - Smith Generating Facility, SCT5 "+"("+currentDate+").json")){
             System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
+            getLatestFile.deleteOnExit();
 
+        } else{
+            System.out.println(fileName);
+            System.out.println( "Downloaded file name is not matching with expected file name");
         }
-
-        else{System.out.println( "Downloaded file name is not matching with expected file name");}
-
-        getLatestFile.deleteOnExit();
-
 
     }
 
@@ -124,25 +123,27 @@ public class Test_EASEY_MonPlanExportLocal extends UITestBase {
         // Clicks on Smith
         //configTabSmith
         click(monitoringPlansPage.configTabSmith);
-        //click(monitoringPlansPage.facilityCaret.get(0));
+        //Wait for load
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         //clicks the export tab on the left menu  column
-        click(monitoringPlansPage.exportTab);
+        click(monitoringPlansPage.exportTabLocal);
+
+
         //creates new export page object to access properties specific to export
         ExportPage exportPage = new ExportPage(driver);
-        Thread.sleep(5000);
         Thread.sleep(5000);
         //verify on export page
         verifyEquals(exportPage.title, "Export Data");
 
         //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
         click(exportPage.MPButton);
-        sleep(900000000);
 
 
         //click export button
         click(exportPage.exportButton);
-
+        sleep(900000000);
+        Thread.sleep(5000);
+        Thread.sleep(5000);
 
         //check if downloaded file
         VerifyDownload();

@@ -658,12 +658,13 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="li[title='Gadsden (1, 2, CS0BAN) ']")
     public WebElement configTabGadsden12CS0BAN;
 
-    @FindBy (css ="li[title='Smith Generating Facility (SCT1 ) ']")
+    @FindBy (css ="li[title='Smith Generating Facility (SCT5) ']")
     public WebElement configTabSmith;
 
     //*[@id="main-content"]/div/div[3]/div/div/div[1]/ul/li[2]
     @FindBy (xpath ="//div[@id='tabBtn']")
     public WebElement configTab1;
+
 
     @FindBy (css ="li[title='Harvey Couch 1']")
     public WebElement configTabHarvey;
@@ -699,6 +700,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (xpath ="//a[@id='Export']")
     public WebElement exportTab ;
+
+    @FindBy (xpath ="//a[@id='Export_wks']")
+    public WebElement exportTabLocal ;
 
     @FindBy (xpath = "//button[contains(text(),'Export')]")
     public WebElement exportButton ;
