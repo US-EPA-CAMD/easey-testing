@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Test_EASEY_MonPlanExport_Global extends UITestBase {
+public class Test_EASEY_MonPlanExportGlobal extends UITestBase {
 
 
     //set download path
@@ -57,13 +57,10 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
         Format f = new SimpleDateFormat("(MM-dd-yyyy)");
         String currentDate = f.format(new Date());
         //Look for the file in the files
-        // You should write smart REGEX according to the filename
         if(fileName.equalsIgnoreCase("MP Export - Smith Generating Facility, SCT5 "+currentDate+".json")){
             System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
 
-        }
-
-        else{System.out.println( "Downloaded file name is not matching with expected file name");}
+        } else{System.out.println( "Downloaded file name is not matching with expected file name");}
 
         getLatestFile.deleteOnExit();
 
@@ -89,13 +86,13 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
         //Search for facility
         input(monitoringPlansPage.filterByKeywordBox,"Smith Generating");
         click(monitoringPlansPage.filterByKeywordButton);
+        //waits for return
+        waitFor(driver -> monitoringPlansPage.facilityCaret.size() > 1);
+        sleep(90000);
 
         // Clicks on first search result
         click(monitoringPlansPage.facilityCaret.get(0));
 
-        //waits for return
-        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        sleep(90000);
         //verifies at least one search result returns
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         //clicks "open" button for first result

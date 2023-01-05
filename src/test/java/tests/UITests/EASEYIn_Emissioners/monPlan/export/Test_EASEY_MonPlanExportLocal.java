@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Test_EASEY_MonPlanExport_Local extends UITestBase {
+public class Test_EASEY_MonPlanExportLocal extends UITestBase {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
@@ -43,7 +43,7 @@ public class Test_EASEY_MonPlanExport_Local extends UITestBase {
         return chosenFile;
     }
 
-    public void VerifyDownload(){
+    public void VerifyDownloads(){
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory",  "C:\\Users\\mackenzieharwood\\Downloads");
         ChromeOptions options = new ChromeOptions();
@@ -145,7 +145,7 @@ public class Test_EASEY_MonPlanExport_Local extends UITestBase {
         Thread.sleep(5000);
 
         //check if downloaded file
-        VerifyDownload();
+        VerifyDownloads();
 
         closebrowser();
 
