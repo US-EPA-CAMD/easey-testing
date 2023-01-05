@@ -1,6 +1,5 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.export;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -14,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Test_EASEY_MonPlanExportLocal extends UITestBase {
+public class Test_EASEY_MonPlanExport_Local extends UITestBase {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
@@ -56,7 +55,7 @@ public class Test_EASEY_MonPlanExportLocal extends UITestBase {
         Format f = new SimpleDateFormat("(MM-dd-yyyy)");
         String currentDate = f.format(new Date());
         //if file name = fileName print success
-        if(fileName.equalsIgnoreCase("MP Export - Smith Generating Facility, SCT5 "+"("+currentDate+").json")){
+        if(("MP Export - Smith Generating Facility, SCT5 "+"("+currentDate+").json").equalsIgnoreCase(fileName)){
             System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
             getLatestFile.deleteOnExit();
 
