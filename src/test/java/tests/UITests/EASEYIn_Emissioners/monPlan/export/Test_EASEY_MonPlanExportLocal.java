@@ -13,13 +13,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Test_EASEY_MonPlanExport_Global extends UITestBase {
-
-
+public class Test_EASEY_MonPlanExportLocal extends UITestBase {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
-    //boolean method- traverse through downloads and get name of files
+    //boolean method-traverse through downloads and get name of files
 
     public static File getLatestFileFromDir(String directoryFilePath)
     {
@@ -45,7 +43,7 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
         return chosenFile;
     }
 
-    public void VerifyDownloadWithFileExtension(){
+    public void VerifyDownloads(){
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory",  "C:\\Users\\mackenzieharwood\\Downloads");
         ChromeOptions options = new ChromeOptions();
@@ -56,31 +54,50 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
 
         Format f = new SimpleDateFormat("(MM-dd-yyyy)");
         String currentDate = f.format(new Date());
-        //Look for the file in the files
-        // You should write smart REGEX according to the filename
-        if(fileName.equalsIgnoreCase("MP Export - Smith Generating Facility, SCT5 "+currentDate+".json")){
+        //if file name = fileName print success
+        if(("MP Export - Smith Generating Facility, SCT5 "+"("+currentDate+").json").equalsIgnoreCase(fileName)){
             System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
+            getLatestFile.deleteOnExit();
 
+        } else{
+            System.out.println(fileName);
+            System.out.println( "Downloaded file name is not matching with expected file name");
         }
-
-        else{System.out.println( "Downloaded file name is not matching with expected file name");}
-
-        getLatestFile.deleteOnExit();
-
 
     }
 
+    @Test()
+    public void tests() throws InterruptedException {
+        String username = System.getenv("MACKENZIE_TESTING_USERNAME");
+        String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
 
-    @Test
-    public void test() throws InterruptedException {
-//        Navigate to EASEY In
-//        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+
+
+       // Navigate to EASEY In
+       //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/monitoring-plans");
-
-
-
-
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+
+        waitFor(monitoringPlansPage.title);
+        verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
+
+        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        click(monitoringPlansPage.logInButtonOpenModal);
+
+        verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
+        input(monitoringPlansPage.usernameFieldModal, username);
+
+        verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
+        input(monitoringPlansPage.passwordFieldModal, password);
+
+        verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
+        click(monitoringPlansPage.logInButtonSubmit);
+
+        waitFor(monitoringPlansPage.dashWorkspace);
+        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
+
+        verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
+        click(monitoringPlansPage.workspaceMonPlan);
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
@@ -95,47 +112,50 @@ public class Test_EASEY_MonPlanExport_Global extends UITestBase {
 
         //waits for return
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        sleep(90000);
         //verifies at least one search result returns
-        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         //clicks "open" button for first result
         //add wait to let build TODO
-        Thread.sleep(9000);
         click(monitoringPlansPage.configOpenButton.get(5));
         Thread.sleep(9000);
-        click(monitoringPlansPage.configTab1);
-        sleep(9000);
+
+        // Clicks on Smith
+        //configTabSmith
+        click(monitoringPlansPage.configTabSmith);
+        //Wait for load
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         //clicks the export tab on the left menu  column
-        click(monitoringPlansPage.exportTab);
+        click(monitoringPlansPage.exportTabLocal);
+
+
         //creates new export page object to access properties specific to export
         ExportPage exportPage = new ExportPage(driver);
-        Thread.sleep(5000);
         Thread.sleep(5000);
         //verify on export page
         verifyEquals(exportPage.title, "Export Data");
 
         //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
         click(exportPage.MPButton);
-        sleep(900000000);
 
 
         //click export button
         click(exportPage.exportButton);
-
-        //give time
+        sleep(900000000);
         Thread.sleep(5000);
         Thread.sleep(5000);
 
         //check if downloaded file
-        VerifyDownloadWithFileExtension();
+        VerifyDownloads();
 
         closebrowser();
-    }
 
+
+
+
+    }
     //Quit from browser
     @AfterClass
     public void closebrowser(){
         driver.quit();
     }
-
 }
