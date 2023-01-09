@@ -13,59 +13,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Test_EASEY_MonPlanExportGlobal extends UITestBase {
+public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
 
 
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
-    //boolean method- traverse through downloads and get name of files
-
-    public static File getLatestFileFromDir(String directoryFilePath)
-    {
-        //get directory
-        File directory = new File(directoryFilePath);
-        //make list of files in directory
-        File[] files = directory.listFiles(File::isFile);
-        long lastModifiedTime = Long.MIN_VALUE;
-        File chosenFile = null;
-        //go through files if not null
-        if (files != null)
-        {
-            for (File file : files)
-            {
-                if (file.lastModified() > lastModifiedTime)
-                {
-                    chosenFile = file;
-                    lastModifiedTime = file.lastModified();
-                }
-            }
-        }
-        System.out.println(chosenFile);
-        return chosenFile;
-    }
-
-    public void VerifyDownloadWithFileExtension(){
-        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download.default_directory",  "C:\\Users\\mackenzieharwood\\Downloads");
-        ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("prefs", chromePrefs);
-
-        File getLatestFile = getLatestFileFromDir(fileDownloadpath);
-        String fileName = getLatestFile.getName();
-
-        Format f = new SimpleDateFormat("(MM-dd-yyyy)");
-        String currentDate = f.format(new Date());
-        //Look for the file in the files
-        if(fileName.equalsIgnoreCase("MP Export - Smith Generating Facility, SCT5 "+currentDate+".json")){
-            System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
-
-        } else{System.out.println( "Downloaded file name is not matching with expected file name");}
-
-        getLatestFile.deleteOnExit();
 
 
-    }
+
 
 
     @Test
@@ -122,7 +78,7 @@ public class Test_EASEY_MonPlanExportGlobal extends UITestBase {
         Thread.sleep(5000);
 
         //check if downloaded file
-        VerifyDownloadWithFileExtension();
+        VerifyDownloadWithFileExtension(fileDownloadpath);
 
         closebrowser();
     }
