@@ -97,8 +97,9 @@ public class Test_EASEY_MonPlanExportLocal extends CommonExport {
         Thread.sleep(5000);
         Thread.sleep(5000);
 
+        String searchFile = "MP Export - Smith Generating Facility, SCT5 ";
         //check if downloaded file
-        VerifyDownload(fileDownloadpath);
+        VerifyDownload(fileDownloadpath, searchFile);
 
         closebrowser();
 

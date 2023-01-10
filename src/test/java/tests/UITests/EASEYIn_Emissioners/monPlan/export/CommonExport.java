@@ -36,7 +36,9 @@ public class CommonExport extends UITestBase {
         return chosenFile;
     }
 
-    public void VerifyDownload(String fileDownloadpath){
+
+    ///FOR FILES DOWNLOADED WITH CURRENT DATE
+    public void VerifyDownload(String fileDownloadpath, String searchFileName){
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory", fileDownloadpath);
         ChromeOptions options = new ChromeOptions();
@@ -58,9 +60,9 @@ public class CommonExport extends UITestBase {
         }
 
     }
-    public void VerifyDownloadWithFileExtension(String fileDownloadpath){
+    public void VerifyDownloadWithFileExtension(String fileDownloadpath, String searchFile){
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download.default_directory",  "C:\\Users\\mackenzieharwood\\Downloads");
+        chromePrefs.put("download.default_directory",  fileDownloadpath);
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
 
@@ -70,7 +72,7 @@ public class CommonExport extends UITestBase {
         Format f = new SimpleDateFormat("(MM-dd-yyyy)");
         String currentDate = f.format(new Date());
         //Look for the file in the files
-        if(fileName.equalsIgnoreCase("MP Export - Smith Generating Facility, SCT5 "+currentDate+".json")){
+        if(fileName.equalsIgnoreCase(searchFile +"("+currentDate+").json")){
             System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
 
         } else{System.out.println( "Downloaded file name is not matching with expected file name");}

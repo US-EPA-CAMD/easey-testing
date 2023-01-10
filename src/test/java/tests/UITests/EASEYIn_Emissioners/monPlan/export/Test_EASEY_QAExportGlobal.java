@@ -1,29 +1,11 @@
 package tests.UITests.EASEYIn_Emissioners.monPlan.export;
 
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import pages.ExportPage;
 import pages.MonitoringPlansPage;
-import tests.utils.UITestBase;
 
-import java.io.File;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-
-public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
-
-
-    //set download path
-    //TODO rework file path
+public class Test_EASEY_QAExportGlobal extends CommonExport{
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
-
-
-
-
-
     @Test
     public void test() throws InterruptedException {
 //        Navigate to EASEY In
@@ -48,11 +30,15 @@ public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
 
         // Clicks on first search result
         click(monitoringPlansPage.facilityCaret.get(0));
+        sleep(90000);
 
         //verifies at least one search result returns
-        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
+        //verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         //clicks "open" button for first result
         //add wait to let build TODO
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
+        //verifies at least one search result returns
+        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         click(monitoringPlansPage.configOpenButton.get(5));
         Thread.sleep(9000);
         click(monitoringPlansPage.configTab1);
@@ -68,6 +54,7 @@ public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
 
         //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
         click(exportPage.MPButton);
+        click(exportPage.qaButton);
         sleep(900000000);
 
 
@@ -77,13 +64,11 @@ public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
         //give time
         Thread.sleep(5000);
 
-        String searchFile = "MP Export - Smith Generating Facility, SCT5 ";
+        String searchFile = "QA & Certification _ Export - Smith Generating Facility (SCT5)";
         //check if downloaded file
         VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
 
         closebrowser();
     }
-
-
 
 }
