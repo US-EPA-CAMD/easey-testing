@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.formulas;
+package tests.UITests.EASEYIn_Emissioners.Regression_Testing_Full;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
