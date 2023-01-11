@@ -297,6 +297,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "input[epadataname='wafValue']")
     public WebElement wafValueModalField;
 
+    @FindBy (id = "WAF Determination Date")
+    public WebElement wafDeterminationDateField;
+
     @FindBy (css = "h4[epa-testid='Spans']")
     public WebElement accordionSpansLabel;
 
