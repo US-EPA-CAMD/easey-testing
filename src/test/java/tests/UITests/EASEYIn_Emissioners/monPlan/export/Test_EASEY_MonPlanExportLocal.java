@@ -17,22 +17,19 @@ public class Test_EASEY_MonPlanExportLocal extends CommonExport {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
-
+    private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
+    private static String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
 
     @Test()
     public void tests() throws InterruptedException {
-        String username = System.getenv("MACKENZIE_TESTING_USERNAME");
-        String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
-
-
-
-       // Navigate to EASEY In
+        // Navigate to EASEY In
        //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/monitoring-plans");
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
+
 
         verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
         click(monitoringPlansPage.logInButtonOpenModal);
