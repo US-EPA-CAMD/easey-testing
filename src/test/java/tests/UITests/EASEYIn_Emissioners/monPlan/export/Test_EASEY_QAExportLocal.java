@@ -4,8 +4,17 @@ import org.testng.annotations.Test;
 import pages.ExportPage;
 import pages.MonitoringPlansPage;
 
-public class Test_EASEY_QAExportGlobal extends CommonExport{
+public class Test_EASEY_QAExportLocal extends CommonExport {
+
+    //set download path
+    //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
+
+    private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
+    private static String  password = System.getenv("MACKENZIE_TESTING_PASSWORD");
+
+
+
     @Test
     public void test() throws InterruptedException {
 //        Navigate to EASEY In
@@ -13,6 +22,26 @@ public class Test_EASEY_QAExportGlobal extends CommonExport{
         goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+
+
+        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
+        click(monitoringPlansPage.logInButtonOpenModal);
+
+        verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
+        input(monitoringPlansPage.usernameFieldModal, username);
+
+        verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
+        input(monitoringPlansPage.passwordFieldModal, password);
+
+        verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
+        click(monitoringPlansPage.logInButtonSubmit);
+
+        waitFor(monitoringPlansPage.dashWorkspace);
+        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
+
+        verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
+        click(monitoringPlansPage.workspaceMonPlan);
+
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
@@ -27,15 +56,11 @@ public class Test_EASEY_QAExportGlobal extends CommonExport{
 
         // Clicks on first search result
         click(monitoringPlansPage.facilityCaret.get(0));
-        sleep(90000);
 
         //verifies at least one search result returns
-        //verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         //clicks "open" button for first result
         //add wait to let build TODO
-        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        //verifies at least one search result returns
-        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         click(monitoringPlansPage.configOpenButton.get(5));
         Thread.sleep(9000);
         click(monitoringPlansPage.configTab1);
@@ -51,7 +76,6 @@ public class Test_EASEY_QAExportGlobal extends CommonExport{
 
         //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
         click(exportPage.MPButton);
-        click(exportPage.qaButton);
         sleep(900000000);
 
 
@@ -61,7 +85,7 @@ public class Test_EASEY_QAExportGlobal extends CommonExport{
         //give time
         Thread.sleep(5000);
 
-        String searchFile = "QA & Certification _ Export - Smith Generating Facility (SCT5)";
+        String searchFile = "MP Export - Smith Generating Facility, SCT5 ";
         //check if downloaded file
         VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
 
