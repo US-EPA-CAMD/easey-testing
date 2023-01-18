@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 
-public class Test_EASEY_MonPlanImportGlobal extends CommonExport {
+public class Test_EASEY_MonPlanImport extends CommonExport {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
@@ -54,21 +54,26 @@ public class Test_EASEY_MonPlanImportGlobal extends CommonExport {
         click(monitoringPlansPage.facilityCaret.get(0));
 
         //waits for return
-        waitFor(driver -> monitoringPlansPage.facilityCaret.size() > 1);
-        sleep(90000);
-
-        // Clicks on first search result
-        click(monitoringPlansPage.facilityCaret.get(0));
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
 
         //verifies at least one search result returns
-        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
+        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         //clicks "open" button for first result
-        //add wait to let build TODO
         click(monitoringPlansPage.configOpenButton.get(5));
         Thread.sleep(9000);
-        click(monitoringPlansPage.configTab1);
-        sleep(9000);
 
+
+        // Clicks on Smith Tab
+        //configTabSmith
+        click(monitoringPlansPage.configTabSmith);
+        //waits for checkout btn
+        waitFor(monitoringPlansPage.checkOutBTN);
+        //click checkout button
+        click(monitoringPlansPage.checkOutBTN);
+        //waits for both check in btn and import btn to be visible
+        waitFor(monitoringPlansPage.checkInBTN);
+        waitFor(monitoringPlansPage.importButton);
+        //clicks import button
         click(monitoringPlansPage.importButton);
 
         //click(monitoringPlansPage.uploadFileChoiceButton);
@@ -76,7 +81,7 @@ public class Test_EASEY_MonPlanImportGlobal extends CommonExport {
         upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\monPlan\\exportimport\\files\\upload.json");
 
         sleep(9000);
-
+        click(monitoringPlansPage.checkInBTN);
         closebrowser();
     }
 }
