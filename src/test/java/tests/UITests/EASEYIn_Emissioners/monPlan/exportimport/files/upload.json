@@ -1,6 +1,20 @@
-[
+
 	{
-		"name": "Smith Generating",
-		"data": "some test data.."
+		"id": "MDC-77BBE7DEC5B1496AAFACE5F9E500EAAD",
+		"facId": 10,
+		"facilityName": "Smith Generating Facility",
+		"configTypeCode": null,
+		"lastUpdated": "2008-11-17T18:35:28.000Z",
+		"updatedStatusFlag": "Y",
+		"needsEvalFlag": "Y",
+		"checkSessionId": null,
+		"orisCode": 54,
+		"name": "SCT5",
+		"beginReportPeriodId": 36,
+		"endReportPeriodId": null,
+		"active": true,
+		"comments": [],
+		"pendingStatusCode": "NOTSUB",
+		"evalStatusCode": "EVAL",
+		"unitStackConfigurations": []
 	}
-]
