@@ -711,4 +711,14 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (xpath = "//button[@id='checkInBTN']")
     public WebElement checkInBTN ;
+
+    @FindBy (xpath = "//button[@id='okBtn']")
+    public WebElement okBTN ;
+    //TODO replace with something better
+    @FindBy (xpath = "//body/div[@id='portal']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]")
+    public WebElement importSubmitBTN ;
+    //#importBtn
+
+    @FindBy (xpath = "//h4[contains(text(),'Success')]")
+    public WebElement successMessage ;
 }

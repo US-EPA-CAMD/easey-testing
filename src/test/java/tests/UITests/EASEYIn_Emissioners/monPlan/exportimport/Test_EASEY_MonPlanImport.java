@@ -79,8 +79,23 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         //click(monitoringPlansPage.uploadFileChoiceButton);
         WebElement upload_file = driver.findElement(By.xpath("//input[@id='file-input-single']"));
         upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\monPlan\\exportimport\\files\\upload.json");
-
-        sleep(9000);
+        //wait for import button to show
+        waitFor(monitoringPlansPage.importSubmitBTN);
+        //click import button
+        click(monitoringPlansPage.importSubmitBTN);
+        //wait for success
+        waitFor(monitoringPlansPage.successMessage);
+        //if to print status to console
+        if(monitoringPlansPage.successMessage.isDisplayed()){
+            System.out.println("The file was successfully uploaded");
+        }else{
+            System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
+        }
+        //click ok
+        click(monitoringPlansPage.okBTN);
+        //wait for checkin button
+        waitFor(monitoringPlansPage.checkInBTN);
+        //click checkin
         click(monitoringPlansPage.checkInBTN);
         closebrowser();
     }
