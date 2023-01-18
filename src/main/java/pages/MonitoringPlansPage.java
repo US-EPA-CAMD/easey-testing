@@ -704,7 +704,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath ="//a[@id='Export_wks']")
     public WebElement exportTabLocal ;
 
-    @FindBy (xpath = "//button[contains(text(),'Export')]")
-    public WebElement exportButton ;
+    @FindBy (xpath = "//button[@id='importBtn']")
+    public WebElement importButton ;
+    @FindBy (xpath = "//input[@id='file-input-single']")
+    public WebElement uploadFileChoiceButton ;
 
 }
