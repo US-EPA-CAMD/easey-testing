@@ -11,4 +11,9 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(css = "h2[epa-testid='QACertificationsTestDataTitle']")
     public WebElement title;
 
+    @FindBy (css = "#txtSearchData")
+    public WebElement filterByKeywordBoxQa;
+
+    @FindBy (xpath = "//tbody/tr[1]/td[3]/button[1]")
+    public WebElement filterByKeywordBTNQa;
 }
