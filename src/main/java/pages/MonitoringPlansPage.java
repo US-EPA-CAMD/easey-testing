@@ -679,18 +679,8 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="li[title='Gadsden (1, 2, CS0BAN) ']")
     public WebElement configTabGadsden12CS0BAN;
 
-    @FindBy (css ="li[title='Smith Generating Facility (SCT5) ']")
-    public WebElement configTabSmith;
-
-    //*[@id="main-content"]/div/div[3]/div/div/div[1]/ul/li[2]
-    @FindBy (xpath ="//div[@id='tabBtn']")
-    public WebElement configTab1;
-
-
     @FindBy (css ="li[title='Harvey Couch 1']")
     public WebElement configTabHarvey;
-    /// Facility
-
 
     @FindBy (css ="svg[id^='closeXBtnTab']")
     public List<WebElement> closeConfigTab;
@@ -713,8 +703,14 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="img[title='Content loading']")
     public WebElement stopAnimationImage;
 
-//    @FindBy(linkText = "/export")
-//    public WebElement export;
+    @FindBy (css ="li[title='Smith Generating Facility (SCT5) ']")
+    public WebElement configTabSmith;
+
+    @FindBy (css ="//div[@id='tabBtn']")
+    public WebElement configTabLocalSmith;
+
+    @FindBy (xpath ="//div[@id='tabBtn']")
+    public WebElement configTab1;
 
     @FindBy(id = "Export")
     public WebElement export;
@@ -725,7 +721,27 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath ="//a[@id='Export_wks']")
     public WebElement exportTabLocal ;
 
-    @FindBy (xpath = "//button[contains(text(),'Export')]")
-    public WebElement exportButton ;
+    @FindBy (xpath = "//button[@id='importBtn']")
+    public WebElement importButton ;
+
+    @FindBy (xpath = "//input[@id='file-input-single']")
+    public WebElement uploadFileChoiceButton ;
+
+    @FindBy (xpath = "//button[@id='checkOutBTN']")
+    public WebElement checkOutBTN ;
+
+    @FindBy (xpath = "//button[@id='checkInBTN']")
+    public WebElement checkInBTN ;
+
+    @FindBy (xpath = "//button[@id='okBtn']")
+    public WebElement okBTN ;
+
+    //TODO replace with something better
+    @FindBy (xpath = "//body/div[@id='portal']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]")
+    public WebElement importSubmitBTN ;
+    //#importBtn
+
+    @FindBy (xpath = "//h4[contains(text(),'Success')]")
+    public WebElement successMessage ;
 
 }

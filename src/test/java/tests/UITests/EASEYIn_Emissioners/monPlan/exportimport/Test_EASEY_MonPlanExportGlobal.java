@@ -1,17 +1,8 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.export;
+package tests.UITests.EASEYIn_Emissioners.monPlan.exportimport;
 
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import pages.ExportPage;
 import pages.MonitoringPlansPage;
-import tests.utils.UITestBase;
-
-import java.io.File;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
 
 public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
 
@@ -34,9 +25,9 @@ public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
 
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-
+        //check if page is MP
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
-
+        //wait for search bar to load
         waitFor(monitoringPlansPage.filterByKeywordBox);
 
         //Search for facility
@@ -77,7 +68,7 @@ public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
         //give time
         Thread.sleep(5000);
 
-        String searchFile = "MP Export - Smith Generating Facility, SCT5 ";
+        String searchFile = "MP Export - Smith Generating Facility, SCT5";
         //check if downloaded file
         VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
 

@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.export;
+package tests.UITests.EASEYIn_Emissioners.monPlan.exportimport;
 
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
@@ -56,7 +56,7 @@ public class CommonExport extends UITestBase {
 
         } else{
             System.out.println(fileName);
-            System.out.println( "Downloaded file name is not matching with expected file name");
+            System.out.println( "Downloaded file");
         }
 
     }

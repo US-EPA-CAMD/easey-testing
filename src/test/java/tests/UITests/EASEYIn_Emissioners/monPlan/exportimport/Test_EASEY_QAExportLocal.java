@@ -1,4 +1,4 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.export;
+package tests.UITests.EASEYIn_Emissioners.monPlan.exportimport;
 
 import org.testng.annotations.Test;
 import pages.ExportPage;

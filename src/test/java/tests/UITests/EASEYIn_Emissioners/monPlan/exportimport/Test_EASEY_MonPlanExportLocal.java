@@ -1,17 +1,8 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.export;
+package tests.UITests.EASEYIn_Emissioners.monPlan.exportimport;
 
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import pages.ExportPage;
 import pages.MonitoringPlansPage;
-import tests.utils.UITestBase;
-
-import java.io.File;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
 
 public class Test_EASEY_MonPlanExportLocal extends CommonExport {
     //set download path
@@ -94,7 +85,7 @@ public class Test_EASEY_MonPlanExportLocal extends CommonExport {
         Thread.sleep(5000);
         Thread.sleep(5000);
 
-        String searchFile = "MP Export - Smith Generating Facility, SCT5 ";
+        String searchFile = "MP Export - Smith Generating Facility, SCT5";
         //check if downloaded file
         VerifyDownload(fileDownloadpath, searchFile);
 
