@@ -19,31 +19,31 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/monitoring-plans");
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
-
+        //wait for page to load, verify page is MP
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-
+        //open log in modal
         verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
         click(monitoringPlansPage.logInButtonOpenModal);
-
+        //give username
         verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
         input(monitoringPlansPage.usernameFieldModal, username);
-
+        ////give password
         verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
         input(monitoringPlansPage.passwordFieldModal, password);
-
+        //verify log in btn is visible and click log in
         verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
         click(monitoringPlansPage.logInButtonSubmit);
-
+        //wait for log in to complete
         waitFor(monitoringPlansPage.dashWorkspace);
         verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
-
+        //verify logged in and page is MP
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
-
+        //verify the page is MP
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
-
+        //wait for search bar to be visible
         waitFor(monitoringPlansPage.filterByKeywordBox);
 
         //Search for facility
@@ -85,12 +85,15 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         click(monitoringPlansPage.importSubmitBTN);
         //wait for success
         waitFor(monitoringPlansPage.successMessage);
+
         //if to print status to console
+        //TODO add verify statement
         if(monitoringPlansPage.successMessage.isDisplayed()){
             System.out.println("The file was successfully uploaded");
         }else{
             System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
         }
+
         //click ok
         click(monitoringPlansPage.okBTN);
         //wait for checkin button
