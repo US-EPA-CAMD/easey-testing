@@ -1,14 +1,12 @@
-package tests.UITests.EASEYIn_Emissioners.monPlan.loads;
+package tests.UITests.EASEYIn_Emissioners.Regression_Testing_Full;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
-import tests.utils.UITestBase;
 
-public class Test_EASEYIn_TC1711_Edit_MP_Load_Data extends EmMonPlanReusables {
+public class Test_EASEYIn_Reg_Mon_Load_Complete extends EmMonPlanReusables {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -16,13 +14,12 @@ public class Test_EASEYIn_TC1711_Edit_MP_Load_Data extends EmMonPlanReusables {
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
         //Navigate to EASEY In
-        //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+        //https://ecmps-dev.app.cloud.gov/monitoring-plans
 
         goToo("ecmps","/monitoring-plans");
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -43,9 +40,8 @@ public class Test_EASEYIn_TC1711_Edit_MP_Load_Data extends EmMonPlanReusables {
         js.executeScript("window.scrollBy(0,350)", "");
 
         waitFor(monitoringPlansPage.title);
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
 
+        waitFor(monitoringPlansPage.workspaceMonPlan);
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 
@@ -53,11 +49,10 @@ public class Test_EASEYIn_TC1711_Edit_MP_Load_Data extends EmMonPlanReusables {
         input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Holcomb (Oris Code 8906)
-        waitFor(monitoringPlansPage.facilityCaret);
+        // Clicks on Astoria Generating Station (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
-        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
@@ -66,29 +61,76 @@ public class Test_EASEYIn_TC1711_Edit_MP_Load_Data extends EmMonPlanReusables {
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringLoads);
+        click(monitoringPlansPage.monitoringLoads);
+
+        waitFor(monitoringPlansPage.accordionLoadsLabel);
+        verifyEquals(monitoringPlansPage.accordionLoadsLabel, "Loads");
+
+        // Start of View
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionLoadsLabel);
+
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
+        Thread.sleep(1000);
+
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
+        click(monitoringPlansPage.viewButton.get(0));
+
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Load");
+
+        waitFor(monitoringPlansPage.closeModal);
+        click(monitoringPlansPage.closeModal);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
+
+        verifyFalse(isDisplayed(monitoringPlansPage.monPlanModalHeaderLabel));
+        // End of View
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.configcheckOutButton);
+
         waitFor(monitoringPlansPage.configcheckOutButton);
         verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
         click(monitoringPlansPage.configcheckOutButton);
 
         waitFor(monitoringPlansPage.configcheckBackInButton);
-        System.out.println(monitoringPlansPage.configcheckBackInButton.isDisplayed());
-        System.out.println(monitoringPlansPage.configcheckBackInButton.isEnabled());
         verifyEquals(monitoringPlansPage.configcheckBackInButton, "Check Back In");
-
-        click(monitoringPlansPage.monitoringLoads);
-        verifyEquals(monitoringPlansPage.accordionLoadsLabel, "Loads");
 
         // This wait is needed inorder to allow the View button to change from View to View / Edit
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
-        js.executeScript("window.scrollBy(0,200)", "");
+        // Start of Create
+        waitFor(monitoringPlansPage.createLoadButton);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createLoadButton);
 
+        int numOfLoads = monitoringPlansPage.viewButton.size();
+
+        waitFor(monitoringPlansPage.createLoadButton);
+        click(monitoringPlansPage.createLoadButton);
+
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        input(monitoringPlansPage.monitoringFormulasMaxLoadValField, "1");
+        click(monitoringPlansPage.monMethodsModalMaxLoadUnitMeasureDropdown.get(1));
+        input(monitoringPlansPage.modalStartDateField, "12/01/2022");
+        input(monitoringPlansPage.modalStartTimeField, "1");
+
+        click(monitoringPlansPage.saveCloseModal);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
+
+        waitFor(monitoringPlansPage.viewButton);
+
+        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+
+        verifyTrue(newNumOfMethods == numOfLoads + 1);
+        // End of Create
+
+        // Start of Edit
         waitFor(monitoringPlansPage.LoadsTableMaxLoadValLabel);
         verifyEquals(monitoringPlansPage.LoadsTableMaxLoadValLabel, "Maximum Load Value");
 
         String maxLoadVal = monitoringPlansPage.LoadsTableMaxLoadValField.get(0).getText();
-
-        js.executeScript("document.body.style.zoom = '0.7'");
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
@@ -111,11 +153,22 @@ public class Test_EASEYIn_TC1711_Edit_MP_Load_Data extends EmMonPlanReusables {
         js.executeScript("arguments[0].click();", monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
-        js.executeScript("document.body.style.zoom = '1'");
-
         Thread.sleep(2000);
         waitFor(monitoringPlansPage.LoadsTableMaxLoadValField.get(0));
         verifyNotEquals(monitoringPlansPage.LoadsTableMaxLoadValField.get(0).getText(), maxLoadVal);
+        // End of Edit
+
+        // Evaluate starts here
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.evaluateButton);
+        waitFor(monitoringPlansPage.evaluateButton);
+        click(monitoringPlansPage.evaluateButton);
+
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors);
+        verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
+        // Evaluate ends here
 
         // Revert starts here
         revertToOfficial();

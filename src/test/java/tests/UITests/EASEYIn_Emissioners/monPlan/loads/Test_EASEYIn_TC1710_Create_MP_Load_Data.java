@@ -71,24 +71,24 @@ public class Test_EASEYIn_TC1710_Create_MP_Load_Data extends EmMonPlanReusables 
         waitFor(monitoringPlansPage.configcheckBackInButton);
         verifyEquals(monitoringPlansPage.configcheckBackInButton, "Check Back In");
 
-        waitFor(monitoringPlansPage.monitoringFormulas);
-        click(monitoringPlansPage.monitoringFormulas);
-        waitFor(monitoringPlansPage.accordionFormulasLabel);
+        waitFor(monitoringPlansPage.monitoringLoads);
+        click(monitoringPlansPage.monitoringLoads);
+        waitFor(monitoringPlansPage.accordionLoadsLabel);
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 2);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createFormulaButton);
+                monitoringPlansPage.createLoadButton);
 
-        int numOfMethods = monitoringPlansPage.viewButton.size();
+        int numOfLoads = monitoringPlansPage.viewButton.size();
 
-        waitFor(monitoringPlansPage.createFormulaButton);
-        click(monitoringPlansPage.createFormulaButton);
+        waitFor(monitoringPlansPage.createLoadButton);
+        click(monitoringPlansPage.createLoadButton);
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        input(monitoringPlansPage.monitoringFormulasIdField, "TES");
-        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
-        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
+        input(monitoringPlansPage.monitoringFormulasMaxLoadValField, "1");
+        click(monitoringPlansPage.monMethodsModalMaxLoadUnitMeasureDropdown.get(1));
+        input(monitoringPlansPage.modalStartDateField, "12/01/2022");
         input(monitoringPlansPage.modalStartTimeField, "1");
 
         click(monitoringPlansPage.saveCloseModal);
@@ -98,29 +98,10 @@ public class Test_EASEYIn_TC1710_Create_MP_Load_Data extends EmMonPlanReusables 
 
         int newNumOfMethods = monitoringPlansPage.viewButton.size();
 
-        verifyTrue(newNumOfMethods == numOfMethods + 1);
+        verifyTrue(newNumOfMethods == numOfLoads + 1);
 
         // Revert starts here
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertOfficialRecordButton);
-        verifyEquals(monitoringPlansPage.revertOfficialRecordButton, "Revert to Official Record");
-        click(monitoringPlansPage.revertOfficialRecordButton);
-
-        waitFor(monitoringPlansPage.revertModalYesButton);
-        verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
-        click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
-
-        // These steps Checks Back In the configuration
-        waitFor(monitoringPlansPage.configcheckBackInButton);
-        click(monitoringPlansPage.configcheckBackInButton);
-
-        waitFor(monitoringPlansPage.configcheckOutButton);
-        verifyEquals(monitoringPlansPage.configcheckOutButton, "Check Out");
+        revertToOfficial();
 
     }
     @Override

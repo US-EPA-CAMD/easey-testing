@@ -125,6 +125,15 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "option[data-testid='Loads']")
     public WebElement monitoringLoads;
 
+    @FindBy (id = "Maximum Load Value")
+    public WebElement monitoringFormulasMaxLoadValField;
+
+    @FindBy (css = "select[epadataname='maximumLoadUnitsOfMeasureCode'] > option")
+    public List<WebElement> monMethodsModalMaxLoadUnitMeasureDropdown;
+
+    @FindBy (id = "create-load-add-btn")
+    public WebElement createLoadButton;
+
     @FindBy (css = "option[data-testid='Location Attributes and Relationships']")
     public WebElement monitoringLocationAttributesAndRelationships ;
 
