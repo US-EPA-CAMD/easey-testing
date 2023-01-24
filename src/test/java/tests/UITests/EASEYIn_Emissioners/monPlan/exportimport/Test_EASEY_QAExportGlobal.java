@@ -3,7 +3,7 @@ package tests.UITests.EASEYIn_Emissioners.monPlan.exportimport;
 import org.testng.annotations.Test;
 import pages.ExportPage;
 import pages.MonitoringPlansPage;
-
+//This test launches from MP, selects facility, navigates to the export tab, and exports the QA data(checks user's downloads folder for file)
 public class Test_EASEY_QAExportGlobal extends CommonExport{
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
     @Test

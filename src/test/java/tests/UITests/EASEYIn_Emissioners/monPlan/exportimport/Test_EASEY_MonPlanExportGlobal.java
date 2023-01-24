@@ -3,17 +3,12 @@ package tests.UITests.EASEYIn_Emissioners.monPlan.exportimport;
 import org.testng.annotations.Test;
 import pages.ExportPage;
 import pages.MonitoringPlansPage;
-
+//This test launches from MP, selects facility, navigates to the export tab, and exports the MP data(checks user's downloads folder for file)
 public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
-
 
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
-
-
-
-
 
     @Test
     public void test() throws InterruptedException {
