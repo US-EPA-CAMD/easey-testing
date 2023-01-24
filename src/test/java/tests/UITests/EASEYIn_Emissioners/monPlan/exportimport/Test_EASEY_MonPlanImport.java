@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
-
+//This test launches from MP, logs in, selects facility, and uploads a file (only for Smith Generating 5)
 public class Test_EASEY_MonPlanImport extends CommonExport {
     //set download path
     //TODO rework file path
