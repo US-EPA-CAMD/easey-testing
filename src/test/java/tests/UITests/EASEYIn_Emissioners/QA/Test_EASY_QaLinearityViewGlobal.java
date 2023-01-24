@@ -22,11 +22,10 @@ public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
         click(qaCertificationPage.filterByKeywordBTNQa);
         //waits for return
         waitFor(driver -> qaCertificationPage.facilityCaret.size() > 1);
-        sleep(90000);
 
         // Clicks on first search result
         click(qaCertificationPage.facilityCaret.get(0));
-        sleep(90000);
+
 
         //verifies at least one search result returns
         //verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
@@ -36,13 +35,31 @@ public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
         //verifies at least one search result returns
         verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
         click(qaCertificationPage.configOpenButton.get(5));
-        Thread.sleep(9000);
+
         click(qaCertificationPage.configTab1);
-        sleep(9000);
+
 
         click(qaCertificationPage.configTabSmith);
+
+
         //Wait for load
-        waitFor(driver -> qaCertificationPage.configOpenButton.size() > 1);
+        waitFor(qaCertificationPage.testTypeGroupBox);
+        //click into test type box and make selection
+        click(qaCertificationPage.testTypeGroupBox);
+        click(qaCertificationPage.linearitySummary);
+        //click first view button
+        waitFor(qaCertificationPage.viewLS);
+        click(qaCertificationPage.viewLS);
+        //wait for modal to open
+        waitFor(qaCertificationPage.testSummaryModalTitle);
+        //verify the title says Test Summary Data
+        verifyEquals(qaCertificationPage.testSummaryModalTitle, "Test Summary Data");
+        sleep(900000);
+        //close modal and print
+        click(qaCertificationPage.closeModal);
+        System.out.println("Viewed data!");
+
+
     }
 
 

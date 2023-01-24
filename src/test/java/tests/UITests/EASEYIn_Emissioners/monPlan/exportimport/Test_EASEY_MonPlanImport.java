@@ -19,6 +19,7 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/monitoring-plans");
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+
         //wait for page to load, verify page is MP
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");

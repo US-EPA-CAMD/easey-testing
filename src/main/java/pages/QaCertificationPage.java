@@ -16,4 +16,25 @@ public class QaCertificationPage extends MonitoringPlansPage {
 
     @FindBy (xpath = "//tbody/tr[1]/td[3]/button[1]")
     public WebElement filterByKeywordBTNQa;
+
+
+    @FindBy ( id="Test Type Group")
+    public WebElement testTypeGroupBox;
+    //option[contains(text(),'Linearity Summary')]
+
+
+    @FindBy (css = "option[data-testid='Linearity Summary']")
+    public WebElement linearitySummary;
+
+
+    @FindBy (id="btnEditViewTest-Summary-Data1")
+    public WebElement viewLS;
+
+
+    @FindBy (xpath = "//h2[contains(text(),'Test Summary Data')]")
+    public WebElement testSummaryModalTitle;
+
+
+    @FindBy (xpath = "//button[contains(text(),'Close')]")
+    public WebElement closeModal;
 }
