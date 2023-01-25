@@ -131,7 +131,7 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
             click(qaCertificationPage.testResultCodeBoxEntry);
 
             click(qaCertificationPage.beginDate);
-            input(qaCertificationPage.beginDate, "01012022");
+            input(qaCertificationPage.beginDate, "01/01/2022");
 
             click(qaCertificationPage.beginHour);
             click(qaCertificationPage.zeroEntry);
@@ -140,7 +140,7 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
             click(qaCertificationPage.zeroEntry);
 
             click(qaCertificationPage.endDate);
-            input(qaCertificationPage.endDate, "01012023");
+            input(qaCertificationPage.endDate, "01/01/2023");
 
             click(qaCertificationPage.endHour);
             click(qaCertificationPage.zeroEntry);
