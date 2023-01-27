@@ -6,155 +6,181 @@ import org.openqa.selenium.support.FindBy;
 
 public class QaCertificationPage extends MonitoringPlansPage {
 
-    public QaCertificationPage(WebDriver driver) { super(driver); }
+    public QaCertificationPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(css = "h2[epa-testid='QACertificationsTestDataTitle']")
     public WebElement title;
 
-    @FindBy (css = "#txtSearchData")
+    @FindBy(css = "#txtSearchData")
     public WebElement filterByKeywordBoxQa;
 
-    @FindBy (xpath = "//tbody/tr[1]/td[3]/button[1]")
+    @FindBy(xpath = "//tbody/tr[1]/td[3]/button[1]")
     public WebElement filterByKeywordBTNQa;
 
+    //label[contains(text(),'Username')]
+    @FindBy(xpath = "//label[contains(text(),'Username')]")
+    public WebElement usernameModalQA;
+    //input[@id='modal-username']
+    @FindBy(xpath = "//input[@id='modal-username']")
+    public WebElement usernameFieldModalQA;
 
-    @FindBy ( id="Test Type Group")
+    @FindBy(id = "Test Type Group")
     public WebElement testTypeGroupBox;
     //option[contains(text(),'Linearity Summary')]
 
 
-    @FindBy (css = "option[data-testid='Linearity Summary']")
+    @FindBy(css = "option[data-testid='Linearity Summary']")
     public WebElement linearitySummary;
 
 
-    @FindBy (id="btnEditViewTest-Summary-Data1")
+    @FindBy(id = "btnEditViewTest-Summary-Data1")
     public WebElement viewLS;
 
 
-    @FindBy (xpath = "//h2[contains(text(),'Test Summary Data')]")
+    @FindBy(xpath = "//h2[contains(text(),'Test Summary Data')]")
     public WebElement testSummaryModalTitle;
 
     //b[contains(text(),"Changing the selection for the 'Test Type Code' field shall update the dropdown options available for other fields.")]
-    @FindBy (xpath = "//b[contains(text(),'Changing the selection for the 'Test Type Code' field shall update the dropdown options available for other fields.')]")
+    @FindBy(xpath = "//b[contains(text(),'Changing the selection for the 'Test Type Code' field shall update the dropdown options available for other fields.')]")
     public WebElement testSummaryModalText;
 
-    @FindBy (xpath = "//button[contains(text(),'Close')]")
+    @FindBy(xpath = "//button[contains(text(),'Close')]")
     public WebElement closeModal;
 
     //button[@id='openModalBTN']
-    @FindBy (xpath = "//button[@id='openModalBTN']")
+    @FindBy(xpath = "//button[@id='openModalBTN']")
     public WebElement login;
 
     //button[contains(text(),'Test Data Report')]
-    @FindBy (xpath = " //button[contains(text(),'Test Data Report')]")
+    @FindBy(xpath = " //button[contains(text(),'Test Data Report')]")
     public WebElement testDataReportBTN;
 
     //label[contains(text(),'Username')]
-    @FindBy (xpath = "//label[contains(text(),'Username')]")
+    @FindBy(xpath = "//label[contains(text(),'Username')]")
     public WebElement usernameModal;
 
     //button[@id='btnAddTest-Summary-Data']
-    @FindBy (xpath = "//button[@id='btnAddTest-Summary-Data']")
+    @FindBy(xpath = "//button[@id='btnAddTest-Summary-Data']")
     public WebElement addTestDataBTN;
 
     //add test data MODAL section
 
     //input[@id='Unit or Stack Pipe ID']
-    @FindBy (xpath = "//input[@id='Unit or Stack Pipe ID']")
+    @FindBy(xpath = "//input[@id='Unit or Stack Pipe ID']")
     public WebElement UnitIdBox;
     //select[@id='Test Type Code']
-    @FindBy (xpath = "//select[@id='Test Type Code']")
+    @FindBy(xpath = "//select[@id='Test Type Code']")
     public WebElement testTypeCodeBox;
 
 
-    @FindBy (xpath = "//select[@id='Component ID']")
+    @FindBy(xpath = "//select[@id='Component ID']")
     public WebElement componentIDBox;
     //option[contains(text(),'700')]
-    @FindBy (css = "option[data-testid='Linearity Summary']")
+    @FindBy(css = "option[data-testid='Linearity Summary']")
     public WebElement componentID700option;
 
     //select[@id='Span Scale Code']
-    @FindBy (xpath = "//select[@id='Span Scale Code']")
+    @FindBy(xpath = "//select[@id='Span Scale Code']")
     public WebElement spanScaleCodeBox;
     //option[contains(text(),'High')]
-    @FindBy (xpath = "//option[contains(text(),'High')]")
+    @FindBy(xpath = "//option[contains(text(),'High')]")
     public WebElement spanScaleCodeHigh;
     //input[@id='Test Number']
-    @FindBy (xpath = "//input[@id='Test Number']")
+    @FindBy(xpath = "//input[@id='Test Number']")
     public WebElement testNumberBox;
 
     //select[@id='Test Reason Code']
-    @FindBy (xpath = "//select[@id='Test Reason Code']")
+    @FindBy(xpath = "//select[@id='Test Reason Code']")
     public WebElement testReasonCodeBox;
     //option[contains(text(),'Quality Assurance')]
-    @FindBy (xpath = "//option[contains(text(),'Quality Assurance')]")
+    @FindBy(xpath = "//option[contains(text(),'Quality Assurance')]")
     public WebElement qaSelectionTestReasonCode;
 
+    //option[contains(text(),'Diagnostic')]
+    @FindBy(xpath = "//option[contains(text(),'Diagnostic')]")
+    public WebElement selectionTestReasonCode;
+
     //select[@id='Test Result Code']
-    @FindBy (xpath = "//select[@id='Test Result Code']")
+    @FindBy(xpath = "//select[@id='Test Result Code']")
     public WebElement testResultCodeBox;
 
     //option[contains(text(),'Does Not Fulfill Testing Requirement')]
-    @FindBy (xpath = "//option[contains(text(),'Test Passed Alt Spec')]")
+    @FindBy(xpath = "//option[contains(text(),'Test Passed Alt Spec')]")
     public WebElement testResultCodeBoxEntry;
 
     //input[@id='Begin Date']
-    @FindBy (xpath = "//input[@id='Begin Date']")
+    @FindBy(xpath = "//input[@id='Begin Date']")
     public WebElement beginDate;
 
     //select[@id='Begin Hour']
-    @FindBy (xpath = "//select[@id='Begin Hour']")
+    @FindBy(xpath = "//select[@id='Begin Hour']")
     public WebElement beginHour;
 
-    @FindBy (xpath = "//option[contains(text(),'0')]")
+    //body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]
+    @FindBy(xpath = "//body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]")
+    public WebElement beginHourSelection;
+
+    @FindBy(xpath = "//option[contains(text(),'0')]")
     public WebElement zeroEntry;
 
     //select[@id='Begin Minute']
-    @FindBy (xpath = "//select[@id='Begin Minute']")
+    @FindBy(xpath = "//select[@id='Begin Minute']")
     public WebElement beginMinute;
 
+    //body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]
+    @FindBy(xpath = "//body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]")
+    public WebElement beginMinuteSelection;
+
     //input[@id='End Date']
-    @FindBy (xpath = "//input[@id='End Date']")
+    @FindBy(xpath = "//input[@id='End Date']")
     public WebElement endDate;
 
     //select[@id='End Hour']
-    @FindBy (xpath = "//select[@id='End Hour']")
+    @FindBy(xpath = "//select[@id='End Hour']")
     public WebElement endHour;
 
+    @FindBy(xpath = "//body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]")
+    public WebElement endHourSelection;
+
     //select[@id='End Minute']
-    @FindBy (xpath = "//select[@id='End Minute']")
+    @FindBy(xpath = "//select[@id='End Minute']")
     public WebElement endMinute;
 
+    @FindBy(xpath = "//body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]")
+    public WebElement endMinuteSelection;
+
     //button[@id='saveBtn']
-    @FindBy (xpath = "//button[@id='saveBtn']")
+    @FindBy(xpath = "//button[@id='saveBtn']")
     public WebElement saveBTN;
 
     //END SELECTIONS
 
     //button[@id='btnEditViewTest-Summary-Data1']
-    @FindBy (xpath = "//button[@id='btnEditViewTest-Summary-Data1']")
+    @FindBy(xpath = "//button[@id='btnEditViewTest-Summary-Data1']")
     public WebElement editDataBTN;
 
     //button[contains(text(),'Remove')]
-    @FindBy (xpath = "//button[contains(text(),'Remove')]")
+    @FindBy(xpath = "//button[contains(text(),'Remove')]")
     public WebElement removeDataBTN;
 
     //div[contains(text(),'Test Type Code')]
-    @FindBy (xpath = "//div[contains(text(),'Test Type Code')]")
+    @FindBy(xpath = "//div[contains(text(),'Test Type Code')]")
     public WebElement testTypeCodeTableHeader;
 
     //div[contains(text(),'LINE')]
-    @FindBy (xpath = "//div[contains(text(),'LINE')]")
+    @FindBy(xpath = "//div[contains(text(),'LINE')]")
     public WebElement testTypeCodeTableContents;
 
     //button[contains(text(),'Cancel')]
-    @FindBy (xpath = "//button[contains(text(),'Cancel')]")
+    @FindBy(xpath = "//button[contains(text(),'Cancel')]")
     public WebElement cancelBTN;
     //button[@id='btnCheckBackIn']
-    @FindBy (xpath = "//button[@id='btnCheckBackIn']")
+    @FindBy(xpath = "//button[@id='btnCheckBackIn']")
     public WebElement checkBACKINBTN;
 
-    @FindBy (xpath = "//div[contains(text(),'Smith Generating Facility')]")
+    @FindBy(xpath = "//div[contains(text(),'Smith Generating Facility')]")
     public WebElement facilityName;
 
 }

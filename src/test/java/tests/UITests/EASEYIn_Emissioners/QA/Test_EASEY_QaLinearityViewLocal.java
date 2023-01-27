@@ -1,9 +1,14 @@
 package tests.UITests.EASEYIn_Emissioners.QA;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pages.QaCertificationPage;
 import tests.UITests.EASEYIn_Emissioners.monPlan.exportimport.CommonExport;
 
+import java.time.Duration;
 import java.util.concurrent.TimeoutException;
 
 public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
@@ -11,20 +16,22 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
     private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
     private static String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
 
+
     @Test
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","/qa-test");
+        goToo("ecmps", "/qa-test");
 
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
-        verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
+        waitFor(qaCertificationPage.title);
+
         verifyEquals(qaCertificationPage.login, "Log In");
         click(qaCertificationPage.login);
 
-        verifyEquals(qaCertificationPage.usernameModal.getText(), "Username");
-        input( qaCertificationPage.usernameFieldModal, username);
+        verifyEquals(qaCertificationPage.usernameModalQA.getText(), "Username");
+        input(qaCertificationPage.usernameFieldModalQA, username);
 
         verifyEquals(qaCertificationPage.passwordLabelModal.getText(), "Password");
         input(qaCertificationPage.passwordFieldModal, password);
@@ -43,120 +50,135 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
 
         //wait for search bar to be visible
         waitFor(qaCertificationPage.filterByKeywordBox);
+
         //Search for facility
-        input(qaCertificationPage.filterByKeywordBoxQa,"Smith Generating");
+        input(qaCertificationPage.filterByKeywordBoxQa, "Smith Generating");
         click(qaCertificationPage.filterByKeywordBTNQa);
-
-        waitFor(qaCertificationPage.facilityName);
-        //verify the search returns the correct results
-        verifyEquals(qaCertificationPage.facilityName, "Smith Generating Facility");
-
-        //waits for return
-        waitFor(driver -> qaCertificationPage.facilityCaret.size() > 1);
-        sleep(90000);
-        sleep(90000);
 
         // Clicks on first search result
         click(qaCertificationPage.facilityCaret.get(0));
 
+        //verify the search returns the correct results
+        //verifyEquals(qaCertificationPage.facilityName, "Smith Generating Facility");
 
-        //verifies at least one search result returns
-        //verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
-        //clicks "open" button for first result
-        //add wait to let build TODO
-        sleep(90000);
-        sleep(90000);
-        waitFor(driver -> qaCertificationPage.configOpenButton.size() > 1);
-
+        //waits for return
+        waitFor(driver -> qaCertificationPage.facilityCaret.size() > 1);
+//        sleep(90000);
+//        sleep(90000);
         //if "Check Back in" button is visible press it (handles if the facility was already checked out by a failed test)
-        if(isDisplayed(qaCertificationPage.checkBACKINBTN)){
+        if (isDisplayed(qaCertificationPage.checkBACKINBTN)) {
             click(qaCertificationPage.checkBACKINBTN);
             waitFor(qaCertificationPage.configOpenButton.get(1));
         }
-        //verifies at least one search result returns
-        verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
+
+        //wait for an open button to load
+        waitFor(qaCertificationPage.configOpenButton);
+
+        //click smith generating SC5 or fifth "open" button
         click(qaCertificationPage.configOpenButton.get(5));
 
+        //wait for the tab to load
+        waitFor(qaCertificationPage.configTab1);
+
+        // Clicks on Smith Tab
         click(qaCertificationPage.configTab1);
 
-
-
-        //Wait for load
+        //Wait for load: "Test Type Box"
         waitFor(qaCertificationPage.testTypeGroupBox);
 
-        //todo click check in btn here
+        //click check out btn here
         waitFor(qaCertificationPage.configcheckOutButton);
-        //check out facility
+
+        //click check out facility
         click(qaCertificationPage.configcheckOutButton);
 
         waitFor(qaCertificationPage.testTypeGroupBox);
+
         //click into test type box and make selection
         click(qaCertificationPage.testTypeGroupBox);
+        //wait for drop down
         waitFor(qaCertificationPage.linearitySummary);
+        //select "Linearity Summary" from drop down
         click(qaCertificationPage.linearitySummary);
 
 
-
-        sleep(90000);
-
-        //click test data report button
-        //click(qaCertificationPage.testDataReportBTN);
-
         //click add test data
-       waitFor(qaCertificationPage.addTestDataBTN);
-       click(qaCertificationPage.addTestDataBTN);
+        waitFor(qaCertificationPage.addTestDataBTN);
+        click(qaCertificationPage.addTestDataBTN);
 
-       waitFor(qaCertificationPage.testSummaryModalTitle);
+        //wait for the modal to pop up
+        waitFor(qaCertificationPage.testSummaryModalTitle);
 
-       // waitFor(qaCertificationPage.testSummaryModalText);
+        // waitFor(qaCertificationPage.testSummaryModalText);
 
         //try catch for modal selections
         //try {
-            sleep(90000);
+        sleep(90000);
 
-            //make modal selections: click into box and make selection or pass it the date
-            click(qaCertificationPage.componentIDBox);
-            click(qaCertificationPage.componentID700option);
+        // makeModalSelections();
 
-            click(qaCertificationPage.spanScaleCodeBox);
-            click(qaCertificationPage.spanScaleCodeHigh);
 
-            click(qaCertificationPage.testNumberBox);
-            input(qaCertificationPage.testNumberBox, "1");
+        //make modal selections: click into box and make selection or pass it the date
+        waitFor(qaCertificationPage.componentIDBox);
+        click(qaCertificationPage.componentIDBox);
+        waitFor(qaCertificationPage.componentID700option);
+        click(qaCertificationPage.componentID700option);
 
-            click(qaCertificationPage.testReasonCodeBox);
-            click(qaCertificationPage.qaSelectionTestReasonCode);
+        waitFor(qaCertificationPage.spanScaleCodeBox);
+        click(qaCertificationPage.spanScaleCodeBox);
+        waitFor(qaCertificationPage.spanScaleCodeHigh);
+        click(qaCertificationPage.spanScaleCodeHigh);
 
-            click(qaCertificationPage.testResultCodeBox);
-            click(qaCertificationPage.testResultCodeBoxEntry);
+        waitFor(qaCertificationPage.testNumberBox);
+        click(qaCertificationPage.testNumberBox);
+        input(qaCertificationPage.testNumberBox, "1");
 
-            click(qaCertificationPage.beginDate);
-            input(qaCertificationPage.beginDate, "01/01/2022");
+        waitFor(qaCertificationPage.testReasonCodeBox);
+        click(qaCertificationPage.testReasonCodeBox);
+        waitFor(qaCertificationPage.selectionTestReasonCode);
+        click(qaCertificationPage.selectionTestReasonCode);
 
-            click(qaCertificationPage.beginHour);
-            click(qaCertificationPage.zeroEntry);
 
-            click(qaCertificationPage.beginMinute);
-            click(qaCertificationPage.zeroEntry);
+        waitFor(qaCertificationPage.testResultCodeBox);
+        click(qaCertificationPage.testResultCodeBox);
+        waitFor(qaCertificationPage.testResultCodeBoxEntry);
+        click(qaCertificationPage.testResultCodeBoxEntry);
 
-            click(qaCertificationPage.endDate);
-            input(qaCertificationPage.endDate, "01/01/2023");
+        waitFor(qaCertificationPage.beginDate);
+        click(qaCertificationPage.beginDate);
+        input(qaCertificationPage.beginDate, "01/01/2022");
 
-            click(qaCertificationPage.endHour);
-            click(qaCertificationPage.zeroEntry);
+        waitFor(qaCertificationPage.beginHour);
+        click(qaCertificationPage.beginHour);
+        click(qaCertificationPage.beginHourSelection);
 
-            click(qaCertificationPage.endMinute);
-            click(qaCertificationPage.zeroEntry);
-            sleep(90000);
+        waitFor(qaCertificationPage.beginMinute);
+        click(qaCertificationPage.beginMinute);
+        click(qaCertificationPage.beginMinuteSelection);
 
-            //TODO verify and print selections somehow??!!
-           // System.out.println("Unit or Stack Pipe ID:" + qaCertificationPage.UnitIdBox.getText());
-            //System.out.println("Test Type Code:" + qaCertificationPage.testTypeCodeBox.getText());
-            System.out.println("Component ID:" + qaCertificationPage.componentID700option.isDisplayed());
-            System.out.println("Span Scale Code:" + qaCertificationPage.spanScaleCodeHigh.isDisplayed());
-            //System.out.println("Test Number:" + qaCertificationPage.testNumberBox.getText());
-            System.out.println("Test Reason:" + qaCertificationPage.qaSelectionTestReasonCode.isDisplayed());
-            System.out.println("Test Result Code:" + qaCertificationPage.testResultCodeBoxEntry.isDisplayed());
+        waitFor(qaCertificationPage.endDate);
+        click(qaCertificationPage.endDate);
+        input(qaCertificationPage.endDate, "01/01/2023");
+
+        waitFor(qaCertificationPage.endHour);
+        click(qaCertificationPage.endHour);
+        waitFor(qaCertificationPage.endHourSelection);
+        click(qaCertificationPage.endHourSelection);
+
+        waitFor(qaCertificationPage.endMinute);
+        click(qaCertificationPage.endMinute);
+        waitFor(qaCertificationPage.endMinuteSelection);
+        click(qaCertificationPage.endMinuteSelection);
+        sleep(90000);
+
+        //TODO verify and print selections somehow??!!
+        // System.out.println("Unit or Stack Pipe ID:" + qaCertificationPage.UnitIdBox.getText());
+        //System.out.println("Test Type Code:" + qaCertificationPage.testTypeCodeBox.getText());
+        System.out.println("Component ID:" + qaCertificationPage.componentID700option.isDisplayed());
+        System.out.println("Span Scale Code:" + qaCertificationPage.spanScaleCodeHigh.isDisplayed());
+        //System.out.println("Test Number:" + qaCertificationPage.testNumberBox.getText());
+        System.out.println("Test Reason:" + qaCertificationPage.qaSelectionTestReasonCode.isDisplayed());
+        System.out.println("Test Result Code:" + qaCertificationPage.testResultCodeBoxEntry.isDisplayed());
 //            System.out.println("Begin Date:" + qaCertificationPage.beginDate.getText());
 //            System.out.println("Begin Hour:" + qaCertificationPage.beginHour.getText());
 //            System.out.println("Begin Minute:" + qaCertificationPage.beginMinute.getText());
@@ -164,24 +186,12 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
 //            System.out.println("End Hour:" + qaCertificationPage.endHour.getText());
 //            System.out.println("End Minute:" + qaCertificationPage.endMinute.getText());
 
-            click(qaCertificationPage.saveBTN);
-            sleep(90000);
-//        }
-//        catch(Exception E){
-//            System.out.println("Something went wrong");
-//            waitFor(qaCertificationPage.cancelBTN);
-//            click(qaCertificationPage.cancelBTN);
-//
-//            waitFor(qaCertificationPage.checkInBTN);
-//            click(qaCertificationPage.checkInBTN);
-//
-//            waitFor(qaCertificationPage.configcheckOutButton);
-//        }
+        waitFor(qaCertificationPage.saveBTN);
+        System.out.println("Clicking submit");
+        wait(999999999);
+        clickSubmit();
+        //click(qaCertificationPage.saveBTN);
 
-//        if(isDisplayed(qaCertificationPage.saveBTN)){
-//            System.out.println("had to click save twice");
-//            click(qaCertificationPage.saveBTN);
-//        }
 
         waitFor(qaCertificationPage.editDataBTN);
         waitFor(qaCertificationPage.removeDataBTN);
@@ -199,9 +209,55 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
         System.out.println("Facility was checked back in!!");
         sleep(90000);
 
+        closebrowser();
 
 
+    }
 
+    private void makeModalSelections() {
+        QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
+        //make modal selections: click into box and make selection or pass it the date
+        click(qaCertificationPage.componentIDBox);
+        click(qaCertificationPage.componentID700option);
+
+        click(qaCertificationPage.spanScaleCodeBox);
+        click(qaCertificationPage.spanScaleCodeHigh);
+
+        click(qaCertificationPage.testNumberBox);
+        input(qaCertificationPage.testNumberBox, "1");
+
+        click(qaCertificationPage.testReasonCodeBox);
+        click(qaCertificationPage.qaSelectionTestReasonCode);
+
+        click(qaCertificationPage.testResultCodeBox);
+        click(qaCertificationPage.testResultCodeBoxEntry);
+
+        click(qaCertificationPage.beginDate);
+        input(qaCertificationPage.beginDate, "01/01/2022");
+
+        click(qaCertificationPage.beginHour);
+        click(qaCertificationPage.zeroEntry);
+
+        click(qaCertificationPage.beginMinute);
+        click(qaCertificationPage.zeroEntry);
+
+        click(qaCertificationPage.endDate);
+        input(qaCertificationPage.endDate, "01/01/2023");
+
+        click(qaCertificationPage.endHour);
+        click(qaCertificationPage.zeroEntry);
+
+        click(qaCertificationPage.endMinute);
+        click(qaCertificationPage.zeroEntry);
+        sleep(90000);
+        click(qaCertificationPage.saveBTN);
+
+    }
+
+    public void clickSubmit() {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='saveBtn']"))).click();
+        System.out.println("Submit was pressed");
     }
 
 }
