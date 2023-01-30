@@ -16,7 +16,7 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
     private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
     private static String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
 
-
+//This test will log in, select facility(Smith), select "Linearity Summary" from Test Type, and make modal selections to add a record
     @Test
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
