@@ -59,6 +59,8 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy (xpath = " //div[contains(text(),'RATA Data')]")
     public WebElement tableRATAHeader;
 
-
+    //button[@id='btnEditViewTest-Summary-Data2']
+    @FindBy (xpath = "//button[@id='btnEditViewTest-Summary-Data2']")
+    public WebElement viewTestData2;
 
 }

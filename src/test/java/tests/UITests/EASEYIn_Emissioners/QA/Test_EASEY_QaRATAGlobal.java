@@ -1,5 +1,6 @@
 package tests.UITests.EASEYIn_Emissioners.QA;
 
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.QaCertificationPage;
 import tests.UITests.EASEYIn_Emissioners.monPlan.exportimport.CommonExport;
@@ -52,7 +53,7 @@ public class Test_EASEY_QaRATAGlobal extends CommonExport {
 
         waitFor(qaCertificationPage.viewTestData1);
 
-
+        //view first test data
 
         click(qaCertificationPage.viewTestData1);
        // click(qaCertificationPage.viewTestData1);
@@ -61,7 +62,11 @@ public class Test_EASEY_QaRATAGlobal extends CommonExport {
 
         verifyEquals(qaCertificationPage.testSummaryModalTitle, "Test Summary Data");
 
+        waitFor(qaCertificationPage.closeModal);
+
         click(qaCertificationPage.closeModal);
+
+
 
         closebrowser();
     }
