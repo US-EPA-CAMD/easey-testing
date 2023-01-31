@@ -118,9 +118,6 @@ public class QaCertificationPage extends MonitoringPlansPage {
     public List<WebElement> testResultsCodeCodeDropdown;
 
 
-
-
-
     //option[contains(text(),'Does Not Fulfill Testing Requirement')]
     @FindBy(xpath = "//option[contains(text(),'Test Passed Alt Spec')]")
     public WebElement testResultCodeBoxEntry;
@@ -133,6 +130,9 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//select[@id='Begin Hour']")
     public WebElement beginHour;
 
+    @FindBy(css = "select[id='Begin Hour'] > option")
+    public List<WebElement> beginHourDropdown;
+
     //body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]
     @FindBy(xpath = "//body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]")
     public WebElement beginHourSelection;
@@ -143,6 +143,9 @@ public class QaCertificationPage extends MonitoringPlansPage {
     //select[@id='Begin Minute']
     @FindBy(xpath = "//select[@id='Begin Minute']")
     public WebElement beginMinute;
+
+    @FindBy(css = "select[id='Begin Minute'] > option")
+    public List<WebElement> beginMinDropdown;
 
     //body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]
     @FindBy(xpath = "//body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]")
@@ -156,12 +159,18 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//select[@id='End Hour']")
     public WebElement endHour;
 
+    @FindBy(css = "select[id='End Hour'] > option")
+    public List<WebElement> endHourDropdown;
+
     @FindBy(xpath = "//body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]")
     public WebElement endHourSelection;
 
     //select[@id='End Minute']
     @FindBy(xpath = "//select[@id='End Minute']")
     public WebElement endMinute;
+
+    @FindBy(css = "select[id='End Minute'] > option")
+    public List<WebElement> endMinDropdown;
 
     @FindBy(xpath = "//body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]")
     public WebElement endMinuteSelection;
@@ -204,4 +213,7 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//div[contains(text(),'Smith Generating Facility')]")
     public WebElement facilityName;
 
+    // div.react-transition.fade-in.padding-bottom-5 div.grid-row:nth-child(4) div.grid-col.minh-tablet-lg main.mainContent div.react-transition.fade-in.padding-x-3 div.tabContent.border-top-1px.border-base-lighter.margin-top-4.padding-top-4 div.selectedTabsBox div.padding-top-0 div.padding-3 div.sc-hHLeRK.cDZNJS.data-display-table.react-transition.fade-in div.sc-kgflAQ.jOHgfL div.sc-bczRLJ.jNMKxq.rdt_Table div.sc-dIouRR.gtmhjP.rdt_TableBody div.sc-jqUVSM.jDzTPE.rdt_TableRow div.sc-hKMtZM.sc-eCYdqJ.sc-jSMfEi.cLRkKo.gbjUDS.fccfpj.rdt_TableCell:nth-child(1) div:nth-child(1) div.editViewExpandGroup > button.usa-button.usa-button--outline:nth-child(3)\
+    @FindBy(css = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[3]")
+    public WebElement removeBTN;
 }

@@ -16,7 +16,7 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
     private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
     private static String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
 
-//This test will log in, select facility(Smith), select "Linearity Summary" from Test Type, and make modal selections to add a record
+    //This test will log in, select facility(Smith), select "Linearity Summary" from Test Type, and make modal selections to add a record
     @Test
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
@@ -27,8 +27,9 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
 
         waitFor(qaCertificationPage.title);
 
-        verifyEquals(qaCertificationPage.login, "Log In");
         click(qaCertificationPage.login);
+        verifyEquals(qaCertificationPage.login, "Log In");
+
 
         verifyEquals(qaCertificationPage.usernameModalQA.getText(), "Username");
         input(qaCertificationPage.usernameFieldModalQA, username);
@@ -151,26 +152,26 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
         input(qaCertificationPage.beginDate, "01/01/2022");
 
         waitFor(qaCertificationPage.beginHour);
-        click(qaCertificationPage.beginHour);
-        click(qaCertificationPage.beginHourSelection);
+        click(qaCertificationPage.beginHourDropdown.get(1));
+        //click(qaCertificationPage.beginHourSelection);
 
         waitFor(qaCertificationPage.beginMinute);
-        click(qaCertificationPage.beginMinute);
-        click(qaCertificationPage.beginMinuteSelection);
+        click(qaCertificationPage.beginMinDropdown.get(1));
+        //click(qaCertificationPage.beginMinuteSelection);
 
         waitFor(qaCertificationPage.endDate);
         click(qaCertificationPage.endDate);
         input(qaCertificationPage.endDate, "01/01/2023");
 
         waitFor(qaCertificationPage.endHour);
-        click(qaCertificationPage.endHour);
-        waitFor(qaCertificationPage.endHourSelection);
-        click(qaCertificationPage.endHourSelection);
+        click(qaCertificationPage.endHourDropdown.get(1));
+//        waitFor(qaCertificationPage.endHourSelection);
+//        click(qaCertificationPage.endHourSelection);
 
         waitFor(qaCertificationPage.endMinute);
-        click(qaCertificationPage.endMinute);
-        waitFor(qaCertificationPage.endMinuteSelection);
-        click(qaCertificationPage.endMinuteSelection);
+        click(qaCertificationPage.endMinDropdown.get(1));
+//        waitFor(qaCertificationPage.endMinuteSelection);
+//        click(qaCertificationPage.endMinuteSelection);
         sleep(90000);
 
         //TODO verify and print selections somehow??!!
@@ -193,17 +194,16 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
 
         //clickSubmit();
         click(qaCertificationPage.saveBTN1);
-        //click(qaCertificationPage.saveBTN1);
+        click(qaCertificationPage.saveBTN1);
 
 
-
-       // waitFor(qaCertificationPage.editDataBTN);
-        waitFor(qaCertificationPage.removeDataBTN);
+        // waitFor(qaCertificationPage.editDataBTN);
+        waitFor(qaCertificationPage.removeBTN);
         //
 //        waitFor(qaCertificationPage.testTypeCodeTableHeader);
 //        waitFor(qaCertificationPage.testTypeCodeTableContents);
         //remove the data
-        click(qaCertificationPage.removeDataBTN);
+        click(qaCertificationPage.removeBTN);
         System.out.println("Data entry was removed");
 
         waitFor(qaCertificationPage.yesRemoveDataBTN);
