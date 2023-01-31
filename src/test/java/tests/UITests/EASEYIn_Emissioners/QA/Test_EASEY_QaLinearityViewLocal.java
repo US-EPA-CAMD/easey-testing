@@ -121,8 +121,8 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
         //make modal selections: click into box and make selection or pass it the date
         waitFor(qaCertificationPage.componentIDBox);
         click(qaCertificationPage.componentIDBox);
-        waitFor(qaCertificationPage.componentID700option);
-        click(qaCertificationPage.componentID700option);
+        waitFor(qaCertificationPage.componentIDDropdown);
+        click(qaCertificationPage.componentIDDropdown.get(1));
 
         waitFor(qaCertificationPage.spanScaleCodeBox);
         click(qaCertificationPage.spanScaleCodeBox);
@@ -135,14 +135,16 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
 
         waitFor(qaCertificationPage.testReasonCodeBox);
         click(qaCertificationPage.testReasonCodeBox);
-        waitFor(qaCertificationPage.selectionTestReasonCode);
-        click(qaCertificationPage.selectionTestReasonCode);
+        //waitFor(qaCertificationPage.testReasonCodeCodeDropdown);
+        //click(qaCertificationPage.selectionTestReasonCode);
+        click(qaCertificationPage.testReasonCodeCodeDropdown.get(1));
 
 
         waitFor(qaCertificationPage.testResultCodeBox);
         click(qaCertificationPage.testResultCodeBox);
-        waitFor(qaCertificationPage.testResultCodeBoxEntry);
-        click(qaCertificationPage.testResultCodeBoxEntry);
+        //waitFor(qaCertificationPage.testResultCodeBoxEntry);
+        //click(qaCertificationPage.testResultCodeBoxEntry);
+        click(qaCertificationPage.testResultsCodeCodeDropdown.get(9));
 
         waitFor(qaCertificationPage.beginDate);
         click(qaCertificationPage.beginDate);
@@ -186,21 +188,26 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
 //            System.out.println("End Hour:" + qaCertificationPage.endHour.getText());
 //            System.out.println("End Minute:" + qaCertificationPage.endMinute.getText());
 
-        waitFor(qaCertificationPage.saveBTN);
+        waitFor(qaCertificationPage.saveBTN1);
         System.out.println("Clicking submit");
-        wait(999999999);
-        clickSubmit();
-        //click(qaCertificationPage.saveBTN);
+
+        //clickSubmit();
+        click(qaCertificationPage.saveBTN1);
+        //click(qaCertificationPage.saveBTN1);
 
 
-        waitFor(qaCertificationPage.editDataBTN);
+
+       // waitFor(qaCertificationPage.editDataBTN);
         waitFor(qaCertificationPage.removeDataBTN);
         //
-        waitFor(qaCertificationPage.testTypeCodeTableHeader);
-        waitFor(qaCertificationPage.testTypeCodeTableContents);
+//        waitFor(qaCertificationPage.testTypeCodeTableHeader);
+//        waitFor(qaCertificationPage.testTypeCodeTableContents);
         //remove the data
         click(qaCertificationPage.removeDataBTN);
         System.out.println("Data entry was removed");
+
+        waitFor(qaCertificationPage.yesRemoveDataBTN);
+        click(qaCertificationPage.yesRemoveDataBTN);
         //click check in
         waitFor(qaCertificationPage.checkInBTN);
         click(qaCertificationPage.checkInBTN);

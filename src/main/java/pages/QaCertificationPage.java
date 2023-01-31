@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class QaCertificationPage extends MonitoringPlansPage {
 
     public QaCertificationPage(WebDriver driver) {
@@ -74,6 +76,8 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//select[@id='Test Type Code']")
     public WebElement testTypeCodeBox;
 
+    @FindBy(css = "select[id='Component ID'] > option")
+    public List<WebElement> componentIDDropdown;
 
     @FindBy(xpath = "//select[@id='Component ID']")
     public WebElement componentIDBox;
@@ -94,6 +98,10 @@ public class QaCertificationPage extends MonitoringPlansPage {
     //select[@id='Test Reason Code']
     @FindBy(xpath = "//select[@id='Test Reason Code']")
     public WebElement testReasonCodeBox;
+
+    @FindBy(css = "select[id='Test Reason Code'] > option")
+    public List<WebElement> testReasonCodeCodeDropdown;
+
     //option[contains(text(),'Quality Assurance')]
     @FindBy(xpath = "//option[contains(text(),'Quality Assurance')]")
     public WebElement qaSelectionTestReasonCode;
@@ -105,6 +113,13 @@ public class QaCertificationPage extends MonitoringPlansPage {
     //select[@id='Test Result Code']
     @FindBy(xpath = "//select[@id='Test Result Code']")
     public WebElement testResultCodeBox;
+
+    @FindBy(css = "select[id='Test Result Code'] > option")
+    public List<WebElement> testResultsCodeCodeDropdown;
+
+
+
+
 
     //option[contains(text(),'Does Not Fulfill Testing Requirement')]
     @FindBy(xpath = "//option[contains(text(),'Test Passed Alt Spec')]")
@@ -165,6 +180,12 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//button[contains(text(),'Remove')]")
     public WebElement removeDataBTN;
 
+    //button[contains(text(),'Yes')]
+    @FindBy(xpath = "//button[contains(text(),'Yes')]")
+    public WebElement yesRemoveDataBTN;
+
+    @FindBy(xpath = "//button[contains(text(),'Save and Close')]")
+    public WebElement saveBTN1;
     //div[contains(text(),'Test Type Code')]
     @FindBy(xpath = "//div[contains(text(),'Test Type Code')]")
     public WebElement testTypeCodeTableHeader;
