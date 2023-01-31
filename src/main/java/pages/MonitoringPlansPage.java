@@ -753,4 +753,20 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath = "//h4[contains(text(),'Success')]")
     public WebElement successMessage ;
 
+
+
+
+
+
+
+
+
+    //Amanda adding buttons and stuff
+    @FindBy (xpath = "//a[@id='Emissions']")
+    public WebElement emissionsTab ;
+
+    @FindBy (xpath = "//button[contains(text(),'Export Data')]")
+    public WebElement emissionsExportButton ;
+
+
 }
