@@ -37,4 +37,30 @@ public class QaCertificationPage extends MonitoringPlansPage {
 
     @FindBy (xpath = "//button[contains(text(),'Close')]")
     public WebElement closeModal;
+
+    //option[contains(text(),'Relative Accuracy')]
+    @FindBy (xpath = "//option[contains(text(),'Relative Accuracy')]")
+    public WebElement rataOption;
+
+    //button[@id='btnEditViewTest-Summary-Data1']
+    //#btnEditViewTest-Summary-Data1
+    @FindBy (xpath = "//button[@id='btnEditViewTest-Summary-Data1']")
+    public WebElement viewTestData1;
+
+    //*[@id='expandRowTest-Summary-DataRATA1']
+    @FindBy (xpath = "//[@id='expandRowTest-Summary-DataRATA1']")
+    public WebElement expandTestData1;
+
+    //h2[contains(text(),'Test Summary Data')]
+    @FindBy (xpath = " //h2[contains(text(),'Test Summary Data')]")
+    public WebElement summaryModalTitle;
+
+    //div[contains(text(),'RATA Data')]
+    @FindBy (xpath = " //div[contains(text(),'RATA Data')]")
+    public WebElement tableRATAHeader;
+
+    //button[@id='btnEditViewTest-Summary-Data2']
+    @FindBy (xpath = "//button[@id='btnEditViewTest-Summary-Data2']")
+    public WebElement viewTestData2;
+
 }
