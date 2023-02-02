@@ -10,6 +10,10 @@ public class EmMonPlanReusables extends UITestBase {
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
+        waitFor(monitoringPlansPage.monPlanWorkSpaceBtn);
+        verifyEquals(monitoringPlansPage.monPlanWorkSpaceBtn, "Monitoring Plans");
+        click(monitoringPlansPage.monPlanWorkSpaceBtn);
+
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);
 
