@@ -14,12 +14,20 @@ public class QaCertificationPage extends MonitoringPlansPage {
 
     @FindBy(css = "h2[epa-testid='QACertificationsTestDataTitle']")
     public WebElement title;
-
-    @FindBy(css = "#txtSearchData")
+    //tbody/tr[1]/td[2]/form[1]/input[1]
+    @FindBy(xpath = "//tbody/tr[1]/td[2]/form[1]/input[1]")
     public WebElement filterByKeywordBoxQa;
 
-    @FindBy(xpath = "//tbody/tr[1]/td[3]/button[1]")
+    //h3[contains(text(),'Select Configurations')]
+    @FindBy(xpath = "//h3[contains(text(),'Select Configurations')]")
+    public WebElement selectConfigTitle;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[2]/form[1]/button[1]")
     public WebElement filterByKeywordBTNQa;
+
+    //a[@id='MonitoringPlans_wks']
+    @FindBy(xpath = "//a[@id='MonitoringPlans_wks']")
+    public WebElement mpTabWKSPC;
 
     //label[contains(text(),'Username')]
     @FindBy(xpath = "//label[contains(text(),'Username')]")
@@ -216,4 +224,19 @@ public class QaCertificationPage extends MonitoringPlansPage {
     // div.react-transition.fade-in.padding-bottom-5 div.grid-row:nth-child(4) div.grid-col.minh-tablet-lg main.mainContent div.react-transition.fade-in.padding-x-3 div.tabContent.border-top-1px.border-base-lighter.margin-top-4.padding-top-4 div.selectedTabsBox div.padding-top-0 div.padding-3 div.sc-hHLeRK.cDZNJS.data-display-table.react-transition.fade-in div.sc-kgflAQ.jOHgfL div.sc-bczRLJ.jNMKxq.rdt_Table div.sc-dIouRR.gtmhjP.rdt_TableBody div.sc-jqUVSM.jDzTPE.rdt_TableRow div.sc-hKMtZM.sc-eCYdqJ.sc-jSMfEi.cLRkKo.gbjUDS.fccfpj.rdt_TableCell:nth-child(1) div:nth-child(1) div.editViewExpandGroup > button.usa-button.usa-button--outline:nth-child(3)\
     @FindBy(css = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[3]")
     public WebElement removeBTN;
+
+    //button[@id='showRevertModal']
+    @FindBy(xpath = "//button[@id='showRevertModal']")
+    public WebElement revertToOfficailBTN;
+    //button[@id='saveBtn']
+    @FindBy(xpath = "//button[@id='saveBtn']")
+    public WebElement yesSaveBTN;
+
+    //button[@id='btnStopAnimation']
+    @FindBy(xpath = "//button[@id='btnStopAnimation'")
+    public WebElement stopAnimationBTN;
+
+    //button[@id='checkInBTN']
+    @FindBy(xpath = "//button[@id='btnStopAnimation'")
+    public WebElement checkInBTN;
 }

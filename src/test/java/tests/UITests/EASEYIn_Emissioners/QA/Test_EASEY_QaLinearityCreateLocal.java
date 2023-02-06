@@ -1,17 +1,13 @@
 package tests.UITests.EASEYIn_Emissioners.QA;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pages.QaCertificationPage;
 import tests.UITests.EASEYIn_Emissioners.monPlan.exportimport.CommonExport;
 
-import java.time.Duration;
-import java.util.concurrent.TimeoutException;
-
-public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
+public class Test_EASEY_QaLinearityCreateLocal extends CommonExport {
 
     private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
     private static String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
@@ -40,17 +36,20 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
         verifyEquals(qaCertificationPage.logInButtonSubmit, "Log In");
         click(qaCertificationPage.logInButtonSubmit);
 
+        waitFor(driver -> !isDisplayed(qaCertificationPage.logInButtonSubmit));
+
+
         waitFor(qaCertificationPage.dashWorkspace);
         verifyEquals(qaCertificationPage.dashWorkspace, "Workspace");
 
         waitFor(qaCertificationPage.title);
-        waitFor(qaCertificationPage.filterByKeywordBox);
+        waitFor(qaCertificationPage.filterByKeywordBoxQa);
 
         verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
 
 
         //wait for search bar to be visible
-        waitFor(qaCertificationPage.filterByKeywordBox);
+        waitFor(qaCertificationPage.filterByKeywordBoxQa);
 
         //Search for facility
         input(qaCertificationPage.filterByKeywordBoxQa, "Smith Generating");
@@ -64,8 +63,7 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
 
         //waits for return
         waitFor(driver -> qaCertificationPage.facilityCaret.size() > 1);
-//        sleep(90000);
-//        sleep(90000);
+
         //if "Check Back in" button is visible press it (handles if the facility was already checked out by a failed test)
         if (isDisplayed(qaCertificationPage.checkBACKINBTN)) {
             click(qaCertificationPage.checkBACKINBTN);
@@ -84,16 +82,18 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
         // Clicks on Smith Tab
         click(qaCertificationPage.configTab1);
 
-        //Wait for load: "Test Type Box"
-        waitFor(qaCertificationPage.testTypeGroupBox);
+
+        waitFor(driver -> !isDisplayed(qaCertificationPage.selectConfigTitle));
+
 
         //click check out btn here
         waitFor(qaCertificationPage.configcheckOutButton);
 
         //click check out facility
         click(qaCertificationPage.configcheckOutButton);
+        waitFor(driver -> !isDisplayed(qaCertificationPage.configcheckOutButton));
 
-        waitFor(qaCertificationPage.testTypeGroupBox);
+        //waitFor(qaCertificationPage.testTypeGroupBox);
 
         //click into test type box and make selection
         click(qaCertificationPage.testTypeGroupBox);
@@ -114,15 +114,16 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
 
         //try catch for modal selections
         //try {
-        sleep(90000);
+
 
         // makeModalSelections();
 
 
         //make modal selections: click into box and make selection or pass it the date
-        waitFor(qaCertificationPage.componentIDBox);
-        click(qaCertificationPage.componentIDBox);
+//        waitFor(qaCertificationPage.componentIDBox);
+//        click(qaCertificationPage.componentIDBox);
         waitFor(qaCertificationPage.componentIDDropdown);
+        click(qaCertificationPage.componentIDBox);
         click(qaCertificationPage.componentIDDropdown.get(1));
 
         waitFor(qaCertificationPage.spanScaleCodeBox);
@@ -132,7 +133,7 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
 
         waitFor(qaCertificationPage.testNumberBox);
         click(qaCertificationPage.testNumberBox);
-        input(qaCertificationPage.testNumberBox, "1");
+        input(qaCertificationPage.testNumberBox, "8882");
 
         waitFor(qaCertificationPage.testReasonCodeBox);
         click(qaCertificationPage.testReasonCodeBox);
@@ -172,49 +173,30 @@ public class Test_EASEY_QaLinearityViewLocal extends CommonExport {
         click(qaCertificationPage.endMinDropdown.get(1));
 //        waitFor(qaCertificationPage.endMinuteSelection);
 //        click(qaCertificationPage.endMinuteSelection);
-        sleep(90000);
 
-        //TODO verify and print selections somehow??!!
-        // System.out.println("Unit or Stack Pipe ID:" + qaCertificationPage.UnitIdBox.getText());
-        //System.out.println("Test Type Code:" + qaCertificationPage.testTypeCodeBox.getText());
-        System.out.println("Component ID:" + qaCertificationPage.componentID700option.isDisplayed());
-        System.out.println("Span Scale Code:" + qaCertificationPage.spanScaleCodeHigh.isDisplayed());
-        //System.out.println("Test Number:" + qaCertificationPage.testNumberBox.getText());
-        System.out.println("Test Reason:" + qaCertificationPage.qaSelectionTestReasonCode.isDisplayed());
-        System.out.println("Test Result Code:" + qaCertificationPage.testResultCodeBoxEntry.isDisplayed());
-//            System.out.println("Begin Date:" + qaCertificationPage.beginDate.getText());
-//            System.out.println("Begin Hour:" + qaCertificationPage.beginHour.getText());
-//            System.out.println("Begin Minute:" + qaCertificationPage.beginMinute.getText());
-//            System.out.println("End Date:" + qaCertificationPage.endDate.getText());
-//            System.out.println("End Hour:" + qaCertificationPage.endHour.getText());
-//            System.out.println("End Minute:" + qaCertificationPage.endMinute.getText());
 
         waitFor(qaCertificationPage.saveBTN1);
         System.out.println("Clicking submit");
 
         //clickSubmit();
         click(qaCertificationPage.saveBTN1);
-        click(qaCertificationPage.saveBTN1);
+
+        waitFor(driver -> !isDisplayed(qaCertificationPage.saveBTN1));
 
 
-        // waitFor(qaCertificationPage.editDataBTN);
-        waitFor(qaCertificationPage.removeBTN);
-        //
-//        waitFor(qaCertificationPage.testTypeCodeTableHeader);
-//        waitFor(qaCertificationPage.testTypeCodeTableContents);
-        //remove the data
-        click(qaCertificationPage.removeBTN);
-        System.out.println("Data entry was removed");
+        click(qaCertificationPage.mpTabWKSPC);
 
-        waitFor(qaCertificationPage.yesRemoveDataBTN);
-        click(qaCertificationPage.yesRemoveDataBTN);
-        //click check in
+       waitFor(qaCertificationPage.revertToOfficailBTN);
+
+       click(qaCertificationPage.revertToOfficailBTN);
+
+        waitFor(qaCertificationPage.yesSaveBTN);
+        click(qaCertificationPage.yesSaveBTN);
+
+        waitFor(driver -> !isDisplayed(qaCertificationPage.stopAnimationBTN));
+
         waitFor(qaCertificationPage.checkInBTN);
         click(qaCertificationPage.checkInBTN);
-        //wait for check out button to load to be sure it finished
-        waitFor(qaCertificationPage.configcheckOutButton);
-        System.out.println("Facility was checked back in!!");
-        sleep(90000);
 
         closebrowser();
 
