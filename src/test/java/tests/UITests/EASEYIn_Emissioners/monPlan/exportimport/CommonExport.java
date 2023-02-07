@@ -10,7 +10,6 @@ import java.util.HashMap;
 
 public class CommonExport extends UITestBase {
 
-public class CommonExport extends UiReusableComponents {
 
 
     public static File getLatestFileFromDir(String directoryFilePath)
