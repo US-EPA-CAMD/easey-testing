@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
+
 //This test launches from MP, logs in, selects facility, and uploads a file (only for Smith Generating 5)
 public class Test_EASEY_MonPlanImport extends CommonExport {
     //set download path
@@ -17,7 +18,7 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
     public void test() throws InterruptedException {
         // Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","/monitoring-plans");
+        goToo("ecmps", "/monitoring-plans");
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
         //wait for page to load, verify page is MP
@@ -48,7 +49,7 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         waitFor(monitoringPlansPage.filterByKeywordBox);
 
         //Search for facility
-        input(monitoringPlansPage.filterByKeywordBox,"Smith Generating");
+        input(monitoringPlansPage.filterByKeywordBox, "Smith Generating");
         click(monitoringPlansPage.filterByKeywordButton);
 
         // Clicks on first search result
@@ -89,10 +90,10 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
 
         //if to print status to console
         //TODO add verify statement
-        if(monitoringPlansPage.successMessage.isDisplayed()){
+        if (monitoringPlansPage.successMessage.isDisplayed()) {
             System.out.println("The file was successfully uploaded");
-        }else{
-            System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
+        } else {
+            System.out.println("The file was NOT successfully uploaded" + "/n" + " NOT UPLOADED");
         }
         //TODO revert to offical call
 

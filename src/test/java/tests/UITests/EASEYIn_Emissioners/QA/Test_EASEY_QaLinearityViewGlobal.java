@@ -4,17 +4,16 @@ import org.testng.annotations.Test;
 import pages.QaCertificationPage;
 import tests.UITests.EASEYIn_Emissioners.monPlan.exportimport.CommonExport;
 
-//This test launches from QA test data, selects a facility to view a linearity data and views the first entry
-public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
+public class Test_EASEY_QaLinearityViewGlobal extends CommonExport {
     @Test
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-    goToo("ecmps","/qa-test");
+        goToo("ecmps","/qa-test");
 
-    QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
+        QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
-    verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
+        verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
 
         //wait for search bar to be visible
         waitFor(qaCertificationPage.filterByKeywordBox);
