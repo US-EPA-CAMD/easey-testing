@@ -160,12 +160,9 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.evaluateButton);
         click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
-
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue), 180000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors, 180000);
         waitFor(monitoringPlansPage.evalStatusCriticalErrors);
         verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
         // Evaluate ends here
