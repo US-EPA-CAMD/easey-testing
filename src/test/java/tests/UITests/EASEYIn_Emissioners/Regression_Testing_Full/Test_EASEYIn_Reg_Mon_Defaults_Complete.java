@@ -138,10 +138,10 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
 
         if (parameterCode.equals("CO2N")) {
             waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(7));
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
         } else {
             waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(8));
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(2));
         }
 
         js.executeScript("arguments[0].scrollIntoView(true);",
@@ -161,6 +161,10 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
         click(monitoringPlansPage.evaluateButton);
 
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
         waitFor(monitoringPlansPage.evalStatusCriticalErrors);
         verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");

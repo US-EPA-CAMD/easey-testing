@@ -29,6 +29,8 @@ public class UiReusableComponents extends UITestBase {
         waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
 
         // These steps Checks Back In the configuration
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.configcheckBackInButton);
         waitFor(monitoringPlansPage.configcheckBackInButton);
         click(monitoringPlansPage.configcheckBackInButton);
 
