@@ -15,8 +15,8 @@ public class Test_EASEY_MonPlanExportLocal extends CommonExport {
     @Test()
     public void tests() throws InterruptedException {
         // Navigate to EASEY In
-        //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps", "/monitoring-plans");
+       //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+        goToo("ecmps","/monitoring-plans");
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
         waitFor(monitoringPlansPage.title);
@@ -46,7 +46,7 @@ public class Test_EASEY_MonPlanExportLocal extends CommonExport {
         waitFor(monitoringPlansPage.filterByKeywordBox);
 
         //Search for facility
-        input(monitoringPlansPage.filterByKeywordBox, "Smith Generating");
+        input(monitoringPlansPage.filterByKeywordBox,"Smith Generating");
         click(monitoringPlansPage.filterByKeywordButton);
 
         // Clicks on first search result
@@ -91,6 +91,8 @@ public class Test_EASEY_MonPlanExportLocal extends CommonExport {
         VerifyDownload(fileDownloadpath, searchFile);
 
         closebrowser();
+
+
 
 
     }
