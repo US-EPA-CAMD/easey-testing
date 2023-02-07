@@ -2,8 +2,7 @@ package tests.UITests.EASEYIn_Emissioners.monPlan.exportimport;
 
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
-import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
-import tests.utils.UITestBase;
+import tests.UITests.UiReusableComponents.UiReusableComponents;
 
 import java.io.File;
 import java.text.Format;
@@ -11,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class CommonExport extends EmMonPlanReusables {
+public class CommonExport extends UiReusableComponents {
 
 
     public static File getLatestFileFromDir(String directoryFilePath) {
