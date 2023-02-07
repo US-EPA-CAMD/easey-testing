@@ -4,9 +4,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
-import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
+import tests.UITests.UiReusableComponents.UiReusableComponents;
 
-public class Test_EASEYIn_Reg_Mon_Span_Complete extends EmMonPlanReusables {
+public class Test_EASEYIn_Reg_Mon_Span_Complete extends UiReusableComponents {
 
     @Test()
     public void tests() throws InterruptedException {

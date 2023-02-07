@@ -5,10 +5,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
-import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
-import tests.utils.UITestBase;
+import tests.UITests.UiReusableComponents.UiReusableComponents;
 
-public class Test_EASEYIn_TC2057_Create_MP_Formula extends EmMonPlanReusables {
+public class Test_EASEYIn_TC2057_Create_MP_Formula extends UiReusableComponents {
 
     @Test()
     public void tests() {

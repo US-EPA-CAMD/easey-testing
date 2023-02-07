@@ -1,14 +1,18 @@
-package tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables;
+package tests.UITests.UiReusableComponents;
 
 import org.openqa.selenium.JavascriptExecutor;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
-public class EmMonPlanReusables extends UITestBase {
+public class UiReusableComponents extends UITestBase {
 
     protected void revertToOfficial() {
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        waitFor(monitoringPlansPage.monPlanWorkSpaceBtn);
+        verifyEquals(monitoringPlansPage.monPlanWorkSpaceBtn, "Monitoring Plans");
+        click(monitoringPlansPage.monPlanWorkSpaceBtn);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.revertOfficialRecordButton);

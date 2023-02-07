@@ -59,6 +59,7 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//button[contains(text(),'Close')]")
     public WebElement closeModal;
 
+
     //button[@id='openModalBTN']
     @FindBy(xpath = "//button[@id='openModalBTN']")
     public WebElement login;
@@ -225,6 +226,7 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(css = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[3]")
     public WebElement removeBTN;
 
+
     //button[@id='showRevertModal']
     @FindBy(xpath = "//button[@id='showRevertModal']")
     public WebElement revertToOfficailBTN;
@@ -239,4 +241,31 @@ public class QaCertificationPage extends MonitoringPlansPage {
     //button[@id='checkInBTN']
     @FindBy(xpath = "//button[@id='btnStopAnimation'")
     public WebElement checkInBTN;
+
+    //option[contains(text(),'Relative Accuracy')]
+    @FindBy (xpath = "//option[contains(text(),'Relative Accuracy')]")
+    public WebElement rataOption;
+
+    //button[@id='btnEditViewTest-Summary-Data1']
+    //#btnEditViewTest-Summary-Data1
+    @FindBy (xpath = "//button[@id='btnEditViewTest-Summary-Data1']")
+    public WebElement viewTestData1;
+
+    //*[@id='expandRowTest-Summary-DataRATA1']
+    @FindBy (xpath = "//[@id='expandRowTest-Summary-DataRATA1']")
+    public WebElement expandTestData1;
+
+    //h2[contains(text(),'Test Summary Data')]
+    @FindBy (xpath = " //h2[contains(text(),'Test Summary Data')]")
+    public WebElement summaryModalTitle;
+
+    //div[contains(text(),'RATA Data')]
+    @FindBy (xpath = " //div[contains(text(),'RATA Data')]")
+    public WebElement tableRATAHeader;
+
+    //button[@id='btnEditViewTest-Summary-Data2']
+    @FindBy (xpath = "//button[@id='btnEditViewTest-Summary-Data2']")
+    public WebElement viewTestData2;
+
+
 }

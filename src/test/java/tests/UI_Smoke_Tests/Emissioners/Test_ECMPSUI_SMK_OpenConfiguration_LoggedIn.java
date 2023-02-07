@@ -4,7 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
-import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
+import tests.UITests.UiReusableComponents.UiReusableComponents;
 
 /*
 This test verifies that the user
@@ -12,7 +12,7 @@ can successfully get access to the facilities and configurations
 logged in Workspace View.
  */
 
-public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedIn extends EmMonPlanReusables {
+public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedIn extends UiReusableComponents {
 
     @Test()
     public void tests() {
