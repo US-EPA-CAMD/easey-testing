@@ -186,17 +186,16 @@ public class Test_EASEY_QaLinearityCreateLocal extends CommonExport {
 
         click(qaCertificationPage.mpTabWKSPC);
 
-       waitFor(qaCertificationPage.revertToOfficailBTN);
+        waitFor(qaCertificationPage.revertToOfficailBTN);
 
-       click(qaCertificationPage.revertToOfficailBTN);
+        click(qaCertificationPage.revertToOfficailBTN);
 
         waitFor(qaCertificationPage.yesSaveBTN);
         click(qaCertificationPage.yesSaveBTN);
 
         waitFor(driver -> !isDisplayed(qaCertificationPage.stopAnimationBTN));
 
-        waitFor(qaCertificationPage.checkInBTN);
-        click(qaCertificationPage.checkInBTN);
+        logOutMethod();
 
         closebrowser();
 
