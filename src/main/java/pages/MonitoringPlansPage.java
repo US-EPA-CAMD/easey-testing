@@ -18,6 +18,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "h2[epa-testid='MonitoringPlansTitle']")
     public WebElement title;
 
+    @FindBy(id = "MonitoringPlans_wks")
+    public WebElement monPlanWorkSpaceBtn;
+
     @FindBy(css = "h3[class='margin-y-auto font-body-lg margin-right-2']")
     public WebElement titleOfFacilityInConfig;
 
@@ -637,13 +640,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy(css = "div.sc-dIvrsQ.gkZcBD.rdt_TableBody > div > div:nth-child(4)")
     public List<WebElement> FuelFlowViewButton;
-
-    @FindBy(xpath = "//tbody/tr[1]/td[3]/button[1]")
-    public WebElement filterByKeywordButton;
-
-    @FindBy(xpath = "//tbody/tr[1]/td[2]/input[1]")
-    public WebElement filterByKeywordBox;
-
+ 
     @FindBy(css = "#column-col1 > div")
     public List<WebElement> monPlanOrisHeader;
 
@@ -754,5 +751,15 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy(xpath = "//h4[contains(text(),'Success')]")
     public WebElement successMessage;
+    
+      @FindBy(xpath = "//tbody/tr[1]/td[3]/button[1]")
+    public WebElement filterByKeywordButton;
+    
+    
+    @FindBy (xpath ="//span[contains(text(),'Filter')]")
+    public WebElement filterByKeywordButton;
+
+    @FindBy (id ="search-data")
+    public WebElement filterByKeywordBox;
 
 }

@@ -51,6 +51,7 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//button[contains(text(),'Close')]")
     public WebElement closeModal;
 
+
     //button[@id='openModalBTN']
     @FindBy(xpath = "//button[@id='openModalBTN']")
     public WebElement login;
@@ -216,4 +217,30 @@ public class QaCertificationPage extends MonitoringPlansPage {
     // div.react-transition.fade-in.padding-bottom-5 div.grid-row:nth-child(4) div.grid-col.minh-tablet-lg main.mainContent div.react-transition.fade-in.padding-x-3 div.tabContent.border-top-1px.border-base-lighter.margin-top-4.padding-top-4 div.selectedTabsBox div.padding-top-0 div.padding-3 div.sc-hHLeRK.cDZNJS.data-display-table.react-transition.fade-in div.sc-kgflAQ.jOHgfL div.sc-bczRLJ.jNMKxq.rdt_Table div.sc-dIouRR.gtmhjP.rdt_TableBody div.sc-jqUVSM.jDzTPE.rdt_TableRow div.sc-hKMtZM.sc-eCYdqJ.sc-jSMfEi.cLRkKo.gbjUDS.fccfpj.rdt_TableCell:nth-child(1) div:nth-child(1) div.editViewExpandGroup > button.usa-button.usa-button--outline:nth-child(3)\
     @FindBy(css = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[3]")
     public WebElement removeBTN;
+
+    //option[contains(text(),'Relative Accuracy')]
+    @FindBy (xpath = "//option[contains(text(),'Relative Accuracy')]")
+    public WebElement rataOption;
+
+    //button[@id='btnEditViewTest-Summary-Data1']
+    //#btnEditViewTest-Summary-Data1
+    @FindBy (xpath = "//button[@id='btnEditViewTest-Summary-Data1']")
+    public WebElement viewTestData1;
+
+    //*[@id='expandRowTest-Summary-DataRATA1']
+    @FindBy (xpath = "//[@id='expandRowTest-Summary-DataRATA1']")
+    public WebElement expandTestData1;
+
+    //h2[contains(text(),'Test Summary Data')]
+    @FindBy (xpath = " //h2[contains(text(),'Test Summary Data')]")
+    public WebElement summaryModalTitle;
+
+    //div[contains(text(),'RATA Data')]
+    @FindBy (xpath = " //div[contains(text(),'RATA Data')]")
+    public WebElement tableRATAHeader;
+
+    //button[@id='btnEditViewTest-Summary-Data2']
+    @FindBy (xpath = "//button[@id='btnEditViewTest-Summary-Data2']")
+    public WebElement viewTestData2;
+
 }

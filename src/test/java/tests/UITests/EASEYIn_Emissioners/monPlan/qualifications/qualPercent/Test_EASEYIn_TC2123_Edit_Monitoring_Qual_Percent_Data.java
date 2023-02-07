@@ -4,10 +4,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
-import tests.UITests.EASEYIn_Emissioners.EmMonPlanReusables.EmMonPlanReusables;
-import tests.utils.UITestBase;
+import tests.UITests.UiReusableComponents.UiReusableComponents;
 
-public class Test_EASEYIn_TC2123_Edit_Monitoring_Qual_Percent_Data extends EmMonPlanReusables {
+public class Test_EASEYIn_TC2123_Edit_Monitoring_Qual_Percent_Data extends UiReusableComponents {
 
     @Test()
     public void tests() throws InterruptedException {
