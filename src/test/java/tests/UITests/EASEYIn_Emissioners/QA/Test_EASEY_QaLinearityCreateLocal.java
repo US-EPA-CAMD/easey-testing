@@ -110,70 +110,7 @@ public class Test_EASEY_QaLinearityCreateLocal extends CommonExport {
         //wait for the modal to pop up
         waitFor(qaCertificationPage.testSummaryModalTitle);
 
-        // waitFor(qaCertificationPage.testSummaryModalText);
-
-        //try catch for modal selections
-        //try {
-
-
-         makeModalSelections();
-
-
-//        //make modal selections: click into box and make selection or pass it the date
-////        waitFor(qaCertificationPage.componentIDBox);
-////        click(qaCertificationPage.componentIDBox);
-//        waitFor(qaCertificationPage.componentIDDropdown);
-//        click(qaCertificationPage.componentIDBox);
-//        click(qaCertificationPage.componentIDDropdown.get(1));
-//
-//        waitFor(qaCertificationPage.spanScaleCodeBox);
-//        click(qaCertificationPage.spanScaleCodeBox);
-//        waitFor(qaCertificationPage.spanScaleCodeHigh);
-//        click(qaCertificationPage.spanScaleCodeHigh);
-//
-//        waitFor(qaCertificationPage.testNumberBox);
-//        click(qaCertificationPage.testNumberBox);
-//        input(qaCertificationPage.testNumberBox, "8882");
-//
-//        waitFor(qaCertificationPage.testReasonCodeBox);
-//        click(qaCertificationPage.testReasonCodeBox);
-//        //waitFor(qaCertificationPage.testReasonCodeCodeDropdown);
-//        //click(qaCertificationPage.selectionTestReasonCode);
-//        click(qaCertificationPage.testReasonCodeCodeDropdown.get(1));
-//
-//
-//        waitFor(qaCertificationPage.testResultCodeBox);
-//        click(qaCertificationPage.testResultCodeBox);
-//        //waitFor(qaCertificationPage.testResultCodeBoxEntry);
-//        //click(qaCertificationPage.testResultCodeBoxEntry);
-//        click(qaCertificationPage.testResultsCodeCodeDropdown.get(9));
-//
-//        waitFor(qaCertificationPage.beginDate);
-//        click(qaCertificationPage.beginDate);
-//        input(qaCertificationPage.beginDate, "01/01/2022");
-//
-//        waitFor(qaCertificationPage.beginHour);
-//        click(qaCertificationPage.beginHourDropdown.get(1));
-//        //click(qaCertificationPage.beginHourSelection);
-//
-//        waitFor(qaCertificationPage.beginMinute);
-//        click(qaCertificationPage.beginMinDropdown.get(1));
-//        //click(qaCertificationPage.beginMinuteSelection);
-//
-//        waitFor(qaCertificationPage.endDate);
-//        click(qaCertificationPage.endDate);
-//        input(qaCertificationPage.endDate, "01/01/2023");
-//
-//        waitFor(qaCertificationPage.endHour);
-//        click(qaCertificationPage.endHourDropdown.get(1));
-////        waitFor(qaCertificationPage.endHourSelection);
-////        click(qaCertificationPage.endHourSelection);
-//
-//        waitFor(qaCertificationPage.endMinute);
-//        click(qaCertificationPage.endMinDropdown.get(1));
-////        waitFor(qaCertificationPage.endMinuteSelection);
-////        click(qaCertificationPage.endMinuteSelection);
-
+        makeModalSelections();
 
         waitFor(qaCertificationPage.saveBTN1);
         System.out.println("Clicking submit");
@@ -182,7 +119,6 @@ public class Test_EASEY_QaLinearityCreateLocal extends CommonExport {
         click(qaCertificationPage.saveBTN1);
 
         waitFor(driver -> !isDisplayed(qaCertificationPage.saveBTN1));
-
 
         click(qaCertificationPage.mpTabWKSPC);
 
