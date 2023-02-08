@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class QaCertificationPage extends MonitoringPlansPage {
 
     public QaCertificationPage(WebDriver driver) { super(driver); }
@@ -11,10 +13,10 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(css = "h2[epa-testid='QACertificationsTestDataTitle']")
     public WebElement title;
 
-    @FindBy (css = "#txtSearchData")
+    @FindBy (xpath = "//tbody/tr[1]/td[2]/form[1]/input[1]")
     public WebElement filterByKeywordBoxQa;
 
-    @FindBy (xpath = "//tbody/tr[1]/td[3]/button[1]")
+    @FindBy (xpath = "//tbody/tr[1]/td[2]/form[1]/button[1]/span[1]")
     public WebElement filterByKeywordBTNQa;
 
 
@@ -62,5 +64,139 @@ public class QaCertificationPage extends MonitoringPlansPage {
     //button[@id='btnEditViewTest-Summary-Data2']
     @FindBy (xpath = "//button[@id='btnEditViewTest-Summary-Data2']")
     public WebElement viewTestData2;
+
+    //button[@id='checkInBTN']
+    @FindBy(xpath = "//button[@id='btnStopAnimation'")
+    public WebElement checkInBTN;
+
+    //button[@id='btnCheckBackIn']
+    @FindBy(xpath = "//button[@id='btnCheckBackIn']")
+    public WebElement checkBACKINBTN;
+
+
+    //button[@id='showRevertModal']
+    @FindBy(xpath = "//button[@id='showRevertModal']")
+    public WebElement revertToOfficailBTN;
+    //button[@id='saveBtn']
+    @FindBy(xpath = "//button[@id='saveBtn']")
+    public WebElement yesSaveBTN;
+
+    //button[@id='btnStopAnimation']
+    @FindBy(xpath = "//button[@id='btnStopAnimation'")
+    public WebElement stopAnimationBTN;
+
+    //h3[contains(text(),'Select Configurations')]
+    @FindBy(xpath = "//h3[contains(text(),'Select Configurations')]")
+    public WebElement selectConfigTitle;
+
+    //button[@id='btnAddTest-Summary-Data']
+    @FindBy(xpath = "//button[@id='btnAddTest-Summary-Data']")
+    public WebElement addTestDataBTN;
+
+    //input[@id='Unit or Stack Pipe ID']
+    @FindBy(xpath = "//input[@id='Unit or Stack Pipe ID']")
+    public WebElement UnitIdBox;
+    //select[@id='Test Type Code']
+    @FindBy(xpath = "//select[@id='Test Type Code']")
+    public WebElement testTypeCodeBox;
+
+    @FindBy(css = "select[id='Component ID'] > option")
+    public List<WebElement> componentIDDropdown;
+
+    @FindBy(xpath = "//select[@id='Component ID']")
+    public WebElement componentIDBox;
+    //option[contains(text(),'700')]
+    @FindBy(css = "option[data-testid='Linearity Summary']")
+    public WebElement componentID700option;
+
+    //select[@id='Span Scale Code']
+    @FindBy(xpath = "//select[@id='Span Scale Code']")
+    public WebElement spanScaleCodeBox;
+    //option[contains(text(),'High')]
+    @FindBy(xpath = "//option[contains(text(),'High')]")
+    public WebElement spanScaleCodeHigh;
+    //input[@id='Test Number']
+    @FindBy(xpath = "//input[@id='Test Number']")
+    public WebElement testNumberBox;
+
+    //select[@id='Test Reason Code']
+    @FindBy(xpath = "//select[@id='Test Reason Code']")
+    public WebElement testReasonCodeBox;
+
+    @FindBy(css = "select[id='Test Reason Code'] > option")
+    public List<WebElement> testReasonCodeCodeDropdown;
+
+    //option[contains(text(),'Quality Assurance')]
+    @FindBy(xpath = "//option[contains(text(),'Quality Assurance')]")
+    public WebElement qaSelectionTestReasonCode;
+
+    //option[contains(text(),'Diagnostic')]
+    @FindBy(xpath = "//option[contains(text(),'Diagnostic')]")
+    public WebElement selectionTestReasonCode;
+
+    //select[@id='Test Result Code']
+    @FindBy(xpath = "//select[@id='Test Result Code']")
+    public WebElement testResultCodeBox;
+
+    @FindBy(css = "select[id='Test Result Code'] > option")
+    public List<WebElement> testResultsCodeCodeDropdown;
+
+
+    //option[contains(text(),'Does Not Fulfill Testing Requirement')]
+    @FindBy(xpath = "//option[contains(text(),'Test Passed Alt Spec')]")
+    public WebElement testResultCodeBoxEntry;
+
+    //input[@id='Begin Date']
+    @FindBy(xpath = "//input[@id='Begin Date']")
+    public WebElement beginDate;
+
+    //select[@id='Begin Hour']
+    @FindBy(xpath = "//select[@id='Begin Hour']")
+    public WebElement beginHour;
+
+    @FindBy(css = "select[id='Begin Hour'] > option")
+    public List<WebElement> beginHourDropdown;
+
+    //select[@id='Begin Minute']
+    @FindBy(xpath = "//select[@id='Begin Minute']")
+    public WebElement beginMinute;
+
+    @FindBy(css = "select[id='Begin Minute'] > option")
+    public List<WebElement> beginMinDropdown;
+
+    //input[@id='End Date']
+    @FindBy(xpath = "//input[@id='End Date']")
+    public WebElement endDate;
+
+    //select[@id='End Hour']
+    @FindBy(xpath = "//select[@id='End Hour']")
+    public WebElement endHour;
+
+    @FindBy(css = "select[id='End Hour'] > option")
+    public List<WebElement> endHourDropdown;
+
+    //select[@id='End Minute']
+    @FindBy(xpath = "//select[@id='End Minute']")
+    public WebElement endMinute;
+
+    @FindBy(css = "select[id='End Minute'] > option")
+    public List<WebElement> endMinDropdown;
+
+    //a[@id='MonitoringPlans_wks']
+    @FindBy(xpath = "//a[@id='MonitoringPlans_wks']")
+    public WebElement mpTabWKSPC;
+
+    @FindBy(xpath = "//button[contains(text(),'Save and Close')]")
+    public WebElement saveBTN1;
+
+    //button[@id='openModalBTN']
+    @FindBy(xpath = "//button[@id='openModalBTN']")
+    public WebElement login;
+
+    @FindBy(xpath = "//input[@id='modal-username']")
+    public WebElement usernameFieldModalQA;
+
+    @FindBy(xpath = "//label[contains(text(),'Username')]")
+    public WebElement usernameModalQA;
 
 }
