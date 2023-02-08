@@ -94,6 +94,18 @@ public class Test_EASEY_RataLocal extends CommonExport {
         //click into test type box and make selection
         click(qaCertificationPage.testTypeGroupBox);
 
+
+        click(qaCertificationPage.mpTabWKSPC);
+
+        waitFor(qaCertificationPage.revertToOfficailBTN);
+
+        click(qaCertificationPage.revertToOfficailBTN);
+
+        waitFor(qaCertificationPage.yesSaveBTN);
+        click(qaCertificationPage.yesSaveBTN);
+
+        waitFor(driver -> !isDisplayed(qaCertificationPage.stopAnimationBTN));
+
         logOutMethod();
 
         closebrowser();
