@@ -93,6 +93,27 @@ public class Test_EASEY_RataLocal extends CommonExport {
 
         //click into test type box and make selection
         click(qaCertificationPage.testTypeGroupBox);
+        //wait for drop down
+        waitFor(qaCertificationPage.rataOption);
+        //select "Relative Accuracy" from drop down
+        click(qaCertificationPage.rataOption);
+
+        //click add test data
+        waitFor(qaCertificationPage.addTestDataBTN);
+        click(qaCertificationPage.addTestDataBTN);
+
+        //wait for the modal to pop up
+        waitFor(qaCertificationPage.testSummaryModalTitle);
+
+        makeModalSelections();
+
+        waitFor(qaCertificationPage.saveBTN1);
+        System.out.println("Clicking submit");
+
+        //clickSubmit();
+        click(qaCertificationPage.saveBTN1);
+
+        waitFor(driver -> !isDisplayed(qaCertificationPage.saveBTN1));
 
 
         click(qaCertificationPage.mpTabWKSPC);
@@ -111,6 +132,57 @@ public class Test_EASEY_RataLocal extends CommonExport {
         closebrowser();
 
 
+    }
+
+    private void makeModalSelections() {
+        QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
+        //make modal selections: click into box and make selection or pass it the date
+        //wait for the modal to pop up
+        waitFor(qaCertificationPage.testSummaryModalTitle);
+
+        waitFor(qaCertificationPage.monitoringSystemIDBox);
+        click(qaCertificationPage.monitoringSystemIDBox);
+        click(qaCertificationPage.monitoringSystemIDDropdown.get(1));
+
+//        waitFor(qaCertificationPage.spanScaleCodeBox);
+//        click(qaCertificationPage.spanScaleCodeBox);
+//        waitFor(qaCertificationPage.spanScaleCodeHigh);
+//        click(qaCertificationPage.spanScaleCodeHigh);
+
+        waitFor(qaCertificationPage.testNumberBox);
+        click(qaCertificationPage.testNumberBox);
+        input(qaCertificationPage.testNumberBox, "8882");
+
+        waitFor(qaCertificationPage.testReasonCodeBox);
+        click(qaCertificationPage.testReasonCodeBox);
+        click(qaCertificationPage.testReasonCodeCodeDropdown.get(1));
+
+
+        waitFor(qaCertificationPage.testResultCodeBox);
+        click(qaCertificationPage.testResultCodeBox);
+        click(qaCertificationPage.testResultsCodeCodeDropdown.get(1));
+
+        waitFor(qaCertificationPage.beginDate);
+        click(qaCertificationPage.beginDate);
+        input(qaCertificationPage.beginDate, "01/01/2022");
+
+        waitFor(qaCertificationPage.beginHour);
+        click(qaCertificationPage.beginHourDropdown.get(1));
+
+        waitFor(qaCertificationPage.beginMinute);
+        click(qaCertificationPage.beginMinDropdown.get(1));
+
+
+        waitFor(qaCertificationPage.endDate);
+        click(qaCertificationPage.endDate);
+        input(qaCertificationPage.endDate, "01/01/2023");
+
+        waitFor(qaCertificationPage.endHour);
+        click(qaCertificationPage.endHourDropdown.get(1));
+
+
+        waitFor(qaCertificationPage.endMinute);
+        click(qaCertificationPage.endMinDropdown.get(1));
     }
 
 }

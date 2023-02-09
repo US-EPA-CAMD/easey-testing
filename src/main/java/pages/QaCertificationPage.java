@@ -199,4 +199,16 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//label[contains(text(),'Username')]")
     public WebElement usernameModalQA;
 
+    //select[@id='Monitoring System ID']
+    @FindBy(xpath = "//select[@id='Monitoring System ID']")
+    public WebElement monitoringSystemIDBox;
+
+    //select[@id='Monitoring System ID']
+    @FindBy(css = "select[id='Monitoring System ID'] > option")
+    public List<WebElement> monitoringSystemIDDropdown;
+
+    //option[contains(text(),'500')]
+    //*[@id='expandRowTest-Summary-DataRATA1']
+
+
 }
