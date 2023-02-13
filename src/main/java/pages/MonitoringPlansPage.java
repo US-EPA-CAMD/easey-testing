@@ -718,6 +718,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="li[title='Smith Generating Facility (SCT5) ']")
     public WebElement configTabSmith;
 
+    @FindBy (css ="li[title='Smith Generating Facility (SCT10) ']")
+    public WebElement configTabSmith10;
+
     @FindBy (css ="//div[@id='tabBtn']")
     public WebElement configTabLocalSmith;
 

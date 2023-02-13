@@ -70,7 +70,7 @@ public class Test_EASEY_RataLocal extends CommonExport {
         waitFor(qaCertificationPage.configOpenButton);
 
         //click smith generating SC5 or fifth "open" button
-        click(qaCertificationPage.configOpenButton.get(5));
+        click(qaCertificationPage.configOpenButton.get(1));
 
         //wait for the tab to load
         waitFor(qaCertificationPage.configTab1);
@@ -115,7 +115,12 @@ public class Test_EASEY_RataLocal extends CommonExport {
 
         waitFor(driver -> !isDisplayed(qaCertificationPage.saveBTN1));
 
+        //plus btn to expand
+        //click(qaCertificationPage.plusBTN);
 
+
+
+        //Start closing and logging out
         click(qaCertificationPage.mpTabWKSPC);
 
         waitFor(qaCertificationPage.revertToOfficailBTN);
@@ -144,10 +149,6 @@ public class Test_EASEY_RataLocal extends CommonExport {
         click(qaCertificationPage.monitoringSystemIDBox);
         click(qaCertificationPage.monitoringSystemIDDropdown.get(1));
 
-//        waitFor(qaCertificationPage.spanScaleCodeBox);
-//        click(qaCertificationPage.spanScaleCodeBox);
-//        waitFor(qaCertificationPage.spanScaleCodeHigh);
-//        click(qaCertificationPage.spanScaleCodeHigh);
 
         waitFor(qaCertificationPage.testNumberBox);
         click(qaCertificationPage.testNumberBox);
