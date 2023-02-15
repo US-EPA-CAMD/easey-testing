@@ -36,12 +36,12 @@ public class Test_EASEY_QaRATAGlobal extends CommonExport {
         waitFor(driver -> qaCertificationPage.configOpenButton.size() > 1);
         //verifies at least one search result returns
         verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
-        click(qaCertificationPage.configOpenButton.get(5));
+        click(qaCertificationPage.configOpenButton.get(1));
 
         click(qaCertificationPage.configTab1);
 
 
-        click(qaCertificationPage.configTabSmith);
+        click(qaCertificationPage.configTabSmith10);
 
 
         //Wait for load
@@ -65,6 +65,18 @@ public class Test_EASEY_QaRATAGlobal extends CommonExport {
         waitFor(qaCertificationPage.closeModal);
 
         click(qaCertificationPage.closeModal);
+
+//        waitFor(qaCertificationPage.expandRow);
+//
+//        click(qaCertificationPage.expandRow);
+//
+//        waitFor(qaCertificationPage.expandDataRow);
+//
+//        click(qaCertificationPage.expandDataRow);
+//
+//        waitFor(qaCertificationPage.expandRataDataRow);
+//
+//        click(qaCertificationPage.expandRataDataRow);
 
 
 

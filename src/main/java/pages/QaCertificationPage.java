@@ -199,4 +199,28 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//label[contains(text(),'Username')]")
     public WebElement usernameModalQA;
 
+    //select[@id='Monitoring System ID']
+    @FindBy(xpath = "//select[@id='Monitoring System ID']")
+    public WebElement monitoringSystemIDBox;
+
+    //select[@id='Monitoring System ID']
+    @FindBy(css = "select[id='Monitoring System ID'] > option")
+    public List<WebElement> monitoringSystemIDDropdown;
+
+    //option[contains(text(),'500')]
+    //*[@id='expandRowTest-Summary-DataRATA1']
+
+    @FindBy(xpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/svg[1]/path[1]")
+    public WebElement plusBTN;
+
+    @FindBy(xpath = "//[@id='expandRowTest-Summary-DataRATA1']")
+    public WebElement expandRow;
+
+    @FindBy(xpath = "//[@id='expandRowRATA-Data11']")
+    public WebElement expandDataRow;
+
+    //*[@id='expandRowRATA-SummaryM1']
+    @FindBy(xpath = "//*[@id='expandRowRATA-SummaryM1']")
+    public WebElement expandRataDataRow;
+
 }
