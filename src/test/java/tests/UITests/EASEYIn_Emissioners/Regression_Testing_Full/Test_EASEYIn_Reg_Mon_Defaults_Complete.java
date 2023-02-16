@@ -71,12 +71,17 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         Thread.sleep(1000);
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionDefaultsLabel);
+
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.closeModal);
         waitFor(monitoringPlansPage.closeModal);
         click(monitoringPlansPage.closeModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
