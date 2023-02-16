@@ -100,7 +100,7 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
         click(monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
 
