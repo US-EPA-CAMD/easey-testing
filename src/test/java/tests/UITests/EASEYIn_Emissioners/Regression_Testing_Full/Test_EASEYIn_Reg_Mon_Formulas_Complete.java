@@ -73,6 +73,9 @@ public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         Thread.sleep(1000);
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionFormulasLabel);
+
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         click(monitoringPlansPage.viewButton.get(0));
 
@@ -152,9 +155,12 @@ public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.monMethodsModalFormulaCodeDropdown);
         click(monitoringPlansPage.monMethodsModalFormulaCodeDropdown.get(1));
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.saveCloseModal);
         waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
 
+        Thread.sleep(2000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
         waitFor(monitoringPlansPage.formulasTableParameterLabel,1);
         verifyNotEquals(monitoringPlansPage.formulasTableParameterField.get(1).getText(), parameterField);
@@ -166,9 +172,9 @@ public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.evaluateButton);
         click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue),180000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
-        waitFor(monitoringPlansPage.evalStatusPassed);
+        waitFor(monitoringPlansPage.evalStatusPassed,180000);
         verifyEquals(monitoringPlansPage.evalStatusPassed, "Passed");
         // Evaluate ends here
 
