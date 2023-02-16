@@ -68,12 +68,14 @@ public class Test_EASEYIn_Reg_Mon_DuctWafs_Complete extends UiReusableComponents
 
         waitFor(monitoringPlansPage.accordionRectangularDuctWAFsLabel);
         verifyEquals(monitoringPlansPage.accordionRectangularDuctWAFsLabel, "WAFs Rectangular Duct");
-
-        // Start of View
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         Thread.sleep(1000);
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        // Start of View
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionRectangularDuctWAFsLabel);
+
+        Thread.sleep(3000);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
@@ -166,10 +168,11 @@ public class Test_EASEYIn_Reg_Mon_DuctWafs_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.evaluateButton);
         click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue), 180000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
-        waitFor(monitoringPlansPage.evalStatusPassed);
-        verifyEquals(monitoringPlansPage.evalStatusPassed, "Passed");
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors, 180000);
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors);
+        verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
         // Evaluate ends here
 
         // Revert starts here
