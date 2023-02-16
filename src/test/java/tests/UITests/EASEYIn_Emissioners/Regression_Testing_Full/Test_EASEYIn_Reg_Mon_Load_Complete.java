@@ -58,6 +58,8 @@ public class Test_EASEYIn_Reg_Mon_Load_Complete extends UiReusableComponents {
 
         click(monitoringPlansPage.configTabs.get(0));
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionMethodsLabel);
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
@@ -68,11 +70,10 @@ public class Test_EASEYIn_Reg_Mon_Load_Complete extends UiReusableComponents {
         verifyEquals(monitoringPlansPage.accordionLoadsLabel, "Loads");
 
         // Start of View
+        Thread.sleep(2000);
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.accordionLoadsLabel);
-
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
-        Thread.sleep(1000);
+        Thread.sleep(3000);
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         click(monitoringPlansPage.viewButton.get(0));
@@ -80,6 +81,8 @@ public class Test_EASEYIn_Reg_Mon_Load_Complete extends UiReusableComponents {
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Load");
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.closeModal);
         waitFor(monitoringPlansPage.closeModal);
         click(monitoringPlansPage.closeModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
@@ -164,8 +167,9 @@ public class Test_EASEYIn_Reg_Mon_Load_Complete extends UiReusableComponents {
         waitFor(monitoringPlansPage.evaluateButton);
         click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue), 180000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors, 180000);
         waitFor(monitoringPlansPage.evalStatusCriticalErrors);
         verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
         // Evaluate ends here
