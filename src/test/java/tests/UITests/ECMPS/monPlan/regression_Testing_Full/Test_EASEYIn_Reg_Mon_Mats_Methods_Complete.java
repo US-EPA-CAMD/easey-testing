@@ -46,14 +46,14 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Delaware City");
+        input(monitoringPlansPage.filterByKeywordBox, "Dolet Hills Power Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Delaware City (Oris Code 592)
-        Thread.sleep(500);
+        // Clicks on Dolet Hills Power Station (Oris Code 51)
+        Thread.sleep(200);
         click(monitoringPlansPage.facilityCaret.get(0));
 
-        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 3);
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
         click(monitoringPlansPage.configOpenButton.get(0));
 
@@ -63,13 +63,18 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
         // Start of View
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
         Thread.sleep(1000);
-        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
-        click(monitoringPlansPage.viewButton.get(0));
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 6);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionSupplementalMethodsLabel);
+        Thread.sleep(1000);
+        verifyEquals(monitoringPlansPage.viewButton.get(8).getText(), "View");
+        click(monitoringPlansPage.viewButton.get(8));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Component: Monitoring MATS Methods");
 
         waitFor(monitoringPlansPage.closeModal);
         click(monitoringPlansPage.closeModal);
@@ -92,12 +97,14 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         // Start of Create
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
         waitFor(monitoringPlansPage.createMatsMethodsButton);
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.createMatsMethodsButton);
         waitFor(monitoringPlansPage.createMatsMethodsButton);
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 7);
         int numOfMethods = monitoringPlansPage.viewButton.size();
 
         click(monitoringPlansPage.createMatsMethodsButton);
@@ -107,14 +114,24 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         input(monitoringPlansPage.modalStartDateField, "12/01/2021");
         input(monitoringPlansPage.modalStartTimeField, "1");
         waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(3));
+        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(2));
         waitFor(monitoringPlansPage.monMethodsModalMethodologyDropdown);
         click(monitoringPlansPage.monMethodsModalMethodologyDropdown.get(1));
 
 
         click(monitoringPlansPage.saveCloseModal);
 
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
         waitFor(monitoringPlansPage.viewButton);
+
+        waitFor(monitoringPlansPage.createMonMethodsButton);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createMonMethodsButton);
+        Thread.sleep(1000);
+        waitFor(monitoringPlansPage.createMatsMethodsButton);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createMatsMethodsButton);
         Thread.sleep(3000);
 
         int newNumOfMethods = monitoringPlansPage.viewButton.size();
@@ -123,16 +140,18 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         // End of Create
 
         // Start of Edit
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
         waitFor(monitoringPlansPage.monMethodsTableParameterLabel);
         verifyEquals(monitoringPlansPage.monMethodsTableParameterLabel, "Parameter");
 
         String parameterCode = monitoringPlansPage.monMethodsTableParameterField.get(0).getText();
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 2);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 3);
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.viewButton.get(2));
-        verifyEquals(monitoringPlansPage.viewButton.get(2).getText(), "View / Edit");
-        click(monitoringPlansPage.viewButton.get(2));
+                monitoringPlansPage.accordionSupplementalMethodsLabel);
+        verifyEquals(monitoringPlansPage.viewButton.get(8).getText(), "View / Edit");
+        click(monitoringPlansPage.viewButton.get(8));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Component: Monitoring MATS Methods");
@@ -151,9 +170,14 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         click(monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
         Thread.sleep(3000);
-        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(2));
-        verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(2).getText(), parameterCode);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.monMethodsTableParameterField.get(9));
+        Thread.sleep(3000);
+        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(8));
+        verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(8).getText(), parameterCode);
         // End of Edit
 
         // Evaluate starts here
@@ -162,10 +186,10 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
        waitFor(monitoringPlansPage.evaluateButton);
        click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue), 180000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
-        waitFor(monitoringPlansPage.evalStatusCriticalErrors);
-        verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
+        waitFor(monitoringPlansPage.evalStatusPassed, 180000);
+        verifyEquals(monitoringPlansPage.evalStatusPassed, "Passed");
         // Evaluate ends here
 
         // Revert starts here
