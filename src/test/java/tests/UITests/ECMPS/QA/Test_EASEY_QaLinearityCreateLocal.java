@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pages.QaCertificationPage;
-import tests.UITests.ECMPS.exportImport.CommonExport;
+import tests.utils.CommonExport;
 
 public class Test_EASEY_QaLinearityCreateLocal extends CommonExport {
 

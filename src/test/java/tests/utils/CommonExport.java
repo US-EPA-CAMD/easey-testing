@@ -1,4 +1,4 @@
-package tests.UITests.ECMPS.exportImport;
+package tests.utils;
 
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;

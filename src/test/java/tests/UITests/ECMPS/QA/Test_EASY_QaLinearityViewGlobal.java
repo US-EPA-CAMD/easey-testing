@@ -2,7 +2,7 @@ package tests.UITests.ECMPS.QA;
 
 import org.testng.annotations.Test;
 import pages.QaCertificationPage;
-import tests.UITests.ECMPS.exportImport.CommonExport;
+import tests.utils.CommonExport;
 
 //This test launches from QA test data, selects a facility to view a linearity data and views the first entry
 public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
