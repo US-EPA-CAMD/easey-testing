@@ -2,7 +2,7 @@ package tests.UITests.ECMPS.QA;
 
 import org.testng.annotations.Test;
 import pages.QaCertificationPage;
-import tests.UITests.ECMPS.exportImport.CommonExport;
+import tests.utils.CommonExport;
 
 public class Test_EASEY_QaRATAGlobal extends CommonExport {
 

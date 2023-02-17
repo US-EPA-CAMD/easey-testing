@@ -3,7 +3,7 @@ package tests.UITests.ECMPS.emissions;
 import org.testng.annotations.Test;
 import pages.EmissionsPage;
 import pages.MonitoringPlansPage;
-import tests.UITests.ECMPS.exportImport.CommonExport;
+import tests.utils.CommonExport;
 
 public class Test_EASEY_EmissionsExportGlobal extends CommonExport {
     private static String fileDownloadpath = "C:\\Users\\amandanelson\\Downloads";
