@@ -1,4 +1,4 @@
-package tests.UITests.ECMPS.monPlan.Regression_Testing_Full;
+package tests.UITests.ECMPS.monPlan.regression_Testing_Full;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.UITests.UiReusableComponents.UiReusableComponents;
 
-public class Test_EASEYIn_Reg_Mon_Span_Complete extends UiReusableComponents {
+public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -46,10 +46,10 @@ public class Test_EASEYIn_Reg_Mon_Span_Complete extends UiReusableComponents {
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
+        input(monitoringPlansPage.filterByKeywordBox, "C P Crane");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Astoria Generating Station (Oris Code 8906)
+        // Clicks on C P Crane (Oris Code 1552)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
@@ -61,22 +61,27 @@ public class Test_EASEYIn_Reg_Mon_Span_Complete extends UiReusableComponents {
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        waitFor(monitoringPlansPage.monitoringSpan);
-        click(monitoringPlansPage.monitoringSpan);
+        waitFor(monitoringPlansPage.monitoringDefaults);
+        click(monitoringPlansPage.monitoringDefaults);
 
-        waitFor(monitoringPlansPage.accordionSpansLabel);
-        verifyEquals(monitoringPlansPage.accordionSpansLabel, "Spans");
+        waitFor(monitoringPlansPage.accordionDefaultsLabel);
+        verifyEquals(monitoringPlansPage.accordionDefaultsLabel, "Defaults");
 
         // Start of View
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         Thread.sleep(1000);
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionDefaultsLabel);
+
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Span");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.closeModal);
         waitFor(monitoringPlansPage.closeModal);
         click(monitoringPlansPage.closeModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
@@ -100,16 +105,17 @@ public class Test_EASEYIn_Reg_Mon_Span_Complete extends UiReusableComponents {
         // Start of Create
         waitFor(monitoringPlansPage.createDefaultButton);
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createSpanButton);
+                monitoringPlansPage.createDefaultButton);
 
-        int numOfSpans = monitoringPlansPage.viewButton.size();
+        int numOfMethods = monitoringPlansPage.viewButton.size();
 
-        waitFor(monitoringPlansPage.createSpanButton);
-        click(monitoringPlansPage.createSpanButton);
+        waitFor(monitoringPlansPage.createDefaultButton);
+        click(monitoringPlansPage.createDefaultButton);
 
-        waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
-        click(monitoringPlansPage.monMethodsModalComponentTypeDropdown.get(1));
-        input(monitoringPlansPage.modalStartDateField, "01/01/2022");
+        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
+        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(7));
+        input(monitoringPlansPage.defaultValueModalField, "1");
+        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
         input(monitoringPlansPage.modalStartTimeField, "1");
 
         click(monitoringPlansPage.saveCloseModal);
@@ -117,43 +123,40 @@ public class Test_EASEYIn_Reg_Mon_Span_Complete extends UiReusableComponents {
         waitFor(monitoringPlansPage.viewButton);
         Thread.sleep(3000);
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        int newNumOfSpans = monitoringPlansPage.viewButton.size();
+        int newNumOfMethods = monitoringPlansPage.viewButton.size();
 
-        verifyTrue(newNumOfSpans == numOfSpans + 1);
+        verifyTrue(newNumOfMethods == numOfMethods + 1);
         // End of Create
 
         // Start of Edit
-        waitFor(monitoringPlansPage.spansTableComponentTypeLabel);
-        verifyEquals(monitoringPlansPage.spansTableComponentTypeLabel, "Component Type");
+        waitFor(monitoringPlansPage.defaultsTableParameterCodeLabel);
+        verifyEquals(monitoringPlansPage.defaultsTableParameterCodeLabel, "Parameter Code");
 
-        waitFor(monitoringPlansPage.spansTableComponentTypeField);
-        String componentType = monitoringPlansPage.spansTableComponentTypeField.get(0).getText();
+        String parameterCode = monitoringPlansPage.defaultsTableParameterCodeField.get(0).getText();
 
         waitFor(monitoringPlansPage.viewButton,1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.accordionSpansLabel);
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Span");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
 
-        if (componentType.equals("CO2")) {
-            waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
-            click(monitoringPlansPage.monMethodsModalComponentTypeDropdown.get(3));
+        if (parameterCode.equals("CO2N")) {
+            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
         } else {
-            waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
-            click(monitoringPlansPage.monMethodsModalComponentTypeDropdown.get(1));
+            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(2));
         }
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.saveCloseModal);
         waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
 
-        Thread.sleep(3000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
-        waitFor(monitoringPlansPage.spansTableComponentTypeLabel,1);
-        verifyNotEquals(monitoringPlansPage.spansTableComponentTypeField.get(0).getText(), componentType);
+        waitFor(monitoringPlansPage.defaultsTableParameterCodeField,1);
+        verifyNotEquals(monitoringPlansPage.defaultsTableParameterCodeField.get(0).getText(), parameterCode);
         // End of Edit
 
         // Evaluate starts here
@@ -162,8 +165,9 @@ public class Test_EASEYIn_Reg_Mon_Span_Complete extends UiReusableComponents {
         waitFor(monitoringPlansPage.evaluateButton);
         click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue), 180000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors, 180000);
         waitFor(monitoringPlansPage.evalStatusCriticalErrors);
         verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
         // Evaluate ends here

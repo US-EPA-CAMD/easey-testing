@@ -1,12 +1,13 @@
-package tests.UITests.ECMPS.monPlan.Regression_Testing_Full;
+package tests.UITests.ECMPS.monPlan.regression_Testing_Full;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.UITests.UiReusableComponents.UiReusableComponents;
 
-public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableComponents {
+public class Test_EASEYIn_Reg_Mon_DuctWafs_Complete extends UiReusableComponents {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -20,6 +21,7 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
+        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -46,10 +48,10 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Delaware City");
+        input(monitoringPlansPage.filterByKeywordBox, "Martin Drake");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Delaware City (Oris Code 592)
+        // Clicks on Martin Drake (Oris Code 492)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
@@ -61,14 +63,23 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        // Start of View
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        waitFor(monitoringPlansPage.monitoringRectangularDuctWAFs);
+        click(monitoringPlansPage.monitoringRectangularDuctWAFs);
+
+        waitFor(monitoringPlansPage.accordionRectangularDuctWAFsLabel);
+        verifyEquals(monitoringPlansPage.accordionRectangularDuctWAFsLabel, "WAFs Rectangular Duct");
         Thread.sleep(1000);
-        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
+
+        // Start of View
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionRectangularDuctWAFsLabel);
+
+        Thread.sleep(3000);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Rectangular Duct WAF");
 
         waitFor(monitoringPlansPage.closeModal);
         click(monitoringPlansPage.closeModal);
@@ -91,58 +102,54 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         // Start of Create
-        waitFor(monitoringPlansPage.createMatsMethodsButton);
+        Thread.sleep(1000);
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createMatsMethodsButton);
-        waitFor(monitoringPlansPage.createMatsMethodsButton);
+                monitoringPlansPage.accordionRectangularDuctWAFsLabel);
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        int numOfMethods = monitoringPlansPage.viewButton.size();
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
+        int numOfDuctWAFs = monitoringPlansPage.viewButton.size();
 
-        click(monitoringPlansPage.createMatsMethodsButton);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createRectangularDuctWafBtn);
+        waitFor(monitoringPlansPage.createRectangularDuctWafBtn);
+        click(monitoringPlansPage.createRectangularDuctWafBtn);
 
-        waitFor(monitoringPlansPage.modalStartDateField);
-        waitFor(monitoringPlansPage.modalStartTimeField);
+        waitFor(monitoringPlansPage.wafMethodModalDropdown);
+        click(monitoringPlansPage.wafMethodModalDropdown.get(1));
+        input(monitoringPlansPage.wafDeterminationDateField, "12/01/2021");
+        input(monitoringPlansPage.wafValueModalField, "10");
         input(monitoringPlansPage.modalStartDateField, "12/01/2021");
         input(monitoringPlansPage.modalStartTimeField, "1");
-        waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(3));
-        waitFor(monitoringPlansPage.monMethodsModalMethodologyDropdown);
-        click(monitoringPlansPage.monMethodsModalMethodologyDropdown.get(1));
-
 
         click(monitoringPlansPage.saveCloseModal);
 
         waitFor(monitoringPlansPage.viewButton);
         Thread.sleep(3000);
 
-        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
+        int newNumOfDuctWAFs = monitoringPlansPage.viewButton.size();
 
-        verifyTrue(newNumOfMethods == numOfMethods + 1);
+        verifyTrue(newNumOfDuctWAFs == numOfDuctWAFs + 1);
         // End of Create
 
         // Start of Edit
-        waitFor(monitoringPlansPage.monMethodsTableParameterLabel);
-        verifyEquals(monitoringPlansPage.monMethodsTableParameterLabel, "Parameter");
+        waitFor(monitoringPlansPage.wafMethodTableLabel);
+        verifyEquals(monitoringPlansPage.wafMethodTableLabel, "WAF Method");
 
-        String parameterCode = monitoringPlansPage.monMethodsTableParameterField.get(0).getText();
+        String WAFMethod = monitoringPlansPage.wafMethodTableField.get(1).getText();
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 2);
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.viewButton.get(2));
-        verifyEquals(monitoringPlansPage.viewButton.get(2).getText(), "View / Edit");
-        click(monitoringPlansPage.viewButton.get(2));
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 0);
+        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
+        click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Component: Monitoring MATS Methods");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Rectangular Duct WAF");
 
-        waitFor(monitoringPlansPage.monMethodsTableParameterField);
-        if (parameterCode.equals("HG")) {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+        waitFor(monitoringPlansPage.wafMethodModalDropdown);
+        if (WAFMethod.equals("DF")) {
+            click(monitoringPlansPage.wafMethodModalDropdown.get(1));
         } else {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(2));
+            click(monitoringPlansPage.wafMethodModalDropdown.get(2));
         }
 
         js.executeScript("arguments[0].scrollIntoView(true);",
@@ -150,19 +157,20 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         click(monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
-        Thread.sleep(3000);
-        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(2));
-        verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(2).getText(), parameterCode);
+        Thread.sleep(2000);
+        waitFor(monitoringPlansPage.wafMethodTableField.get(1));
+        verifyNotEquals(monitoringPlansPage.wafMethodTableField.get(1).getText(), WAFMethod);
         // End of Edit
 
         // Evaluate starts here
-       js.executeScript("arguments[0].scrollIntoView(true);",
+        js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.evaluateButton);
-       waitFor(monitoringPlansPage.evaluateButton);
-       click(monitoringPlansPage.evaluateButton);
+        waitFor(monitoringPlansPage.evaluateButton);
+        click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue), 180000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors, 180000);
         waitFor(monitoringPlansPage.evalStatusCriticalErrors);
         verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
         // Evaluate ends here

@@ -1,12 +1,13 @@
-package tests.UITests.ECMPS.monPlan.Regression_Testing_Full;
+package tests.UITests.ECMPS.monPlan.regression_Testing_Full;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.UITests.UiReusableComponents.UiReusableComponents;
 
-public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents {
+public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -20,6 +21,7 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
+        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -46,10 +48,10 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "C P Crane");
+        input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on C P Crane (Oris Code 1552)
+        // Clicks on Astoria Generating Station (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
@@ -61,27 +63,25 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        waitFor(monitoringPlansPage.monitoringDefaults);
-        click(monitoringPlansPage.monitoringDefaults);
+        waitFor(monitoringPlansPage.monitoringFormulas);
+        click(monitoringPlansPage.monitoringFormulas);
 
-        waitFor(monitoringPlansPage.accordionDefaultsLabel);
-        verifyEquals(monitoringPlansPage.accordionDefaultsLabel, "Defaults");
+        waitFor(monitoringPlansPage.accordionFormulasLabel);
+        verifyEquals(monitoringPlansPage.accordionFormulasLabel, "Formulas");
 
         // Start of View
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         Thread.sleep(1000);
 
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.accordionDefaultsLabel);
+                monitoringPlansPage.accordionFormulasLabel);
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Formula");
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.closeModal);
         waitFor(monitoringPlansPage.closeModal);
         click(monitoringPlansPage.closeModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
@@ -103,25 +103,27 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         // Start of Create
-        waitFor(monitoringPlansPage.createDefaultButton);
+        Thread.sleep(1000);
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createDefaultButton);
+                monitoringPlansPage.createFormulaButton);
 
         int numOfMethods = monitoringPlansPage.viewButton.size();
 
-        waitFor(monitoringPlansPage.createDefaultButton);
-        click(monitoringPlansPage.createDefaultButton);
+        waitFor(monitoringPlansPage.createFormulaButton);
+        click(monitoringPlansPage.createFormulaButton);
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(7));
-        input(monitoringPlansPage.defaultValueModalField, "1");
+        input(monitoringPlansPage.monitoringFormulasIdField, "001");
+        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+        waitFor(monitoringPlansPage.monMethodsModalFormulaCodeDropdown);
+        click(monitoringPlansPage.monMethodsModalFormulaCodeDropdown.get(1));
         input(monitoringPlansPage.modalStartDateField, "12/01/2021");
         input(monitoringPlansPage.modalStartTimeField, "1");
 
         click(monitoringPlansPage.saveCloseModal);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
         waitFor(monitoringPlansPage.viewButton);
-        Thread.sleep(3000);
 
         int newNumOfMethods = monitoringPlansPage.viewButton.size();
 
@@ -129,34 +131,39 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
         // End of Create
 
         // Start of Edit
-        waitFor(monitoringPlansPage.defaultsTableParameterCodeLabel);
-        verifyEquals(monitoringPlansPage.defaultsTableParameterCodeLabel, "Parameter Code");
+        waitFor(monitoringPlansPage.formulasTableParameterLabel);
+        verifyEquals(monitoringPlansPage.formulasTableParameterLabel, "Parameter");
 
-        String parameterCode = monitoringPlansPage.defaultsTableParameterCodeField.get(0).getText();
+        waitFor(monitoringPlansPage.formulasTableParameterField);
+        String parameterField = monitoringPlansPage.formulasTableParameterField.get(1).getText();
 
         waitFor(monitoringPlansPage.viewButton,1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        click(monitoringPlansPage.viewButton.get(0));
+        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Default");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Formula");
 
-        if (parameterCode.equals("CO2N")) {
+        if (parameterField.equals("CO2")) {
             waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
             click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
         } else {
             waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(2));
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(5));
         }
+
+        waitFor(monitoringPlansPage.monMethodsModalFormulaCodeDropdown);
+        click(monitoringPlansPage.monMethodsModalFormulaCodeDropdown.get(1));
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.saveCloseModal);
         waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
 
+        Thread.sleep(2000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
-        waitFor(monitoringPlansPage.defaultsTableParameterCodeField,1);
-        verifyNotEquals(monitoringPlansPage.defaultsTableParameterCodeField.get(0).getText(), parameterCode);
+        waitFor(monitoringPlansPage.formulasTableParameterLabel,1);
+        verifyNotEquals(monitoringPlansPage.formulasTableParameterField.get(1).getText(), parameterField);
         // End of Edit
 
         // Evaluate starts here
@@ -165,11 +172,10 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.evaluateButton);
         click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue), 180000);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue),180000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
-        waitFor(monitoringPlansPage.evalStatusCriticalErrors, 180000);
-        waitFor(monitoringPlansPage.evalStatusCriticalErrors);
-        verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
+        waitFor(monitoringPlansPage.evalStatusPassed,180000);
+        verifyEquals(monitoringPlansPage.evalStatusPassed, "Passed");
         // Evaluate ends here
 
         // Revert starts here

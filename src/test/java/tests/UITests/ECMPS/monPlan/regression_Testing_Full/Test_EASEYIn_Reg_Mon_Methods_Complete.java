@@ -1,13 +1,12 @@
-package tests.UITests.ECMPS.monPlan.Regression_Testing_Full;
+package tests.UITests.ECMPS.monPlan.regression_Testing_Full;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.UITests.UiReusableComponents.UiReusableComponents;
 
-public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents {
+public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -21,7 +20,6 @@ public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        Actions action = new Actions(driver);
 
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -48,10 +46,10 @@ public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
+        input(monitoringPlansPage.filterByKeywordBox, "Delaware City");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Astoria Generating Station (Oris Code 8906)
+        // Clicks on Delaware City (Oris Code 592)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
@@ -63,24 +61,14 @@ public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
-        waitFor(monitoringPlansPage.monitoringFormulas);
-        click(monitoringPlansPage.monitoringFormulas);
-
-        waitFor(monitoringPlansPage.accordionFormulasLabel);
-        verifyEquals(monitoringPlansPage.accordionFormulasLabel, "Formulas");
-
         // Start of View
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         Thread.sleep(1000);
-
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.accordionFormulasLabel);
-
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Formula");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
 
         waitFor(monitoringPlansPage.closeModal);
         click(monitoringPlansPage.closeModal);
@@ -103,27 +91,25 @@ public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         // Start of Create
-        Thread.sleep(1000);
+        waitFor(monitoringPlansPage.createMonMethodsButton);
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createFormulaButton);
+                monitoringPlansPage.createMonMethodsButton);
 
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         int numOfMethods = monitoringPlansPage.viewButton.size();
 
-        waitFor(monitoringPlansPage.createFormulaButton);
-        click(monitoringPlansPage.createFormulaButton);
+        click(monitoringPlansPage.createMonMethodsButton);
 
-        waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        input(monitoringPlansPage.monitoringFormulasIdField, "001");
+        waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
         click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
-        waitFor(monitoringPlansPage.monMethodsModalFormulaCodeDropdown);
-        click(monitoringPlansPage.monMethodsModalFormulaCodeDropdown.get(1));
+        click(monitoringPlansPage.monMethodsModalMethodologyDropdown.get(1));
         input(monitoringPlansPage.modalStartDateField, "12/01/2021");
         input(monitoringPlansPage.modalStartTimeField, "1");
 
         click(monitoringPlansPage.saveCloseModal);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
         waitFor(monitoringPlansPage.viewButton);
+        Thread.sleep(3000);
 
         int newNumOfMethods = monitoringPlansPage.viewButton.size();
 
@@ -131,51 +117,49 @@ public class Test_EASEYIn_Reg_Mon_Formulas_Complete extends UiReusableComponents
         // End of Create
 
         // Start of Edit
-        waitFor(monitoringPlansPage.formulasTableParameterLabel);
-        verifyEquals(monitoringPlansPage.formulasTableParameterLabel, "Parameter");
+        waitFor(monitoringPlansPage.monMethodsTableParameterLabel);
+        verifyEquals(monitoringPlansPage.monMethodsTableParameterLabel, "Parameter");
 
-        waitFor(monitoringPlansPage.formulasTableParameterField);
-        String parameterField = monitoringPlansPage.formulasTableParameterField.get(1).getText();
+        String parameterCode = monitoringPlansPage.monMethodsTableParameterField.get(0).getText();
 
-        waitFor(monitoringPlansPage.viewButton,1);
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.viewButton.get(0));
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
-        action.moveToElement(monitoringPlansPage.viewButton.get(0)).click().build().perform();
+        click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Formula");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
 
-        if (parameterField.equals("CO2")) {
+        waitFor(monitoringPlansPage.monMethodsTableParameterField);
+        if (parameterCode.equals("CO2")) {
             waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(7));
         } else {
             waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(5));
+            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
         }
-
-        waitFor(monitoringPlansPage.monMethodsModalFormulaCodeDropdown);
-        click(monitoringPlansPage.monMethodsModalFormulaCodeDropdown.get(1));
 
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.saveCloseModal);
-        waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
-
-        Thread.sleep(2000);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
-        waitFor(monitoringPlansPage.formulasTableParameterLabel,1);
-        verifyNotEquals(monitoringPlansPage.formulasTableParameterField.get(1).getText(), parameterField);
+
+        Thread.sleep(3000);
+        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
+        verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
         // End of Edit
 
         // Evaluate starts here
-        js.executeScript("arguments[0].scrollIntoView(true);",
+       js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.evaluateButton);
-        waitFor(monitoringPlansPage.evaluateButton);
-        click(monitoringPlansPage.evaluateButton);
+       waitFor(monitoringPlansPage.evaluateButton);
+       click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue),180000);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
-        waitFor(monitoringPlansPage.evalStatusPassed,180000);
-        verifyEquals(monitoringPlansPage.evalStatusPassed, "Passed");
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors);
+        verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
         // Evaluate ends here
 
         // Revert starts here

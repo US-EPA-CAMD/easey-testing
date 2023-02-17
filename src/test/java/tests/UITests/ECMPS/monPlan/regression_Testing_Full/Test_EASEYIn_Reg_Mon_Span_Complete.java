@@ -1,4 +1,4 @@
-package tests.UITests.ECMPS.monPlan.Regression_Testing_Full;
+package tests.UITests.ECMPS.monPlan.regression_Testing_Full;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.UITests.UiReusableComponents.UiReusableComponents;
 
-public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents {
+public class Test_EASEYIn_Reg_Mon_Span_Complete extends UiReusableComponents {
 
     @Test()
     public void tests() throws InterruptedException {
@@ -46,10 +46,10 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents 
         click(monitoringPlansPage.workspaceMonPlan);
 
         waitFor(monitoringPlansPage.filterByKeywordBox);
-        input(monitoringPlansPage.filterByKeywordBox, "Delaware City");
+        input(monitoringPlansPage.filterByKeywordBox, "Astoria Generating Station");
         click(monitoringPlansPage.filterByKeywordButton);
 
-        // Clicks on Delaware City (Oris Code 592)
+        // Clicks on Astoria Generating Station (Oris Code 8906)
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
@@ -61,14 +61,21 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents 
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
 
+        waitFor(monitoringPlansPage.monitoringSpan);
+        click(monitoringPlansPage.monitoringSpan);
+
+        waitFor(monitoringPlansPage.accordionSpansLabel);
+        verifyEquals(monitoringPlansPage.accordionSpansLabel, "Spans");
+
         // Start of View
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         Thread.sleep(1000);
-        verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
+
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Span");
 
         waitFor(monitoringPlansPage.closeModal);
         click(monitoringPlansPage.closeModal);
@@ -91,19 +98,18 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents 
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         // Start of Create
-        waitFor(monitoringPlansPage.createMonMethodsButton);
+        waitFor(monitoringPlansPage.createDefaultButton);
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.createMonMethodsButton);
+                monitoringPlansPage.createSpanButton);
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        int numOfMethods = monitoringPlansPage.viewButton.size();
+        int numOfSpans = monitoringPlansPage.viewButton.size();
 
-        click(monitoringPlansPage.createMonMethodsButton);
+        waitFor(monitoringPlansPage.createSpanButton);
+        click(monitoringPlansPage.createSpanButton);
 
-        waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-        click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
-        click(monitoringPlansPage.monMethodsModalMethodologyDropdown.get(1));
-        input(monitoringPlansPage.modalStartDateField, "12/01/2021");
+        waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
+        click(monitoringPlansPage.monMethodsModalComponentTypeDropdown.get(1));
+        input(monitoringPlansPage.modalStartDateField, "01/01/2022");
         input(monitoringPlansPage.modalStartTimeField, "1");
 
         click(monitoringPlansPage.saveCloseModal);
@@ -111,50 +117,50 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents 
         waitFor(monitoringPlansPage.viewButton);
         Thread.sleep(3000);
 
-        int newNumOfMethods = monitoringPlansPage.viewButton.size();
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
+        int newNumOfSpans = monitoringPlansPage.viewButton.size();
 
-        verifyTrue(newNumOfMethods == numOfMethods + 1);
+        verifyTrue(newNumOfSpans == numOfSpans + 1);
         // End of Create
 
         // Start of Edit
-        waitFor(monitoringPlansPage.monMethodsTableParameterLabel);
-        verifyEquals(monitoringPlansPage.monMethodsTableParameterLabel, "Parameter");
+        waitFor(monitoringPlansPage.spansTableComponentTypeLabel);
+        verifyEquals(monitoringPlansPage.spansTableComponentTypeLabel, "Component Type");
 
-        String parameterCode = monitoringPlansPage.monMethodsTableParameterField.get(0).getText();
+        waitFor(monitoringPlansPage.spansTableComponentTypeField);
+        String componentType = monitoringPlansPage.spansTableComponentTypeField.get(0).getText();
 
-        waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.viewButton.get(0));
+        waitFor(monitoringPlansPage.viewButton,1);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View / Edit");
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionSpansLabel);
         click(monitoringPlansPage.viewButton.get(0));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
-        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Method");
+        verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Span");
 
-        waitFor(monitoringPlansPage.monMethodsTableParameterField);
-        if (parameterCode.equals("CO2")) {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(7));
+        if (componentType.equals("CO2")) {
+            waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
+            click(monitoringPlansPage.monMethodsModalComponentTypeDropdown.get(3));
         } else {
-            waitFor(monitoringPlansPage.monMethodsModalParameterDropdown);
-            click(monitoringPlansPage.monMethodsModalParameterDropdown.get(1));
+            waitFor(monitoringPlansPage.monMethodsModalComponentTypeDropdown);
+            click(monitoringPlansPage.monMethodsModalComponentTypeDropdown.get(1));
         }
 
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.saveCloseModal);
+        waitFor(monitoringPlansPage.saveCloseModal);
         click(monitoringPlansPage.saveCloseModal);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
         Thread.sleep(3000);
-        waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
-        verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
+        waitFor(monitoringPlansPage.spansTableComponentTypeLabel,1);
+        verifyNotEquals(monitoringPlansPage.spansTableComponentTypeField.get(0).getText(), componentType);
         // End of Edit
 
         // Evaluate starts here
-       js.executeScript("arguments[0].scrollIntoView(true);",
+        js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.evaluateButton);
-       waitFor(monitoringPlansPage.evaluateButton);
-       click(monitoringPlansPage.evaluateButton);
+        waitFor(monitoringPlansPage.evaluateButton);
+        click(monitoringPlansPage.evaluateButton);
 
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
         waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
