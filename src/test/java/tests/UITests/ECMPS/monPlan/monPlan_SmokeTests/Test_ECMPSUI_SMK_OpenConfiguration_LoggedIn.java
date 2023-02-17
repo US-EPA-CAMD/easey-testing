@@ -15,7 +15,7 @@ logged in Workspace View.
 public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedIn extends UiReusableComponents {
 
     @Test()
-    public void tests() {
+    public void tests() throws InterruptedException {
         String username = System.getenv("MOSES_TESTING_USERNAME");
         String password = System.getenv("MOSES_TESTING_PASSWORD");
 
@@ -69,6 +69,7 @@ public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedIn extends UiReusableCompo
                 monitoringPlansPage.facilityCaret.get(0));
 
         // Clicks on Widows Creek (Oris Code 50)
+        Thread.sleep(500);
         click(monitoringPlansPage.facilityCaret.get(0));
 
         // Opens the desired configuration

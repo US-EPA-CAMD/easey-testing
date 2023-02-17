@@ -50,6 +50,7 @@ public class Test_EASEYIn_Reg_Mon_Defaults_Complete extends UiReusableComponents
         click(monitoringPlansPage.filterByKeywordButton);
 
         // Clicks on C P Crane (Oris Code 1552)
+        Thread.sleep(500);
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);

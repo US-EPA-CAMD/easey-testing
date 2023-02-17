@@ -14,7 +14,7 @@ logged out Global View.
 public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedOut extends UITestBase {
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
 
 //        Navigate to EASEY In
 //        https://ecmps-dev.app.cloud.gov/monitoring-plans
@@ -42,6 +42,7 @@ public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedOut extends UITestBase {
                 monitoringPlansPage.facilityCaret.get(0));
 
         // Clicks on Barry (Oris Code 3)
+        Thread.sleep(500);
         click(monitoringPlansPage.facilityCaret.get(0));
 
         // Opens the desired configuration

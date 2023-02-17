@@ -50,6 +50,7 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends UiReusableComponents {
         click(monitoringPlansPage.filterByKeywordButton);
 
         // Clicks on Astoria Generating Station (Oris Code 8906)
+        Thread.sleep(500);
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);

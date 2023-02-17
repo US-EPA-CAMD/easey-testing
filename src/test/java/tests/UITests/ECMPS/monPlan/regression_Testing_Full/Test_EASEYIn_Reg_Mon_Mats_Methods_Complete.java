@@ -50,6 +50,7 @@ public class Test_EASEYIn_Reg_Mon_Mats_Methods_Complete extends UiReusableCompon
         click(monitoringPlansPage.filterByKeywordButton);
 
         // Clicks on Delaware City (Oris Code 592)
+        Thread.sleep(500);
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);

@@ -52,6 +52,7 @@ public class Test_EASEYIn_Reg_Mon_DuctWafs_Complete extends UiReusableComponents
         click(monitoringPlansPage.filterByKeywordButton);
 
         // Clicks on Martin Drake (Oris Code 492)
+        Thread.sleep(500);
         click(monitoringPlansPage.facilityCaret.get(0));
 
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 0);
