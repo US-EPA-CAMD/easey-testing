@@ -81,6 +81,8 @@ public class Test_EASEYIn_Reg_Mon_DuctWafs_Complete extends UiReusableComponents
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Rectangular Duct WAF");
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.closeModal);
         waitFor(monitoringPlansPage.closeModal);
         click(monitoringPlansPage.closeModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.closeModal));
