@@ -59,12 +59,19 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents 
 
         click(monitoringPlansPage.configTabs.get(0));
 
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionMethodsLabel);
         waitFor(monitoringPlansPage.accordionMethodsLabel);
         verifyEquals(monitoringPlansPage.accordionMethodsLabel, "Methods");
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
 
         // Start of View
+        waitFor(monitoringPlansPage.accordionMethodsLabel);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.accordionMethodsLabel);
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         verifyEquals(monitoringPlansPage.viewButton.get(0).getText(), "View");
         click(monitoringPlansPage.viewButton.get(0));
 
@@ -92,10 +99,14 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents 
         waitFor(monitoringPlansPage.revertOfficialRecordButton);
 
         // Start of Create
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
+
         waitFor(monitoringPlansPage.createMonMethodsButton);
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.createMonMethodsButton);
 
+        Thread.sleep(2000);
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 1);
         int numOfMethods = monitoringPlansPage.viewButton.size();
 
@@ -109,15 +120,25 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents 
 
         click(monitoringPlansPage.saveCloseModal);
 
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
+
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createMonMethodsButton);
+
         waitFor(monitoringPlansPage.viewButton);
         Thread.sleep(3000);
 
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 2);
+        Thread.sleep(1000);
         int newNumOfMethods = monitoringPlansPage.viewButton.size();
 
         verifyTrue(newNumOfMethods == numOfMethods + 1);
         // End of Create
 
         // Start of Edit
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.monMethodsTableParameterLabel);
         waitFor(monitoringPlansPage.monMethodsTableParameterLabel);
         verifyEquals(monitoringPlansPage.monMethodsTableParameterLabel, "Parameter");
 
@@ -146,6 +167,12 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents 
         click(monitoringPlansPage.saveCloseModal);
         waitFor(driver -> !isDisplayed(monitoringPlansPage.saveCloseModal));
 
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
+
+        waitFor(driver -> monitoringPlansPage.viewButton.size() > 2);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.monMethodsTableParameterField.get(0));
         Thread.sleep(3000);
         waitFor(monitoringPlansPage.monMethodsTableParameterField.get(0));
         verifyNotEquals(monitoringPlansPage.monMethodsTableParameterField.get(0).getText(), parameterCode);
@@ -157,9 +184,9 @@ public class Test_EASEYIn_Reg_Mon_Methods_Complete extends UiReusableComponents 
        waitFor(monitoringPlansPage.evaluateButton);
        click(monitoringPlansPage.evaluateButton);
 
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress));
-        waitFor(monitoringPlansPage.evalStatusCriticalErrors);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInQueue), 180);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.evalStatusInProgress), 90);
+        waitFor(monitoringPlansPage.evalStatusCriticalErrors, 180);
         verifyEquals(monitoringPlansPage.evalStatusCriticalErrors, "Critical Errors");
         // Evaluate ends here
 
