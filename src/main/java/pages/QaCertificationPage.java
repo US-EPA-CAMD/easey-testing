@@ -223,4 +223,9 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//*[@id='expandRowRATA-SummaryM1']")
     public WebElement expandRataDataRow;
 
+
+    //option[contains(text(),'Calibration Injection')]
+    @FindBy (xpath = "//option[contains(text(),'Calibration Injection')]")
+    public WebElement injectionOption;
+
 }
