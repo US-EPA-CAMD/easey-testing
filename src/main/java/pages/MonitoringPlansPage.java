@@ -16,6 +16,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "h2[epa-testid='MonitoringPlansTitle']")
     public WebElement title;
 
+    @FindBy(css = "img[alt='Authentication']")
+    public WebElement logInAuthenticationImg;
+
     @FindBy(id = "MonitoringPlans_wks")
     public WebElement monPlanWorkSpaceBtn;
 

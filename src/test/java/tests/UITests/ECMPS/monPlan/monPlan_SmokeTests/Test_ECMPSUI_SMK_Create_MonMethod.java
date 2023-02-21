@@ -36,6 +36,7 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends UiReusableComponents {
 
         verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
         click(monitoringPlansPage.logInButtonSubmit);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.logInAuthenticationImg));
 
         js.executeScript("window.scrollBy(0,350)", "");
 
@@ -89,7 +90,17 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends UiReusableComponents {
 
         click(monitoringPlansPage.saveCloseModal);
 
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
         waitFor(monitoringPlansPage.viewButton);
+
+        waitFor(monitoringPlansPage.createMonMethodsButton);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createMonMethodsButton);
+        Thread.sleep(1000);
+        waitFor(monitoringPlansPage.createMatsMethodsButton);
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.createMatsMethodsButton);
         Thread.sleep(3000);
 
         int newNumOfMethods = monitoringPlansPage.viewButton.size();
