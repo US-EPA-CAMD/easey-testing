@@ -36,6 +36,7 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends UiReusableComponents {
 
         verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
         click(monitoringPlansPage.logInButtonSubmit);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.logInAuthenticationImg));
 
         js.executeScript("window.scrollBy(0,350)", "");
 
