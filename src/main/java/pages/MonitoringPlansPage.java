@@ -348,7 +348,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "column-col2")
     public List<WebElement> controlCodeUnitControlsHeader;
 
-    @FindBy (css = "div[role='gridcell']:nth-child(3)")
+    @FindBy (css = "div[data-tag='allowRowEvents']:nth-child(3)")
     public List<WebElement> controlCodeUnitControlsTableField;
 
     @FindBy (css = "select[id='Control Code'] > option")
