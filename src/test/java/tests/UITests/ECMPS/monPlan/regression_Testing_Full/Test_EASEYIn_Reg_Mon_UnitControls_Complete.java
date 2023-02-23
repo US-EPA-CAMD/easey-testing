@@ -83,7 +83,7 @@ public class Test_EASEYIn_Reg_Mon_UnitControls_Complete extends UiReusableCompon
                 monitoringPlansPage.accordionUnitControlsLabel);
 
         waitFor(driver -> monitoringPlansPage.viewButton.size() > 3);
-        click(monitoringPlansPage.viewButton.get(2));
+        click(monitoringPlansPage.viewButton.get(3));
 
         waitFor(monitoringPlansPage.monPlanModalHeaderLabel);
         verifyEquals(monitoringPlansPage.monPlanModalHeaderLabel, "Unit Control");
