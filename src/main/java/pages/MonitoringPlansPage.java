@@ -16,6 +16,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "h2[epa-testid='MonitoringPlansTitle']")
     public WebElement title;
 
+    @FindBy(css = "img[alt='Authentication']")
+    public WebElement logInAuthenticationImg;
+
     @FindBy(id = "MonitoringPlans_wks")
     public WebElement monPlanWorkSpaceBtn;
 
@@ -345,7 +348,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (id = "column-col2")
     public List<WebElement> controlCodeUnitControlsHeader;
 
-    @FindBy (css = "div[role='gridcell']:nth-child(3)")
+    @FindBy (css = "div[data-tag='allowRowEvents']:nth-child(3)")
     public List<WebElement> controlCodeUnitControlsTableField;
 
     @FindBy (css = "select[id='Control Code'] > option")
@@ -758,5 +761,21 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     @FindBy (xpath = "//h4[contains(text(),'Success')]")
     public WebElement successMessage ;
+
+
+
+
+
+
+
+
+
+    //Amanda adding buttons and stuff
+    @FindBy (xpath = "//a[@id='Emissions']")
+    public WebElement emissionsTab ;
+
+    @FindBy (xpath = "//button[contains(text(),'Export Data')]")
+    public WebElement emissionsExportButton ;
+
 
 }

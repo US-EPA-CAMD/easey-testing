@@ -8,6 +8,7 @@ public class EmissionsPage extends MonitoringPlansPage {
 
     public EmissionsPage(WebDriver driver) { super(driver); }
 
+
     @FindBy(xpath = "//h2[contains(text(),'Emissions')]")
     public WebElement title;
 
@@ -38,5 +39,13 @@ public class EmissionsPage extends MonitoringPlansPage {
 
     @FindBy (xpath = "//option[contains(text(),'Heat Input for Unit/Stack View')]")
     public WebElement heatInputViewOption;
+
+    
+    @FindBy(xpath = "//a[@id='Emissions']")
+    public WebElement emissionsTab ;
+
+    @FindBy (xpath = "//button[contains(text(),'Export Data')]")
+    public WebElement emissionsExportButton ;
+
 
 }
