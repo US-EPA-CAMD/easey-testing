@@ -19,6 +19,7 @@ public class EmissionsPage extends MonitoringPlansPage {
 
     @FindBy ( id="viewtemplate")
     public WebElement viewTemplateBox;
+
     //VIEW TEMPLATE OPTIONS
     @FindBy (xpath = "//option[contains(text(),'Hourly SO2 CEMS View')]")
     public WebElement hourlyS02cemsViewOption;
@@ -28,5 +29,14 @@ public class EmissionsPage extends MonitoringPlansPage {
 
     @FindBy (xpath = "//option[contains(text(),'Hourly Heat Input CEMS View')]")
     public WebElement hourlyHeatInputcemsViewOption;
+
+    @FindBy (xpath = "//option[contains(text(),'Hourly NOx Mass CEMS View')]")
+    public WebElement hourlyN0xMasscemsViewOption;
+
+    @FindBy (xpath = "//option[contains(text(),'Hourly CO2 CEMS View')]")
+    public WebElement hourlyC02cemssViewOption;
+
+    @FindBy (xpath = "//option[contains(text(),'Heat Input for Unit/Stack View')]")
+    public WebElement heatInputViewOption;
 
 }
