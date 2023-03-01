@@ -3,10 +3,10 @@
 	"facId": 10,
 	"facilityName": "Smith Generating Facility",
 	"configTypeCode": null,
-	"lastUpdated": "2008-11-17T18:35:28.000Z",
+	"lastUpdated": "2023-03-01T21:27:39.237Z",
 	"updatedStatusFlag": "Y",
 	"needsEvalFlag": "Y",
-	"checkSessionId": null,
+	"checkSessionId": "fc09f07b-5f10-f6f6-16aa-617c9fa5da33",
 	"orisCode": 54,
 	"name": "SCT5",
 	"beginReportPeriodId": 36,
@@ -244,7 +244,22 @@
 					"active": true
 				}
 			],
-			"matsMethods": [],
+			"matsMethods": [
+				{
+					"id": "e0171394-257e-4fd4-bb73-ba9dd493bd18",
+					"locationId": "3763",
+					"supplementalMATSParameterCode": "HCL",
+					"supplementalMATSMonitoringMethodCode": "LEE",
+					"beginDate": "2023-03-01",
+					"beginHour": 1,
+					"endDate": null,
+					"endHour": null,
+					"userId": "mddee-dp",
+					"addDate": "2023-03-01",
+					"updateDate": "2023-03-01",
+					"active": true
+				}
+			],
 			"formulas": [
 				{
 					"id": "CAMD-D7873B45D685498B9CE256536BE72028",
@@ -842,7 +857,29 @@
 					"active": true
 				}
 			],
-			"ductWafs": [],
+			"ductWafs": [
+				{
+					"id": "f5623d14-4b40-4b0b-8f20-8e78adf11284",
+					"locationId": "3763",
+					"wafDeterminationDate": "2023-03-01",
+					"wafBeginDate": "2023-03-01",
+					"wafBeginHour": 1,
+					"wafMethodCode": "AT",
+					"wafValue": 0.9533,
+					"numberOfTestRuns": null,
+					"numberOfTraversePointsWaf": null,
+					"numberOfTestPorts": null,
+					"numberOfTraversePointsRef": null,
+					"ductWidth": null,
+					"ductDepth": null,
+					"wafEndDate": null,
+					"wafEndHour": null,
+					"userId": "mddee-dp",
+					"addDate": "2023-03-01",
+					"updateDate": "2023-03-01",
+					"active": true
+				}
+			],
 			"loads": [
 				{
 					"id": "CAMD-88E339B35012454EBEB6A2F5ACF4B661",
@@ -2236,10 +2273,10 @@
 			]
 		}
 	],
-	"userId": "mharwood-dp",
+	"userId": "mddee-dp",
 	"addDate": "2008-11-17T18:35:28.000Z",
-	"updateDate": "2023-01-18T18:22:50.340Z",
+	"updateDate": "2023-03-01T21:27:39.237Z",
 	"submissionId": 1491257,
 	"submissionAvailabilityCode": "UPDATED",
-	"lastEvaluatedDate": "2022-03-08T06:37:00.000Z"
+	"lastEvaluatedDate": "2023-03-01T16:26:04.566Z"
 }
