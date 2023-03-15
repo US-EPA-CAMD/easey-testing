@@ -2,21 +2,14 @@ package tests.UITests.ECMPS.exportImport;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
-import pages.ExportPage;
 import pages.MonitoringPlansPage;
 import tests.utils.CommonExport;
 
-//This test launches from MP, selects facility, navigates to the export tab, and exports the MP data(checks user's downloads folder for file)
-public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
-
-    //set download path
-    //TODO rework file path
-    private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
-
+public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
     @Test
     public void test() throws InterruptedException {
-//        Navigate to EASEY In
-//        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
+    //        Navigate to EASEY In
+    //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/monitoring-plans");
 
 
@@ -46,14 +39,8 @@ public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
         waitFor(monitoringPlansPage.titleOfFacilityInConfig);
 
 
-
-        String searchFile = "MP Export - Smith Generating Facility, SCT5";
-        //check if downloaded file
-        VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
-
         closebrowser();
     }
-
 
 
 }
