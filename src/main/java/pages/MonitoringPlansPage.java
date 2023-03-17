@@ -733,6 +733,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(id = "Export")
     public WebElement export;
 
+    //button[contains(text(),'Export Data')]
+    @FindBy (xpath ="//button[contains(text(),'Export Data')]")
+    public WebElement exportBTN ;
+
     @FindBy (xpath ="//a[@id='Export']")
     public WebElement exportTab ;
 
@@ -762,9 +766,40 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath = "//h4[contains(text(),'Success')]")
     public WebElement successMessage ;
 
+    //select[@id='Sections']
+    @FindBy (xpath = "//select[@id='Sections']")
+    public WebElement sectionsDropDown ;
+
+    @FindBy (xpath = "//option[contains(text(),'Formulas')]")
+    public WebElement formulaOption ;
 
 
+    @FindBy (xpath = "//option[contains(text(),'Loads')]")
+    public WebElement loadsOption;
 
+    @FindBy (xpath = "//option[contains(text(),'Location Attributes and Relationships')]")
+    public WebElement locationAttributesOption;
+
+    @FindBy (xpath = "//option[contains(text(),'Methods')]")
+    public WebElement methodsOption;
+
+    @FindBy (xpath = "//option[contains(text(),'Qualifications')]")
+    public WebElement qualificationsOption;
+
+    @FindBy (xpath = "//option[contains(text(),'Rectangular Duct WAFs')]")
+    public WebElement rectangularDuctWAFSOption;
+
+    @FindBy (xpath = "//option[contains(text(),'Spans')]")
+    public WebElement spansOption;
+
+    @FindBy (xpath = "//option[contains(text(),'Systems')]")
+    public WebElement systemsOption;
+
+    @FindBy (xpath = "//option[contains(text(),'Unit Information')]")
+    public WebElement unitInformationOption;
+
+    @FindBy(css = "select[id='Formulas'] > option")
+    public List<WebElement> formulaOptionDropdown;
 
 
 
