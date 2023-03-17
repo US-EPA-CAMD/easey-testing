@@ -6,10 +6,12 @@ Automated test scripts for EASEY applications
 
 ## Dependencies 
 These languages, programs, and applications are necessary for the installation and use of the EASEY-testing REPO 
-1. Java 8
+1. Java 11
 2. Maven
 3. ChromeDriver (Placed in directory, see below)
 4. IntelliJ (IDE, good starting port) 
+
+Maven 3.8.5 - Ensure Chrome and ChromeDriver are the same version by suing the latest release for both.
 
 ## Getting Started 
 
