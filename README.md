@@ -11,7 +11,7 @@ These languages, programs, and applications are necessary for the installation a
 3. ChromeDriver (Placed in directory, see below)
 4. IntelliJ (IDE, good starting port) 
 
-Maven 3.8.5 - Ensure Chrome and ChromeDriver are the same version by suing the latest release for both.
+Maven 3.8.5 - Ensure Chrome and ChromeDriver are the same version by using the latest release for both.
 
 ## Getting Started 
 
