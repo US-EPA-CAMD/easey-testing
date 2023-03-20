@@ -60,27 +60,6 @@ public class CommonExport extends UiReusableComponents {
         }
 
     }
-    public void VerifyDownloadWithFileExtension(String fileDownloadpath, String searchFile){
-        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download.default_directory",  fileDownloadpath);
-        ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("prefs", chromePrefs);
-
-        File getLatestFile = getLatestFileFromDir(fileDownloadpath);
-        String fileName = getLatestFile.getName();
-
-        Format f = new SimpleDateFormat("(MM-dd-yyyy)");
-        String currentDate = f.format(new Date());
-        //Look for the file in the files
-        if(fileName.equalsIgnoreCase(searchFile +"("+currentDate+").json")){
-            System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
-
-        } else{System.out.println( "Downloaded file name is not matching with expected file name");}
-
-        getLatestFile.deleteOnExit();
-
-
-    }
 
 
 
