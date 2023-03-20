@@ -50,7 +50,29 @@ public class CommonExport extends UiReusableComponents {
         Format f = new SimpleDateFormat("(MM-dd-yyyy)");
         String currentDate = f.format(new Date());
         //if file name = fileName print success
-        if(("MP Export - Smith Generating Facility, SCT5 "+"("+currentDate+").json").equalsIgnoreCase(fileName)){
+        if((searchFileName + "(" + currentDate + ").json").equalsIgnoreCase(fileName)){
+            System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
+            getLatestFile.deleteOnExit();
+
+        } else{
+            System.out.println(fileName);
+            System.out.println( "Downloaded file");
+        }
+
+    }
+
+    ///FOR FILES DOWNLOADED WITH CURRENT DATE
+    public void VerifyDownloadnoDATE(String fileDownloadpath, String searchFileName){
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("download.default_directory", fileDownloadpath);
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", chromePrefs);
+
+        File getLatestFile = getLatestFileFromDir(fileDownloadpath);
+        String fileName = getLatestFile.getName();
+
+        //if file name = fileName print success
+        if((searchFileName).equalsIgnoreCase(fileName)){
             System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
             getLatestFile.deleteOnExit();
 
