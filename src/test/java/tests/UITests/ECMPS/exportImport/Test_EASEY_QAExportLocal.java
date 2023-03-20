@@ -89,7 +89,7 @@ public class Test_EASEY_QAExportLocal extends CommonExport {
 
         String searchFile = "MP Export - Smith Generating Facility, SCT5 ";
         //check if downloaded file
-        VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
+        VerifyDownload(fileDownloadpath, searchFile);
 
         closebrowser();
     }

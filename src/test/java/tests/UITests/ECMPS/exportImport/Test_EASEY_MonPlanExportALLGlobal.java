@@ -6,6 +6,9 @@ import pages.MonitoringPlansPage;
 import tests.utils.CommonExport;
 
 public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
+
+    private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
+
     @Test
     public void test() throws InterruptedException {
     //        Navigate to EASEY In
@@ -74,6 +77,8 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.locationAttributesOption);
 
+        waitFor(monitoringPlansPage.exportBTN);
+
         click(monitoringPlansPage.exportBTN);
 
         //methods
@@ -83,6 +88,8 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.methodsOption);
 
+        waitFor(monitoringPlansPage.exportBTN);
+
         click(monitoringPlansPage.exportBTN);
         //Qualifications
         click(monitoringPlansPage.sectionsDropdown);
@@ -91,6 +98,8 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.qualificationsOption);
 
+        waitFor(monitoringPlansPage.exportBTN);
+
         click(monitoringPlansPage.exportBTN);
         //rectangular duct wafs
         click(monitoringPlansPage.sectionsDropdown);
@@ -98,6 +107,8 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
         waitFor(monitoringPlansPage.rectangularDuctWAFSOption);
 
         click(monitoringPlansPage.rectangularDuctWAFSOption);
+
+        waitFor(monitoringPlansPage.exportBTN);
 
         click(monitoringPlansPage.exportBTN);
 
@@ -108,6 +119,8 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.spansOption);
 
+        waitFor(monitoringPlansPage.exportBTN);
+
         click(monitoringPlansPage.exportBTN);
 
         //systems
@@ -117,6 +130,8 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.systemsOption);
 
+        waitFor(monitoringPlansPage.exportBTN);
+
         click(monitoringPlansPage.exportBTN);
         //unit info
         click(monitoringPlansPage.sectionsDropdown);
@@ -125,7 +140,14 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.unitInformationOption);
 
+        waitFor(monitoringPlansPage.exportBTN);
+
         click(monitoringPlansPage.exportBTN);
+
+        String searchFile = "MP Export - Smith Generating Facility, SCT1 ";
+        //check if downloaded file
+        VerifyDownload(fileDownloadpath, searchFile);
+
 
 
         closebrowser();

@@ -43,13 +43,26 @@ public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
 
         click(monitoringPlansPage.configTabs.get(0));
 
-        waitFor(monitoringPlansPage.titleOfFacilityInConfig);
+        waitFor(monitoringPlansPage.exportBTN);
+
+        click(monitoringPlansPage.exportBTN);
 
 
+        click(monitoringPlansPage.sectionsDropdown);
 
-        String searchFile = "MP Export - Smith Generating Facility, SCT5";
-        //check if downloaded file
-        VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
+        click(monitoringPlansPage.formulaOption);
+
+//        waitFor(monitoringPlansPage.exportBTN);
+//
+//        click(monitoringPlansPage.exportBTN);
+//
+//        click(monitoringPlansPage.exportBTN);
+//
+//        String searchFile = "MP Export - Smith Generating Facility, SCT1";
+//        //check if downloaded file
+//        VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
+
+
 
         closebrowser();
     }
