@@ -22,11 +22,9 @@ public class EmissionsPage extends MonitoringPlansPage {
     public WebElement emissionsExportButton ;
 
     //select[@id='viewtemplate']
-    @FindBy (id = "ViewTemplate")
+    @FindBy (id = "viewtemplate")
     public WebElement viewTemplateDropdown;
 
-    @FindBy(css = "select[id='View Template'] > option")
-    public WebElement viewTemplateDropDown;
 
     //VIEW TEMPLATE DROPDOWN OPTIONS
 

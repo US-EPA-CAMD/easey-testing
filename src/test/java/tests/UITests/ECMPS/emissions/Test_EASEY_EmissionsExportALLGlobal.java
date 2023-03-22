@@ -43,7 +43,7 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //heat input
-        click(emissionsPage.viewTemplateDropDown);
+        click(emissionsPage.viewTemplateDropdown);
 
         waitFor(emissionsPage.hourlyHeatOption);
 
