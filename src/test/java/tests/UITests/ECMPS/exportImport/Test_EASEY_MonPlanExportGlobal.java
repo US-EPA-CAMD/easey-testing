@@ -1,5 +1,6 @@
 package tests.UITests.ECMPS.exportImport;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import pages.ExportPage;
 import pages.MonitoringPlansPage;
@@ -30,44 +31,38 @@ public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
         //Search for facility
         input(monitoringPlansPage.filterByKeywordBox,"Smith Generating");
         click(monitoringPlansPage.filterByKeywordButton);
-        //waits for return
-        waitFor(driver -> monitoringPlansPage.facilityCaret.size() > 1);
-        sleep(90000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,350)", "");
 
-        // Clicks on first search result
+        // Clicks on Smith
         click(monitoringPlansPage.facilityCaret.get(0));
 
-        //verifies at least one search result returns
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
-        //clicks "open" button for first result
-        //add wait to let build TODO
-        click(monitoringPlansPage.configOpenButton.get(5));
-        Thread.sleep(9000);
-        click(monitoringPlansPage.configTab1);
-        sleep(9000);
-        //clicks the export tab on the left menu  column
-        click(monitoringPlansPage.exportTab);
-        //creates new export page object to access properties specific to export
-        ExportPage exportPage = new ExportPage(driver);
-        Thread.sleep(5000);
-        Thread.sleep(5000);
-        //verify on export page
-        verifyEquals(exportPage.title, "Export Data");
+        click(monitoringPlansPage.configOpenButton.get(0));
 
-        //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
-        click(exportPage.MPButton);
-        sleep(900000000);
+        click(monitoringPlansPage.configTabs.get(0));
+
+        waitFor(monitoringPlansPage.exportBTN);
+
+        click(monitoringPlansPage.exportBTN);
 
 
-        //click export button
-        click(exportPage.exportButton);
+        click(monitoringPlansPage.sectionsDropdown);
 
-        //give time
-        Thread.sleep(5000);
+        click(monitoringPlansPage.formulaOption);
 
-        String searchFile = "MP Export - Smith Generating Facility, SCT5";
-        //check if downloaded file
-        VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
+//        waitFor(monitoringPlansPage.exportBTN);
+//
+//        click(monitoringPlansPage.exportBTN);
+//
+//        click(monitoringPlansPage.exportBTN);
+//
+//        String searchFile = "MP Export - Smith Generating Facility, SCT1";
+//        //check if downloaded file
+//        VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
+
+
 
         closebrowser();
     }

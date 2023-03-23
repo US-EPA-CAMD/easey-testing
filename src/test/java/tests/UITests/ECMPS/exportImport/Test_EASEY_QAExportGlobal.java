@@ -65,7 +65,7 @@ public class Test_EASEY_QAExportGlobal extends CommonExport {
 
         String searchFile = "QA & Certification _ Export - Smith Generating Facility (SCT5)";
         //check if downloaded file
-        VerifyDownloadWithFileExtension(fileDownloadpath, searchFile);
+        VerifyDownload(fileDownloadpath, searchFile);
 
         closebrowser();
     }
