@@ -762,7 +762,8 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath = "//h4[contains(text(),'Success')]")
     public WebElement successMessage ;
 
-
+    @FindBy (id = "okBtn")
+    public WebElement okButton ;
 
 
 

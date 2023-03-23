@@ -1,7 +1,9 @@
 package tests.UITests.ECMPS.exportImport;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.CommonExport;
@@ -11,9 +13,10 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
-    private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
-    private static String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
-
+//    private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
+//    private static String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
+    private static String username = System.getenv("MOSES_TESTING_USERNAME");
+    private static String password = System.getenv("MOSES_TESTING_PASSWORD");
 
     @Test
     public void test() throws InterruptedException {
@@ -21,6 +24,7 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/monitoring-plans");
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
         //wait for page to load, verify page is MP
         waitFor(monitoringPlansPage.title);
@@ -62,9 +66,10 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         //verifies at least one search result returns
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         //clicks "open" button for first result
+        js.executeScript("arguments[0].scrollIntoView(true);",
+                monitoringPlansPage.configOpenButton.get(5));
         click(monitoringPlansPage.configOpenButton.get(5));
-        Thread.sleep(9000);
-
+        Thread.sleep(3000);
 
         // Clicks on Smith Tab
         //configTabSmith
@@ -81,7 +86,7 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
 
         //click(monitoringPlansPage.uploadFileChoiceButton);
         WebElement upload_file = driver.findElement(By.xpath("//input[@id='file-input-single']"));
-        upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\monPlan\\exportimport\\files\\upload.json");
+        upload_file.sendKeys("C:\\Users\\mosesdee\\IdeaProjects\\easey-testing\\src\\test\\java\\tests\\UITests\\ECMPS\\exportImport\\files\\upload.json");
         //wait for import button to show
         waitFor(monitoringPlansPage.importSubmitBTN);
         //click import button
@@ -96,14 +101,18 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         }else{
             System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
         }
-        //TODO revert to offical call
 
-        //click ok
-        click(monitoringPlansPage.okBTN);
-        //wait for checkin button
-        waitFor(monitoringPlansPage.checkInBTN);
-        //click checkin
-        click(monitoringPlansPage.checkInBTN);
-        closebrowser();
+        waitFor(monitoringPlansPage.okButton);
+        click(monitoringPlansPage.okButton);
+
+        // Revert starts here
+        revertToOfficial();
+
+    }
+    @Override
+    @AfterMethod
+    public void afterMethod() {
+        logOutMethod();
+        super.afterMethod();
     }
 }
