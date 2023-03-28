@@ -13,8 +13,8 @@ public class Test_ECMPSUI_SMK_LogIn_and_LogOut extends UiReusableComponents {
 
     @Test()
     public void tests() {
-        String username = System.getenv("MOSES_TESTING_USERNAME");
-        String password = System.getenv("MOSES_TESTING_PASSWORD");
+        String username = System.getenv("TESTING_USERNAME");
+        String password = System.getenv("TESTING_PASSWORD");
 
         //Navigate to EASEY In
         //https://ecmps-dev.app.cloud.gov/monitoring-plans
