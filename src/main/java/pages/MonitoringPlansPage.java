@@ -58,8 +58,11 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy(css = "select[data-testid='Locations'] > option")
     public List<WebElement> location;
 
-    @FindBy (id = "Sections")
+    @FindBy (id = "sections")
     public WebElement sectionsDropdown;
+
+    @FindBy (id = "sections")
+    public List<WebElement> sectionsDropdownlist;
 
     @FindBy (css = "option[data-testid='Methods']")
     public WebElement monitoringMethods;

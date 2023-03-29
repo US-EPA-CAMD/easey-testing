@@ -10,8 +10,8 @@ public class Test_EASEY_MonPlanExportLocal extends CommonExport {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
-    private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
-    private static String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
+    private static String username = System.getenv("TESTING_USERNAME");
+    private static String password = System.getenv("TESTING_PASSWORD");
 
     @Test()
     public void tests() throws InterruptedException {
