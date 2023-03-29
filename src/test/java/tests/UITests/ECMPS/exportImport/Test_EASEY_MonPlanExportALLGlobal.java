@@ -53,16 +53,22 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         //formula
 
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.sectionsDropDown);
+
+        click(monitoringPlansPage.sectionsDropDown);
 
         waitFor(monitoringPlansPage.formulaOption);
 
         click(monitoringPlansPage.formulaOption);
 
+//        click(monitoringPlansPage.sectionsDropdownlist.get(0));
+
         click(monitoringPlansPage.exportBTN);
 
         //loads
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.sectionsDropDown);
+
+        click(monitoringPlansPage.sectionsDropDown);
 
         waitFor(monitoringPlansPage.formulaOption);
 
@@ -71,7 +77,9 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
         click(monitoringPlansPage.exportBTN);
 
         //location attributes
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.sectionsDropDown);
+
+        click(monitoringPlansPage.sectionsDropDown);
 
         waitFor(monitoringPlansPage.locationAttributesOption);
 
@@ -82,7 +90,9 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
         click(monitoringPlansPage.exportBTN);
 
         //methods
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.sectionsDropDown);
+
+        click(monitoringPlansPage.sectionsDropDown);
 
         waitFor(monitoringPlansPage.methodsOption);
 
@@ -92,7 +102,9 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.exportBTN);
         //Qualifications
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.sectionsDropDown);
+
+        click(monitoringPlansPage.sectionsDropDown);
 
         waitFor(monitoringPlansPage.qualificationsOption);
 
@@ -102,7 +114,9 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.exportBTN);
         //rectangular duct wafs
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.sectionsDropDown);
+
+        click(monitoringPlansPage.sectionsDropDown);
 
         waitFor(monitoringPlansPage.rectangularDuctWAFSOption);
 
@@ -113,7 +127,9 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
         click(monitoringPlansPage.exportBTN);
 
         //spans
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.sectionsDropDown);
+
+        click(monitoringPlansPage.sectionsDropDown);
 
         waitFor(monitoringPlansPage.spansOption);
 
@@ -124,7 +140,9 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
         click(monitoringPlansPage.exportBTN);
 
         //systems
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.sectionsDropDown);
+
+        click(monitoringPlansPage.sectionsDropDown);
 
         waitFor(monitoringPlansPage.systemsOption);
 
@@ -134,7 +152,9 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.exportBTN);
         //unit info
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.sectionsDropDown);
+
+        click(monitoringPlansPage.sectionsDropDown);
 
         waitFor(monitoringPlansPage.unitInformationOption);
 
