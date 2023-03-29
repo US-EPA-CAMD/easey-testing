@@ -9,8 +9,8 @@ import tests.utils.CommonExport;
 
 public class Test_EASEY_QaLinearityCreateLocal extends CommonExport {
 
-    private static String username = System.getenv("MACKENZIE_TESTING_USERNAME");
-    private static String password = System.getenv("MACKENZIE_TESTING_PASSWORD");
+    private static String username = System.getenv("TESTING_USERNAME");
+    private static String password = System.getenv("TESTING_PASSWORD");
 
     //This test will log in, select facility(Smith), select "Linearity Summary" from Test Type, and make modal selections to add a record
     @Test
