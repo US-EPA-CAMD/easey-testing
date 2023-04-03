@@ -22,7 +22,7 @@ public class EmissionsPage extends MonitoringPlansPage {
     public WebElement emissionsExportButton ;
 
     //select[@id='viewtemplate']
-    @FindBy (id = "viewtemplate")
+    @FindBy (xpath ="//select[@id='viewtemplate']")
     public WebElement viewTemplateDropdown;
 
 
@@ -47,6 +47,90 @@ public class EmissionsPage extends MonitoringPlansPage {
     //option[contains(text(),'Hourly CO2 CEMS View')]
     @FindBy (xpath = "//option[contains(text(),'Hourly CO2 CEMS View')]")
     public WebElement hourlyCO2cemsOption;
+
+    //option[contains(text(),'Heat Input for Unit/Stack View')]
+    @FindBy (xpath = "//option[contains(text(),'Heat Input for Unit/Stack View')]")
+    public WebElement heatInputOption;
+
+    //option[contains(text(),'Hourly Heat Input Appendix D View')]
+    @FindBy (xpath = "//option[contains(text(),'Hourly Heat Input Appendix D View')]")
+    public WebElement hourlyHeatInputOption;
+
+    //option[contains(text(),'Hourly SO2 Appendix D View')]
+    @FindBy (xpath = "//option[contains(text(),'Hourly SO2 Appendix D View')]")
+    public WebElement hourlyS02AppendixOption;
+
+    //option[contains(text(),'Hourly CO2 Appendix D View')]
+    @FindBy (xpath = " //option[contains(text(),'Hourly CO2 Appendix D View')]")
+    public WebElement hourlyC02AppendixOption;
+
+    //option[contains(text(),'NOX Appendix E Individual Fuel Curve View')]
+    @FindBy (xpath = " //option[contains(text(),'NOX Appendix E Individual Fuel Curve View')]")
+    public WebElement hourlyNOxAppendixOption;
+
+    //option[contains(text(),'Unit Level Fuel Curve View')]
+    @FindBy (xpath = " //option[contains(text(),'Unit Level Fuel Curve View')]")
+    public WebElement unitLevelFuelCurveOption;
+
+    //option[contains(text(),'Daily Calibration View')]
+    @FindBy (xpath = "//option[contains(text(),'Daily Calibration View')]")
+    public WebElement dailyCalibrationOption;
+
+    //option[contains(text(),'Other Daily Tests View')]
+    @FindBy (xpath = "//option[contains(text(),'Other Daily Tests View')]")
+    public WebElement otherDailyTestsOption;
+
+    //option[contains(text(),'MATS HG View')]
+    @FindBy (xpath = "//option[contains(text(),'MATS HG View')]")
+    public WebElement matsHGOption;
+
+    //option[contains(text(),'MATS HCL View')]
+    @FindBy (xpath = "//option[contains(text(),'MATS HCL View')]")
+    public WebElement matsHCLOption;
+
+    //option[contains(text(),'MATS HF View')]
+    @FindBy (xpath = "//option[contains(text(),'MATS HF View')]")
+    public WebElement matsHFOption;
+
+    //option[contains(text(),'MATS SO2 View')]
+    @FindBy (xpath = "//option[contains(text(),'MATS SO2 View')]")
+    public WebElement matsSO2Option;
+
+    //option[contains(text(),'MATS weekly View')]
+    @FindBy (xpath = "//option[contains(text(),'MATS weekly View')]")
+    public WebElement matsWeeklyOption;
+
+    //option[contains(text(),'MATS Sorbent View')]
+    @FindBy (xpath = "//option[contains(text(),'MATS Sorbent View')]")
+    public WebElement matsSorbentOption;
+
+    //option[contains(text(),'Moisture View')]
+    @FindBy (xpath = "//option[contains(text(),'Moisture View')]")
+    public WebElement moistureOption;
+
+    //option[contains(text(),'CO2 Daily Fuel Sampling View')]
+    @FindBy (xpath = "//option[contains(text(),'CO2 Daily Fuel Sampling View')]")
+    public WebElement co2DailyFuelOption;
+
+    //option[contains(text(),'Long Term Fuel Flow View')]
+    @FindBy (xpath = "//option[contains(text(),'Long Term Fuel Flow View')]")
+    public WebElement longTermFuelFlowOption;
+
+    //option[contains(text(),'LME View')]
+    @FindBy (xpath = "//option[contains(text(),'LME View')]")
+    public WebElement lmeOption;
+
+    //option[contains(text(),'CO2 Calculation')]
+    @FindBy (xpath = "//option[contains(text(),'CO2 Calculation')]")
+    public WebElement co2CalculationOption;
+
+    //option[contains(text(),'Mass Oil Calculation View')]
+    @FindBy (xpath = "//option[contains(text(),'Mass Oil Calculation View')]")
+    public WebElement massOilCalculationOption;
+
+    //option[contains(text(),'NSPS4T Summary View')]
+    @FindBy (xpath = "//option[contains(text(),'NSPS4T Summary View')]")
+    public WebElement nsps4tSummaryOption;
 
 
 }

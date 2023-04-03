@@ -97,6 +97,231 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
 
         click(emissionsPage.exportBTN);
 
+        //heat input
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.heatInputOption);
+
+        click(emissionsPage.heatInputOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //hourly heat input
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.hourlyHeatInputOption);
+
+        click(emissionsPage.hourlyHeatInputOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //hourly so2 appendix
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.hourlyS02AppendixOption);
+
+        click(emissionsPage.hourlyS02AppendixOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //hourly co2 appendix
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.hourlyC02AppendixOption);
+
+        click(emissionsPage.hourlyC02AppendixOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //hourly nox appendix
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.hourlyNOxAppendixOption);
+
+        click(emissionsPage.hourlyNOxAppendixOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //unit level fuel curve
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.unitLevelFuelCurveOption);
+
+        click(emissionsPage.unitLevelFuelCurveOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //daily calibration
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.dailyCalibrationOption);
+
+        click(emissionsPage.dailyCalibrationOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //other daily tests
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.otherDailyTestsOption);
+
+        click(emissionsPage.otherDailyTestsOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //mats hcl
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.matsHCLOption);
+
+        click(emissionsPage.matsHCLOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //mats hf
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.matsHFOption);
+
+        click(emissionsPage.matsHFOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //mats so2
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.matsSO2Option);
+
+        click(emissionsPage.matsSO2Option);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //mats weekly
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.matsWeeklyOption);
+
+        click(emissionsPage.matsWeeklyOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //mats sorbent
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.matsSorbentOption);
+
+        click(emissionsPage.matsSorbentOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //moisture
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.moistureOption);
+
+        click(emissionsPage.moistureOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //co2 daily fuel
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.co2DailyFuelOption);
+
+        click(emissionsPage.co2DailyFuelOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //long term fuel flow
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.longTermFuelFlowOption);
+
+        click(emissionsPage.longTermFuelFlowOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //lme
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.lmeOption);
+
+        click(emissionsPage.lmeOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //co2 calculation
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.co2CalculationOption);
+
+        click(emissionsPage.co2CalculationOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //mass oil calculation
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.massOilCalculationOption);
+
+        click(emissionsPage.massOilCalculationOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+        //nsps4t
+        click(emissionsPage.viewTemplateDropdown);
+
+        waitFor(emissionsPage.nsps4tSummaryOption);
+
+        click(emissionsPage.nsps4tSummaryOption);
+
+        waitFor(emissionsPage.exportBTN);
+
+        click(emissionsPage.exportBTN);
+
+
+
+        //check and close out
+
+
         String searchFile = "Emissions _ Export - Smith Generating Facility (SCT1) ";
         //check if downloaded file
         VerifyDownloadnoDATE(fileDownloadpath, searchFile);
