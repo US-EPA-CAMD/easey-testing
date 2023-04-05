@@ -10,7 +10,7 @@ public class QaCertificationPage extends MonitoringPlansPage {
 
     public QaCertificationPage(WebDriver driver) { super(driver); }
 
-    @FindBy(css = "h2[epa-testid='QACertificationsTestDataTitle']")
+    @FindBy(xpath = "//h2[contains(text(),'QA Certifications Test Data')]")
     public WebElement title;
 
     @FindBy (xpath = "//tbody/tr[1]/td[2]/form[1]/input[1]")

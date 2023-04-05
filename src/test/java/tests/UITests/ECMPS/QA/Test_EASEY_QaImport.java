@@ -40,21 +40,25 @@ public class Test_EASEY_QaImport extends CommonExport {
         //verify log in btn is visible and click log in
         verifyEquals(qaCertificationPage.logInButtonSubmit, "Log In");
         click(qaCertificationPage.logInButtonSubmit);
+
+        waitFor(driver -> !isDisplayed(qaCertificationPage.logInButtonSubmit));
+
         //wait for log in to complete
-        waitFor(qaCertificationPage.dashWorkspace);
-        verifyEquals(qaCertificationPage.dashWorkspace, "Workspace");
-        //verify logged in and page is MP
-        verifyEquals(qaCertificationPage.workspaceMonPlan, "Monitoring Plans");
-        click(qaCertificationPage.workspaceMonPlan);
-        //verify the page is MP
+        waitFor(qaCertificationPage.title);
+
+        //verify the page is QA
         verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
+
         //wait for search bar to be visible
         waitFor(qaCertificationPage.filterByKeywordBox);
 
         //Search for facility
         input(qaCertificationPage.filterByKeywordBox,"Smith Generating");
+
+        waitFor(qaCertificationPage.filterByKeywordButton);
         click(qaCertificationPage.filterByKeywordButton);
 
+        waitFor(qaCertificationPage.facilityCaret);
         // Clicks on first search result
         click(qaCertificationPage.facilityCaret.get(0));
 
@@ -64,12 +68,12 @@ public class Test_EASEY_QaImport extends CommonExport {
         //verifies at least one search result returns
         verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
         //clicks "open" button for first result
-        click(qaCertificationPage.configOpenButton.get(1));
-        waitFor(qaCertificationPage.configTabSmith);
+        click(qaCertificationPage.configOpenButton.get(0));
+        waitFor(qaCertificationPage.configTab1);
 
         // Clicks on Smith Tab
         //configTabSmith
-        click(qaCertificationPage.configTabSmith);
+        click(qaCertificationPage.configTab1);
         //waits for checkout btn
         waitFor(qaCertificationPage.checkOutBTN);
         //click checkout button
@@ -97,7 +101,7 @@ public class Test_EASEY_QaImport extends CommonExport {
         }else{
             System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
         }
-        //TODO revert to offical call
+        //TODO revert to official call
 
         //click ok
         click(qaCertificationPage.okBTN);
