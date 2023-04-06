@@ -223,4 +223,15 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//*[@id='expandRowRATA-SummaryM1']")
     public WebElement expandRataDataRow;
 
+    //button[@id='importSelectionQAModal']
+    @FindBy(xpath = "//button[@id='importSelectionQAModal']")
+    public WebElement importBTNQA;
+
+    //button[@id='importBtn']
+    @FindBy(xpath = "//button[@id='importBtn']")
+    public WebElement continueBTN;
+
+    //input[@id='file-input-single']
+    @FindBy(xpath = "//input[@id='file-input-single']")
+    public WebElement inputLink;
 }

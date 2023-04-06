@@ -74,19 +74,22 @@ public class Test_EASEY_QaImport extends CommonExport {
         // Clicks on Smith Tab
         //configTabSmith
         click(qaCertificationPage.configTab1);
-        //waits for checkout btn
+
         waitFor(qaCertificationPage.checkOutBTN);
-        //click checkout button
         click(qaCertificationPage.checkOutBTN);
-        //waits for both check in btn and import btn to be visible
-        waitFor(qaCertificationPage.checkInBTN);
-        waitFor(qaCertificationPage.importButton);
+
+        waitFor(qaCertificationPage.importBTNQA);
         //clicks import button
-        click(qaCertificationPage.importButton);
+        click(qaCertificationPage.importBTNQA);
 
         //click(monitoringPlansPage.uploadFileChoiceButton);
-        WebElement upload_file = driver.findElement(By.xpath("//input[@id='file-input-single']"));
-        upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\monPlan\\exportimport\\files\\upload.json");
+        WebElement upload_file = driver.findElement(By.xpath("//option[contains(text(),'Import from File')]"));
+
+        click(qaCertificationPage.continueBTN);
+
+        waitFor(qaCertificationPage.inputLink);
+
+        upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\QA\\files\\upload.json");
         //wait for import button to show
         waitFor(qaCertificationPage.importSubmitBTN);
         //click import button
