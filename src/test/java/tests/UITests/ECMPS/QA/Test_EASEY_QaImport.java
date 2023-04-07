@@ -7,7 +7,7 @@ import pages.MonitoringPlansPage;
 import pages.QaCertificationPage;
 import tests.utils.CommonExport;
 
-//This test launches from MP, logs in, selects facility, and uploads a file (only for Smith Generating 5)
+//This test launches from QA, logs in, selects facility, and uploads a file (only for Smith Generating 1)
 public class Test_EASEY_QaImport extends CommonExport {
     //set download path
     //TODO rework file path
