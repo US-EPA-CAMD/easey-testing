@@ -16,6 +16,7 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
     private static String username = System.getenv("TESTING_USERNAME");
     private static String password = System.getenv("TESTING_PASSWORD");
 
+
     @Test
     public void test() throws InterruptedException {
         // Navigate to EASEY In
@@ -101,6 +102,7 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         }else{
             System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
         }
+
 
         waitFor(monitoringPlansPage.okButton);
         click(monitoringPlansPage.okButton);

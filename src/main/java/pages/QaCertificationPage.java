@@ -10,7 +10,7 @@ public class QaCertificationPage extends MonitoringPlansPage {
 
     public QaCertificationPage(WebDriver driver) { super(driver); }
 
-    @FindBy(css = "h2[epa-testid='QACertificationsTestDataTitle']")
+    @FindBy(xpath = "//h2[contains(text(),'QA Certifications Test Data')]")
     public WebElement title;
 
     @FindBy (xpath = "//tbody/tr[1]/td[2]/form[1]/input[1]")
@@ -223,4 +223,15 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//*[@id='expandRowRATA-SummaryM1']")
     public WebElement expandRataDataRow;
 
+    //button[@id='importSelectionQAModal']
+    @FindBy(xpath = "//button[@id='importSelectionQAModal']")
+    public WebElement importBTNQA;
+
+    //button[@id='importBtn']
+    @FindBy(xpath = "//button[@id='importBtn']")
+    public WebElement continueBTN;
+
+    //input[@id='file-input-single']
+    @FindBy(xpath = "//input[@id='file-input-single']")
+    public WebElement inputLink;
 }
