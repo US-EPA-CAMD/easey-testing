@@ -13,6 +13,9 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//h2[contains(text(),'QA Certifications Test Data')]")
     public WebElement title;
 
+    @FindBy(xpath = "//h2[contains(text(),'QA Cert Event Data & Test Extension Exemption Data')]")
+    public WebElement teeTitle;
+
     @FindBy (xpath = "//tbody/tr[1]/td[2]/form[1]/input[1]")
     public WebElement filterByKeywordBoxQa;
 

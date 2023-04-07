@@ -3,12 +3,11 @@ package tests.UITests.ECMPS.QA;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import pages.MonitoringPlansPage;
 import pages.QaCertificationPage;
 import tests.utils.CommonExport;
 
-//This test launches from QA, logs in, selects facility, and uploads a file (only for Smith Generating 1)
-public class Test_EASEY_QaImport extends CommonExport {
+//This test launches from QA [certs event data & test extension exemption data], logs in, selects facility, and uploads a file (only for Smith Generating 1)
+public class Test_EASEY_QaImportTEE extends CommonExport {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
@@ -20,12 +19,12 @@ public class Test_EASEY_QaImport extends CommonExport {
     public void test() throws InterruptedException {
         // Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","/qa-test");
+        goToo("ecmps","/qa-cert-event");
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
         //wait for page to load, verify page is MP
-        waitFor(qaCertificationPage.title);
-        verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
+        waitFor(qaCertificationPage.teeTitle);
+        verifyEquals(qaCertificationPage.teeTitle, "QA Cert Event Data & Test Extension Exemption Data");
 
         //open log in modal
         verifyEquals(qaCertificationPage.logInButtonOpenModal, "Log In");
@@ -44,10 +43,10 @@ public class Test_EASEY_QaImport extends CommonExport {
         waitFor(driver -> !isDisplayed(qaCertificationPage.logInButtonSubmit));
 
         //wait for log in to complete
-        waitFor(qaCertificationPage.title);
+        waitFor(qaCertificationPage.teeTitle);
 
         //verify the page is QA
-        verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
+        verifyEquals(qaCertificationPage.teeTitle, "QA Cert Event Data & Test Extension Exemption Data");
 
         //wait for search bar to be visible
         waitFor(qaCertificationPage.filterByKeywordBox);
@@ -118,4 +117,3 @@ public class Test_EASEY_QaImport extends CommonExport {
 
     }
 }
-
