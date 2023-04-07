@@ -89,6 +89,7 @@ public class Test_EASEY_QaImport extends CommonExport {
 
         waitFor(qaCertificationPage.inputLink);
 
+        //TODO FIX file
         upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\QA\\files\\upload.json");
         //wait for import button to show
         waitFor(qaCertificationPage.importSubmitBTN);
@@ -104,17 +105,13 @@ public class Test_EASEY_QaImport extends CommonExport {
         }else{
             System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
         }
-        //TODO revert to official call
 
-        //click ok
-        click(qaCertificationPage.okBTN);
-        //wait for checkin button
-        waitFor(qaCertificationPage.checkInBTN);
-        //click checkin
-        click(qaCertificationPage.checkInBTN);
+
+        revertToOfficial();
+
 
         //closing out
-        logOutMethod();
+//        logOutMethod();
 
 
         closebrowser();
