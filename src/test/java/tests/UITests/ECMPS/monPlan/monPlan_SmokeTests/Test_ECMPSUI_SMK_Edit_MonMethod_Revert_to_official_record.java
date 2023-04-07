@@ -10,8 +10,8 @@ public class Test_ECMPSUI_SMK_Edit_MonMethod_Revert_to_official_record extends U
 
     @Test()
     public void tests() throws InterruptedException {
-        String username = System.getenv("MOSES_TESTING_USERNAME");
-        String password = System.getenv("MOSES_TESTING_PASSWORD");
+        String username = System.getenv("TESTING_USERNAME");
+        String password = System.getenv("TESTING_PASSWORD");
 
         //Navigate to EASEY In
         //https://ecmps-dev.app.cloud.gov/monitoring-plans
