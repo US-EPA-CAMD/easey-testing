@@ -815,5 +815,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath = "//button[contains(text(),'Export Data')]")
     public WebElement emissionsExportButton ;
 
+    @FindBy (id = "okBtn")
+    public WebElement okButton ;
 
 }
