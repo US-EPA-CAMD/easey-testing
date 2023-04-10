@@ -3,12 +3,11 @@ package tests.UITests.ECMPS.QA;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import pages.MonitoringPlansPage;
 import pages.QaCertificationPage;
 import tests.utils.CommonExport;
 
-//This test launches from QA, logs in, selects facility, and uploads a file (only for Smith Generating 1)
-public class Test_EASEY_QaImport extends CommonExport {
+//This test launches from QA [test data], logs in, selects facility, and uploads a file (only for Smith Generating 1)
+public class Test_EASEY_QaImportTestData extends CommonExport {
     //set download path
     //TODO rework file path
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
