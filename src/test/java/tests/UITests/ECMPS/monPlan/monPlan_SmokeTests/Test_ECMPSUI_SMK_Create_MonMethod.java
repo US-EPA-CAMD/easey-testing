@@ -101,7 +101,7 @@ public class Test_ECMPSUI_SMK_Create_MonMethod extends UiReusableComponents {
         waitFor(monitoringPlansPage.createMatsMethodsButton);
         js.executeScript("arguments[0].scrollIntoView(true);",
                 monitoringPlansPage.createMatsMethodsButton);
-        Thread.sleep(3000);
+        Thread.sleep(4000);
 
         int newNumOfMethods = monitoringPlansPage.viewButton.size();
 
