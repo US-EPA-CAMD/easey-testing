@@ -21,12 +21,12 @@ public class EmissionsPage extends MonitoringPlansPage {
     @FindBy (xpath = "//button[contains(text(),'Export Data')]")
     public WebElement emissionsExportButton ;
 
-    //select[@id='viewtemplate']
-    @FindBy (xpath ="//select[@id='viewtemplate']")
-    public WebElement viewTemplateDropdown;
-
 
     //VIEW TEMPLATE DROPDOWN OPTIONS
+
+    //option[contains(text(),'Emissions View Counts')]
+    @FindBy (xpath = "//option[contains(text(),'Emissions View Counts')]")
+    public WebElement emissionsViewCountOption;
 
     //option[contains(text(),'Hourly Heat Input CEMS View')]
     @FindBy (xpath = "//option[contains(text(),'Hourly Heat Input CEMS View')]")
@@ -131,6 +131,8 @@ public class EmissionsPage extends MonitoringPlansPage {
     //option[contains(text(),'NSPS4T Summary View')]
     @FindBy (xpath = "//option[contains(text(),'NSPS4T Summary View')]")
     public WebElement nsps4tSummaryOption;
+
+    ///END View Template dropdown Options
 
 
 }

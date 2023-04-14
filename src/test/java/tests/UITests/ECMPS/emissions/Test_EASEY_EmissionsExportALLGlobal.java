@@ -42,8 +42,15 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
 
         click(emissionsPage.exportBTN);
 
+
+        //TODO: Possible improvement- Add options to an array and loop through them: update in one place
+        // The pattern for cycling through dropdowns is - wait for OptionA, click OptionA, export, wait for OptionA, click OptionB..
+        //This pattern works the dropdown from first to last. After exporting it keeps the option exported. By following the order and
+        //waiting for the previously exported option you don't have to scroll through the dropdown. It works it's way thought the list
+
         //heat input
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.emissionsViewCountOption);
+        click(emissionsPage.emissionsViewCountOption);
 
         waitFor(emissionsPage.hourlyHeatOption);
 
@@ -54,7 +61,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //SO2 cems
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.hourlyHeatOption);
+        click(emissionsPage.emissionsViewCountOption);
 
         waitFor(emissionsPage.hourlySO2Option);
 
@@ -65,7 +73,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //NOx Mass
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.hourlySO2Option);
+        click(emissionsPage.hourlySO2Option);
 
         waitFor(emissionsPage.hourlyNOxOption);
 
@@ -76,7 +85,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //NOx rate
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.hourlyNOxOption);
+        click(emissionsPage.hourlyNOxOption);
 
         waitFor(emissionsPage.hourlyNOxRateOption);
 
@@ -87,7 +97,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //CO2 cems
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.hourlyNOxRateOption);
+        click(emissionsPage.hourlyNOxRateOption);
 
         waitFor(emissionsPage.hourlyCO2cemsOption);
 
@@ -98,7 +109,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //heat input
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.hourlyCO2cemsOption);
+        click(emissionsPage.hourlyCO2cemsOption);
 
         waitFor(emissionsPage.heatInputOption);
 
@@ -109,7 +121,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //hourly heat input
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.heatInputOption);
+        click(emissionsPage.heatInputOption);
 
         waitFor(emissionsPage.hourlyHeatInputOption);
 
@@ -120,7 +133,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //hourly so2 appendix
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.hourlyHeatInputOption);
+        click(emissionsPage.hourlyHeatInputOption);
 
         waitFor(emissionsPage.hourlyS02AppendixOption);
 
@@ -131,7 +145,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //hourly co2 appendix
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.hourlyS02AppendixOption);
+        click(emissionsPage.hourlyS02AppendixOption);
 
         waitFor(emissionsPage.hourlyC02AppendixOption);
 
@@ -142,7 +157,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //hourly nox appendix
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.hourlyC02AppendixOption);
+        click(emissionsPage.hourlyC02AppendixOption);
 
         waitFor(emissionsPage.hourlyNOxAppendixOption);
 
@@ -153,7 +169,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //unit level fuel curve
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.hourlyNOxAppendixOption);
+        click(emissionsPage.hourlyNOxAppendixOption);
 
         waitFor(emissionsPage.unitLevelFuelCurveOption);
 
@@ -164,7 +181,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //daily calibration
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.unitLevelFuelCurveOption);
+        click(emissionsPage.unitLevelFuelCurveOption);
 
         waitFor(emissionsPage.dailyCalibrationOption);
 
@@ -175,7 +193,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //other daily tests
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.dailyCalibrationOption);
+        click(emissionsPage.dailyCalibrationOption);
 
         waitFor(emissionsPage.otherDailyTestsOption);
 
@@ -186,7 +205,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //mats hcl
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.otherDailyTestsOption);
+        click(emissionsPage.otherDailyTestsOption);
 
         waitFor(emissionsPage.matsHCLOption);
 
@@ -197,7 +217,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //mats hf
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.matsHCLOption);
+        click(emissionsPage.matsHCLOption);
 
         waitFor(emissionsPage.matsHFOption);
 
@@ -208,7 +229,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //mats so2
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.matsHFOption);
+        click(emissionsPage.matsHFOption);
 
         waitFor(emissionsPage.matsSO2Option);
 
@@ -219,7 +241,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //mats weekly
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.matsSO2Option);
+        click(emissionsPage.matsSO2Option);
 
         waitFor(emissionsPage.matsWeeklyOption);
 
@@ -230,7 +253,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //mats sorbent
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.matsWeeklyOption);
+        click(emissionsPage.matsWeeklyOption);
 
         waitFor(emissionsPage.matsSorbentOption);
 
@@ -241,7 +265,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //moisture
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.matsSorbentOption);
+        click(emissionsPage.matsSorbentOption);
 
         waitFor(emissionsPage.moistureOption);
 
@@ -252,7 +277,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //co2 daily fuel
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.moistureOption);
+        click(emissionsPage.moistureOption);
 
         waitFor(emissionsPage.co2DailyFuelOption);
 
@@ -263,7 +289,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //long term fuel flow
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.co2DailyFuelOption);
+        click(emissionsPage.co2DailyFuelOption);
 
         waitFor(emissionsPage.longTermFuelFlowOption);
 
@@ -274,7 +301,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //lme
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.longTermFuelFlowOption);
+        click(emissionsPage.longTermFuelFlowOption);
 
         waitFor(emissionsPage.lmeOption);
 
@@ -285,7 +313,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //co2 calculation
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.lmeOption);
+        click(emissionsPage.lmeOption);
 
         waitFor(emissionsPage.co2CalculationOption);
 
@@ -296,7 +325,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //mass oil calculation
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.co2CalculationOption);
+        click(emissionsPage.co2CalculationOption);
 
         waitFor(emissionsPage.massOilCalculationOption);
 
@@ -307,7 +337,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
         click(emissionsPage.exportBTN);
 
         //nsps4t
-        click(emissionsPage.viewTemplateDropdown);
+        waitFor(emissionsPage.massOilCalculationOption);
+        click(emissionsPage.massOilCalculationOption);
 
         waitFor(emissionsPage.nsps4tSummaryOption);
 
