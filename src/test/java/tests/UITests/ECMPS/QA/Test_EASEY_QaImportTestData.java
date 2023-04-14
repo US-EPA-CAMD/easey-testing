@@ -8,9 +8,7 @@ import tests.utils.CommonExport;
 
 //This test launches from QA [test data], logs in, selects facility, and uploads a file (only for Smith Generating 1)
 public class Test_EASEY_QaImportTestData extends CommonExport {
-    //set download path
     //TODO rework file path
-    private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
     private static String username = System.getenv("TESTING_USERNAME");
     private static String password = System.getenv("TESTING_PASSWORD");
 
@@ -22,7 +20,7 @@ public class Test_EASEY_QaImportTestData extends CommonExport {
         goToo("ecmps","/qa-test");
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
-        //wait for page to load, verify page is MP
+        //wait for page to load, verify page is QA
         waitFor(qaCertificationPage.title);
         verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
 
