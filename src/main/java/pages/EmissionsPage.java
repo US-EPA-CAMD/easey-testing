@@ -22,7 +22,6 @@ public class EmissionsPage extends MonitoringPlansPage {
     public WebElement emissionsExportButton ;
 
 
-
     //VIEW TEMPLATE DROPDOWN OPTIONS
 
     //option[contains(text(),'Emissions View Counts')]

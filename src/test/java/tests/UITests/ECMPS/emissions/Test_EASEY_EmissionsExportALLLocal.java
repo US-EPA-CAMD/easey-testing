@@ -42,7 +42,6 @@ public class Test_EASEY_EmissionsExportALLLocal extends CommonExport {
 
         //Search for facility
         input(emissionsPage.filterByKeywordBox,"Smith Generating");
-        waitFor(emissionsPage.filterByKeywordButton);
         click(emissionsPage.filterByKeywordButton);
 
         // Clicks on Smith
