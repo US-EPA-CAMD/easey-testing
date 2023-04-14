@@ -215,6 +215,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "div[data-tag='allowRowEvents'] > div")
     public List <WebElement> locAttributesGroundElevationTableField;
 
+    @FindBy (css = "div[role='cell']:nth-child(10)")
+    public List <WebElement> locAttributesStartDateTableField;
+
     @FindBy (id = "Ground Elevation")
     public WebElement locAttributesGroundElevationModalField;
 
