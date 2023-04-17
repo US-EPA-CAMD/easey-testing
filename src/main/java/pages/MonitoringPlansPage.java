@@ -648,6 +648,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath ="//span[contains(text(),'Filter')]")
     public WebElement filterByKeywordButton;
 
+
     @FindBy (id ="search-data")
     public WebElement filterByKeywordBox;
 

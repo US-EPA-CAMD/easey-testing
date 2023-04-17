@@ -31,6 +31,8 @@ public class Test_EASEY_EmissionsExportALLLocal extends CommonExport {
         verifyEquals(emissionsPage.logInButtonSubmit, "Log In");
         click(emissionsPage.logInButtonSubmit);
 
+        waitFor(driver -> !isDisplayed(emissionsPage.logInButtonSubmit));
+
 
 
         waitFor(emissionsPage.title);
