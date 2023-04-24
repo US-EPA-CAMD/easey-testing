@@ -134,5 +134,12 @@ public class EmissionsPage extends MonitoringPlansPage {
 
     ///END View Template dropdown Options
 
+    //select[@id='emissions-import-type-selector']
+    @FindBy (xpath = "//select[@id='emissions-import-type-selector']")
+    public WebElement importType;
+
+    //option[contains(text(),'Import From File')]
+    @FindBy (xpath = "//option[contains(text(),'Import From File')]")
+    public WebElement importFromFileOption;
 
 }
