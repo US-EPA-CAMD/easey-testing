@@ -19,10 +19,10 @@ public class Test_EASEY_QaImportTEE extends CommonExport {
     public void test() throws InterruptedException {
         // Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","/qa-cert-event");
+        goToo("ecmps","//qa-qce-tee");
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
-        //wait for page to load, verify page is MP
+        //wait for page to load, verify page is Qa TEE
         waitFor(qaCertificationPage.teeTitle);
         verifyEquals(qaCertificationPage.teeTitle, "QA Cert Event Data & Test Extension Exemption Data");
 

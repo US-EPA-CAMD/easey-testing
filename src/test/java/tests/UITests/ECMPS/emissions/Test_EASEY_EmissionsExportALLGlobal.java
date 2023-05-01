@@ -45,8 +45,8 @@ public class Test_EASEY_EmissionsExportALLGlobal extends CommonExport {
 
         //TODO: Possible improvement- Add options to an array and loop through them: update in one place
         // The pattern for cycling through dropdowns is - wait for OptionA, click OptionA, export, wait for OptionA, click OptionB..
-        //This pattern works the dropdown from first to last. After exporting it keeps the option exported. By following the order and
-        //waiting for the previously exported option you don't have to scroll through the dropdown. It works it's way thought the list
+        //This pattern works the dropdown from first to last. After exporting it keeps the last option exported. By following the order and
+        //waiting for the previously exported option you don't have to scroll through the dropdown.
 
         //heat input
         waitFor(emissionsPage.emissionsViewCountOption);
