@@ -22,7 +22,7 @@ public class Test_EASEY_QaImportTEE extends CommonExport {
         goToo("ecmps","//qa-qce-tee");
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
-        //wait for page to load, verify page is MP
+        //wait for page to load, verify page is Qa TEE
         waitFor(qaCertificationPage.teeTitle);
         verifyEquals(qaCertificationPage.teeTitle, "QA Cert Event Data & Test Extension Exemption Data");
 
