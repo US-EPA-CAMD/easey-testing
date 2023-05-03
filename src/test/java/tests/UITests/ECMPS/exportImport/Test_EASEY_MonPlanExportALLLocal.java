@@ -10,35 +10,33 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
     private static String username = System.getenv("TESTING_USERNAME");
     private static String password = System.getenv("TESTING_PASSWORD");
 
+    private static String homeTitle = "About ECMPS 2.0 Beta";
+
+    private static String facilitySearch = "Smith Generating";
+
+    private static String expectedFileName = "MP Export - Smith Generating Facility, SCT1";
 
     @Test
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","/monitoring-plans");
-
-
+        goTo("https://ecmps-dev.app.cloud.gov/");
 
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+
+        waitFor(monitoringPlansPage.homeTitle);
+
+        verifyEquals(monitoringPlansPage.homeTitle, homeTitle);
+
+        click(monitoringPlansPage.monPlanTab);
         //check if page is MP
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        click(monitoringPlansPage.logInButtonOpenModal);
+        //logOn
+        logOn(username,password,monitoringPlansPage);
 
-        verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
-        input(monitoringPlansPage.usernameFieldModal, username);
-
-        verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
-        input(monitoringPlansPage.passwordFieldModal, password);
-
-        verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
-        click(monitoringPlansPage.logInButtonSubmit);
-
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
-
+        //verify on the correct page
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
 

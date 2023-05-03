@@ -767,6 +767,14 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public WebElement importSubmitBTN ;
     //#importBtn
 
+    //h2[contains(text(),'About ECMPS 2.0 Beta')]
+    @FindBy (xpath = "//h2[contains(text(),'About ECMPS 2.0 Beta')]")
+    public WebElement homeTitle ;
+
+    //a[@id='MonitoringPlans']
+    @FindBy (xpath = "//a[@id='MonitoringPlans']")
+    public WebElement monPlanTab;
+
     @FindBy (xpath = "//h4[contains(text(),'Success')]")
     public WebElement successMessage ;
 
