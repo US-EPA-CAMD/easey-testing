@@ -9,23 +9,32 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
 
+    private static String homeTitle = "About ECMPS 2.0 Beta";
+
+    private static String facilitySearch = "Smith Generating";
+
+    private static String expectedFileName = "MP Export - Smith Generating Facility, SCT1";
     @Test
     public void test() throws InterruptedException {
     //        Navigate to EASEY In
     //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","/monitoring-plans");
-
-
+        goTo("https://ecmps-dev.app.cloud.gov/");
 
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
+
+        waitFor(monitoringPlansPage.homeTitle);
+
+        verifyEquals(monitoringPlansPage.homeTitle, homeTitle);
+
+        click(monitoringPlansPage.monPlanTab);
         //check if page is MP
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
         //wait for search bar to load
         waitFor(monitoringPlansPage.filterByKeywordBox);
 
         //Search for facility
-        input(monitoringPlansPage.filterByKeywordBox,"Smith Generating");
+        input(monitoringPlansPage.filterByKeywordBox,facilitySearch);
         click(monitoringPlansPage.filterByKeywordButton);
 
 
@@ -162,9 +171,9 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
 
         click(monitoringPlansPage.exportBTN);
 
-        String searchFile = "MP Export - Smith Generating Facility, SCT1 ";
+
         //check if downloaded file
-        VerifyDownload(fileDownloadpath, searchFile);
+        VerifyDownload(fileDownloadpath, expectedFileName);
 
 
 
