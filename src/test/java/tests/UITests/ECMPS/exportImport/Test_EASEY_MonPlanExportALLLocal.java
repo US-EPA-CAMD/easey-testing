@@ -36,6 +36,7 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
         //logOn
         logOn(username,password,monitoringPlansPage);
 
+
         //verify on the correct page
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
@@ -65,53 +66,13 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
         // Clicks on Smith Tab
         click(monitoringPlansPage.configTab1);
 
-
-        waitFor(monitoringPlansPage.exportBTN);
-
-        click(monitoringPlansPage.exportBTN);
-
-        //formula
-
-        click(monitoringPlansPage.sectionsDropdown);
-
-        waitFor(monitoringPlansPage.formulaOption);
-
-        click(monitoringPlansPage.formulaOption);
-
-        click(monitoringPlansPage.exportBTN);
-
-        //loads
-        click(monitoringPlansPage.sectionsDropdown);
-
-        waitFor(monitoringPlansPage.formulaOption);
-
-        click(monitoringPlansPage.formulaOption);
-
-        click(monitoringPlansPage.exportBTN);
-
-        //location attributes
-        click(monitoringPlansPage.sectionsDropdown);
-
-        waitFor(monitoringPlansPage.locationAttributesOption);
-
-        click(monitoringPlansPage.locationAttributesOption);
-
-        waitFor(monitoringPlansPage.exportBTN);
-
-        click(monitoringPlansPage.exportBTN);
-
-        //methods
-        click(monitoringPlansPage.sectionsDropdown);
-
-        waitFor(monitoringPlansPage.methodsOption);
-
-        click(monitoringPlansPage.methodsOption);
-
+       //export Methods - first option
         waitFor(monitoringPlansPage.exportBTN);
 
         click(monitoringPlansPage.exportBTN);
         //Qualifications
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.methodsOption);
+        click(monitoringPlansPage.methodsOption);
 
         waitFor(monitoringPlansPage.qualificationsOption);
 
@@ -121,7 +82,8 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
 
         click(monitoringPlansPage.exportBTN);
         //rectangular duct wafs
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.qualificationsOption);
+        click(monitoringPlansPage.qualificationsOption);
 
         waitFor(monitoringPlansPage.rectangularDuctWAFSOption);
 
@@ -132,7 +94,8 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
         click(monitoringPlansPage.exportBTN);
 
         //spans
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.rectangularDuctWAFSOption);
+        click(monitoringPlansPage.rectangularDuctWAFSOption);
 
         waitFor(monitoringPlansPage.spansOption);
 
@@ -143,7 +106,8 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
         click(monitoringPlansPage.exportBTN);
 
         //systems
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.spansOption);
+        click(monitoringPlansPage.spansOption);
 
         waitFor(monitoringPlansPage.systemsOption);
 
@@ -153,7 +117,8 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
 
         click(monitoringPlansPage.exportBTN);
         //unit info
-        click(monitoringPlansPage.sectionsDropdown);
+        waitFor(monitoringPlansPage.systemsOption);
+        click(monitoringPlansPage.systemsOption);
 
         waitFor(monitoringPlansPage.unitInformationOption);
 
@@ -162,6 +127,41 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
         waitFor(monitoringPlansPage.exportBTN);
 
         click(monitoringPlansPage.exportBTN);
+
+//        formula
+        waitFor(monitoringPlansPage.unitInformationOption);
+        click(monitoringPlansPage.unitInformationOption);
+
+        waitFor(monitoringPlansPage.formulaOption);
+
+        click(monitoringPlansPage.formulaOption);
+
+        click(monitoringPlansPage.exportBTN);
+
+        //loads
+        waitFor(monitoringPlansPage.formulaOption);
+        click(monitoringPlansPage.formulaOption);
+
+        waitFor(monitoringPlansPage.loadsOption);
+
+        click(monitoringPlansPage.loadsOption);
+
+        click(monitoringPlansPage.exportBTN);
+
+//        location attributes
+        waitFor(monitoringPlansPage.loadsOption);
+        click(monitoringPlansPage.loadsOption);
+
+        waitFor(monitoringPlansPage.locationAttributesOption);
+
+        click(monitoringPlansPage.locationAttributesOption);
+
+        waitFor(monitoringPlansPage.exportBTN);
+
+        click(monitoringPlansPage.exportBTN);
+
+       ;
+
 
         String searchFile = "MP Export - Smith Generating Facility, SCT1 ";
         //check if downloaded file

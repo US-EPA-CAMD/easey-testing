@@ -21,7 +21,6 @@ public class Test_EASEY_MonPlanExportALLGlobal extends CommonExport {
         goTo("https://ecmps-dev.app.cloud.gov/");
 
 
-
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
         waitFor(monitoringPlansPage.homeTitle);

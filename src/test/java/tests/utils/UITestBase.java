@@ -267,7 +267,7 @@ class ExceptionListener extends AbstractWebDriverEventListener {
     }
 
 
-    public void setChromeDownloadPath() {
+    protected void setChromeDownloadPath() {
         String fileDownloadPath = "C:\\EPA\\easey-testing\\src\\downloads";
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory",fileDownloadPath);
