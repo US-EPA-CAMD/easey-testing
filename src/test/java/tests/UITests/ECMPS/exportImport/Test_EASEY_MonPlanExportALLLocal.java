@@ -36,7 +36,7 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
         //logOn
         logOn(username,password,monitoringPlansPage);
 
-
+        waitFor(monitoringPlansPage.workspaceMonPlan);
         //verify on the correct page
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
@@ -160,12 +160,9 @@ public class Test_EASEY_MonPlanExportALLLocal extends CommonExport {
 
         click(monitoringPlansPage.exportBTN);
 
-       ;
 
-
-        String searchFile = "MP Export - Smith Generating Facility, SCT1 ";
         //check if downloaded file
-        VerifyDownload(fileDownloadpath, searchFile);
+        VerifyDownload(fileDownloadpath, expectedFileName);
         //closing out
         logOutMethod();
 

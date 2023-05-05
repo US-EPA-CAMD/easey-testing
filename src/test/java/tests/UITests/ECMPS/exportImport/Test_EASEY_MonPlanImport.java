@@ -11,10 +11,13 @@ import tests.utils.CommonExport;
 //This test launches from MP, logs in, selects facility, and uploads a file (only for Smith Generating 5)
 public class Test_EASEY_MonPlanImport extends CommonExport {
     //set download path
-    //TODO rework file path
-    private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
+    //TODO REPLACE PATH WITH RELATIVE PATH OF UPLOAD.JSON IN THE FILES SUBDIRECTORY
+    private static String fileUploadpath = "C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\ECMPS\\exportImport\\files\\upload.json";
     private static String username = System.getenv("TESTING_USERNAME");
     private static String password = System.getenv("TESTING_PASSWORD");
+
+
+    private static String facilitySearch = "Smith Generating";
 
 
     @Test
@@ -29,21 +32,9 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         waitFor(monitoringPlansPage.title);
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
 
-        //open log in modal
-        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        click(monitoringPlansPage.logInButtonOpenModal);
-        //give username
-        verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
-        input(monitoringPlansPage.usernameFieldModal, username);
-        ////give password
-        verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
-        input(monitoringPlansPage.passwordFieldModal, password);
-        //verify log in btn is visible and click log in
-        verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
-        click(monitoringPlansPage.logInButtonSubmit);
-        //wait for log in to complete
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
+        //logOn
+        logOn(username,password,monitoringPlansPage);
+
         //verify logged in and page is MP
         verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
         click(monitoringPlansPage.workspaceMonPlan);
@@ -53,7 +44,7 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         waitFor(monitoringPlansPage.filterByKeywordBox);
 
         //Search for facility
-        input(monitoringPlansPage.filterByKeywordBox,"Smith Generating");
+        input(monitoringPlansPage.filterByKeywordBox,facilitySearch);
         click(monitoringPlansPage.filterByKeywordButton);
 
         // Clicks on first search result
@@ -85,9 +76,11 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         click(monitoringPlansPage.importButton);
         Thread.sleep(1000);
 
+        waitFor(monitoringPlansPage.uploadFileChoiceButton);
+
         //click(monitoringPlansPage.uploadFileChoiceButton);
         WebElement upload_file = driver.findElement(By.xpath("//input[@id='file-input-single']"));
-        upload_file.sendKeys("C:\\Users\\mosesdee\\IdeaProjects\\easey-testing\\src\\test\\java\\tests\\UITests\\ECMPS\\exportImport\\files\\upload.json");
+        upload_file.sendKeys(fileUploadpath);
         //wait for import button to show
         waitFor(monitoringPlansPage.importSubmitBTN);
         //click import button

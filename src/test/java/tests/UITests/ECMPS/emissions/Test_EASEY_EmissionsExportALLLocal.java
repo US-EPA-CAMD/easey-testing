@@ -9,6 +9,8 @@ public class Test_EASEY_EmissionsExportALLLocal extends CommonExport {
     private static String username = System.getenv("TESTING_USERNAME");
     private static String password = System.getenv("TESTING_PASSWORD");
 
+    private static String facilitySearch = "Smith Generating";
+
     @Test
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
@@ -19,20 +21,7 @@ public class Test_EASEY_EmissionsExportALLLocal extends CommonExport {
 
         verifyEquals(emissionsPage.title, "Emissions");
 
-        verifyEquals(emissionsPage.logInButtonOpenModal, "Log In");
-        click(emissionsPage.logInButtonOpenModal);
-
-        verifyEquals(emissionsPage.usernameLabelModal.getText(), "Username");
-        input(emissionsPage.usernameFieldModal, username);
-
-        verifyEquals(emissionsPage.passwordLabelModal.getText(), "Password");
-        input(emissionsPage.passwordFieldModal, password);
-
-        verifyEquals(emissionsPage.logInButtonSubmit, "Log In");
-        click(emissionsPage.logInButtonSubmit);
-
-        waitFor(driver -> !isDisplayed(emissionsPage.logInButtonSubmit));
-
+        logOn(username,password,emissionsPage);
 
 
         waitFor(emissionsPage.title);
@@ -43,7 +32,7 @@ public class Test_EASEY_EmissionsExportALLLocal extends CommonExport {
         waitFor(emissionsPage.filterByKeywordBox);
 
         //Search for facility
-        input(emissionsPage.filterByKeywordBox,"Smith Generating");
+        input(emissionsPage.filterByKeywordBox,facilitySearch);
         click(emissionsPage.filterByKeywordButton);
 
         // Clicks on Smith
