@@ -25,11 +25,10 @@ public class Test_EASEY_QAExportGlobal extends CommonExport {
         click(monitoringPlansPage.filterByKeywordButton);
         //waits for return
         waitFor(driver -> monitoringPlansPage.facilityCaret.size() > 1);
-        sleep(90000);
+
 
         // Clicks on first search result
         click(monitoringPlansPage.facilityCaret.get(0));
-        sleep(90000);
 
         //verifies at least one search result returns
         //verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
@@ -38,30 +37,33 @@ public class Test_EASEY_QAExportGlobal extends CommonExport {
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         //verifies at least one search result returns
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+
+        waitFor(monitoringPlansPage.configOpenButton.get(5));
         click(monitoringPlansPage.configOpenButton.get(5));
-        Thread.sleep(9000);
+
+        waitFor(monitoringPlansPage.configTab1);
         click(monitoringPlansPage.configTab1);
-        sleep(9000);
+
+
         //clicks the export tab on the left menu  column
         click(monitoringPlansPage.exportTab);
         //creates new export page object to access properties specific to export
         ExportPage exportPage = new ExportPage(driver);
-        Thread.sleep(5000);
-        Thread.sleep(5000);
+
+        waitFor(exportPage.title);
         //verify on export page
         verifyEquals(exportPage.title, "Export Data");
 
+        waitFor(exportPage.MPButton);
         //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
         click(exportPage.MPButton);
         click(exportPage.qaButton);
-        sleep(900000000);
 
 
+        waitFor(exportPage.exportButton);
         //click export button
         click(exportPage.exportButton);
 
-        //give time
-        Thread.sleep(5000);
 
         String searchFile = "QA & Certification _ Export - Smith Generating Facility (SCT5)";
         //check if downloaded file
