@@ -30,10 +30,7 @@ public class Test_EASEY_QAExportGlobal extends CommonExport {
         // Clicks on first search result
         click(monitoringPlansPage.facilityCaret.get(0));
 
-        //verifies at least one search result returns
-        //verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
-        //clicks "open" button for first result
-        //add wait to let build TODO
+
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         //verifies at least one search result returns
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
