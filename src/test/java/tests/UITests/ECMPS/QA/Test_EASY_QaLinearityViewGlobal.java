@@ -46,7 +46,9 @@ public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
         //Wait for load
         waitFor(qaCertificationPage.testTypeGroupBox);
         //click into test type box and make selection
-        click(qaCertificationPage.testTypeGroupBox);
+        click(qaCertificationPage.flowToLoadReferenceOption);
+        waitFor(qaCertificationPage.linearitySummary);
+
         click(qaCertificationPage.linearitySummary);
         //click first view button
         waitFor(qaCertificationPage.viewLS);
@@ -55,7 +57,6 @@ public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
         waitFor(qaCertificationPage.testSummaryModalTitle);
         //verify the title says Test Summary Data
         verifyEquals(qaCertificationPage.testSummaryModalTitle, "Test Summary Data");
-        sleep(900000);
         //close modal and print
         click(qaCertificationPage.closeModal);
         System.out.println("Viewed data!");
