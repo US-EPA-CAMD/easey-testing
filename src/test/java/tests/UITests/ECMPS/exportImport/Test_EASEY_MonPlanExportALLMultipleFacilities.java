@@ -17,7 +17,7 @@ public class Test_EASEY_MonPlanExportALLMultipleFacilities extends CommonExport 
     private static String expectedFileName = "MP Export - Smith Generating Facility, SCT1";
 
 
-    String[][] facilitiesList = {{"Smith","Escalante"},  {"MP Export - Smith Generating Facility, SCT1", "MP Export - Escalante, 1"}};
+    String[] facilitiesList = {"Smith","Escalante"};
     String[] downloadedFacilityFiles = {"MP Export - Smith Generating Facility, SCT1", "MP Export - Escalante, 1"};
     @Test
     public void test() throws InterruptedException {
@@ -49,7 +49,7 @@ public class Test_EASEY_MonPlanExportALLMultipleFacilities extends CommonExport 
 
 
             //Search for facility
-            input(monitoringPlansPage.filterByKeywordBox, Arrays.toString(facilitiesList[i]));
+            input(monitoringPlansPage.filterByKeywordBox, facilitiesList[i]);
             click(monitoringPlansPage.filterByKeywordButton);
 
             //wait for search result to return
@@ -188,10 +188,9 @@ public class Test_EASEY_MonPlanExportALLMultipleFacilities extends CommonExport 
 
             click(monitoringPlansPage.exportBTN);
 
-            for (int j = 0; j < facilitiesList.length; j++) {
                 //check if downloaded file
-                VerifyDownload(fileDownloadpath, facilitiesList[i][j]);
-            }
+                VerifyDownload(fileDownloadpath, facilitiesList[i]);
+            
 
             click(monitoringPlansPage.selectConfigButton);
         }
