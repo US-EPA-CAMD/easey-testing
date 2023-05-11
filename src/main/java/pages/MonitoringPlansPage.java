@@ -753,6 +753,11 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath = "//input[@id='file-input-single']")
     public WebElement uploadFileChoiceButton ;
 
+    //button[@id='select-config']
+    @FindBy (xpath = "//button[@id='select-config']")
+    public WebElement selectConfigButton ;
+
+
     @FindBy (xpath = "//button[@id='checkOutBTN']")
     public WebElement checkOutBTN ;
 

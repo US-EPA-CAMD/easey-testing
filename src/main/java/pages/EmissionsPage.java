@@ -28,6 +28,10 @@ public class EmissionsPage extends MonitoringPlansPage {
     @FindBy (xpath = "//option[contains(text(),'Emissions View Counts')]")
     public WebElement emissionsViewCountOption;
 
+    //option[contains(text(),'Hourly Combined Parameters View')]
+    @FindBy (xpath = "//option[contains(text(),'Hourly Combined Parameters View')]")
+    public WebElement hourlyCombinedOption;
+
     //option[contains(text(),'Hourly Heat Input CEMS View')]
     @FindBy (xpath = "//option[contains(text(),'Hourly Heat Input CEMS View')]")
     public WebElement hourlyHeatOption;
@@ -142,4 +146,22 @@ public class EmissionsPage extends MonitoringPlansPage {
     @FindBy (xpath = "//option[contains(text(),'Import From File')]")
     public WebElement importFromFileOption;
 
+    @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]/*[1]")
+    public WebElement xOutReportingPeriod;
+
+
+
+    @FindBy (id ="reportingPeriod-searchbox")
+    public WebElement reportingPeriodInput;
+
+    @FindBy (id ="viewtemplate")
+    public WebElement viewtemplateBox;
+
+    //button[contains(text(),'Apply Filter(s)')]
+    @FindBy (xpath = "//button[contains(text(),'Apply Filter(s)')]")
+    public WebElement applyFilterButton;
+
+    //span[contains(text(),'2022 Q4')]
+    @FindBy (xpath = "//span[contains(text(),'2022 Q4')]")
+    public WebElement q4button;
 }
