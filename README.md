@@ -47,7 +47,14 @@ mvn test -Dname=*
 
 ```
 
-
+## Updating Chromedriver
+- When? Chrome will update automatically in most cases. You will experience an error message similar to <i> "SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version #.#" </i>
+- How?
+  1. Check chrome version: three dots in the top right of chrome, help, about
+  2. Download a chromedriver that matches your new chrome version
+  3. Unzip the file in your Downloads folder
+  4. Copy the content and paste here, replacing the old version: ``` C:/Users/%USERNAME%/driver/) ```
+- Remember to restart your IDE
 ## License & Contributing
 
 ​
