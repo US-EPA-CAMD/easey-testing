@@ -704,6 +704,8 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="svg[id^='closeXBtnTab']")
     public List<WebElement> closeConfigTab;
 
+    @FindBy (css ="svg[id^='closeXBtnTab']")
+    public WebElement closeConfigTabBTN;
     @FindBy (id ="checkOutBTN")
     public WebElement configcheckOutButton;
 

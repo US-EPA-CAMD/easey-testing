@@ -70,129 +70,17 @@ public class Test_EASEY_MonPlanExportALLMultipleFacilities extends CommonExport 
             // Clicks on Smith Tab
             click(monitoringPlansPage.configTab1);
 
+            //wait for stop animation button to disappear
+            waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
+
 
             waitFor(monitoringPlansPage.exportBTN);
 
             click(monitoringPlansPage.exportBTN);
 
-            //formula
+            ReadDropdownValues("sections");
 
-            waitFor(monitoringPlansPage.sectionsDropDown);
-
-            click(monitoringPlansPage.sectionsDropDown);
-
-            waitFor(monitoringPlansPage.formulaOption);
-
-            click(monitoringPlansPage.formulaOption);
-
-//        click(monitoringPlansPage.sectionsDropdownlist.get(0));
-
-            click(monitoringPlansPage.exportBTN);
-
-            //loads
-            waitFor(monitoringPlansPage.sectionsDropDown);
-
-            click(monitoringPlansPage.sectionsDropDown);
-
-            waitFor(monitoringPlansPage.formulaOption);
-
-            click(monitoringPlansPage.formulaOption);
-
-            click(monitoringPlansPage.exportBTN);
-
-            //location attributes
-            waitFor(monitoringPlansPage.sectionsDropDown);
-
-            click(monitoringPlansPage.sectionsDropDown);
-
-            waitFor(monitoringPlansPage.locationAttributesOption);
-
-            click(monitoringPlansPage.locationAttributesOption);
-
-            waitFor(monitoringPlansPage.exportBTN);
-
-            click(monitoringPlansPage.exportBTN);
-
-            //methods
-            waitFor(monitoringPlansPage.sectionsDropDown);
-
-            click(monitoringPlansPage.sectionsDropDown);
-
-            waitFor(monitoringPlansPage.methodsOption);
-
-            click(monitoringPlansPage.methodsOption);
-
-            waitFor(monitoringPlansPage.exportBTN);
-
-            click(monitoringPlansPage.exportBTN);
-            //Qualifications
-            waitFor(monitoringPlansPage.sectionsDropDown);
-
-            click(monitoringPlansPage.sectionsDropDown);
-
-            waitFor(monitoringPlansPage.qualificationsOption);
-
-            click(monitoringPlansPage.qualificationsOption);
-
-            waitFor(monitoringPlansPage.exportBTN);
-
-            click(monitoringPlansPage.exportBTN);
-            //rectangular duct wafs
-            waitFor(monitoringPlansPage.sectionsDropDown);
-
-            click(monitoringPlansPage.sectionsDropDown);
-
-            waitFor(monitoringPlansPage.rectangularDuctWAFSOption);
-
-            click(monitoringPlansPage.rectangularDuctWAFSOption);
-
-            waitFor(monitoringPlansPage.exportBTN);
-
-            click(monitoringPlansPage.exportBTN);
-
-            //spans
-            waitFor(monitoringPlansPage.sectionsDropDown);
-
-            click(monitoringPlansPage.sectionsDropDown);
-
-            waitFor(monitoringPlansPage.spansOption);
-
-            click(monitoringPlansPage.spansOption);
-
-            waitFor(monitoringPlansPage.exportBTN);
-
-            click(monitoringPlansPage.exportBTN);
-
-            //systems
-            waitFor(monitoringPlansPage.sectionsDropDown);
-
-            click(monitoringPlansPage.sectionsDropDown);
-
-            waitFor(monitoringPlansPage.systemsOption);
-
-            click(monitoringPlansPage.systemsOption);
-
-            waitFor(monitoringPlansPage.exportBTN);
-
-            click(monitoringPlansPage.exportBTN);
-            //unit info
-            waitFor(monitoringPlansPage.sectionsDropDown);
-
-            click(monitoringPlansPage.sectionsDropDown);
-
-            waitFor(monitoringPlansPage.unitInformationOption);
-
-            click(monitoringPlansPage.unitInformationOption);
-
-            waitFor(monitoringPlansPage.exportBTN);
-
-            click(monitoringPlansPage.exportBTN);
-
-                //check if downloaded file
-                VerifyDownload(fileDownloadpath, facilitiesList[i]);
-            
-
-            click(monitoringPlansPage.selectConfigButton);
+            click(monitoringPlansPage.closeConfigTabBTN);
         }
 
     }
