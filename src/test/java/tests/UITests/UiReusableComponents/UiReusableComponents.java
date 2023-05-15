@@ -1,7 +1,10 @@
 package tests.UITests.UiReusableComponents;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
 
@@ -10,6 +13,7 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 public class UiReusableComponents extends UITestBase {
 
@@ -108,5 +112,18 @@ public class UiReusableComponents extends UITestBase {
         }
 
     }
+
+
+
+      public void ReadDropdownValues(String elementID){
+          Select select = new Select(driver.findElement(By.id(elementID)));
+          List<WebElement> options = select.getOptions();
+
+          for(int i =0; i< options.size() ; i++){
+              String currentValue = options.get(i).getText();
+              System.out.println(currentValue + "/n" + "!!!!!");
+          }
+
+      }
 
 }

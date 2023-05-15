@@ -7,7 +7,7 @@ import tests.utils.CommonExport;
 //This test will open on emissions page, select smith sct1, change reporting period to 2022 Q4, and export the following:(Hourly Combined Parameter View,hourly nox rate,
 //heat input unit/stack, hourly heat input, hourly s02 appendix, hourly co2 appendix,  daily calibration, and mass oil)
 
-public class Test_EASEY_EmissionsExportSmith2022Q4 extends CommonExport {
+public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
 
@@ -66,6 +66,8 @@ public class Test_EASEY_EmissionsExportSmith2022Q4 extends CommonExport {
 
 
         waitFor(emissionsPage.exportBTN);
+
+        ReadDropdownValues("viewtemplate");
         //Hourly Combined Parameter View - FIRST VIEW TEMPLATE OPTION
         click(emissionsPage.exportBTN);
 
