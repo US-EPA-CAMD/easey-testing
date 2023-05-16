@@ -1,6 +1,9 @@
 package tests.utils;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import tests.UITests.UiReusableComponents.UiReusableComponents;
 
@@ -9,11 +12,11 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 public class CommonExport extends UiReusableComponents {
 
-    public static File getLatestFileFromDir(String directoryFilePath)
-    {
+    public static File getLatestFileFromDir(String directoryFilePath) {
         //get directory
         File directory = new File(directoryFilePath);
         //make list of files in directory
@@ -21,12 +24,9 @@ public class CommonExport extends UiReusableComponents {
         long lastModifiedTime = Long.MIN_VALUE;
         File chosenFile = null;
         //go through files if not null
-        if (files != null)
-        {
-            for (File file : files)
-            {
-                if (file.lastModified() > lastModifiedTime)
-                {
+        if (files != null) {
+            for (File file : files) {
+                if (file.lastModified() > lastModifiedTime) {
                     chosenFile = file;
                     lastModifiedTime = file.lastModified();
                 }
@@ -38,7 +38,7 @@ public class CommonExport extends UiReusableComponents {
 
 
     ///FOR FILES DOWNLOADED WITH CURRENT DATE
-    public void VerifyDownload(String fileDownloadpath, String searchFileName){
+    public void VerifyDownload(String fileDownloadpath, String searchFileName) {
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory", fileDownloadpath);
         ChromeOptions options = new ChromeOptions();
@@ -50,19 +50,19 @@ public class CommonExport extends UiReusableComponents {
         Format f = new SimpleDateFormat("(MM-dd-yyyy)");
         String currentDate = f.format(new Date());
         //if file name = fileName print success
-        if((searchFileName + "(" + currentDate + ").json").equalsIgnoreCase(fileName)){
-            System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
+        if ((searchFileName + "(" + currentDate + ").json").equalsIgnoreCase(fileName)) {
+            System.out.println("Downloaded file: " + fileName + " and the file is located at -" + fileDownloadpath);
             getLatestFile.deleteOnExit();
 
-        } else{
+        } else {
             System.out.println(fileName);
-            System.out.println( "Downloaded file");
+            System.out.println("Downloaded file");
         }
 
     }
 
     ///FOR FILES DOWNLOADED WITH CURRENT DATE
-    public void VerifyDownloadnoDATE(String fileDownloadpath, String searchFileName){
+    public void VerifyDownloadnoDATE(String fileDownloadpath, String searchFileName) {
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory", fileDownloadpath);
         ChromeOptions options = new ChromeOptions();
@@ -72,24 +72,23 @@ public class CommonExport extends UiReusableComponents {
         String fileName = getLatestFile.getName();
 
         //if file name = fileName print success
-        if((searchFileName).equalsIgnoreCase(fileName)){
-            System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
+        if ((searchFileName).equalsIgnoreCase(fileName)) {
+            System.out.println("Downloaded file: " + fileName + " and the file is located at -" + fileDownloadpath);
             getLatestFile.deleteOnExit();
 
-        } else{
+        } else {
             System.out.println(fileName);
-            System.out.println( "Downloaded file");
+            System.out.println("Downloaded file");
         }
 
     }
 
 
-
-
     //Quit from browser
     @AfterClass
-    public void closebrowser(){
+    public void closebrowser() {
         driver.quit();
     }
+
 
 }

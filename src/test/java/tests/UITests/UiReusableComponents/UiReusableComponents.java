@@ -65,8 +65,7 @@ public class UiReusableComponents extends UITestBase {
         }
     }
 
-    public static File getLatestFileFromDir(String directoryFilePath)
-    {
+    public static File getLatestFileFromDir(String directoryFilePath) {
         //get directory
         File directory = new File(directoryFilePath);
         //make list of files in directory
@@ -74,12 +73,9 @@ public class UiReusableComponents extends UITestBase {
         long lastModifiedTime = Long.MIN_VALUE;
         File chosenFile = null;
         //go through files if not null
-        if (files != null)
-        {
-            for (File file : files)
-            {
-                if (file.lastModified() > lastModifiedTime)
-                {
+        if (files != null) {
+            for (File file : files) {
+                if (file.lastModified() > lastModifiedTime) {
                     chosenFile = file;
                     lastModifiedTime = file.lastModified();
                 }
@@ -90,7 +86,7 @@ public class UiReusableComponents extends UITestBase {
     }
 
     ///FOR FILES DOWNLOADED WITH CURRENT DATE
-    public void VerifyDownload(String fileDownloadpath, String searchFileName){
+    public void VerifyDownload(String fileDownloadpath, String searchFileName) {
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory", fileDownloadpath);
         ChromeOptions options = new ChromeOptions();
@@ -102,28 +98,30 @@ public class UiReusableComponents extends UITestBase {
         Format f = new SimpleDateFormat("(MM-dd-yyyy)");
         String currentDate = f.format(new Date());
         //if file name = fileName print success
-        if(("MP Export - Smith Generating Facility, SCT5 "+"("+currentDate+").json").equalsIgnoreCase(fileName)){
-            System.out.println( "Downloaded file: "+ fileName+ " and the file is located at -"+ fileDownloadpath);
+        if (("MP Export - Smith Generating Facility, SCT5 " + "(" + currentDate + ").json").equalsIgnoreCase(fileName)) {
+            System.out.println("Downloaded file: " + fileName + " and the file is located at -" + fileDownloadpath);
             getLatestFile.deleteOnExit();
 
-        } else{
+        } else {
             System.out.println(fileName);
-            System.out.println( "Downloaded file");
+            System.out.println("Downloaded file");
         }
 
     }
 
 
+    public void ReadDropdownValues(String elementID) {
+        Select select = new Select(driver.findElement(By.id(elementID)));
+        List<WebElement> options = select.getOptions();
 
-      public void ReadDropdownValues(String elementID){
-          Select select = new Select(driver.findElement(By.id(elementID)));
-          List<WebElement> options = select.getOptions();
+        for (int i = 0; i < options.size(); i++) {
+            String currentValue = options.get(i).getText();
 
-          for(int i =0; i< options.size() ; i++){
-              String currentValue = options.get(i).getText();
-              System.out.println(currentValue + "/n" + "!!!!!");
-          }
+            System.out.println(currentValue + "!!!!!" + "\n");
 
-      }
+
+        }
+
+    }
 
 }
