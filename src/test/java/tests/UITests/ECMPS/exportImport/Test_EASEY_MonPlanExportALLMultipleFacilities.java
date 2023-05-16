@@ -17,8 +17,9 @@ public class Test_EASEY_MonPlanExportALLMultipleFacilities extends CommonExport 
     private static String expectedFileName = "MP Export - Smith Generating Facility, SCT1";
 
 
-    String[] facilitiesList = {"Smith","Escalante"};
+    String[] facilitiesList = {"Smith", "Escalante"};
     String[] downloadedFacilityFiles = {"MP Export - Smith Generating Facility, SCT1", "MP Export - Escalante, 1"};
+
     @Test
     public void test() throws InterruptedException {
 
@@ -45,7 +46,6 @@ public class Test_EASEY_MonPlanExportALLMultipleFacilities extends CommonExport 
             waitFor(monitoringPlansPage.selectConfigButton);
             //wait for search bar to load
             waitFor(monitoringPlansPage.filterByKeywordBox);
-
 
 
             //Search for facility

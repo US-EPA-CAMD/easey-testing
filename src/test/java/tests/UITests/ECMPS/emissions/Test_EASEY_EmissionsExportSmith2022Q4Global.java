@@ -1,8 +1,11 @@
 package tests.UITests.ECMPS.emissions;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.EmissionsPage;
 import tests.utils.CommonExport;
+
+import java.util.List;
 
 //This test will open on emissions page, select smith sct1, change reporting period to 2022 Q4, and export the following:(Hourly Combined Parameter View,hourly nox rate,
 //heat input unit/stack, hourly heat input, hourly s02 appendix, hourly co2 appendix,  daily calibration, and mass oil)
@@ -15,7 +18,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","/emissions");
+        goToo("ecmps", "/emissions");
 
         EmissionsPage emissionsPage = new EmissionsPage(driver);
 
@@ -24,7 +27,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
         waitFor(emissionsPage.filterByKeywordBox);
 
         //Search for facility
-        input(emissionsPage.filterByKeywordBox,"Smith Generating");
+        input(emissionsPage.filterByKeywordBox, "Smith Generating");
         click(emissionsPage.filterByKeywordButton);
 
         // Clicks on Smith
@@ -49,7 +52,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.xOutReportingPeriod);
 
-        input(emissionsPage.reportingPeriodInput,"2022 Q4");
+        input(emissionsPage.reportingPeriodInput, "2022 Q4");
 
         waitFor(emissionsPage.q4button);
 
@@ -64,10 +67,11 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
         waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
 
-
         waitFor(emissionsPage.exportBTN);
 
-        ReadDropdownValues("viewtemplate");
+        List<WebElement> options = emissionsPage.ReadDropdownValues("viewtemplate");
+
+        System.out.println(options + "WebElement LIST HERE!!!!!");
         //Hourly Combined Parameter View - FIRST VIEW TEMPLATE OPTION
         click(emissionsPage.exportBTN);
 
