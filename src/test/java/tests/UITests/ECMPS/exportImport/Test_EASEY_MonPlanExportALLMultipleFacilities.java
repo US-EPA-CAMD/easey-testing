@@ -78,7 +78,7 @@ public class Test_EASEY_MonPlanExportALLMultipleFacilities extends CommonExport 
 
             click(monitoringPlansPage.exportBTN);
 
-            ReadDropdownValues("sections");
+            ReadDropdownValues(monitoringPlansPage.sectionsDropdown);
 
             click(monitoringPlansPage.closeConfigTabBTN);
         }
