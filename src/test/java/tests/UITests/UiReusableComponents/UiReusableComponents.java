@@ -110,8 +110,8 @@ public class UiReusableComponents extends UITestBase {
     }
 
 
-    public void ReadDropdownValues(String elementID) {
-        Select select = new Select(driver.findElement(By.id(elementID)));
+    public void ReadDropdownValues(WebElement element) {
+        Select select = new Select(element);
         List<WebElement> options = select.getOptions();
 
         for (int i = 0; i < options.size(); i++) {

@@ -1,6 +1,8 @@
 package tests.UITests.ECMPS.emissions;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pages.EmissionsPage;
 import tests.utils.CommonExport;
@@ -14,8 +16,12 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
 
+
     @Test
     public void test() throws InterruptedException {
+
+        WebDriverWait wt = new WebDriverWait(driver, 5);
+
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps", "/emissions");
@@ -60,7 +66,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
-        waitFor(emissionsPage.applyFilterButton);
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
 
         click(emissionsPage.applyFilterButton);
 
@@ -85,6 +91,8 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.hourlyNOxRateOption);
 
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
+
         click(emissionsPage.applyFilterButton);
 
         waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
@@ -100,6 +108,8 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
         waitFor(emissionsPage.heatInputOption);
 
         click(emissionsPage.heatInputOption);
+
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
 
         click(emissionsPage.applyFilterButton);
 
@@ -117,6 +127,8 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.hourlyHeatInputOption);
 
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
+
         click(emissionsPage.applyFilterButton);
 
         waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
@@ -133,6 +145,8 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.hourlyS02AppendixOption);
 
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
+
         click(emissionsPage.applyFilterButton);
 
         waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
@@ -147,6 +161,12 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
         waitFor(emissionsPage.hourlyC02AppendixOption);
 
         click(emissionsPage.hourlyC02AppendixOption);
+
+
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
+
+        //This waitFor was failing and not clickable at 168 so ^163 addresses this and 19 initializes
+//        waitFor(emissionsPage.applyFilterButton);
 
         click(emissionsPage.applyFilterButton);
 
@@ -164,6 +184,8 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.dailyCalibrationOption);
 
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
+
         click(emissionsPage.applyFilterButton);
 
         waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
@@ -179,6 +201,8 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
         waitFor(emissionsPage.massOilCalculationOption);
 
         click(emissionsPage.massOilCalculationOption);
+
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
 
         click(emissionsPage.applyFilterButton);
 
