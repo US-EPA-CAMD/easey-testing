@@ -66,7 +66,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
-        waitFor(emissionsPage.applyFilterButton);
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
 
         click(emissionsPage.applyFilterButton);
 
@@ -91,7 +91,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.hourlyNOxRateOption);
 
-        waitFor(emissionsPage.applyFilterButton);
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
 
         click(emissionsPage.applyFilterButton);
 
@@ -109,7 +109,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.heatInputOption);
 
-        waitFor(emissionsPage.applyFilterButton);
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
 
         click(emissionsPage.applyFilterButton);
 
@@ -127,7 +127,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.hourlyHeatInputOption);
 
-        waitFor(emissionsPage.applyFilterButton);
+        wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
 
         click(emissionsPage.applyFilterButton);
 
