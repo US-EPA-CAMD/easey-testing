@@ -16,6 +16,9 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
 
+    String reportingPeriodInput = "2022 Q4";
+
+
 
     @Test
     public void test() throws InterruptedException {
@@ -58,7 +61,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.xOutReportingPeriod);
 
-        input(emissionsPage.reportingPeriodInput, "2022 Q4");
+        input(emissionsPage.reportingPeriodInput, reportingPeriodInput);
 
         waitFor(emissionsPage.q4button);
 
@@ -77,7 +80,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         List<WebElement> options = emissionsPage.ReadDropdownValues("viewtemplate");
 
-        System.out.println(options + "WebElement LIST HERE!!!!!");
+        System.out.println(options +"\n" +"WebElement LIST HERE!!!!!");
         //Hourly Combined Parameter View - FIRST VIEW TEMPLATE OPTION
         click(emissionsPage.exportBTN);
 
