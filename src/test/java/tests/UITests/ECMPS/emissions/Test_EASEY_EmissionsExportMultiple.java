@@ -25,11 +25,10 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
 
         WebDriverWait wt = new WebDriverWait(driver, 5);
 
-        WebElement element = driver.findElement(By("element_path"));
 
         Actions actions = new Actions(driver);
 
-        actions.moveToElement(element).click().perform();
+
 
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
