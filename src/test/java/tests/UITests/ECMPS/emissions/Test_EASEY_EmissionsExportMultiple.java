@@ -13,7 +13,7 @@ import java.util.List;
 public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
 
 
-    String[] facilitiesList = {"Smith", "Escalante"};
+    String[] facilitiesList = {"Smith", "Moss Landing"};
 
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
 
@@ -27,7 +27,6 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
 
 
         Actions actions = new Actions(driver);
-
 
 
         //        Navigate to EASEY In
@@ -61,7 +60,7 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
             //wait for the tab to load
             waitFor(emissionsPage.configTab1);
 
-            // Clicks on Tab
+            // clicks on Tab
             click(emissionsPage.configTab1);
 
             //wait for the spinner to disappear
@@ -84,42 +83,82 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
             //wait for the spinner to disappear
             waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
-            waitFor(emissionsPage.exportBTN);
 
             //create a list of webElements named <options> for each facility in the array
             List<WebElement> options = emissionsPage.ReadDropdownValues("viewtemplate");
-
             System.out.println(options + "\n" + "WebElement LIST HERE!!!!!");
+
 
             //wait for the apply filter button to be clickable
             wt.until(ExpectedConditions.elementToBeClickable(emissionsPage.applyFilterButton));
+            actions.moveToElement(emissionsPage.applyFilterButton).click().perform();
 
-            for (WebElement tempEle : options) {
-                //wait for the apply filter button to be clickable
-                wt.until(ExpectedConditions.elementToBeClickable(emissionsPage.applyFilterButton));
+            waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
-                actions.moveToElement(emissionsPage.applyFilterButton).click().perform();
+            for (int v = 0; v < options.size(); v++) {
+                int currentOption = options.indexOf(v);
 
-                //wait for the spinner to disappear
-                waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
+                //If it is not the first option do the following
+                if (currentOption > 0) {
+                    System.out.println(currentOption + "\n");
 
-                //wait for and click current option
-                waitFor(tempEle);
-                click(tempEle);
+                    //wait for the spinner to disappear
+                    waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
-                wt.until(ExpectedConditions.elementToBeClickable(emissionsPage.applyFilterButton));
+                    //wait for and click the PREVIOUS OPTION
+                    waitFor(options.get(v - 1));
+                    click(options.get(v - 1));
 
-                click(emissionsPage.applyFilterButton);
+                    //wait for and click the CURRENT OPTION
+                    waitFor(options.get(v));
+                    click(options.get(v));
 
-                waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
+                    wt.until(ExpectedConditions.elementToBeClickable(emissionsPage.applyFilterButton));
 
-                //wait for and click export btn
-                waitFor(emissionsPage.exportBTN);
-                click(emissionsPage.exportBTN);
+                    click(emissionsPage.applyFilterButton);
+
+                    waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
+
+                    //wait for and click export btn
+                    waitFor(emissionsPage.exportBTN);
+                    click(emissionsPage.exportBTN);
+
+                }
+                //Else it's the first option
+                else {
+                    System.out.println(currentOption + "\n");
+
+//                    //wait for the apply filter button to be clickable
+//                    wt.until(ExpectedConditions.elementToBeClickable(emissionsPage.applyFilterButton));
+//
+//                    actions.moveToElement(emissionsPage.applyFilterButton).click().perform();
+//
+//                    //wait for the spinner to disappear
+//                    waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
+
+                    //wait for and click current option
+//                    waitFor(options.get(v));
+//                    click(options.get(v));
+//
+//                    wt.until(ExpectedConditions.elementToBeClickable(emissionsPage.applyFilterButton));
+//
+//                    click(emissionsPage.applyFilterButton);
+//
+                    waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
+
+                    //wait for and click export btn
+                    waitFor(emissionsPage.exportBTN);
+                    click(emissionsPage.exportBTN);
+
+                    waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
+
+
+                }
+
 
             }
 
-           click(emissionsPage.closeConfigTabBTN);
+            click(emissionsPage.closeConfigTabBTN);
         }
 
         String searchFile = "Emissions _ Export - Smith Generating Facility (SCT1) ";

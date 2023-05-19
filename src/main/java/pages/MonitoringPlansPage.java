@@ -685,6 +685,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> configOpenButton;
 
+    @FindBy (css = "button[epa-testid='btnOpen_undefined']")
+    public List<WebElement> configOpenButton2;
+
     @FindBy (id = "btnOpenAndCheckout")
     public List<WebElement> configOpenAndCheckoutButton;
 
