@@ -100,7 +100,6 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
 
                 //If it is not the first option do the following
                 if (currentOption > 0) {
-                    System.out.println(currentOption + "\n");
 
                     //wait for the spinner to disappear
                     waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
@@ -126,24 +125,7 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
                 }
                 //Else it's the first option
                 else {
-                    System.out.println(currentOption + "\n");
 
-//                    //wait for the apply filter button to be clickable
-//                    wt.until(ExpectedConditions.elementToBeClickable(emissionsPage.applyFilterButton));
-//
-//                    actions.moveToElement(emissionsPage.applyFilterButton).click().perform();
-//
-//                    //wait for the spinner to disappear
-//                    waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
-
-                    //wait for and click current option
-//                    waitFor(options.get(v));
-//                    click(options.get(v));
-//
-//                    wt.until(ExpectedConditions.elementToBeClickable(emissionsPage.applyFilterButton));
-//
-//                    click(emissionsPage.applyFilterButton);
-//
                     waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
                     //wait for and click export btn
