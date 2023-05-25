@@ -27,8 +27,11 @@ public class QaCertificationPage extends MonitoringPlansPage {
     public WebElement testTypeGroupBox;
     //option[contains(text(),'Linearity Summary')]
 
+    //option[contains(text(),'Flow to Load Reference')]
+    @FindBy (xpath = "//option[contains(text(),'Flow to Load Reference')]")
+    public WebElement flowToLoadReferenceOption;
 
-    @FindBy (css = "option[data-testid='Linearity Summary']")
+    @FindBy (xpath = "option[data-testid='Linearity Summary']")
     public WebElement linearitySummary;
 
 

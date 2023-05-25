@@ -15,7 +15,7 @@ public class Test_EASEY_QAExportLocal extends CommonExport {
     private static String username = System.getenv("TESTING_USERNAME");
     private static String  password = System.getenv("TESTING_PASSWORD");
 
-
+    String searchFile = "MP Export - Smith Generating Facility, SCT5 ";
 
     @Test
     public void test() throws InterruptedException {
@@ -26,23 +26,7 @@ public class Test_EASEY_QAExportLocal extends CommonExport {
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
 
-        verifyEquals(monitoringPlansPage.logInButtonOpenModal, "Log In");
-        click(monitoringPlansPage.logInButtonOpenModal);
-
-        verifyEquals(monitoringPlansPage.usernameLabelModal.getText(), "Username");
-        input(monitoringPlansPage.usernameFieldModal, username);
-
-        verifyEquals(monitoringPlansPage.passwordLabelModal.getText(), "Password");
-        input(monitoringPlansPage.passwordFieldModal, password);
-
-        verifyEquals(monitoringPlansPage.logInButtonSubmit, "Log In");
-        click(monitoringPlansPage.logInButtonSubmit);
-
-        waitFor(monitoringPlansPage.dashWorkspace);
-        verifyEquals(monitoringPlansPage.dashWorkspace, "Workspace");
-
-        verifyEquals(monitoringPlansPage.workspaceMonPlan, "Monitoring Plans");
-        click(monitoringPlansPage.workspaceMonPlan);
+        logOn(username,password, monitoringPlansPage);
 
 
         verifyEquals(monitoringPlansPage.title, "Monitoring Plans");
@@ -54,40 +38,42 @@ public class Test_EASEY_QAExportLocal extends CommonExport {
         click(monitoringPlansPage.filterByKeywordButton);
         //waits for return
         waitFor(driver -> monitoringPlansPage.facilityCaret.size() > 1);
-        sleep(90000);
 
         // Clicks on first search result
         click(monitoringPlansPage.facilityCaret.get(0));
 
+
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         //verifies at least one search result returns
-        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
-        //clicks "open" button for first result
-        //add wait to let build TODO
+        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+
+        waitFor(monitoringPlansPage.configOpenButton.get(5));
         click(monitoringPlansPage.configOpenButton.get(5));
-        Thread.sleep(9000);
+
+        waitFor(monitoringPlansPage.configTab1);
         click(monitoringPlansPage.configTab1);
-        sleep(9000);
+
+
         //clicks the export tab on the left menu  column
-        click(monitoringPlansPage.exportTab);
+        click(monitoringPlansPage.exportTabLocal);
         //creates new export page object to access properties specific to export
         ExportPage exportPage = new ExportPage(driver);
-        Thread.sleep(5000);
-        Thread.sleep(5000);
+
+        waitFor(exportPage.title);
         //verify on export page
         verifyEquals(exportPage.title, "Export Data");
 
+        waitFor(exportPage.MPButton);
         //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
         click(exportPage.MPButton);
-        sleep(900000000);
+        click(exportPage.qaButton);
 
 
+        waitFor(exportPage.exportButton);
         //click export button
         click(exportPage.exportButton);
 
-        //give time
-        Thread.sleep(5000);
 
-        String searchFile = "MP Export - Smith Generating Facility, SCT5 ";
         //check if downloaded file
         VerifyDownload(fileDownloadpath, searchFile);
 

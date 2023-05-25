@@ -651,6 +651,7 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath ="//span[contains(text(),'Filter')]")
     public WebElement filterByKeywordButton;
 
+
     @FindBy (id ="search-data")
     public WebElement filterByKeywordBox;
 
@@ -687,6 +688,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css = "button[epa-testid='btnOpen']")
     public List<WebElement> configOpenButton;
 
+    @FindBy (css = "button[epa-testid='btnOpen_undefined']")
+    public List<WebElement> configOpenButton2;
+
     @FindBy (id = "btnOpenAndCheckout")
     public List<WebElement> configOpenAndCheckoutButton;
 
@@ -706,6 +710,8 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="svg[id^='closeXBtnTab']")
     public List<WebElement> closeConfigTab;
 
+    @FindBy (css ="svg[id^='closeXBtnTab']")
+    public WebElement closeConfigTabBTN;
     @FindBy (id ="checkOutBTN")
     public WebElement configcheckOutButton;
 
@@ -755,6 +761,11 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath = "//input[@id='file-input-single']")
     public WebElement uploadFileChoiceButton ;
 
+    //button[@id='select-config']
+    @FindBy (xpath = "//button[@id='select-config']")
+    public WebElement selectConfigButton ;
+
+
     @FindBy (xpath = "//button[@id='checkOutBTN']")
     public WebElement checkOutBTN ;
 
@@ -768,6 +779,14 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath = "//body/div[@id='portal']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]")
     public WebElement importSubmitBTN ;
     //#importBtn
+
+    //h2[contains(text(),'About ECMPS 2.0 Beta')]
+    @FindBy (xpath = "//h2[contains(text(),'About ECMPS 2.0 Beta')]")
+    public WebElement homeTitle ;
+
+    //a[@id='MonitoringPlans']
+    @FindBy (xpath = "//a[@id='MonitoringPlans']")
+    public WebElement monPlanTab;
 
     @FindBy (xpath = "//h4[contains(text(),'Success')]")
     public WebElement successMessage ;

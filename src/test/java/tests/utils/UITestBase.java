@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import sun.jvm.hotspot.debugger.Page;
+import utils.PageBase;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -101,6 +103,24 @@ public class UITestBase extends TestBase {
             System.out.print(className + " needs to have goto method updated");
         }
         driver.get(url);
+    }
+
+    protected void logOn(String username, String password, PageBase page){
+        verifyEquals(page.logInButtonOpenModal, "Log In");
+        click(page.logInButtonOpenModal);
+
+        verifyEquals(page.usernameLabelModal.getText(), "Username");
+        input(page.usernameFieldModal, username);
+
+        verifyEquals(page.passwordLabelModal.getText(), "Password");
+        input(page.passwordFieldModal, password);
+
+        verifyEquals(page.logInButtonSubmit, "Log In");
+        click(page.logInButtonSubmit);
+
+        waitFor(page.dashWorkspace);
+        verifyEquals(page.dashWorkspace, "Workspace");
+
     }
 
     protected boolean isDisplayed(WebElement ele) {
@@ -247,7 +267,7 @@ class ExceptionListener extends AbstractWebDriverEventListener {
     }
 
 
-    public void setChromeDownloadPath() {
+    protected void setChromeDownloadPath() {
         String fileDownloadPath = "C:\\EPA\\easey-testing\\src\\downloads";
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory",fileDownloadPath);
