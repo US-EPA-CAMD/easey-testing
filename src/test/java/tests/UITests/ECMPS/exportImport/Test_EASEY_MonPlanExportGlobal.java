@@ -48,9 +48,9 @@ public class Test_EASEY_MonPlanExportGlobal extends CommonExport {
         click(monitoringPlansPage.exportBTN);
 
 
-        click(monitoringPlansPage.sectionsDropdown);
-
-        click(monitoringPlansPage.formulaOption);
+//        click(monitoringPlansPage.sectionsDropdown);
+//
+//        click(monitoringPlansPage.formulaOption);
 
 //        waitFor(monitoringPlansPage.exportBTN);
 //

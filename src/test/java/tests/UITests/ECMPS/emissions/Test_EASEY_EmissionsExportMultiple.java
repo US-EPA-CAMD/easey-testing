@@ -10,10 +10,12 @@ import tests.utils.CommonExport;
 
 import java.util.List;
 
+//This test will take a list of strings that are used in the facility search bar and then loops through and exports all of it's dropdown values - must have emissions dd values
+//for Q4 2022
 public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
 
-
-    String[] facilitiesList = {"Smith", "Moss Landing"};
+    // add "Robert Reid"
+    String[] facilitiesList = {"Smith", "Moss Landing", "Summit Lake"};
 
     private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
 
@@ -69,6 +71,8 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
             //wait for the export button
             waitFor(emissionsPage.exportBTN);
 
+            waitFor(emissionsPage.xOutReportingPeriod);
+
             //clear current reporting period
             click(emissionsPage.xOutReportingPeriod);
 
@@ -119,8 +123,8 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
                     waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
                     //wait for and click export btn
-                    waitFor(emissionsPage.exportBTN);
-                    click(emissionsPage.exportBTN);
+//                    waitFor(emissionsPage.exportBTN);
+//                    click(emissionsPage.exportBTN);
 
                 }
                 //Else it's the first option

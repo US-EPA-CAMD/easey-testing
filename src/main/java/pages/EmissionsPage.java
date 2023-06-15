@@ -150,7 +150,7 @@ public class EmissionsPage extends MonitoringPlansPage {
     @FindBy(xpath = "//option[contains(text(),'Import From File')]")
     public WebElement importFromFileOption;
 
-    @FindBy(xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]/*[1]")
+    @FindBy(xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]/*[1]")
     public WebElement xOutReportingPeriod;
 
 
