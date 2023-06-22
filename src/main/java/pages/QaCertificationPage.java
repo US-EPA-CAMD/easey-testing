@@ -31,9 +31,12 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy (xpath = "//option[contains(text(),'Flow to Load Reference')]")
     public WebElement flowToLoadReferenceOption;
 
-    @FindBy (xpath = "option[data-testid='Linearity Summary']")
-    public WebElement linearitySummary;
+//    @FindBy (xpath = "option[data-testid='Linearity Summary']")
+//    public WebElement linearitySummary;
 
+    //option[contains(text(),'Linearity Summary')]
+    @FindBy (xpath = "//option[contains(text(),'Linearity Summary')]")
+    public WebElement linearitySummary;
 
     @FindBy (id="btnEditViewTest-Summary-Data1")
     public WebElement viewLS;

@@ -3,6 +3,7 @@ package tests.UITests.ECMPS.QA;
 import org.testng.annotations.Test;
 import pages.QaCertificationPage;
 import tests.utils.CommonExport;
+//This test launches from QA test data, selects a facility to view a linearity data and views the first entry
 
 public class Test_EASEY_QaRATAGlobal extends CommonExport {
 
@@ -19,8 +20,8 @@ public class Test_EASEY_QaRATAGlobal extends CommonExport {
         //wait for search bar to be visible
         waitFor(qaCertificationPage.filterByKeywordBox);
         //Search for facility
-        input(qaCertificationPage.filterByKeywordBoxQa, "Smith Generating");
-        click(qaCertificationPage.filterByKeywordBTNQa);
+        input(qaCertificationPage.filterByKeywordBox, "Smith Generating");
+        click(qaCertificationPage.filterByKeywordButton);
         //waits for return
         waitFor(driver -> qaCertificationPage.facilityCaret.size() > 1);
 
@@ -28,19 +29,17 @@ public class Test_EASEY_QaRATAGlobal extends CommonExport {
         click(qaCertificationPage.facilityCaret.get(0));
 
 
-        //verifies at least one search result returns
-        //verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
-        //clicks "open" button for first result
+
         //add wait to let build TODO
         waitFor(driver -> qaCertificationPage.configOpenButton.size() > 1);
         //verifies at least one search result returns
-        verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
-        click(qaCertificationPage.configOpenButton.get(1));
+        verifyEquals(qaCertificationPage.configOpenButton.get(0), "Open");
+        click(qaCertificationPage.configOpenButton.get(0));
 
         click(qaCertificationPage.configTab1);
 
 
-        click(qaCertificationPage.configTabSmith10);
+        click(qaCertificationPage.configTab1);
 
 
         //Wait for load
