@@ -10,9 +10,11 @@ public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-    goToo("ecmps","/qa/test");
+    goToo("ecmps","/qa/tests");
 
     QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
+
+    waitFor(qaCertificationPage.title);
 
     verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
 

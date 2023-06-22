@@ -10,7 +10,7 @@ public class Test_EASEY_QaRATAGlobal extends CommonExport {
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps", "/qa/test");
+        goToo("ecmps", "/qa/tests");
 
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
