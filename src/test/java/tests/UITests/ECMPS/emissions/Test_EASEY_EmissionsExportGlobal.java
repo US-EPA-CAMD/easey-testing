@@ -34,7 +34,7 @@ public class Test_EASEY_EmissionsExportGlobal extends CommonExport {
         waitFor(monitoringPlansPage.configOpenButton);
         //clicks "open" button for first result
         //add wait to let build TODO
-        click(monitoringPlansPage.configOpenButton.get(5));
+        click(monitoringPlansPage.configOpenButton.get(0));
         Thread.sleep(9000);
         click(monitoringPlansPage.configTab1);
         sleep(9000);

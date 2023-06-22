@@ -108,9 +108,10 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
                     //wait for the spinner to disappear
                     waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
+                    int previousOption = v - 1;
                     //wait for and click the PREVIOUS OPTION
-                    waitFor(options.get(v - 1));
-                    click(options.get(v - 1));
+                    waitFor(options.get(previousOption));
+                    click(options.get(previousOption));
 
                     //wait for and click the CURRENT OPTION
                     waitFor(options.get(v));
@@ -125,7 +126,7 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
                     //wait for and click export btn
 //                    waitFor(emissionsPage.exportBTN);
 //                    click(emissionsPage.exportBTN);
-
+                    v++;
                 }
                 //Else it's the first option
                 else {
@@ -138,9 +139,8 @@ public class Test_EASEY_EmissionsExportMultiple extends CommonExport {
 
                     waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
 
-
+                    v++;
                 }
-
 
             }
 

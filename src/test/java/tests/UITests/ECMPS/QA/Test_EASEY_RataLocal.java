@@ -12,7 +12,7 @@ public class Test_EASEY_RataLocal extends CommonExport {
     public void tests() throws InterruptedException {
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps", "/qa-test");
+        goToo("ecmps", "/qa/test");
 
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
