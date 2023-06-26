@@ -14,12 +14,12 @@ public class Test_EASEY_QaImportTEE extends CommonExport {
     private static String username = System.getenv("TESTING_USERNAME");
     private static String password = System.getenv("TESTING_PASSWORD");
 
-//make changes
+    //make changes
     @Test
     public void test() throws InterruptedException {
         // Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","/qa/qce-tee");
+        goToo("ecmps", "/qa/qce-tee");
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
         //wait for page to load, verify page is Qa TEE
@@ -52,7 +52,7 @@ public class Test_EASEY_QaImportTEE extends CommonExport {
         waitFor(qaCertificationPage.filterByKeywordBox);
 
         //Search for facility
-        input(qaCertificationPage.filterByKeywordBox,"Smith Generating");
+        input(qaCertificationPage.filterByKeywordBox, "Smith Generating");
 
         waitFor(qaCertificationPage.filterByKeywordButton);
         click(qaCertificationPage.filterByKeywordButton);
@@ -65,7 +65,7 @@ public class Test_EASEY_QaImportTEE extends CommonExport {
         waitFor(driver -> qaCertificationPage.configOpenButton.size() > 1);
 
         //verifies at least one search result returns
-        verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
+        verifyEquals(qaCertificationPage.configOpenButton.get(0), "Open");
         //clicks "open" button for first result
         click(qaCertificationPage.configOpenAndCheckoutButton.get(0));
         waitFor(qaCertificationPage.configTab1);
@@ -74,43 +74,46 @@ public class Test_EASEY_QaImportTEE extends CommonExport {
         //configTabSmith
         click(qaCertificationPage.configTab1);
 
-//        waitFor(qaCertificationPage.checkOutBTN);
-//        click(qaCertificationPage.checkOutBTN);
-
+        //wait for and click import button
         waitFor(qaCertificationPage.importBTNQA);
-        //clicks import button
         click(qaCertificationPage.importBTNQA);
 
-        //click(monitoringPlansPage.uploadFileChoiceButton);
-        WebElement upload_file = driver.findElement(By.xpath("//option[contains(text(),'Import from File')]"));
+        //wait for and click import type box
+        waitFor(qaCertificationPage.importSelectType);
+        click(qaCertificationPage.importSelectType);
+
+        //wait for and click import from historical
+        waitFor(qaCertificationPage.importHistoricalOption);
+        click(qaCertificationPage.importHistoricalOption);
 
         click(qaCertificationPage.continueBTN);
 
-        waitFor(qaCertificationPage.inputLink);
+        //wait for and click reporting period
+        waitFor(qaCertificationPage.importHistoricalReportingPeriod);
+        click(qaCertificationPage.importHistoricalReportingPeriod);
 
-        //TODO FIX file
-        upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\QA\\files\\upload.json");
+        input(qaCertificationPage.importHistoricalReportingPeriod, "2013 ");
+
+        //wait for and click preview
+        waitFor(qaCertificationPage.previewBTN);
+        click(qaCertificationPage.previewBTN);
+
         //wait for import button to show
         waitFor(qaCertificationPage.importSubmitBTN);
-        //click import button
         click(qaCertificationPage.importSubmitBTN);
+
         //wait for success
         waitFor(qaCertificationPage.successMessage);
 
         //if to print status to console
         //TODO add verify statement
-        if(qaCertificationPage.successMessage.isDisplayed()){
+        if (qaCertificationPage.successMessage.isDisplayed()) {
             System.out.println("The file was successfully uploaded");
-        }else{
-            System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
+        } else {
+            System.out.println("The file was NOT successfully uploaded" + "/n" + " NOT UPLOADED");
         }
 
-
         revertToOfficial();
-
-
-        //closing out
-//        logOutMethod();
 
 
         closebrowser();

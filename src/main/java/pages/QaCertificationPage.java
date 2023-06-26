@@ -261,5 +261,11 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//option[contains(text(),'Import Historical Data')]")
     public WebElement importHistoricalOption;
 
+    //select[@id='year-quarter-dropdown']
+    @FindBy(xpath = "//select[@id='year-quarter-dropdown']")
+    public WebElement importHistoricalReportingPeriod;
 
+    //button[contains(text(),'Preview')]
+    @FindBy(xpath = "//button[contains(text(),'Preview')]")
+    public WebElement previewBTN;
 }
