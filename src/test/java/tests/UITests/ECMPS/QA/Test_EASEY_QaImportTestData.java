@@ -17,7 +17,7 @@ public class Test_EASEY_QaImportTestData extends CommonExport {
     public void test() throws InterruptedException {
         // Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","/qa-test");
+        goToo("ecmps","/qa/tests");
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
         //wait for page to load, verify page is QA
@@ -65,26 +65,36 @@ public class Test_EASEY_QaImportTestData extends CommonExport {
         //verifies at least one search result returns
         verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
         //clicks "open" button for first result
-        click(qaCertificationPage.configOpenButton.get(0));
+//        click(qaCertificationPage.configOpenButton.get(0));
+        click(qaCertificationPage.configOpenAndCheckoutButton.get(0));
         waitFor(qaCertificationPage.configTab1);
 
         // Clicks on Smith Tab
         //configTabSmith
         click(qaCertificationPage.configTab1);
 
-        waitFor(qaCertificationPage.checkOutBTN);
-        click(qaCertificationPage.checkOutBTN);
+//        waitFor(qaCertificationPage.checkOutBTN);
+//        click(qaCertificationPage.checkOutBTN);
 
         waitFor(qaCertificationPage.importBTNQA);
         //clicks import button
         click(qaCertificationPage.importBTNQA);
 
+        waitFor(qaCertificationPage.importSelectType);
+
+        click(qaCertificationPage.importSelectType);
+
         //click(monitoringPlansPage.uploadFileChoiceButton);
         WebElement upload_file = driver.findElement(By.xpath("//option[contains(text(),'Import from File')]"));
 
+        upload_file.click();
+
+        waitFor(qaCertificationPage.continueBTN);
         click(qaCertificationPage.continueBTN);
 
-        waitFor(qaCertificationPage.inputLink);
+//        waitFor(qaCertificationPage.inputLink);
+//
+//        click(qaCertificationPage.inputLink);
 
         //TODO FIX file
         upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\QA\\files\\upload.json");

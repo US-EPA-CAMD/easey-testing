@@ -31,9 +31,12 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy (xpath = "//option[contains(text(),'Flow to Load Reference')]")
     public WebElement flowToLoadReferenceOption;
 
-    @FindBy (xpath = "option[data-testid='Linearity Summary']")
-    public WebElement linearitySummary;
+//    @FindBy (xpath = "option[data-testid='Linearity Summary']")
+//    public WebElement linearitySummary;
 
+    //option[contains(text(),'Linearity Summary')]
+    @FindBy (xpath = "//option[contains(text(),'Linearity Summary')]")
+    public WebElement linearitySummary;
 
     @FindBy (id="btnEditViewTest-Summary-Data1")
     public WebElement viewLS;
@@ -75,9 +78,14 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//button[@id='btnStopAnimation'")
     public WebElement checkInBTN;
 
+    //button[@id='checkOutBTN']
+    @FindBy(xpath = "//button[@id='checkOutBTN']'")
+    public WebElement checkOutBTN;
+
     //button[@id='btnCheckBackIn']
     @FindBy(xpath = "//button[@id='btnCheckBackIn']")
     public WebElement checkBACKINBTN;
+
 
 
     //button[@id='showRevertModal']
@@ -240,4 +248,18 @@ public class QaCertificationPage extends MonitoringPlansPage {
     //input[@id='file-input-single']
     @FindBy(xpath = "//input[@id='file-input-single']")
     public WebElement inputLink;
+
+    //select[@id='Import Historical or File Data']
+    @FindBy(xpath = "//select[@id='Import Historical or File Data']")
+    public WebElement importSelectType;
+
+    //option[contains(text(),'Import from File')]
+    @FindBy(xpath = "//option[contains(text(),'Import from File')]")
+    public WebElement importFileOption;
+
+    //option[contains(text(),'Import Historical Data')]
+    @FindBy(xpath = "//option[contains(text(),'Import Historical Data')]")
+    public WebElement importHistoricalOption;
+
+
 }

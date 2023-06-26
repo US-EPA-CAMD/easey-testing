@@ -19,7 +19,7 @@ public class Test_EASEY_QaImportTEE extends CommonExport {
     public void test() throws InterruptedException {
         // Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-        goToo("ecmps","//qa-qce-tee");
+        goToo("ecmps","/qa/qce-tee");
         QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
 
         //wait for page to load, verify page is Qa TEE
@@ -67,15 +67,15 @@ public class Test_EASEY_QaImportTEE extends CommonExport {
         //verifies at least one search result returns
         verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
         //clicks "open" button for first result
-        click(qaCertificationPage.configOpenButton.get(0));
+        click(qaCertificationPage.configOpenAndCheckoutButton.get(0));
         waitFor(qaCertificationPage.configTab1);
 
         // Clicks on Smith Tab
         //configTabSmith
         click(qaCertificationPage.configTab1);
 
-        waitFor(qaCertificationPage.checkOutBTN);
-        click(qaCertificationPage.checkOutBTN);
+//        waitFor(qaCertificationPage.checkOutBTN);
+//        click(qaCertificationPage.checkOutBTN);
 
         waitFor(qaCertificationPage.importBTNQA);
         //clicks import button

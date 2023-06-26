@@ -10,17 +10,19 @@ public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
         //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
-    goToo("ecmps","/qa-test");
+    goToo("ecmps","/qa/tests");
 
     QaCertificationPage qaCertificationPage = new QaCertificationPage(driver);
+
+    waitFor(qaCertificationPage.title);
 
     verifyEquals(qaCertificationPage.title, "QA Certifications Test Data");
 
         //wait for search bar to be visible
         waitFor(qaCertificationPage.filterByKeywordBox);
         //Search for facility
-        input(qaCertificationPage.filterByKeywordBoxQa,"Smith Generating");
-        click(qaCertificationPage.filterByKeywordBTNQa);
+        input(qaCertificationPage.filterByKeywordBox,"Smith Generating");
+        click(qaCertificationPage.filterByKeywordButton);
         //waits for return
         waitFor(driver -> qaCertificationPage.facilityCaret.size() > 1);
 
@@ -34,19 +36,21 @@ public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
         //add wait to let build TODO
         waitFor(driver -> qaCertificationPage.configOpenButton.size() > 1);
         //verifies at least one search result returns
-        verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
-        click(qaCertificationPage.configOpenButton.get(5));
+        verifyEquals(qaCertificationPage.configOpenButton.get(0), "Open");
+        click(qaCertificationPage.configOpenButton.get(0));
 
         click(qaCertificationPage.configTab1);
 
 
-        click(qaCertificationPage.configTabSmith);
+        click(qaCertificationPage.configTab1);
 
 
         //Wait for load
         waitFor(qaCertificationPage.testTypeGroupBox);
+
+        click(qaCertificationPage.testTypeGroupBox);
         //click into test type box and make selection
-        click(qaCertificationPage.flowToLoadReferenceOption);
+//        click(qaCertificationPage.flowToLoadReferenceOption);
         waitFor(qaCertificationPage.linearitySummary);
 
         click(qaCertificationPage.linearitySummary);
