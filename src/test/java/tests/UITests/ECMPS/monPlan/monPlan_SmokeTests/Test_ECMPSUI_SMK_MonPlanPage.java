@@ -1,6 +1,8 @@
 package tests.UITests.ECMPS.monPlan.monPlan_SmokeTests;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
 import tests.utils.UITestBase;
@@ -17,6 +19,8 @@ public class Test_ECMPSUI_SMK_MonPlanPage extends UITestBase {
 //        Navigate to EASEY In
 //        https://ecmps-dev.app.cloud.gov/ecmps/monitoring-plans
 //        goTo("https://ecmps-dev.app.cloud.gov/monitoring-plans");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
 
         goToo("ecmps","/monitoring-plans");
 
