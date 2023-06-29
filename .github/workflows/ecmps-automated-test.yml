@@ -32,4 +32,7 @@ jobs:
           ln -sf ~/node_modules/chromedriver/lib/chromedriver/chromedriver ~/drivers/chromedriver
       
       - name: Run Tests
-        run: mvn test -Dname=Test_ECMPSUI_SMK_MonPlanPage
+        run: |
+          mvn test \
+          -Dname=Test_ECMPSUI_SMK_MonPlanPage \
+          -DargLine="-Dwebdriver.chrome.driver=~/drivers/chromedriver -Dwebdriver.chrome.args=--headless -Dwebdriver.chrome.silentOutput=true"
