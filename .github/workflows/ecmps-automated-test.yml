@@ -31,9 +31,9 @@ jobs:
           sudo npm install chromedriver
           ln -sf ~/node_modules/chromedriver/lib/chromedriver/chromedriver ~/drivers/chromedriver
       
-      - name: Build with Maven
-        run: mvn clean install
+      #- name: Build with Maven
+      #  run: mvn clean install
 
       - name: Run Tests
-        run: mvn test -Dname=Test_ECMPSUI_SMK_MonPlanPage
+        run: mvn test -Dname=Test_ECMPSUI_SMK_MonPlanPage -DrunMode=browserStack
         #mvn test -Dname=~Sample,${{ github.event.inputs.tests }} -DrunMode=browserStack
