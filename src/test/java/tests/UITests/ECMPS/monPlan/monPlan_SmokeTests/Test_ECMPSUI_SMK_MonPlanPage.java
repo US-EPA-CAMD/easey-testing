@@ -19,8 +19,7 @@ public class Test_ECMPSUI_SMK_MonPlanPage extends UITestBase {
 //        Navigate to EASEY In
 //        https://ecmps-dev.app.cloud.gov/ecmps/monitoring-plans
 //        goTo("https://ecmps-dev.app.cloud.gov/monitoring-plans");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+
 
         goToo("ecmps","/monitoring-plans");
 
