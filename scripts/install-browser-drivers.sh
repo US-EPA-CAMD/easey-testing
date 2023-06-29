@@ -1,11 +1,11 @@
 #!/bin/bash
-
+set -eo pipefail
 # Variables
 chrome_version="latest"
 chrome_url="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 chromedriver_url="https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
 install_dir="/opt"
-drivers_dir="/home/runner/drivers"
+drivers_dir="/home/runner/drivers/"
 
 # Download and install Google Chrome
 echo "Downloading Google Chrome..."
