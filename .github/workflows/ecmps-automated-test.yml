@@ -43,6 +43,7 @@ jobs:
           mvn clean install
 
       - name: Run Tests
+        uses: coactions/setup-xvfb@v1
         run: |
           cd easey-testing
           mvn clean test -Dname=Test_ECMPSUI_SMK_MonPlanPage
