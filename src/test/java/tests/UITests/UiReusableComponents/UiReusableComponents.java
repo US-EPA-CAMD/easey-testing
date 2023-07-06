@@ -35,9 +35,9 @@ public class UiReusableComponents extends UITestBase {
         waitFor(monitoringPlansPage.revertModalYesButton);
         verifyEquals(monitoringPlansPage.revertModalYesButton, "Yes");
         click(monitoringPlansPage.revertModalYesButton);
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton));
-        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage));
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.revertModalYesButton), 180);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationButton), 180);
+        waitFor(driver -> !isDisplayed(monitoringPlansPage.stopAnimationImage), 180);
 
         // These steps Checks Back In the configuration
         js.executeScript("arguments[0].scrollIntoView(true);",

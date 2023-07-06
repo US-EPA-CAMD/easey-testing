@@ -1,10 +1,6 @@
 name: ECMPS Automated Tests
 
 on:
-  # schedule:
-  #   # Runs "At 00:00, only on Friday and Tuesday" (see https://crontab.guru)
-  #   - cron: '0 0 * * 5,2'
-
   workflow_dispatch:
 
 jobs:
@@ -12,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
@@ -21,25 +20,29 @@ jobs:
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
 
+
 #      - name: Install Browser Drivers
 #        run: |
 #          cd easey-testing/scripts
 #          ./install-browser-drivers.sh
       - name: Setup Chrome Driver
         uses: nanasess/setup-chromedriver@v2
-        run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
-      - name: Build with Maven
+      - name: Install Chrome
         run: |
-          cd easey-testing
-          mvn clean install
-
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
+          
+      - name: Download ChromeDriver
+        run: |
+          cd ~
+          mkdir ~/drivers
+          sudo npm install chromedriver
+          ln -sf ~/node_modules/chromedriver/lib/chromedriver/chromedriver ~/drivers/chromedriver
+      
       - name: Run Tests
         uses: coactions/setup-xvfb@v1
         run: |
-          cd easey-testing
-          mvn clean test -Dname=Test_ECMPSUI_SMK_MonPlanPage
-    
+          mvn test \
+          -Dname=Test_ECMPSUI_SMK_MonPlanPage \
+          -DargLine="-Dwebdriver.chrome.driver=~/drivers/chromedriver -Dwebdriver.chrome.args=--headless -Dwebdriver.chrome.silentOutput=true"
