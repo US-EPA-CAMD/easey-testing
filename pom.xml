@@ -17,7 +17,27 @@
         <sonar.projectKey>US-EPA-CAMD_easey-testing</sonar.projectKey>
         <sonar.organization>us-epa-camd</sonar.organization>
        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <!-- set options for browser and env tag-->
+        <browser>${default.browser}</browser>
+        <env>${default.env}</env>
+        <default.browser>chrome</default.browser>
+        <default.env>dev</default.env>
+        <env>beta</env>
     </properties>
+
+    <!--setting defaults-->
+    <profiles>
+        <profile>
+            <id>defaultProperties</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <browser>${default.browser}</browser>
+                <env>${default.env}</env>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -88,6 +108,11 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>modes/${mode}.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <!-- tag for setting browser and env-->
+                    <systemPropertyVariables>
+                        <browser>${browser}</browser>
+                        <env>${env}</env>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>

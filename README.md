@@ -38,6 +38,13 @@ These instructions will get you a copy of the project up and running on your loc
     - Default: ``` false```
     - Alternative option: ``` true```
     - Turn on debug methods, i.e ``` pause ``` & ``` debugPrint ```
+ 
+- -Denv (optional)
+  - Default: ```env```
+  - Alternate Option: ```beta```
+  
+- -Dbrowser (optional)
+  - Default: ```chrome```
 
 ## Testing 
 
