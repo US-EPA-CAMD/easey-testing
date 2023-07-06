@@ -20,11 +20,6 @@ jobs:
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-      - name: Checkout testing repo
-        uses: actions/checkout@v3
-        with:
-          repository: US-EPA-CAMD/easey-testing
-          path: easey-testing
 
 #      - name: Install Browser Drivers
 #        run: |
