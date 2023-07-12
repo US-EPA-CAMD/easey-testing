@@ -44,4 +44,4 @@ jobs:
       
       # Run Tests
       - name: Maven run tests
-        run: mvn test -Dname=~Sample,${{ github.event.inputs.tests }} -DrunMode=browserStack
+        run: mvn test -Dname=~Sample,${{ github.event.inputs.tests }} -Drunmode=browserStack
