@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 public class UITestBase extends TestBase {
 
@@ -41,7 +42,7 @@ public class UITestBase extends TestBase {
 
         driverHome = System.getProperty("user.home");
 //        System.setProperty("webdriver.chrome.silentOutput", "true");
-//        java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.WARNING);
+        java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.WARNING);
 //        System.out.println(driverHome);
 
         // set path of Chromedriver executable
@@ -69,10 +70,13 @@ public class UITestBase extends TestBase {
                 System.err.println("Bad URL");
             }
         } else {
-            eventless_driver = new ChromeDriver();
-            if (osHome.contains("yefim"))
-                eventless_driver.manage().window().setPosition(new Point(4920, 0)); // specific to my situation
-            eventless_driver.manage().window().maximize();
+//            eventless_driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("headless");
+            eventless_driver = new ChromeDriver(options);
+//            if (osHome.contains("yefim"))
+//                eventless_driver.manage().window().setPosition(new Point(4920, 0)); // specific to my situation
+//            eventless_driver.manage().window().maximize();
 
             sleep(1000);
         }

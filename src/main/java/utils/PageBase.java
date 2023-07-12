@@ -2,6 +2,7 @@ package utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -10,11 +11,16 @@ public class PageBase {
     // Define page driver object
     protected WebDriver driver;
 
+    // Select the browser based on the system property
+//    protected String browser = System.getProperty("browser");
+
     // Constructor and initialize elements
     public PageBase(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
+
 
     @FindBy(id = "openModalBTN")
     public WebElement logInButtonOpenModal;
