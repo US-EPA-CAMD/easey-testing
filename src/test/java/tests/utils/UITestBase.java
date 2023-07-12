@@ -60,8 +60,9 @@ public class UITestBase extends TestBase {
             caps.setCapability("name", className); // test name
             if (!driverHome.contains("runner"))
                 caps.setCapability("build", "Local Trigger: " + AUTOMATE_USERNAME + " @ " + java.time.LocalDate.now()); // CI/CD job or build name
-            else
+            else {
                 caps.setCapability("build", "Github trigger @" + java.time.LocalDate.now());
+            }
             try {
                 eventless_driver = new RemoteWebDriver(new URL(URL), caps);
                 eventless_driver.manage().window().maximize();
