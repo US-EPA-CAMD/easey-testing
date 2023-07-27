@@ -94,6 +94,7 @@ public class Test_EASEY_EmissionsExportSmith2022Q4Global extends CommonExport {
 
         click(emissionsPage.hourlyNOxRateOption);
 
+
         wt.until(ExpectedConditions.elementToBeClickable (emissionsPage.applyFilterButton));
 
         click(emissionsPage.applyFilterButton);
