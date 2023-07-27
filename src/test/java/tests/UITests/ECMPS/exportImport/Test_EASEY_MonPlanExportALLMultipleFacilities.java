@@ -30,7 +30,8 @@ public class Test_EASEY_MonPlanExportALLMultipleFacilities extends CommonExport 
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
-        waitFor(monitoringPlansPage.homeTitle);
+
+
 
         verifyEquals(monitoringPlansPage.homeTitle, homeTitle);
 

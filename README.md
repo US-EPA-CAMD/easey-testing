@@ -30,9 +30,9 @@ These instructions will get you a copy of the project up and running on your loc
       - Multiple names can be included by separating the values with a comma 
       - Start the value with a ``` ! ``` or ```  ~ ``` to exclude tests with that value 
 
-- -Dmode (optional) 
+- -Drunmode (optional) 
     - Default: ``` local ```
-    - Alternative Option: ``` browserstack ```, which will run the tests locally or on BrowserStack
+    - Alternative Option: ``` browserStack ```, which will run headless (aka no gui)
 
 - -Ddebug (optional)
     - Default: ``` false```

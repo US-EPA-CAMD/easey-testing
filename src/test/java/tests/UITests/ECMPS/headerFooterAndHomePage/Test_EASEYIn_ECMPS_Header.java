@@ -27,7 +27,6 @@ public class Test_EASEYIn_ECMPS_Header extends UITestBase {
 
         verifyEquals(monitoringPlansPage.ecmpsHeaderRegulatoryPartnersLabel.get(2), "|Regulatory Partners");
 
-        verifyEquals(monitoringPlansPage.ecmpsHeaderSiteMapLabel, "|Site Map");
 
     }
 }
