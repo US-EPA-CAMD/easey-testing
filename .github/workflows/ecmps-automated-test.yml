@@ -1,7 +1,7 @@
 # This is a basic workflow to help you get started with Actions
 # Adding a dummy comment
 
-name: CI
+name: Automated Tests
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
