@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import utils.PageBase;
 
 import java.net.MalformedURLException;
@@ -32,10 +33,11 @@ public class UITestBase extends TestBase {
     private static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_PASSWORD");
     private static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
     private ExceptionListener listener;
-    private String runMode = System.getProperty("runMode", "local");
+    private String runMode = System.getProperty("runmode", "local");
     private boolean debug = System.getProperty("debug", "false").equalsIgnoreCase("true");
 
     @BeforeMethod
+    @Parameters({"browser","runmode"})
     public void beforeMethod() {
         super.beforeMethod();
 
@@ -60,9 +62,8 @@ public class UITestBase extends TestBase {
             caps.setCapability("name", className); // test name
             if (!driverHome.contains("runner"))
                 caps.setCapability("build", "Local Trigger: " + AUTOMATE_USERNAME + " @ " + java.time.LocalDate.now()); // CI/CD job or build name
-            else {
+            else
                 caps.setCapability("build", "Github trigger @" + java.time.LocalDate.now());
-            }
             try {
                 eventless_driver = new RemoteWebDriver(new URL(URL), caps);
                 eventless_driver.manage().window().maximize();
@@ -70,18 +71,19 @@ public class UITestBase extends TestBase {
                 System.err.println("Bad URL");
             }
         } else {
-//            eventless_driver = new ChromeDriver();
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("headless");
-            eventless_driver = new ChromeDriver(options);
+            eventless_driver = new ChromeDriver();
+            eventless_driver.manage().window().maximize();
+//            ChromeOptions options = new ChromeOptions();
+//            options.addArguments("headless");
+//            eventless_driver = new ChromeDriver(options);
 //            if (osHome.contains("yefim"))
 //                eventless_driver.manage().window().setPosition(new Point(4920, 0)); // specific to my situation
 //            eventless_driver.manage().window().maximize();
-
+            System.out.println("in this else!!!!");
             sleep(1000);
         }
         driver = new EventFiringWebDriver(eventless_driver);
-        
+
         listener = new ExceptionListener(className);
         driver.register(listener);
     }
@@ -102,14 +104,26 @@ public class UITestBase extends TestBase {
     protected void goToo(String app, String url) {
         if (!url.startsWith("https:")) {
             url = String.format("https://%s-%s.app.cloud.gov%s", app, env, url);
-        }
-        else {
+        } else {
             System.out.print(className + " needs to have goto method updated");
         }
         driver.get(url);
     }
 
-    protected void logOn(String username, String password, PageBase page){
+
+    protected void setRunMode(String runMode){
+        if(!runMode.equals("headless")) {
+            eventless_driver = new ChromeDriver();
+            eventless_driver.manage().window().maximize();
+
+        }else{
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("headless");
+            eventless_driver = new ChromeDriver(options);
+        }
+    }
+
+    protected void logOn(String username, String password, PageBase page) {
         verifyEquals(page.logInButtonOpenModal, "Log In");
         click(page.logInButtonOpenModal);
 
@@ -185,18 +199,18 @@ public class UITestBase extends TestBase {
         return waitFor(condition, seconds);
     }
 
-    protected void input(WebElement ele, String input){
+    protected void input(WebElement ele, String input) {
         try {
             ele.sendKeys(input);
-        } catch(NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             Assert.assertTrue(false, "Element not Found!");
         }
     }
 
-    protected void enter(WebElement ele){
+    protected void enter(WebElement ele) {
         try {
             ele.sendKeys(Keys.ENTER);
-        } catch(NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             Assert.assertTrue(false, "Element not Found!");
         }
     }
@@ -217,13 +231,13 @@ public class UITestBase extends TestBase {
     protected void changeTab() {
         waitFor(driver -> driver.getWindowHandles().size() > 1);
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(tabs.size()-1));
+        driver.switchTo().window(tabs.get(tabs.size() - 1));
     }
 
     protected void closeTab() {
         driver.close();
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(tabs.size()-1));
+        driver.switchTo().window(tabs.get(tabs.size() - 1));
     }
 
     protected void sleep(int time) {
@@ -235,7 +249,9 @@ public class UITestBase extends TestBase {
             }
     }
 
-    protected void pause() { sleep (1000000); }
+    protected void pause() {
+        sleep(1000000);
+    }
 }
 
 class ExceptionListener extends AbstractWebDriverEventListener {
@@ -266,6 +282,7 @@ class ExceptionListener extends AbstractWebDriverEventListener {
             printError("\tUnhandled Exception");
         }
     }
+
     private static void printError(String error) {
         System.err.println("[\u001B[31mERROR\u001B[0m] " + error);
     }
@@ -274,7 +291,7 @@ class ExceptionListener extends AbstractWebDriverEventListener {
     protected void setChromeDownloadPath() {
         String fileDownloadPath = "C:\\EPA\\easey-testing\\src\\downloads";
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download.default_directory",fileDownloadPath);
+        chromePrefs.put("download.default_directory", fileDownloadPath);
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
         ChromeDriver driver = new ChromeDriver(options);

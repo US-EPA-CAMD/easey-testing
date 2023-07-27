@@ -16,20 +16,22 @@
         <sonar.projectKey>US-EPA-CAMD_easey-testing</sonar.projectKey>
         <sonar.organization>us-epa-camd</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <mode>single</mode>
+        <default.mode>single</default.mode>
         <!-- set options for browser and env tag-->
         <browser>${default.browser}</browser>
         <env>${default.env}</env>
-
+        <mode>${default.env}</mode>
         <default.browser>chrome</default.browser>
         <browser>firefox</browser>
 
         <default.env>dev</default.env>
         <env>beta</env>
 
-<!--        <mode>${default.mode}</mode>-->
-<!--        <default.mode>local</default.mode>-->
-<!--        <mode>headless</mode>-->
+        <default.runmode>local</default.runmode>
+
+        <runmode>${default.runmode}</runmode>
+
+        <runmode>headless</runmode>
 
 
     </properties>
@@ -44,6 +46,7 @@
             <properties>
                 <browser>${default.browser}</browser>
                 <env>${default.env}</env>
+                <mode>${default.mode}</mode>
             </properties>
         </profile>
 
