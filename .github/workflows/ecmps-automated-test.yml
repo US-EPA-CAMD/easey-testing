@@ -1,48 +1,47 @@
-name: ECMPS Automated Tests
+# This is a basic workflow to help you get started with Actions
+# Adding a dummy comment
 
+name: Automated Tests
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
 on:
   workflow_dispatch:
+    inputs:
+      tests:
+        description: 'tests'
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  Automated-Tests:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'temurin'
-          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-          settings-path: ${{ github.workspace }} # location for the settings.xml file
+          java-version: 11
 
-
-
-#      - name: Install Browser Drivers
-#        run: |
-#          cd easey-testing/scripts
-#          ./install-browser-drivers.sh
-      - name: Setup Chrome Driver
-        uses: nanasess/setup-chromedriver@v2
-
+      # Get updated Chrome
       - name: Install Chrome
         run: |
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install ./google-chrome-stable_current_amd64.deb
-          
+
+      # Download chromedriver
       - name: Download ChromeDriver
         run: |
           cd ~
           mkdir ~/drivers
           sudo npm install chromedriver
           ln -sf ~/node_modules/chromedriver/lib/chromedriver/chromedriver ~/drivers/chromedriver
-      
-      - name: Run Tests
-        uses: coactions/setup-xvfb@v1
-        run: |
-          mvn test \
-          -Dname=Test_ECMPSUI_SMK_MonPlanPage \
-          -DargLine="-Dwebdriver.chrome.driver=~/drivers/chromedriver -Dwebdriver.chrome.args=--headless -Dwebdriver.chrome.silentOutput=true"
+
+      # Run Tests
+      - name: Maven run tests
+        run: mvn test -Dname=~Sample,${{ github.event.inputs.tests }} -Drunmode=browserStack

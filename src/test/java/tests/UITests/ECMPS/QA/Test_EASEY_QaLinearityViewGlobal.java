@@ -5,7 +5,7 @@ import pages.QaCertificationPage;
 import tests.utils.CommonExport;
 
 //This test launches from QA test data, selects a facility to view a linearity data and views the first entry
-public class Test_EASY_QaLinearityViewGlobal extends CommonExport {
+public class Test_EASEY_QaLinearityViewGlobal extends CommonExport {
     @Test
     public void test() throws InterruptedException {
         //        Navigate to EASEY In
