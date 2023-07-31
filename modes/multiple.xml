@@ -1,8 +1,26 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="8" name="Suite">
+<suite thread-count="8" name="AutomatedTests">
 
     <listeners>
         <listener class-name="tests.utils.TestFilterListener"/>
     </listeners>
+
+    <test name = "Test_ECMPSUI_SMK_MonPlanPage">
+        <classes>
+            <class name = "tests.UITests.ECMPS.monPlan.monPlan_SmokeTests.Test_ECMPSUI_SMK_MonPlanPage" />
+        </classes>
+    </test>
+
+    <test name = "Test_EASEY_QaLinearityViewGlobal">
+        <classes>
+            <class name = "tests.UITests.ECMPS.QA.Test_EASEY_QaLinearityViewGlobal" />
+        </classes>
+    </test>
+
+    <test name = "Test_EASEY_QaRATAGlobal">
+        <classes>
+            <class name = "tests.UITests.ECMPS.QA.Test_EASEY_QaRATAGlobal" />
+        </classes>
+    </test>
 
 </suite>

@@ -125,11 +125,14 @@
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <suiteXmlFiles>
                         <suiteXmlFile>modes/${mode}.xml</suiteXmlFile>
+                        <suiteXmlFile>modes/multiple.xml</suiteXmlFile>
                     </suiteXmlFiles>
+
                     <!-- tag for setting browser and env-->
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
                         <env>${env}</env>
+                        <runmode>${default.mode}</runmode>
 <!--                        <java.awt.headless>${headless}</java.awt.headless>-->
                     </systemPropertyVariables>
                 </configuration>
