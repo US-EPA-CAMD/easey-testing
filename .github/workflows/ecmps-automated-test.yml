@@ -28,6 +28,15 @@ jobs:
         with:
           java-version: 11
 
+      # Browserstack Set Up
+      - name: Browserstack Env Set Up
+        uses: browserstack/github-actions/setup-env@master
+        with:
+          username: ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_PASSWORD }}
+          build-name: 'BUILD_INFO'
+          project-name: 'Easey-Testing'
+
       # Get updated Chrome
       - name: Install Chrome
         run: |
@@ -41,15 +50,6 @@ jobs:
           mkdir ~/drivers
           sudo npm install chromedriver
           ln -sf ~/node_modules/chromedriver/lib/chromedriver/chromedriver ~/drivers/chromedriver
-
-     # Browserstack Set Up
-      - name: Browserstack Env Set Up
-        uses: browserstack/github-actions/setup-env@master
-        with:
-          username: ${{ secrets.BROWSERSTACK_USERNAME }}
-          access-key: ${{ secrets.BROWSERSTACK_PASSWORD }}
-          build-name: 'BUILD_INFO'
-          project-name: 'Easey-Testing'
 
       # Run Tests
       - name: Maven run tests
