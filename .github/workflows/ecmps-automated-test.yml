@@ -48,6 +48,8 @@ jobs:
         with:
           username: ${{ secrets.BROWSERSTACK_USERNAME }}
           access-key: ${{ secrets.BROWSERSTACK_PASSWORD }}
+          build-name: 'BUILD_INFO'
+          project-name: 'Easey-Testing'
 
       # Run Tests
       - name: Maven run tests
