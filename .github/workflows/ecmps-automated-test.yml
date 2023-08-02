@@ -42,6 +42,13 @@ jobs:
           sudo npm install chromedriver
           ln -sf ~/node_modules/chromedriver/lib/chromedriver/chromedriver ~/drivers/chromedriver
 
+     # Browserstack Set Up
+      - name: Browserstack Env Set Up
+        uses: browserstack/github-actions/setup-env@master
+        with:
+          username: ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_PASSWORD }}
+
       # Run Tests
       - name: Maven run tests
         run: mvn test -Dmode=multiple -Drunmode=browserStack

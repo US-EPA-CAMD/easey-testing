@@ -5,20 +5,15 @@
         <listener class-name="tests.utils.TestFilterListener"/>
     </listeners>
 
-    <test name = "Test_ECMPSUI_SMK_MonPlanPage">
+    <test name = "Basic Pre Req Test">
         <classes>
             <class name = "tests.UITests.ECMPS.monPlan.monPlan_SmokeTests.Test_ECMPSUI_SMK_MonPlanPage" />
         </classes>
     </test>
 
-    <test name = "Test_EASEY_QaLinearityViewGlobal">
+    <test name = "QA Global Tests">
         <classes>
             <class name = "tests.UITests.ECMPS.QA.Test_EASEY_QaLinearityViewGlobal" />
-        </classes>
-    </test>
-
-    <test name = "Test_EASEY_QaRATAGlobal">
-        <classes>
             <class name = "tests.UITests.ECMPS.QA.Test_EASEY_QaRATAGlobal" />
         </classes>
     </test>
