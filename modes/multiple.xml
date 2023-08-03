@@ -15,6 +15,7 @@
         <classes>
             <class name = "tests.UITests.ECMPS.QA.Test_EASEY_QaLinearityViewGlobal" />
             <class name = "tests.UITests.ECMPS.QA.Test_EASEY_QaRATAGlobal" />
+
         </classes>
     </test>
 

@@ -31,7 +31,7 @@
 
         <runmode>${default.runmode}</runmode>
 
-        <runmode>headless</runmode>
+        <runmode>browserStack</runmode>
 
 
     </properties>
@@ -47,6 +47,7 @@
                 <browser>${default.browser}</browser>
                 <env>${default.env}</env>
                 <mode>${default.mode}</mode>
+                <runmode>${default.runmode}</runmode>
             </properties>
         </profile>
 
@@ -125,14 +126,14 @@
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <suiteXmlFiles>
                         <suiteXmlFile>modes/${mode}.xml</suiteXmlFile>
-                        <suiteXmlFile>modes/multiple.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>modes/multiple.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
 
                     <!-- tag for setting browser and env-->
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
                         <env>${env}</env>
-                        <runmode>${default.mode}</runmode>
+                        <runmode>${runmode}</runmode>
 <!--                        <java.awt.headless>${headless}</java.awt.headless>-->
                     </systemPropertyVariables>
                 </configuration>
