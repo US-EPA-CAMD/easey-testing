@@ -8,6 +8,7 @@
     <test name = "Basic Pre Req Test">
         <classes>
             <class name = "tests.UITests.ECMPS.monPlan.monPlan_SmokeTests.Test_ECMPSUI_SMK_MonPlanPage" />
+            <class name = "tests.UITests.ECMPS.monPlan.monPlan_SmokeTests.Test_ECMPSUI_SMK_OpenConfiguration_LoggedOut" />
         </classes>
     </test>
 
