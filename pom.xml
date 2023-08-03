@@ -31,7 +31,7 @@
 
         <runmode>${default.runmode}</runmode>
 
-        <runmode>headless</runmode>
+        <runmode>browserStack</runmode>
 
 
     </properties>
@@ -47,6 +47,7 @@
                 <browser>${default.browser}</browser>
                 <env>${default.env}</env>
                 <mode>${default.mode}</mode>
+                <runmode>${default.runmode}</runmode>
             </properties>
         </profile>
 
@@ -88,7 +89,7 @@
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>20200518</version>
+            <version>20230227</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
@@ -126,10 +127,12 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>modes/${mode}.xml</suiteXmlFile>
                     </suiteXmlFiles>
+
                     <!-- tag for setting browser and env-->
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
                         <env>${env}</env>
+                        <runmode>${runmode}</runmode>
 <!--                        <java.awt.headless>${headless}</java.awt.headless>-->
                     </systemPropertyVariables>
                 </configuration>

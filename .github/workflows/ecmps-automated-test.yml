@@ -28,6 +28,15 @@ jobs:
         with:
           java-version: 11
 
+      # Browserstack Set Up
+      - name: Browserstack Env Set Up
+        uses: browserstack/github-actions/setup-env@master
+        with:
+          username: ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_PASSWORD }}
+          build-name: 'BUILD_INFO'
+          project-name: 'Easey-Testing'
+
       # Get updated Chrome
       - name: Install Chrome
         run: |
@@ -44,4 +53,4 @@ jobs:
 
       # Run Tests
       - name: Maven run tests
-        run: mvn test -Dname=~Sample,${{ github.event.inputs.tests }} -Drunmode=browserStack
+        run: mvn test -Dmode=multiple -Drunmode=browserStack

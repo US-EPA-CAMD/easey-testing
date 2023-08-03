@@ -79,7 +79,7 @@ public class UITestBase extends TestBase {
 //            if (osHome.contains("yefim"))
 //                eventless_driver.manage().window().setPosition(new Point(4920, 0)); // specific to my situation
 //            eventless_driver.manage().window().maximize();
-            System.out.println("in this else!!!!");
+
             sleep(1000);
         }
         driver = new EventFiringWebDriver(eventless_driver);
