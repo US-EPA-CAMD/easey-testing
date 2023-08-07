@@ -30,7 +30,7 @@ public class UITestBase extends TestBase {
     WebDriver eventless_driver;
     protected String driverHome;
     private static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
-    private static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_PASSWORD");
+    private static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
     private static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
     private ExceptionListener listener;
     private String runMode = System.getProperty("runmode", "local");
