@@ -32,10 +32,8 @@ jobs:
       - name: Browserstack Env Set Up
         uses: browserstack/github-actions/setup-env@master
         with:
-          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
-          BROWSERSTACK_PASSWORD: ${{ secrets.BROWSERSTACK_PASSWORD }}
-          build-name: 'BUILD_INFO'
-          project-name: 'Easey-Testing'
+          username: ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
 
       # Get updated Chrome
       - name: Install Chrome
