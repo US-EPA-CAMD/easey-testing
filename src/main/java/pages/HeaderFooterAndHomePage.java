@@ -267,7 +267,7 @@ public class HeaderFooterAndHomePage extends PageBase {
     @FindBy(id = "openModalBTN")
     public WebElement logInButtonOpenModal;
 
-    @FindBy(css = "button[data-test='component-login-submit-button']")
+    @FindBy(css = "button[data-testid='component-login-submit-button']")
     public WebElement logInButtonSubmit;
 
     @FindBy (css ="label[for='modal-username']")
