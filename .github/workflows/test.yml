@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-
+`
       # Browserstack Set Up
       - name: Browserstack Env Set Up
         uses: browserstack/github-actions/setup-env@master

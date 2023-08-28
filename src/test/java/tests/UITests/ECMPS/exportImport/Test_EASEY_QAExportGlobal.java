@@ -35,8 +35,8 @@ public class Test_EASEY_QAExportGlobal extends CommonExport {
         //verifies at least one search result returns
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
 
-        waitFor(monitoringPlansPage.configOpenButton.get(5));
-        click(monitoringPlansPage.configOpenButton.get(5));
+        waitFor(monitoringPlansPage.configOpenButton.get(0));
+        click(monitoringPlansPage.configOpenButton.get(0));
 
         waitFor(monitoringPlansPage.configTab1);
         click(monitoringPlansPage.configTab1);
@@ -62,7 +62,7 @@ public class Test_EASEY_QAExportGlobal extends CommonExport {
         click(exportPage.exportButton);
 
 
-        String searchFile = "QA & Certification _ Export - Smith Generating Facility (SCT5)";
+        String searchFile = "QA & Certification _ Export - Smith Generating Facility (SCT1)";
         //check if downloaded file
         VerifyDownload(fileDownloadpath, searchFile);
 
