@@ -15,7 +15,7 @@ public class Test_EASEY_QAExportLocal extends CommonExport {
     private static String username = System.getenv("TESTING_USERNAME");
     private static String  password = System.getenv("TESTING_PASSWORD");
 
-    String searchFile = "MP Export - Smith Generating Facility, SCT5 ";
+    String searchFile = "MP Export - Smith Generating Facility, SCT1 ";
 
     @Test
     public void test() throws InterruptedException {
@@ -47,8 +47,8 @@ public class Test_EASEY_QAExportLocal extends CommonExport {
         //verifies at least one search result returns
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
 
-        waitFor(monitoringPlansPage.configOpenButton.get(5));
-        click(monitoringPlansPage.configOpenButton.get(5));
+        waitFor(monitoringPlansPage.configOpenButton.get(0));
+        click(monitoringPlansPage.configOpenButton.get(0));
 
         waitFor(monitoringPlansPage.configTab1);
         click(monitoringPlansPage.configTab1);
@@ -63,15 +63,15 @@ public class Test_EASEY_QAExportLocal extends CommonExport {
         //verify on export page
         verifyEquals(exportPage.title, "Export Data");
 
-        waitFor(exportPage.MPButton);
+        waitFor(exportPage.MPButtonL);
         //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
-        click(exportPage.MPButton);
-        click(exportPage.qaButton);
+        click(exportPage.MPButtonL);
+        click(exportPage.qaButtonL);
 
 
-        waitFor(exportPage.exportButton);
+        waitFor(exportPage.exportButtonL);
         //click export button
-        click(exportPage.exportButton);
+        click(exportPage.exportButtonL);
 
 
         //check if downloaded file

@@ -25,7 +25,10 @@ public class PageBase {
     @FindBy(id = "openModalBTN")
     public WebElement logInButtonOpenModal;
 
-    @FindBy(css = "button[data-test='component-login-submit-button']")
+//    @FindBy(css = "button[data-test='component-login-submit-button']")
+//    public WebElement logInButtonSubmit;
+
+    @FindBy(xpath = "//body/div[@id='portal']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/fieldset[1]/button[1]")
     public WebElement logInButtonSubmit;
 
     @FindBy (css ="label[for='modal-username']")

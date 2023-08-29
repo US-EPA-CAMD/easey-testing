@@ -21,11 +21,18 @@ public class ExportPage extends HeaderFooterAndHomePage  {
     @FindBy (xpath = "//strong[contains(text(),'QA & Certification')]")
     public WebElement qaButton;
 
+    //body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/label[1]
+    @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/label[1]")
+    public WebElement qaButtonL;
+
     @FindBy (id ="monitoring-plan")
     public WebElement mpButton;
 
     @FindBy (xpath = "//strong[contains(text(),'Monitoring Plan')]")
     public WebElement MPButton ;
+
+    @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/label[1]")
+    public WebElement MPButtonL ;
 
     @FindBy (xpath = "//strong[contains(text(),'Emissions')]")
     public WebElement emissionsButton;
@@ -44,5 +51,9 @@ public class ExportPage extends HeaderFooterAndHomePage  {
 
     @FindBy (xpath = "//button[contains(text(),'Export')]")
     public WebElement exportButton ;
+
+    //body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/button[1]
+    @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/button[1]")
+    public WebElement exportButtonL ;
 
 }
