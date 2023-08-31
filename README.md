@@ -29,7 +29,10 @@ These instructions will get you a copy of the project up and running on your loc
       - It does not ahve to be the whole name, but can be a partial string, and will match to all of the tests that contains the provided name.
       - Multiple names can be included by separating the values with a comma 
       - Start the value with a ``` ! ``` or ```  ~ ``` to exclude tests with that value 
-
+- -Dmode
+  - Default: ```single```
+  - Alternate Option: ```multiple```
+    - Runs tests specified in multiple.xml 
 - -Drunmode (optional) 
     - Default: ``` local ```
     - Alternative Option: ``` browserStack ```, which will run headless (aka no gui)

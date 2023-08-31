@@ -39,7 +39,7 @@ public class Test_ECMPSUI_SMK_OpenConfiguration_LoggedOut extends UITestBase {
 
         waitFor(driver -> monitoringPlansPage.facilityCaret.size() > 0);
         js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.facilityCaret.get(0));
+                monitoringPlansPage.selectConfigurationsLabel);
 
         // Clicks on Barry (Oris Code 3)
         Thread.sleep(500);
