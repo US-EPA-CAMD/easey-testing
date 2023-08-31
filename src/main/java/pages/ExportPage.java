@@ -28,13 +28,13 @@ public class ExportPage extends HeaderFooterAndHomePage  {
     @FindBy (id ="monitoring-plan")
     public WebElement mpButton;
 
-    @FindBy (xpath = "//strong[contains(text(),'Monitoring Plan')]")
+    @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/label[1]")
     public WebElement MPButton ;
 
     @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/label[1]")
     public WebElement MPButtonL ;
 
-    @FindBy (xpath = "//strong[contains(text(),'Emissions')]")
+    @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/label[1]")
     public WebElement emissionsButton;
 
     @FindBy (id = "year-dropdown")
