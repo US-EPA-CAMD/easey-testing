@@ -8,8 +8,8 @@ public class Test_EASEYIn_TC1414_LogIn_Home_Page extends UITestBase {
 
     @Test()
     public void tests() {
-        String username = System.getenv("MOSES_TESTING_USERNAME");
-        String password = System.getenv("MOSES_TESTING_PASSWORD");
+        String username = System.getenv("TESTING_USERNAME");
+        String password = System.getenv("TESTING_PASSWORD");
 
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
