@@ -6,10 +6,10 @@ name: Automated Tests
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
+  schedule:
+    - cron: "0 0 * * MON"
   workflow_dispatch:
-    inputs:
-      tests:
-        description: 'tests'
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

@@ -223,6 +223,8 @@ public class HeaderFooterAndHomePage extends PageBase {
 
     @FindBy(css = "select[aria-label='Rows per page:']")
     public WebElement rowsPerPageButton;
+    //span[contains(text(),'Rows per page:')]
+
 
     @FindBy(css = "select[aria-label='Rows per page:'] > option")
     public List<WebElement> rowsPerPageOptions;
