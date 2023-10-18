@@ -26,12 +26,13 @@
 
         <default.env>dev</default.env>
         <env>beta</env>
-
+        <env>tst</env>
         <default.runmode>local</default.runmode>
 
         <runmode>${default.runmode}</runmode>
 
         <runmode>browserStack</runmode>
+        <runmode>blazeMeter</runmode>
 
 
     </properties>

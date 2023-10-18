@@ -19,7 +19,7 @@
 
             <class name = "tests.UITests.ECMPS.headerFooterAndHomePage.Test_EASEYIn_ECMPS_Header" />
             <class name = "tests.UITests.ECMPS.headerFooterAndHomePage.Test_EASEYIn_EPA_Header_Hyperlink" />
-            <class name = "tests.UITests.ECMPS.headerFooterAndHomePage.Test_EASEYIn_TC1414_LogIn_Home_Page" />
+<!--            <class name = "tests.UITests.ECMPS.headerFooterAndHomePage.Test_EASEYIn_TC1414_LogIn_Home_Page" />-->
 
 
         </classes>

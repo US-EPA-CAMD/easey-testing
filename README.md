@@ -26,7 +26,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Congifuration Settings
 
 - -Dname (required) - This is the name of tests to run. 
-      - It does not ahve to be the whole name, but can be a partial string, and will match to all of the tests that contains the provided name.
+      - It does not have to be the whole name, but can be a partial string, and will match to all of the tests that contains the provided name.
       - Multiple names can be included by separating the values with a comma 
       - Start the value with a ``` ! ``` or ```  ~ ``` to exclude tests with that value 
 - -Dmode
