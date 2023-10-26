@@ -6,7 +6,7 @@ import pages.MonitoringPlansPage;
 import tests.utils.CommonExport;
 
 public class Test_EASEY_EmissionsExportGlobal extends CommonExport {
-    private static String fileDownloadpath = "C:\\Users\\amandanelson\\Downloads";
+    private static String fileDownloadpath = "C:\\Users\\mackenzieharwood\\Downloads";
 
     @Test
     public void test() throws InterruptedException {
@@ -24,41 +24,64 @@ public class Test_EASEY_EmissionsExportGlobal extends CommonExport {
         click(monitoringPlansPage.filterByKeywordButton);
         //waits for return
         waitFor(driver -> monitoringPlansPage.facilityCaret.size() > 1);
-        sleep(90000);
 
         // Clicks on first search result
         click(monitoringPlansPage.facilityCaret.get(0));
-
+        waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
         //verifies at least one search result returns
-//        verifyEquals(monitoringPlansPage.configOpenButton.get(0), "Open");
-        waitFor(monitoringPlansPage.configOpenButton);
-        //clicks "open" button for first result
-        //add wait to let build TODO
+        verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
+
+        waitFor(monitoringPlansPage.configOpenButton.get(0));
         click(monitoringPlansPage.configOpenButton.get(0));
-        Thread.sleep(9000);
+
+        waitFor(monitoringPlansPage.configTab1);
         click(monitoringPlansPage.configTab1);
-        sleep(9000);
+
         //clicks the export tab on the left menu  column
         EmissionsPage emissionsPage = new EmissionsPage(driver);
 
         click(emissionsPage.emissionsTab);
-        //creates new export page object to access properties specific to export
-        Thread.sleep(5000);
-        Thread.sleep(5000);
+
         //verify on export page
         //verifyEquals(monitoringPlansPage.title, "Export Data");
         waitFor(emissionsPage.emissionsExportButton);
-        //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
-        click(emissionsPage.emissionsExportButton);
-        sleep(900000000);
 
-        //click export button
-        // click(exportPage.exportButton);
+
+        click(emissionsPage.xOutReportingPeriod);
+
+        waitFor(emissionsPage.reportingPeriodBox);
+
+        input(emissionsPage.reportingPeriodBox,"2022 Q3");
+
+        waitFor(emissionsPage.q3button);
+        click(emissionsPage.q3button);
+
+        waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
+
+        //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
+        waitFor(emissionsPage.emissionsExportButton);
+
+        waitFor(emissionsPage.viewtemplateBox);
+
+        click(emissionsPage.viewtemplateBox.get(14));
+
+        waitFor(emissionsPage.applyFilterButton);
+        click(emissionsPage.applyFilterButton);
+
+        waitFor(driver -> !isDisplayed(emissionsPage.stopAnimationButton));
+
+//
+//        waitFor(emissionsPage.dailyCalibrationOption);
+//        click(emissionsPage.dailyCalibrationOption);
+
+        waitFor(emissionsPage.emissionsExportButton);
+        click(emissionsPage.emissionsExportButton);
+
 
         //give time
         Thread.sleep(5000);
 
-        String searchFile = "Emissions _ Export - Barry (1, 2, CS0AAN)  (19)";
+        String searchFile = "Emissions _ Export - Smith Generating Facility (SCT1)  - 2022 - Q3";
         //check if downloaded file
         VerifyDownload(fileDownloadpath, searchFile);
 

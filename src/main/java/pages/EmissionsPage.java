@@ -153,12 +153,15 @@ public class EmissionsPage extends MonitoringPlansPage {
     @FindBy(xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]/*[1]")
     public WebElement xOutReportingPeriod;
 
+    //input[@id='reportingPeriod-searchbox']
+    @FindBy (xpath ="//input[@id='reportingPeriod-searchbox']")
+    public WebElement reportingPeriodBox;
 
     @FindBy(id = "reportingPeriod-searchbox")
     public WebElement reportingPeriodInput;
-
-    @FindBy(id = "viewtemplate")
-    public WebElement viewtemplateBox;
+//    css = "select[id='Fuel Type'] > option"
+    @FindBy(css = "select[id='viewtemplate'] > option")
+    public List<WebElement>  viewtemplateBox;
 
     //button[contains(text(),'Apply Filter(s)')]
     @FindBy(xpath = "//button[contains(text(),'Apply Filter(s)')]")
@@ -167,6 +170,14 @@ public class EmissionsPage extends MonitoringPlansPage {
     //span[contains(text(),'2022 Q4')]
     @FindBy(xpath = "//span[contains(text(),'2022 Q4')]")
     public WebElement q4button;
+
+    @FindBy(xpath = "//span[contains(text(),'2022 Q3')]")
+    public WebElement q3button;
+
+    //body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]
+    @FindBy(xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]")
+    public WebElement xbutton;
+
 
 
     public List<WebElement> ReadDropdownValues(String elementID) {
