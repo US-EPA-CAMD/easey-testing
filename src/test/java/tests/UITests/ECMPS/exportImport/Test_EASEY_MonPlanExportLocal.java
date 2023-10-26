@@ -59,35 +59,19 @@ public class Test_EASEY_MonPlanExportLocal extends CommonExport {
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         //clicks "open" button for first result
         //add wait to let build TODO
-        click(monitoringPlansPage.configOpenButton.get(5));
-        Thread.sleep(9000);
+        click(monitoringPlansPage.configOpenButton.get(0));
+        waitFor(monitoringPlansPage.configTabSmith1);
 
         // Clicks on Smith
         //configTabSmith
-        click(monitoringPlansPage.configTabSmith);
+        click(monitoringPlansPage.configTabSmith1);
         //Wait for load
         waitFor(driver -> monitoringPlansPage.configOpenButton.size() > 1);
-        //clicks the export tab on the left menu  column
-        click(monitoringPlansPage.exportTabLocal);
 
+        waitFor(monitoringPlansPage.exportBTN);
+        click(monitoringPlansPage.exportBTN);
 
-        //creates new export page object to access properties specific to export
-        ExportPage exportPage = new ExportPage(driver);
-        Thread.sleep(5000);
-        //verify on export page
-        verifyEquals(exportPage.title, "Export Data");
-
-        //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
-        click(exportPage.MPButton);
-
-
-        //click export button
-        click(exportPage.exportButton);
-        sleep(900000000);
-        Thread.sleep(5000);
-        Thread.sleep(5000);
-
-        String searchFile = "MP Export - Smith Generating Facility, SCT5";
+        String searchFile = "MP Export - Smith Generating Facility, SCT1";
         //check if downloaded file
         VerifyDownload(fileDownloadpath, searchFile);
 

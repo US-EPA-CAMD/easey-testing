@@ -739,6 +739,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (css ="li[title='Smith Generating Facility (SCT5) ']")
     public WebElement configTabSmith;
 
+    @FindBy (css ="li[title='Smith Generating Facility (SCT1) ']")
+    public WebElement configTabSmith1;
+
     @FindBy (css ="li[title='Smith Generating Facility (SCT10) ']")
     public WebElement configTabSmith10;
 
@@ -755,10 +758,10 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath ="//button[contains(text(),'Export Data')]")
     public WebElement exportBTN ;
 
-    @FindBy (xpath ="//a[@id='Export']")
+    @FindBy (xpath ="//a[@id='ExportAndReport']")
     public WebElement exportTab ;
 
-    @FindBy (xpath ="//a[@id='Export_wks']")
+    @FindBy (xpath ="//a[@id='ExportAndReport_wks']")
     public WebElement exportTabLocal ;
 
     @FindBy (xpath = "//button[@id='importBtn']")
@@ -833,8 +836,9 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     public List<WebElement> formulaOptionDropdown;
 
 
-
-
+//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]
+    @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]\n")
+    public WebElement orisCodeBox ;
 
     //Amanda adding buttons and stuff
     @FindBy (xpath = "//a[@id='Emissions']")

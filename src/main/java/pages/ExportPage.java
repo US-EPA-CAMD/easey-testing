@@ -56,4 +56,22 @@ public class ExportPage extends HeaderFooterAndHomePage  {
     @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/button[1]")
     public WebElement exportButtonL ;
 
+    //body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]
+    @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/label[1]")
+    public WebElement orisCodeBox1 ;
+
+    //select[@id='year-quarter-dropdown']
+    @FindBy (css = "select[id='year-quarter-dropdown'] > option")
+    public List<WebElement> yearQuarterDropdown;
+
+    //option[contains(text(),'2022 Q1')]
+    @FindBy (xpath = "//option[contains(text(),'2022 Q1')]")
+    public WebElement yearq4Button;
+
+    @FindBy(css = "div[class='sc-fqkvVR sc-jEACwC bFuPwk jeiDIp rdt_TableCol']")
+    public WebElement orisCodeBox ;
+
+    //body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]
+    @FindBy (xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]")
+    public WebElement orisCodeTDBox ;
 }
