@@ -1,5 +1,6 @@
 package tests.UITests.ECMPS.exportImport;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import pages.ExportPage;
 import pages.MonitoringPlansPage;
@@ -22,6 +23,8 @@ public class Test_EASEY_QAExportLocal extends CommonExport {
 //        Navigate to EASEY In
 //        https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/monitoring-plans");
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
         MonitoringPlansPage monitoringPlansPage = new MonitoringPlansPage(driver);
 
@@ -63,16 +66,16 @@ public class Test_EASEY_QAExportLocal extends CommonExport {
         //verify on export page
         verifyEquals(exportPage.title, "Export Data");
 
-        waitFor(exportPage.MPButtonL);
-        //EXPORT BUTTON GREYED OUT UNTIL MP BUTTON SELECTED
-        click(exportPage.MPButtonL);
-        click(exportPage.qaButtonL);
+        waitFor(exportPage.yearQuarterDropdown);
+        click(exportPage.yearq4Button);
 
+        js.executeScript("window.scrollBy(0,350)", "");
 
-        waitFor(exportPage.exportButtonL);
-        //click export button
-        click(exportPage.exportButtonL);
+        waitFor(exportPage.orisCodeBox);
+        click(exportPage.orisCodeBox);
 
+//        waitFor(exportPage.orisCodeTDBox);
+//        click(exportPage.orisCodeTDBox);
 
         //check if downloaded file
         VerifyDownload(fileDownloadpath, searchFile);
