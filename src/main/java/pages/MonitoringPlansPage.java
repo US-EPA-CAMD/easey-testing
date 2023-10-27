@@ -770,6 +770,14 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     @FindBy (xpath = "//input[@id='file-input-single']")
     public WebElement uploadFileChoiceButton ;
 
+//
+//    @FindBy (xpath = "//button[contains(text(),'Import')]")
+//    public WebElement importBTN ;
+
+    //body/div[@id='portal']/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]
+    @FindBy (xpath = "//body/div[@id='portal']/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]")
+    public WebElement importBTN ;
+
     //button[@id='select-config']
     @FindBy (xpath = "//button[@id='select-config']")
     public WebElement selectConfigButton ;
@@ -786,7 +794,11 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
 
     //TODO replace with something better
     @FindBy (xpath = "//body/div[@id='portal']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]")
+    public WebElement importSubmitBTN1 ;
+    //button[@id='importBtn']
+    @FindBy (xpath = "//button[@id='importBtn']")
     public WebElement importSubmitBTN ;
+    //body/div[@id='portal']/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]
     //#importBtn
 
     //h2[contains(text(),'About ECMPS 2.0 Beta')]
@@ -803,6 +815,14 @@ public class MonitoringPlansPage extends HeaderFooterAndHomePage {
     //select[@id='Sections']
     @FindBy (xpath = "//select[@id='Sections']")
     public WebElement sectionsDropDown ;
+
+    @FindBy(xpath = "//button[@id='importBtn']")
+    public WebElement continueBTN;
+
+
+    @FindBy(xpath = "//button[@id='logoutBtn']")
+    public WebElement logoutBTN;
+
 
     @FindBy (xpath = "//option[contains(text(),'Formulas')]")
     public WebElement formulaOption ;

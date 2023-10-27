@@ -153,6 +153,10 @@ public class EmissionsPage extends MonitoringPlansPage {
     @FindBy(xpath = "//body/div[@id='root']/div[1]/div[2]/div[1]/div[4]/div[2]/main[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]/*[1]")
     public WebElement xOutReportingPeriod;
 
+    //button[@id='importBtn']
+    @FindBy(xpath = "//button[@id='importBtn']")
+    public WebElement continueBTN;
+
     //input[@id='reportingPeriod-searchbox']
     @FindBy (xpath ="//input[@id='reportingPeriod-searchbox']")
     public WebElement reportingPeriodBox;
