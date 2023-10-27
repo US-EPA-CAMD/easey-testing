@@ -14,7 +14,7 @@ import tests.utils.CommonExport;
 public class Test_EASEY_MonPlanImport extends CommonExport {
     //set download path
     //TODO REPLACE PATH WITH RELATIVE PATH OF UPLOAD.JSON IN THE FILES SUBDIRECTORY
-    private static String fileUploadpath = "C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\ECMPS\\exportImport\\files\\MP Export - Smith Generating Facility, SCT1 (10-26-2023).json";
+    private static String fileUploadpath = "C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\ECMPS\\exportImport\\files\\upload2.json";
     private static String username = System.getenv("TESTING_USERNAME");
     private static String password = System.getenv("TESTING_PASSWORD");
 

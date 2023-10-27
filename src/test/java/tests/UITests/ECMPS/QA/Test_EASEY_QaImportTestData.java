@@ -2,9 +2,14 @@ package tests.UITests.ECMPS.QA;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.Test;
 import pages.QaCertificationPage;
 import tests.utils.CommonExport;
+
+import java.net.URL;
 
 //This test launches from QA [test data], logs in, selects facility, and uploads a file (only for Smith Generating 1)
 public class Test_EASEY_QaImportTestData extends CommonExport {
@@ -15,6 +20,7 @@ public class Test_EASEY_QaImportTestData extends CommonExport {
 
     @Test
     public void test() throws InterruptedException {
+
         // Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/qa/tests");
@@ -90,46 +96,30 @@ public class Test_EASEY_QaImportTestData extends CommonExport {
         waitFor(qaCertificationPage.continueBTN);
         click(qaCertificationPage.continueBTN);
 
-        //click(monitoringPlansPage.uploadFileChoiceButton);
-        WebElement upload_file = driver.findElement(By.xpath("//input[@id='file-input-single']"));
 
-//        upload_file.click();
+        driver.findElement(By.xpath("//input[@id='file-input-single']")).sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\ECMPS\\QA\\files\\upload2.json");
 
-        upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\QA\\files\\upload2.json");
 
         waitFor(qaCertificationPage.continueBTN);
         click(qaCertificationPage.continueBTN);
 
-//        waitFor(qaCertificationPage.inputLink);
-//
-//        click(qaCertificationPage.inputLink);
 
-        //TODO FIX file
-//        upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\QA\\files\\upload2.json");
-//        //wait for import button to show
-//        waitFor(qaCertificationPage.importSubmitBTN);
-//        //click import button
-//        click(qaCertificationPage.importSubmitBTN);
+
         //wait for success
         waitFor(qaCertificationPage.successMessage);
 
         waitFor(qaCertificationPage.okBTN);
         click(qaCertificationPage.okBTN);
 
-        //if to print status to console
-        //TODO add verify statement
-        if(qaCertificationPage.successMessage.isDisplayed()){
-            System.out.println("The file was successfully uploaded");
-        }else{
-            System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
-        }
+
+        waitFor(qaCertificationPage.checkInBTN);
+        click(qaCertificationPage.checkInBTN);
 
 
-        revertToOfficial();
+        waitFor(qaCertificationPage.logoutBTN);
+        click(qaCertificationPage.logoutBTN);
 
 
-        //closing out
-//        logOutMethod();
 
 
         closebrowser();
