@@ -86,27 +86,26 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         WebElement upload_file = driver.findElement(By.xpath("//input[@id='file-input-single']"));
         upload_file.sendKeys(fileUploadpath);
         //wait for import button to show
-        wt.until(ExpectedConditions.elementToBeClickable(monitoringPlansPage.importBTN));
+        wt.until(ExpectedConditions.elementToBeClickable(monitoringPlansPage.importbTn));
         //click import button
-        click(monitoringPlansPage.importBTN);
+        click(monitoringPlansPage.importbTn);
         //wait for success
         waitFor(monitoringPlansPage.successMessage);
+        waitFor(monitoringPlansPage.okBTN);
 
-        //if to print status to console
-        //TODO add verify statement
-        if(monitoringPlansPage.successMessage.isDisplayed()){
-            System.out.println("The file was successfully uploaded");
-        }else{
-            System.out.println("The file was NOT successfully uploaded"+ "/n"+" NOT UPLOADED" );
-        }
+        click(monitoringPlansPage.okBTN);
 
 
-        waitFor(monitoringPlansPage.okButton);
-        click(monitoringPlansPage.okButton);
 
-        // Revert starts here
-        revertToOfficial();
 
+
+
+        waitFor(monitoringPlansPage.checkInBTN);
+        click(monitoringPlansPage.checkInBTN);
+
+
+        waitFor(monitoringPlansPage.logoutBTN);
+        click(monitoringPlansPage.logoutBTN);
     }
     @Override
     @AfterMethod
