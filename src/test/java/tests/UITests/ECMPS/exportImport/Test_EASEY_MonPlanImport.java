@@ -86,9 +86,9 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         WebElement upload_file = driver.findElement(By.xpath("//input[@id='file-input-single']"));
         upload_file.sendKeys(fileUploadpath);
         //wait for import button to show
-        wt.until(ExpectedConditions.elementToBeClickable(monitoringPlansPage.importbTn));
+        wt.until(ExpectedConditions.elementToBeClickable(monitoringPlansPage.importBTN));
         //click import button
-        click(monitoringPlansPage.importbTn);
+        click(monitoringPlansPage.importBTN);
         //wait for success
         waitFor(monitoringPlansPage.successMessage);
         waitFor(monitoringPlansPage.okBTN);

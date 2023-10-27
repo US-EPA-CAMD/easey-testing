@@ -87,10 +87,6 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//button[@id='btnCheckBackIn']")
     public WebElement checkBACKINBTN;
 
-    //button[@id='logoutBtn']
-    @FindBy(xpath = "//button[@id='logoutBtn']")
-    public WebElement logoutBTN;
-
     //button[@id='showRevertModal']
     @FindBy(xpath = "//button[@id='showRevertModal']")
     public WebElement revertToOfficailBTN;
@@ -244,9 +240,7 @@ public class QaCertificationPage extends MonitoringPlansPage {
     @FindBy(xpath = "//button[@id='importSelectionQAModal']")
     public WebElement importBTNQA;
 
-    //button[@id='importBtn']
-    @FindBy(xpath = "//button[@id='importBtn']")
-    public WebElement continueBTN;
+
 
     //input[@id='file-input-single']
     @FindBy(xpath = "//input[@id='file-input-single']")
