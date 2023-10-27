@@ -63,7 +63,7 @@ public class Test_EASEY_QaImportTestData extends CommonExport {
         waitFor(driver -> qaCertificationPage.configOpenButton.size() > 1);
 
         //verifies at least one search result returns
-        verifyEquals(qaCertificationPage.configOpenButton.get(1), "Open");
+        verifyEquals(qaCertificationPage.configOpenButton.get(2), "Open");
         //clicks "open" button for first result
 //        click(qaCertificationPage.configOpenButton.get(0));
         click(qaCertificationPage.configOpenAndCheckoutButton.get(0));
@@ -84,10 +84,18 @@ public class Test_EASEY_QaImportTestData extends CommonExport {
 
         click(qaCertificationPage.importSelectType);
 
-        //click(monitoringPlansPage.uploadFileChoiceButton);
-        WebElement upload_file = driver.findElement(By.xpath("//option[contains(text(),'Import from File')]"));
+        waitFor(qaCertificationPage.importFileOption);
+        click(qaCertificationPage.importFileOption);
 
-        upload_file.click();
+        waitFor(qaCertificationPage.continueBTN);
+        click(qaCertificationPage.continueBTN);
+
+        //click(monitoringPlansPage.uploadFileChoiceButton);
+        WebElement upload_file = driver.findElement(By.xpath("//input[@id='file-input-single']"));
+
+//        upload_file.click();
+
+        upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\QA\\files\\upload2.json");
 
         waitFor(qaCertificationPage.continueBTN);
         click(qaCertificationPage.continueBTN);
@@ -97,13 +105,16 @@ public class Test_EASEY_QaImportTestData extends CommonExport {
 //        click(qaCertificationPage.inputLink);
 
         //TODO FIX file
-        upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\QA\\files\\upload.json");
-        //wait for import button to show
-        waitFor(qaCertificationPage.importSubmitBTN);
-        //click import button
-        click(qaCertificationPage.importSubmitBTN);
+//        upload_file.sendKeys("C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\EASEYIn_Emissioners\\QA\\files\\upload2.json");
+//        //wait for import button to show
+//        waitFor(qaCertificationPage.importSubmitBTN);
+//        //click import button
+//        click(qaCertificationPage.importSubmitBTN);
         //wait for success
         waitFor(qaCertificationPage.successMessage);
+
+        waitFor(qaCertificationPage.okBTN);
+        click(qaCertificationPage.okBTN);
 
         //if to print status to console
         //TODO add verify statement

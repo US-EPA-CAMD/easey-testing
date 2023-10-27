@@ -3,6 +3,8 @@ package tests.UITests.ECMPS.exportImport;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.MonitoringPlansPage;
@@ -12,7 +14,7 @@ import tests.utils.CommonExport;
 public class Test_EASEY_MonPlanImport extends CommonExport {
     //set download path
     //TODO REPLACE PATH WITH RELATIVE PATH OF UPLOAD.JSON IN THE FILES SUBDIRECTORY
-    private static String fileUploadpath = "C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\ECMPS\\exportImport\\files\\upload.json";
+    private static String fileUploadpath = "C:\\EPA\\easey-testing\\src\\test\\java\\tests\\UITests\\ECMPS\\exportImport\\files\\MP Export - Smith Generating Facility, SCT1 (10-26-2023).json";
     private static String username = System.getenv("TESTING_USERNAME");
     private static String password = System.getenv("TESTING_PASSWORD");
 
@@ -22,6 +24,9 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
 
     @Test
     public void test() throws InterruptedException {
+
+        WebDriverWait wt = new WebDriverWait(driver, 5);
+
         // Navigate to EASEY In
         //https://easey-dev.app.cloud.gov/ecmps/monitoring-plans
         goToo("ecmps","/monitoring-plans");
@@ -56,15 +61,14 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         //verifies at least one search result returns
         verifyEquals(monitoringPlansPage.configOpenButton.get(1), "Open");
         //clicks "open" button for first result
-        js.executeScript("arguments[0].scrollIntoView(true);",
-                monitoringPlansPage.configOpenButton.get(5));
-        click(monitoringPlansPage.configOpenButton.get(5));
-        Thread.sleep(3000);
+//        js.executeScript("arguments[0].scrollIntoView(true);",
+//                monitoringPlansPage.configOpenButton.get(5));
+        click(monitoringPlansPage.configOpenButton.get(0));
+        waitFor(monitoringPlansPage.configTabSmith1);
 
         // Clicks on Smith Tab
         //configTabSmith
-        waitFor(monitoringPlansPage.configTabSmith);
-        click(monitoringPlansPage.configTabSmith);
+        click(monitoringPlansPage.configTabSmith1);
         //waits for checkout btn
         waitFor(monitoringPlansPage.checkOutBTN);
         //click checkout button
@@ -82,9 +86,9 @@ public class Test_EASEY_MonPlanImport extends CommonExport {
         WebElement upload_file = driver.findElement(By.xpath("//input[@id='file-input-single']"));
         upload_file.sendKeys(fileUploadpath);
         //wait for import button to show
-        waitFor(monitoringPlansPage.importSubmitBTN);
+        wt.until(ExpectedConditions.elementToBeClickable(monitoringPlansPage.importBTN));
         //click import button
-        click(monitoringPlansPage.importSubmitBTN);
+        click(monitoringPlansPage.importBTN);
         //wait for success
         waitFor(monitoringPlansPage.successMessage);
 
