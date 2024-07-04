@@ -698,7 +698,6 @@
 				{
 					"componentId": "300",
 					"componentTypeCode": "GFFM",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": "ORF",
 					"basisCode": null,
 					"manufacturer": "DIETERICH STANDARD",
@@ -710,7 +709,6 @@
 				{
 					"componentId": "310",
 					"componentTypeCode": "OFFM",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": "TUR",
 					"basisCode": null,
 					"manufacturer": "HOFFER",
@@ -722,7 +720,6 @@
 				{
 					"componentId": "999",
 					"componentTypeCode": "DAHS",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": null,
 					"basisCode": null,
 					"manufacturer": "ESC",
@@ -734,7 +731,6 @@
 				{
 					"componentId": "312",
 					"componentTypeCode": "OFFM",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": "TUR",
 					"basisCode": null,
 					"manufacturer": "HOFFER",
@@ -746,7 +742,6 @@
 				{
 					"componentId": "301",
 					"componentTypeCode": "GFFM",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": "ORF",
 					"basisCode": null,
 					"manufacturer": "DIETERICH STANDARD",
@@ -758,7 +753,6 @@
 				{
 					"componentId": "313",
 					"componentTypeCode": "OFFM",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": "TUR",
 					"basisCode": null,
 					"manufacturer": "HOFFER",
@@ -770,7 +764,6 @@
 				{
 					"componentId": "311",
 					"componentTypeCode": "OFFM",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": "TUR",
 					"basisCode": null,
 					"manufacturer": "HOFFER",
@@ -782,7 +775,6 @@
 				{
 					"componentId": "314",
 					"componentTypeCode": "OFFM",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": "TUR",
 					"basisCode": null,
 					"manufacturer": "HOFFER",
@@ -794,7 +786,6 @@
 				{
 					"componentId": "371",
 					"componentTypeCode": "O2",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": "EXT",
 					"basisCode": "D",
 					"manufacturer": "SERVOMEX",
@@ -815,7 +806,6 @@
 				{
 					"componentId": "370",
 					"componentTypeCode": "NOX",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": "EXT",
 					"basisCode": "D",
 					"manufacturer": "TECO",
@@ -836,7 +826,6 @@
 				{
 					"componentId": "372",
 					"componentTypeCode": "PRB",
-					"analyticalPrincipleCode": null,
 					"sampleAcquisitionMethodCode": null,
 					"basisCode": null,
 					"manufacturer": "UNIVERSAL ANALYZER",
@@ -860,7 +849,6 @@
 						{
 							"componentId": "999",
 							"componentTypeCode": "DAHS",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "STACKVISION",
 							"manufacturer": "ESC",
@@ -888,7 +876,6 @@
 						{
 							"componentId": "999",
 							"componentTypeCode": "DAHS",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "STACKVISION",
 							"manufacturer": "ESC",
@@ -903,7 +890,6 @@
 						{
 							"componentId": "313",
 							"componentTypeCode": "OFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "HO2X2",
 							"manufacturer": "HOFFER",
@@ -918,7 +904,6 @@
 						{
 							"componentId": "312",
 							"componentTypeCode": "OFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "HO2X2",
 							"manufacturer": "HOFFER",
@@ -933,7 +918,6 @@
 						{
 							"componentId": "311",
 							"componentTypeCode": "OFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "HO2X2",
 							"manufacturer": "HOFFER",
@@ -948,7 +932,6 @@
 						{
 							"componentId": "310",
 							"componentTypeCode": "OFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "HO2X2",
 							"manufacturer": "HOFFER",
@@ -963,7 +946,6 @@
 						{
 							"componentId": "313",
 							"componentTypeCode": "OFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "HO2X2",
 							"manufacturer": "HOFFER",
@@ -978,7 +960,6 @@
 						{
 							"componentId": "311",
 							"componentTypeCode": "OFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "HO2X2",
 							"manufacturer": "HOFFER",
@@ -993,7 +974,6 @@
 						{
 							"componentId": "310",
 							"componentTypeCode": "OFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "HO2X2",
 							"manufacturer": "HOFFER",
@@ -1008,7 +988,6 @@
 						{
 							"componentId": "314",
 							"componentTypeCode": "OFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "HO2X2",
 							"manufacturer": "HOFFER",
@@ -1046,7 +1025,6 @@
 						{
 							"componentId": "999",
 							"componentTypeCode": "DAHS",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "STACKVISION",
 							"manufacturer": "ESC",
@@ -1074,7 +1052,6 @@
 						{
 							"componentId": "999",
 							"componentTypeCode": "DAHS",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "STACKVISION",
 							"manufacturer": "ESC",
@@ -1089,7 +1066,6 @@
 						{
 							"componentId": "300",
 							"componentTypeCode": "GFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "DFC11",
 							"manufacturer": "DIETERICH STANDARD",
@@ -1104,7 +1080,6 @@
 						{
 							"componentId": "301",
 							"componentTypeCode": "GFFM",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "DFC11",
 							"manufacturer": "DIETERICH STANDARD",
@@ -1142,7 +1117,6 @@
 						{
 							"componentId": "999",
 							"componentTypeCode": "DAHS",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "STACKVISION",
 							"manufacturer": "ESC",
@@ -1157,7 +1131,6 @@
 						{
 							"componentId": "371",
 							"componentTypeCode": "O2",
-							"analyticalPrincipleCode": null,
 							"basisCode": "D",
 							"modelVersion": "1440",
 							"manufacturer": "SERVOMEX",
@@ -1172,7 +1145,6 @@
 						{
 							"componentId": "372",
 							"componentTypeCode": "PRB",
-							"analyticalPrincipleCode": null,
 							"basisCode": null,
 							"modelVersion": "270",
 							"manufacturer": "UNIVERSAL ANALYZER",
@@ -1187,7 +1159,6 @@
 						{
 							"componentId": "370",
 							"componentTypeCode": "NOX",
-							"analyticalPrincipleCode": null,
 							"basisCode": "D",
 							"modelVersion": "42ILS",
 							"manufacturer": "TECO",
